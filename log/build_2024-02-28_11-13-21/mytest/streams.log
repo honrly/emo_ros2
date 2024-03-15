@@ -1,0 +1,37 @@
+[4.438s] Invoking command in '/home/user/ros2_ws_demo/src/mytest': PYTHONPATH=/home/user/ros2_ws_demo/build/mytest/prefix_override:/home/user/ros2_ws_demo/install/mytest/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/mytest build --build-base /home/user/ros2_ws_demo/build/mytest/build install --record /home/user/ros2_ws_demo/build/mytest/install.log --single-version-externally-managed
+[5.170s] running egg_info
+[5.172s] creating ../../build/mytest/mytest.egg-info
+[5.182s] writing ../../build/mytest/mytest.egg-info/PKG-INFO
+[5.183s] writing dependency_links to ../../build/mytest/mytest.egg-info/dependency_links.txt
+[5.184s] writing entry points to ../../build/mytest/mytest.egg-info/entry_points.txt
+[5.184s] writing requirements to ../../build/mytest/mytest.egg-info/requires.txt
+[5.184s] writing top-level names to ../../build/mytest/mytest.egg-info/top_level.txt
+[5.185s] writing manifest file '../../build/mytest/mytest.egg-info/SOURCES.txt'
+[5.190s] reading manifest file '../../build/mytest/mytest.egg-info/SOURCES.txt'
+[5.193s] writing manifest file '../../build/mytest/mytest.egg-info/SOURCES.txt'
+[5.193s] running build
+[5.194s] running build_py
+[5.194s] creating /home/user/ros2_ws_demo/build/mytest/build
+[5.195s] creating /home/user/ros2_ws_demo/build/mytest/build/lib
+[5.195s] creating /home/user/ros2_ws_demo/build/mytest/build/lib/mytest
+[5.195s] copying mytest/__init__.py -> /home/user/ros2_ws_demo/build/mytest/build/lib/mytest
+[5.195s] copying mytest/serial.py -> /home/user/ros2_ws_demo/build/mytest/build/lib/mytest
+[5.195s] running install
+[5.196s] running install_lib
+[5.198s] creating /home/user/ros2_ws_demo/install/mytest/lib/python3.10/site-packages/mytest
+[5.199s] copying /home/user/ros2_ws_demo/build/mytest/build/lib/mytest/__init__.py -> /home/user/ros2_ws_demo/install/mytest/lib/python3.10/site-packages/mytest
+[5.199s] copying /home/user/ros2_ws_demo/build/mytest/build/lib/mytest/serial.py -> /home/user/ros2_ws_demo/install/mytest/lib/python3.10/site-packages/mytest
+[5.200s] byte-compiling /home/user/ros2_ws_demo/install/mytest/lib/python3.10/site-packages/mytest/__init__.py to __init__.cpython-310.pyc
+[5.201s] byte-compiling /home/user/ros2_ws_demo/install/mytest/lib/python3.10/site-packages/mytest/serial.py to serial.cpython-310.pyc
+[5.202s] running install_data
+[5.204s] creating /home/user/ros2_ws_demo/install/mytest/share/ament_index
+[5.204s] creating /home/user/ros2_ws_demo/install/mytest/share/ament_index/resource_index
+[5.205s] creating /home/user/ros2_ws_demo/install/mytest/share/ament_index/resource_index/packages
+[5.205s] copying resource/mytest -> /home/user/ros2_ws_demo/install/mytest/share/ament_index/resource_index/packages
+[5.206s] copying package.xml -> /home/user/ros2_ws_demo/install/mytest/share/mytest
+[5.206s] running install_egg_info
+[5.211s] Copying ../../build/mytest/mytest.egg-info to /home/user/ros2_ws_demo/install/mytest/lib/python3.10/site-packages/mytest-0.0.0-py3.10.egg-info
+[5.214s] running install_scripts
+[5.275s] Installing serial script to /home/user/ros2_ws_demo/install/mytest/lib/mytest
+[5.277s] writing list of installed files to '/home/user/ros2_ws_demo/build/mytest/install.log'
+[5.349s] Invoked command in '/home/user/ros2_ws_demo/src/mytest' returned '0': PYTHONPATH=/home/user/ros2_ws_demo/build/mytest/prefix_override:/home/user/ros2_ws_demo/install/mytest/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/mytest build --build-base /home/user/ros2_ws_demo/build/mytest/build install --record /home/user/ros2_ws_demo/build/mytest/install.log --single-version-externally-managed

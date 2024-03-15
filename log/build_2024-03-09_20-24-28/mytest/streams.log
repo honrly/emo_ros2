@@ -1,0 +1,28 @@
+[3.469s] Invoking command in '/home/user/ros2_ws_demo/src/mytest': PYTHONPATH=/home/user/ros2_ws_demo/build/mytest/prefix_override:/home/user/ros2_ws_demo/install/mytest/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/mytest build --build-base /home/user/ros2_ws_demo/build/mytest/build install --record /home/user/ros2_ws_demo/build/mytest/install.log --single-version-externally-managed
+[4.232s] running egg_info
+[4.234s] writing ../../build/mytest/mytest.egg-info/PKG-INFO
+[4.237s] writing dependency_links to ../../build/mytest/mytest.egg-info/dependency_links.txt
+[4.238s] writing entry points to ../../build/mytest/mytest.egg-info/entry_points.txt
+[4.239s] writing requirements to ../../build/mytest/mytest.egg-info/requires.txt
+[4.240s] writing top-level names to ../../build/mytest/mytest.egg-info/top_level.txt
+[4.245s] reading manifest file '../../build/mytest/mytest.egg-info/SOURCES.txt'
+[4.249s] writing manifest file '../../build/mytest/mytest.egg-info/SOURCES.txt'
+[4.249s] running build
+[4.250s] running build_py
+[4.254s] copying mytest/plot.py -> /home/user/ros2_ws_demo/build/mytest/build/lib/mytest
+[4.255s] copying mytest/serial.py -> /home/user/ros2_ws_demo/build/mytest/build/lib/mytest
+[4.255s] running install
+[4.256s] running install_lib
+[4.263s] copying /home/user/ros2_ws_demo/build/mytest/build/lib/mytest/plot.py -> /home/user/ros2_ws_demo/install/mytest/lib/python3.10/site-packages/mytest
+[4.264s] copying /home/user/ros2_ws_demo/build/mytest/build/lib/mytest/serial.py -> /home/user/ros2_ws_demo/install/mytest/lib/python3.10/site-packages/mytest
+[4.264s] byte-compiling /home/user/ros2_ws_demo/install/mytest/lib/python3.10/site-packages/mytest/plot.py to plot.cpython-310.pyc
+[4.266s] byte-compiling /home/user/ros2_ws_demo/install/mytest/lib/python3.10/site-packages/mytest/serial.py to serial.cpython-310.pyc
+[4.270s] running install_data
+[4.272s] running install_egg_info
+[4.279s] removing '/home/user/ros2_ws_demo/install/mytest/lib/python3.10/site-packages/mytest-0.0.0-py3.10.egg-info' (and everything under it)
+[4.292s] Copying ../../build/mytest/mytest.egg-info to /home/user/ros2_ws_demo/install/mytest/lib/python3.10/site-packages/mytest-0.0.0-py3.10.egg-info
+[4.293s] running install_scripts
+[4.363s] Installing plot script to /home/user/ros2_ws_demo/install/mytest/lib/mytest
+[4.364s] Installing pnn script to /home/user/ros2_ws_demo/install/mytest/lib/mytest
+[4.367s] writing list of installed files to '/home/user/ros2_ws_demo/build/mytest/install.log'
+[4.460s] Invoked command in '/home/user/ros2_ws_demo/src/mytest' returned '0': PYTHONPATH=/home/user/ros2_ws_demo/build/mytest/prefix_override:/home/user/ros2_ws_demo/install/mytest/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/mytest build --build-base /home/user/ros2_ws_demo/build/mytest/build install --record /home/user/ros2_ws_demo/build/mytest/install.log --single-version-externally-managed

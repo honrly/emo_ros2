@@ -1,0 +1,4 @@
+[console_scripts]
+plot = mytest.plot:main
+pnn = mytest.serial:main
+

@@ -1,0 +1,86 @@
+[0.000000] (-) TimerEvent: {}
+[0.001030] (mytest) JobQueued: {'identifier': 'mytest', 'dependencies': OrderedDict()}
+[0.001257] (mytest) JobStarted: {'identifier': 'mytest'}
+[0.095767] (-) TimerEvent: {}
+[0.196872] (-) TimerEvent: {}
+[0.297944] (-) TimerEvent: {}
+[0.398728] (-) TimerEvent: {}
+[0.499949] (-) TimerEvent: {}
+[0.600728] (-) TimerEvent: {}
+[0.701351] (-) TimerEvent: {}
+[0.802129] (-) TimerEvent: {}
+[0.902873] (-) TimerEvent: {}
+[1.003644] (-) TimerEvent: {}
+[1.104267] (-) TimerEvent: {}
+[1.205213] (-) TimerEvent: {}
+[1.306223] (-) TimerEvent: {}
+[1.406724] (-) TimerEvent: {}
+[1.512216] (-) TimerEvent: {}
+[1.619661] (-) TimerEvent: {}
+[1.723638] (-) TimerEvent: {}
+[1.824371] (-) TimerEvent: {}
+[1.925030] (-) TimerEvent: {}
+[2.025725] (-) TimerEvent: {}
+[2.126771] (-) TimerEvent: {}
+[2.227482] (-) TimerEvent: {}
+[2.328116] (-) TimerEvent: {}
+[2.428735] (-) TimerEvent: {}
+[2.529367] (-) TimerEvent: {}
+[2.630141] (-) TimerEvent: {}
+[2.730859] (-) TimerEvent: {}
+[2.832041] (-) TimerEvent: {}
+[2.933254] (-) TimerEvent: {}
+[3.034608] (-) TimerEvent: {}
+[3.136112] (-) TimerEvent: {}
+[3.237361] (-) TimerEvent: {}
+[3.340727] (-) TimerEvent: {}
+[3.442316] (-) TimerEvent: {}
+[3.543232] (-) TimerEvent: {}
+[3.645444] (-) TimerEvent: {}
+[3.746473] (-) TimerEvent: {}
+[3.847506] (-) TimerEvent: {}
+[3.948296] (-) TimerEvent: {}
+[4.049576] (-) TimerEvent: {}
+[4.150414] (-) TimerEvent: {}
+[4.250700] (mytest) Command: {'cmd': ['/usr/bin/python3', 'setup.py', 'egg_info', '--egg-base', '../../build/mytest', 'build', '--build-base', '/home/user/ros2_ws_demo/build/mytest/build', 'install', '--record', '/home/user/ros2_ws_demo/build/mytest/install.log', '--single-version-externally-managed'], 'cwd': '/home/user/ros2_ws_demo/src/mytest', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'LANGUAGE': 'en_US:', 'USER': 'user', 'LC_TIME': 'ja_JP.UTF-8', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:', 'HOME': '/home/user', 'OLDPWD': '/home/user', 'DESKTOP_SESSION': 'ubuntu', 'GAZEBO_MASTER_URI': 'http://localhost:11345', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'LC_MONETARY': 'ja_JP.UTF-8', 'SYSTEMD_EXEC_PID': '1758', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/user/ros2_ws_demo/install:/home/user/ros2_ws/install', 'ROS_DISTRO': 'humble', 'LOGNAME': 'user', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'user', 'TERM': 'xterm-256color', 'GAZEBO_MODEL_PATH': '/usr/share/gazebo-11/models:', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'ROS_LOCALHOST_ONLY': '0', 'OGRE_RESOURCE_PATH': '/usr/lib/x86_64-linux-gnu/OGRE-1.9.0', 'PATH': '/opt/ros/humble/bin:/home/user/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/vmw2204:@/tmp/.ICE-unix/1711,unix/vmw2204:/tmp/.ICE-unix/1711', 'XDG_MENU_PREFIX': 'gnome-', 'LC_ADDRESS': 'ja_JP.UTF-8', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/e18e162e_73d3_48b9_b312_91e690192e29', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'LC_TELEPHONE': 'ja_JP.UTF-8', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.PWVFK2', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'GNOME_TERMINAL_SERVICE': ':1.97', 'SSH_AGENT_LAUNCHER': 'gnome-keyring', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'ROS_DOMAIN_ID': '30', 'AMENT_PREFIX_PATH': '/home/user/ros2_ws_demo/install/mytest:/home/user/ros2_ws/install/mytest:/opt/ros/humble', 'SHELL': '/bin/bash', 'LC_NAME': 'ja_JP.UTF-8', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'LC_MEASUREMENT': 'ja_JP.UTF-8', 'GAZEBO_RESOURCE_PATH': '/usr/share/gazebo-11:', 'LC_IDENTIFICATION': 'ja_JP.UTF-8', 'GAZEBO_MODEL_DATABASE_URI': 'http://models.gazebosim.org', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/user/ros2_ws_demo/build/mytest', 'TURTLEBOT3_MODEL': 'burger', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'GAZEBO_PLUGIN_PATH': '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'LDS_MODEL': 'LDS-02', 'PYTHONPATH': '/home/user/ros2_ws_demo/build/mytest/prefix_override:/home/user/ros2_ws_demo/install/mytest/lib/python3.10/site-packages:/home/user/ros2_ws_demo/install/mytest/lib/python3.10/site-packages:/home/user/ros2_ws/install/mytest/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'LC_NUMERIC': 'ja_JP.UTF-8', 'LC_PAPER': 'ja_JP.UTF-8', 'COLCON': '1', 'VTE_VERSION': '6800'}, 'shell': False}
+[4.253690] (-) TimerEvent: {}
+[4.354506] (-) TimerEvent: {}
+[4.455138] (-) TimerEvent: {}
+[4.555769] (-) TimerEvent: {}
+[4.656432] (-) TimerEvent: {}
+[4.757146] (-) TimerEvent: {}
+[4.857822] (-) TimerEvent: {}
+[4.958624] (-) TimerEvent: {}
+[5.059286] (-) TimerEvent: {}
+[5.092567] (mytest) StdoutLine: {'line': b'running egg_info\n'}
+[5.094839] (mytest) StdoutLine: {'line': b'writing ../../build/mytest/mytest.egg-info/PKG-INFO\n'}
+[5.097733] (mytest) StdoutLine: {'line': b'writing dependency_links to ../../build/mytest/mytest.egg-info/dependency_links.txt\n'}
+[5.099531] (mytest) StdoutLine: {'line': b'writing entry points to ../../build/mytest/mytest.egg-info/entry_points.txt\n'}
+[5.101354] (mytest) StdoutLine: {'line': b'writing requirements to ../../build/mytest/mytest.egg-info/requires.txt\n'}
+[5.102793] (mytest) StdoutLine: {'line': b'writing top-level names to ../../build/mytest/mytest.egg-info/top_level.txt\n'}
+[5.112221] (mytest) StdoutLine: {'line': b"reading manifest file '../../build/mytest/mytest.egg-info/SOURCES.txt'\n"}
+[5.115526] (mytest) StdoutLine: {'line': b"writing manifest file '../../build/mytest/mytest.egg-info/SOURCES.txt'\n"}
+[5.116915] (mytest) StdoutLine: {'line': b'running build\n'}
+[5.117581] (mytest) StdoutLine: {'line': b'running build_py\n'}
+[5.122060] (mytest) StdoutLine: {'line': b'copying mytest/move.py -> /home/user/ros2_ws_demo/build/mytest/build/lib/mytest\n'}
+[5.124114] (mytest) StdoutLine: {'line': b'copying mytest/serial.py -> /home/user/ros2_ws_demo/build/mytest/build/lib/mytest\n'}
+[5.125237] (mytest) StdoutLine: {'line': b'running install\n'}
+[5.126879] (mytest) StdoutLine: {'line': b'running install_lib\n'}
+[5.130900] (mytest) StdoutLine: {'line': b'copying /home/user/ros2_ws_demo/build/mytest/build/lib/mytest/move.py -> /home/user/ros2_ws_demo/install/mytest/lib/python3.10/site-packages/mytest\n'}
+[5.133551] (mytest) StdoutLine: {'line': b'copying /home/user/ros2_ws_demo/build/mytest/build/lib/mytest/serial.py -> /home/user/ros2_ws_demo/install/mytest/lib/python3.10/site-packages/mytest\n'}
+[5.137445] (mytest) StdoutLine: {'line': b'byte-compiling /home/user/ros2_ws_demo/install/mytest/lib/python3.10/site-packages/mytest/move.py to move.cpython-310.pyc\n'}
+[5.139389] (mytest) StdoutLine: {'line': b'byte-compiling /home/user/ros2_ws_demo/install/mytest/lib/python3.10/site-packages/mytest/serial.py to serial.cpython-310.pyc\n'}
+[5.141839] (mytest) StdoutLine: {'line': b'running install_data\n'}
+[5.145033] (mytest) StdoutLine: {'line': b'running install_egg_info\n'}
+[5.152616] (mytest) StdoutLine: {'line': b"removing '/home/user/ros2_ws_demo/install/mytest/lib/python3.10/site-packages/mytest-0.0.0-py3.10.egg-info' (and everything under it)\n"}
+[5.153912] (mytest) StdoutLine: {'line': b'Copying ../../build/mytest/mytest.egg-info to /home/user/ros2_ws_demo/install/mytest/lib/python3.10/site-packages/mytest-0.0.0-py3.10.egg-info\n'}
+[5.159992] (mytest) StdoutLine: {'line': b'running install_scripts\n'}
+[5.160481] (-) TimerEvent: {}
+[5.223502] (mytest) StdoutLine: {'line': b'Installing serial script to /home/user/ros2_ws_demo/install/mytest/lib/mytest\n'}
+[5.227685] (mytest) StdoutLine: {'line': b"writing list of installed files to '/home/user/ros2_ws_demo/build/mytest/install.log'\n"}
+[5.260776] (-) TimerEvent: {}
+[5.285979] (mytest) CommandEnded: {'returncode': 0}
+[5.361300] (-) TimerEvent: {}
+[5.463208] (-) TimerEvent: {}
+[5.541091] (mytest) JobEnded: {'identifier': 'mytest', 'rc': 0}
+[5.544929] (-) EventReactorShutdown: {}

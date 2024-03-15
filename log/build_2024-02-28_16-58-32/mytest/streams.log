@@ -1,0 +1,21 @@
+[4.468s] Invoking command in '/home/user/ros2_ws_demo/src/mytest': PYTHONPATH=/home/user/ros2_ws_demo/build/mytest/prefix_override:/home/user/ros2_ws_demo/install/mytest/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/mytest build --build-base /home/user/ros2_ws_demo/build/mytest/build install --record /home/user/ros2_ws_demo/build/mytest/install.log --single-version-externally-managed
+[5.346s] running egg_info
+[5.348s] writing ../../build/mytest/mytest.egg-info/PKG-INFO
+[5.360s] writing dependency_links to ../../build/mytest/mytest.egg-info/dependency_links.txt
+[5.361s] writing entry points to ../../build/mytest/mytest.egg-info/entry_points.txt
+[5.363s] writing requirements to ../../build/mytest/mytest.egg-info/requires.txt
+[5.363s] writing top-level names to ../../build/mytest/mytest.egg-info/top_level.txt
+[5.368s] reading manifest file '../../build/mytest/mytest.egg-info/SOURCES.txt'
+[5.371s] writing manifest file '../../build/mytest/mytest.egg-info/SOURCES.txt'
+[5.372s] running build
+[5.372s] running build_py
+[5.377s] running install
+[5.382s] running install_lib
+[5.386s] running install_data
+[5.391s] running install_egg_info
+[5.397s] removing '/home/user/ros2_ws_demo/install/mytest/lib/python3.10/site-packages/mytest-0.0.0-py3.10.egg-info' (and everything under it)
+[5.399s] Copying ../../build/mytest/mytest.egg-info to /home/user/ros2_ws_demo/install/mytest/lib/python3.10/site-packages/mytest-0.0.0-py3.10.egg-info
+[5.403s] running install_scripts
+[5.468s] Installing serial script to /home/user/ros2_ws_demo/install/mytest/lib/mytest
+[5.473s] writing list of installed files to '/home/user/ros2_ws_demo/build/mytest/install.log'
+[5.540s] Invoked command in '/home/user/ros2_ws_demo/src/mytest' returned '0': PYTHONPATH=/home/user/ros2_ws_demo/build/mytest/prefix_override:/home/user/ros2_ws_demo/install/mytest/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/mytest build --build-base /home/user/ros2_ws_demo/build/mytest/build install --record /home/user/ros2_ws_demo/build/mytest/install.log --single-version-externally-managed

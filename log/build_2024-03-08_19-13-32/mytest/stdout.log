@@ -1,0 +1,24 @@
+running egg_info
+writing ../../build/mytest/mytest.egg-info/PKG-INFO
+writing dependency_links to ../../build/mytest/mytest.egg-info/dependency_links.txt
+writing entry points to ../../build/mytest/mytest.egg-info/entry_points.txt
+writing requirements to ../../build/mytest/mytest.egg-info/requires.txt
+writing top-level names to ../../build/mytest/mytest.egg-info/top_level.txt
+reading manifest file '../../build/mytest/mytest.egg-info/SOURCES.txt'
+writing manifest file '../../build/mytest/mytest.egg-info/SOURCES.txt'
+running build
+running build_py
+copying mytest/serial_2.py -> /home/user/ros2_ws_demo/build/mytest/build/lib/mytest
+copying mytest/serial.py -> /home/user/ros2_ws_demo/build/mytest/build/lib/mytest
+running install
+running install_lib
+copying /home/user/ros2_ws_demo/build/mytest/build/lib/mytest/serial_2.py -> /home/user/ros2_ws_demo/install/mytest/lib/python3.10/site-packages/mytest
+copying /home/user/ros2_ws_demo/build/mytest/build/lib/mytest/serial.py -> /home/user/ros2_ws_demo/install/mytest/lib/python3.10/site-packages/mytest
+byte-compiling /home/user/ros2_ws_demo/install/mytest/lib/python3.10/site-packages/mytest/serial_2.py to serial_2.cpython-310.pyc
+running install_data
+running install_egg_info
+removing '/home/user/ros2_ws_demo/install/mytest/lib/python3.10/site-packages/mytest-0.0.0-py3.10.egg-info' (and everything under it)
+Copying ../../build/mytest/mytest.egg-info to /home/user/ros2_ws_demo/install/mytest/lib/python3.10/site-packages/mytest-0.0.0-py3.10.egg-info
+running install_scripts
+Installing serial script to /home/user/ros2_ws_demo/install/mytest/lib/mytest
+writing list of installed files to '/home/user/ros2_ws_demo/build/mytest/install.log'

@@ -10,7 +10,8 @@ setup.py
 ../../build/mytest/mytest.egg-info/zip-safe
 mytest/__init__.py
 mytest/plot.py
-mytest/serial.py
+mytest/pnn.py
+mytest/sensor.py
 resource/mytest
 test/test_copyright.py
 test/test_flake8.py

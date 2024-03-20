@@ -1,0 +1,116 @@
+[0.000000] (-) TimerEvent: {}
+[0.002551] (mytest) JobQueued: {'identifier': 'mytest', 'dependencies': OrderedDict()}
+[0.002800] (mytest) JobStarted: {'identifier': 'mytest'}
+[0.084938] (-) TimerEvent: {}
+[0.186907] (-) TimerEvent: {}
+[0.287682] (-) TimerEvent: {}
+[0.388732] (-) TimerEvent: {}
+[0.489579] (-) TimerEvent: {}
+[0.590599] (-) TimerEvent: {}
+[0.691610] (-) TimerEvent: {}
+[0.792661] (-) TimerEvent: {}
+[0.894047] (-) TimerEvent: {}
+[0.995296] (-) TimerEvent: {}
+[1.096442] (-) TimerEvent: {}
+[1.197181] (-) TimerEvent: {}
+[1.297880] (-) TimerEvent: {}
+[1.398607] (-) TimerEvent: {}
+[1.499385] (-) TimerEvent: {}
+[1.600001] (-) TimerEvent: {}
+[1.700728] (-) TimerEvent: {}
+[1.801352] (-) TimerEvent: {}
+[1.902240] (-) TimerEvent: {}
+[2.003210] (-) TimerEvent: {}
+[2.103991] (-) TimerEvent: {}
+[2.204495] (-) TimerEvent: {}
+[2.305294] (-) TimerEvent: {}
+[2.405879] (-) TimerEvent: {}
+[2.506673] (-) TimerEvent: {}
+[2.607623] (-) TimerEvent: {}
+[2.708704] (-) TimerEvent: {}
+[2.809680] (-) TimerEvent: {}
+[2.910853] (-) TimerEvent: {}
+[3.011892] (-) TimerEvent: {}
+[3.112923] (-) TimerEvent: {}
+[3.214011] (-) TimerEvent: {}
+[3.315268] (-) TimerEvent: {}
+[3.416152] (-) TimerEvent: {}
+[3.517149] (-) TimerEvent: {}
+[3.617983] (-) TimerEvent: {}
+[3.719103] (-) TimerEvent: {}
+[3.820142] (-) TimerEvent: {}
+[3.921240] (-) TimerEvent: {}
+[4.022193] (-) TimerEvent: {}
+[4.123223] (-) TimerEvent: {}
+[4.224169] (-) TimerEvent: {}
+[4.324997] (-) TimerEvent: {}
+[4.425714] (-) TimerEvent: {}
+[4.526253] (-) TimerEvent: {}
+[4.627264] (-) TimerEvent: {}
+[4.728582] (-) TimerEvent: {}
+[4.829729] (-) TimerEvent: {}
+[4.930690] (-) TimerEvent: {}
+[5.031781] (-) TimerEvent: {}
+[5.133013] (-) TimerEvent: {}
+[5.234715] (-) TimerEvent: {}
+[5.336531] (-) TimerEvent: {}
+[5.437610] (-) TimerEvent: {}
+[5.538811] (-) TimerEvent: {}
+[5.640494] (-) TimerEvent: {}
+[5.741509] (-) TimerEvent: {}
+[5.842544] (-) TimerEvent: {}
+[5.944089] (-) TimerEvent: {}
+[6.046715] (-) TimerEvent: {}
+[6.148754] (-) TimerEvent: {}
+[6.249934] (-) TimerEvent: {}
+[6.351219] (-) TimerEvent: {}
+[6.452413] (-) TimerEvent: {}
+[6.554012] (-) TimerEvent: {}
+[6.655022] (-) TimerEvent: {}
+[6.756294] (-) TimerEvent: {}
+[6.857264] (-) TimerEvent: {}
+[6.958225] (-) TimerEvent: {}
+[7.059317] (-) TimerEvent: {}
+[7.090367] (mytest) Command: {'cmd': ['/usr/bin/python3', 'setup.py', 'egg_info', '--egg-base', '../../build/mytest', 'build', '--build-base', '/home/user/ros2_ws_demo/build/mytest/build', 'install', '--record', '/home/user/ros2_ws_demo/build/mytest/install.log', '--single-version-externally-managed'], 'cwd': '/home/user/ros2_ws_demo/src/mytest', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'LANGUAGE': 'en_US:', 'USER': 'user', 'LC_TIME': 'ja_JP.UTF-8', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:', 'HOME': '/home/user', 'OLDPWD': '/home/user', 'DESKTOP_SESSION': 'ubuntu', 'GAZEBO_MASTER_URI': 'http://localhost:11345', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'LC_MONETARY': 'ja_JP.UTF-8', 'SYSTEMD_EXEC_PID': '1837', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/user/ros2_ws_demo/install:/home/user/ros2_ws/install', 'ROS_DISTRO': 'humble', 'LOGNAME': 'user', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'user', 'TERM': 'xterm-256color', 'GAZEBO_MODEL_PATH': '/usr/share/gazebo-11/models:', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'ROS_LOCALHOST_ONLY': '0', 'OGRE_RESOURCE_PATH': '/usr/lib/x86_64-linux-gnu/OGRE-1.9.0', 'PATH': '/opt/ros/humble/bin:/home/user/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/vmw2204:@/tmp/.ICE-unix/1793,unix/vmw2204:/tmp/.ICE-unix/1793', 'XDG_MENU_PREFIX': 'gnome-', 'LC_ADDRESS': 'ja_JP.UTF-8', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/363d4b82_974a_4617_b630_132f36b42e08', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'LC_TELEPHONE': 'ja_JP.UTF-8', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.NUI4K2', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'GNOME_TERMINAL_SERVICE': ':1.113', 'SSH_AGENT_LAUNCHER': 'gnome-keyring', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'ROS_DOMAIN_ID': '30', 'AMENT_PREFIX_PATH': '/home/user/ros2_ws_demo/install/mytest:/home/user/ros2_ws/install/mytest:/opt/ros/humble', 'SHELL': '/bin/bash', 'LC_NAME': 'ja_JP.UTF-8', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'LC_MEASUREMENT': 'ja_JP.UTF-8', 'GAZEBO_RESOURCE_PATH': '/usr/share/gazebo-11:', 'LC_IDENTIFICATION': 'ja_JP.UTF-8', 'GAZEBO_MODEL_DATABASE_URI': 'http://models.gazebosim.org', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/user/ros2_ws_demo/build/mytest', 'TURTLEBOT3_MODEL': 'burger', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'GAZEBO_PLUGIN_PATH': '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'LDS_MODEL': 'LDS-02', 'PYTHONPATH': '/home/user/ros2_ws_demo/build/mytest/prefix_override:/home/user/ros2_ws_demo/install/mytest/lib/python3.10/site-packages:/home/user/ros2_ws_demo/install/mytest/lib/python3.10/site-packages:/home/user/ros2_ws/install/mytest/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'LC_NUMERIC': 'ja_JP.UTF-8', 'LC_PAPER': 'ja_JP.UTF-8', 'COLCON': '1', 'VTE_VERSION': '6800'}, 'shell': False}
+[7.159702] (-) TimerEvent: {}
+[7.261065] (-) TimerEvent: {}
+[7.362409] (-) TimerEvent: {}
+[7.463116] (-) TimerEvent: {}
+[7.563774] (-) TimerEvent: {}
+[7.664381] (-) TimerEvent: {}
+[7.765097] (-) TimerEvent: {}
+[7.865878] (-) TimerEvent: {}
+[7.966695] (-) TimerEvent: {}
+[8.067360] (-) TimerEvent: {}
+[8.151905] (mytest) StdoutLine: {'line': b'running egg_info\n'}
+[8.154120] (mytest) StdoutLine: {'line': b'writing ../../build/mytest/mytest.egg-info/PKG-INFO\n'}
+[8.166079] (mytest) StdoutLine: {'line': b'writing dependency_links to ../../build/mytest/mytest.egg-info/dependency_links.txt\n'}
+[8.168232] (-) TimerEvent: {}
+[8.168952] (mytest) StdoutLine: {'line': b'writing entry points to ../../build/mytest/mytest.egg-info/entry_points.txt\n'}
+[8.170385] (mytest) StdoutLine: {'line': b'writing requirements to ../../build/mytest/mytest.egg-info/requires.txt\n'}
+[8.171455] (mytest) StdoutLine: {'line': b'writing top-level names to ../../build/mytest/mytest.egg-info/top_level.txt\n'}
+[8.179243] (mytest) StdoutLine: {'line': b"reading manifest file '../../build/mytest/mytest.egg-info/SOURCES.txt'\n"}
+[8.183446] (mytest) StdoutLine: {'line': b"writing manifest file '../../build/mytest/mytest.egg-info/SOURCES.txt'\n"}
+[8.184985] (mytest) StdoutLine: {'line': b'running build\n'}
+[8.185243] (mytest) StdoutLine: {'line': b'running build_py\n'}
+[8.191603] (mytest) StdoutLine: {'line': b'copying mytest/serial.py -> /home/user/ros2_ws_demo/build/mytest/build/lib/mytest\n'}
+[8.195161] (mytest) StdoutLine: {'line': b'running install\n'}
+[8.196343] (mytest) StdoutLine: {'line': b'running install_lib\n'}
+[8.210391] (mytest) StdoutLine: {'line': b'copying /home/user/ros2_ws_demo/build/mytest/build/lib/mytest/serial.py -> /home/user/ros2_ws_demo/install/mytest/lib/python3.10/site-packages/mytest\n'}
+[8.218879] (mytest) StdoutLine: {'line': b'byte-compiling /home/user/ros2_ws_demo/install/mytest/lib/python3.10/site-packages/mytest/serial.py to serial.cpython-310.pyc\n'}
+[8.223856] (mytest) StdoutLine: {'line': b'running install_data\n'}
+[8.228128] (mytest) StdoutLine: {'line': b'running install_egg_info\n'}
+[8.236239] (mytest) StdoutLine: {'line': b"removing '/home/user/ros2_ws_demo/install/mytest/lib/python3.10/site-packages/mytest-0.0.0-py3.10.egg-info' (and everything under it)\n"}
+[8.252099] (mytest) StdoutLine: {'line': b'Copying ../../build/mytest/mytest.egg-info to /home/user/ros2_ws_demo/install/mytest/lib/python3.10/site-packages/mytest-0.0.0-py3.10.egg-info\n'}
+[8.260936] (mytest) StdoutLine: {'line': b'running install_scripts\n'}
+[8.267910] (-) TimerEvent: {}
+[8.355174] (mytest) StdoutLine: {'line': b'Installing plot script to /home/user/ros2_ws_demo/install/mytest/lib/mytest\n'}
+[8.360657] (mytest) StdoutLine: {'line': b'Installing pnn script to /home/user/ros2_ws_demo/install/mytest/lib/mytest\n'}
+[8.365491] (mytest) StdoutLine: {'line': b"writing list of installed files to '/home/user/ros2_ws_demo/build/mytest/install.log'\n"}
+[8.368044] (-) TimerEvent: {}
+[8.458536] (mytest) CommandEnded: {'returncode': 0}
+[8.469121] (-) TimerEvent: {}
+[8.572065] (-) TimerEvent: {}
+[8.673253] (-) TimerEvent: {}
+[8.725971] (mytest) JobEnded: {'identifier': 'mytest', 'rc': 0}
+[8.729803] (-) EventReactorShutdown: {}

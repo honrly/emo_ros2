@@ -5,7 +5,7 @@ from geometry_msgs.msg import Twist
 from std_msgs.msg import Int32
 import numpy as np
 import concurrent.futures
-import sensor
+# import sensor
 
 MAX_LEN_DATA = 30
 

@@ -20,7 +20,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-		'pnn = mytest.serial:main', 
+		'serial = mytest.serial:main', 
         'plot = mytest.plot:main', 
         ],
     },

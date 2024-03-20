@@ -5,41 +5,9 @@ from geometry_msgs.msg import Twist
 from std_msgs.msg import Int32
 import numpy as np
 import concurrent.futures
+import sensor
 
-PNNX = 0
 MAX_LEN_DATA = 30
-
-def serial_reader():
-    SENSOR = serial.Serial('/dev/ttyACM0', 115200)
-    global PNNX
-    X_PNN = 50
-    rri = 0
-    rri_arr = []
-    xx_count = 0
-    while True:
-        sensor_data = SENSOR.readline().decode(encoding='utf-8').strip()
-        if sensor_data.startswith('Q'):
-            print(f"センサーの値：{sensor_data}")
-            # print(f"安静時平均：{self.pNNx_rest_ave.data}, 直前平均：{self.pNNx_stimuli_ave}")
-            rri = int(sensor_data[1:])
-            xx_count += 1
-            
-            # データ数が足りてる時はpNNx計算
-            if xx_count >= MAX_LEN_DATA + 2:
-                rri_arr.pop(0)
-                rri_arr.append(rri)
-                count = 0
-                for i in range(MAX_LEN_DATA):
-                    if abs(rri_arr[i] - rri_arr[i+1]) > X_PNN:
-                        count += 1
-
-                # pNNxを計算して更新
-                PNNX = count / 30
-
-            # pNNxに必要なデータ数が足りない時は貯める
-            elif xx_count < MAX_LEN_DATA + 2:
-                rri_arr.append(rri)
-                print(f"貯まったデータ数：{len(rri_arr)}")
 
 class SerialNode(Node):
     def __init__(self):
@@ -54,23 +22,22 @@ class SerialNode(Node):
         
         self.pub = self.create_publisher(Twist, 'cmd_vel', 10)
         self.vel = Twist()
+        
         self.pub_pNNx = self.create_publisher(Int32, 'pNNx_plot', 10)
-        self.pNNx = Int32() # pNNx
-        self.pNNx.data = 0 # 格納、送信データ
         self.pub_pNNx_rest_ave = self.create_publisher(Int32, 'pNNx_rest_ave', 10)
+        
         self.pNNx_rest_ave = Int32() # 何も無い時のpNNx平均
         self.pNNx_rest_ave.data = -1 # 格納、送信データ
         
-        timer_period = 1
-        self.timer = self.create_timer(timer_period, self.pNNx_callback)
+        self.create_subscription(Int32, 'serial_pNNx', self.move, 10)
     
     def pNNx_callback(self):
-        global PNNX
-        self.pNNx.data = PNNX
+        # global PNNX
+        # self.pNNx.data = PNNX
         # pNNxの値に応じて動かす
         self.move()
             
-        print(f"RRI: {self.RRI}, pNNx: {self.pNNx.data}\n")
+        # print(f"RRI: {self.RRI}, pNNx: {self.pNNx.data}\n")
 
 
     def move(self):
@@ -112,23 +79,14 @@ class SerialNode(Node):
 def main(args=None):
     rclpy.init(args=args)
     talker = SerialNode()
-    
-    # ThreadPoolExecutorを使用してスレッドを開始
-    with concurrent.futures.ThreadPoolExecutor() as executor:
-        # serial_reader関数を実行
-        serial_th = executor.submit(serial_reader)
-        try:
-            talker_th = executor.submit(talker.run)
-        except KeyboardInterrupt:
-            pass
-        finally:
-            talker.destroy_node()
-            talker.ser.close()
-            rclpy.shutdown()
+    try:
+        talker.run()
+    except KeyboardInterrupt:
+        pass
+    finally:
+        talker.destroy_node()
+        rclpy.shutdown()
 
-        # メインスレッドが終了するまで待機
-        serial_th.result()
-        talker_th.result()
 
 if __name__ == '__main__':
     main()

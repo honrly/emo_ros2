@@ -1,0 +1,8 @@
+setup.py
+emo_voice_interfaces/__init__.py
+emo_voice_interfaces.egg-info/PKG-INFO
+emo_voice_interfaces.egg-info/SOURCES.txt
+emo_voice_interfaces.egg-info/dependency_links.txt
+emo_voice_interfaces.egg-info/top_level.txt
+emo_voice_interfaces/srv/__init__.py
+emo_voice_interfaces/srv/_gen_text.py

@@ -1,0 +1,117 @@
+[0.000000] (-) TimerEvent: {}
+[0.012617] (-) JobUnselected: {'identifier': 'gemini_interfaces'}
+[0.012851] (gemini) JobQueued: {'identifier': 'gemini', 'dependencies': OrderedDict()}
+[0.023696] (gemini) JobStarted: {'identifier': 'gemini'}
+[0.078496] (-) TimerEvent: {}
+[0.191705] (-) TimerEvent: {}
+[0.296649] (-) TimerEvent: {}
+[0.400864] (-) TimerEvent: {}
+[0.505509] (-) TimerEvent: {}
+[0.606490] (-) TimerEvent: {}
+[0.707831] (-) TimerEvent: {}
+[0.808562] (-) TimerEvent: {}
+[0.909502] (-) TimerEvent: {}
+[1.010015] (-) TimerEvent: {}
+[1.110506] (-) TimerEvent: {}
+[1.210974] (-) TimerEvent: {}
+[1.311675] (-) TimerEvent: {}
+[1.412278] (-) TimerEvent: {}
+[1.512800] (-) TimerEvent: {}
+[1.613611] (-) TimerEvent: {}
+[1.715126] (-) TimerEvent: {}
+[1.816072] (-) TimerEvent: {}
+[1.916862] (-) TimerEvent: {}
+[2.017953] (-) TimerEvent: {}
+[2.123191] (-) TimerEvent: {}
+[2.223654] (-) TimerEvent: {}
+[2.324314] (-) TimerEvent: {}
+[2.424969] (-) TimerEvent: {}
+[2.525750] (-) TimerEvent: {}
+[2.626466] (-) TimerEvent: {}
+[2.727073] (-) TimerEvent: {}
+[2.827659] (-) TimerEvent: {}
+[2.928482] (-) TimerEvent: {}
+[3.028969] (-) TimerEvent: {}
+[3.129969] (-) TimerEvent: {}
+[3.230634] (-) TimerEvent: {}
+[3.334072] (-) TimerEvent: {}
+[3.438994] (-) TimerEvent: {}
+[3.539490] (-) TimerEvent: {}
+[3.640224] (-) TimerEvent: {}
+[3.745597] (-) TimerEvent: {}
+[3.847010] (-) TimerEvent: {}
+[3.948078] (-) TimerEvent: {}
+[4.048605] (-) TimerEvent: {}
+[4.151509] (-) TimerEvent: {}
+[4.252343] (-) TimerEvent: {}
+[4.352966] (-) TimerEvent: {}
+[4.453749] (-) TimerEvent: {}
+[4.554436] (-) TimerEvent: {}
+[4.654950] (-) TimerEvent: {}
+[4.755480] (-) TimerEvent: {}
+[4.856139] (-) TimerEvent: {}
+[4.957143] (-) TimerEvent: {}
+[5.057922] (-) TimerEvent: {}
+[5.171567] (-) TimerEvent: {}
+[5.274127] (-) TimerEvent: {}
+[5.374933] (-) TimerEvent: {}
+[5.475626] (-) TimerEvent: {}
+[5.576721] (-) TimerEvent: {}
+[5.677255] (-) TimerEvent: {}
+[5.778493] (-) TimerEvent: {}
+[5.879207] (-) TimerEvent: {}
+[5.980107] (-) TimerEvent: {}
+[6.118439] (-) TimerEvent: {}
+[6.220323] (-) TimerEvent: {}
+[6.321484] (-) TimerEvent: {}
+[6.422093] (-) TimerEvent: {}
+[6.522743] (-) TimerEvent: {}
+[6.626965] (-) TimerEvent: {}
+[6.711397] (gemini) Command: {'cmd': ['/usr/bin/python3', 'setup.py', 'egg_info', '--egg-base', '../../build/gemini', 'build', '--build-base', '/home/user/ros2_ws_demo/build/gemini/build', 'install', '--record', '/home/user/ros2_ws_demo/build/gemini/install.log', '--single-version-externally-managed'], 'cwd': '/home/user/ros2_ws_demo/src/gemini', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'LANGUAGE': 'en_US:', 'USER': 'user', 'LC_TIME': 'ja_JP.UTF-8', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:', 'HOME': '/home/user', 'OLDPWD': '/home/user', 'DESKTOP_SESSION': 'ubuntu', 'GAZEBO_MASTER_URI': 'http://localhost:11345', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'LC_MONETARY': 'ja_JP.UTF-8', 'SYSTEMD_EXEC_PID': '1761', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/user/ros2_ws_demo/install:/home/user/ros2_ws/install', 'ROS_DISTRO': 'humble', 'LOGNAME': 'user', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'user', 'TERM': 'xterm-256color', 'GAZEBO_MODEL_PATH': '/usr/share/gazebo-11/models:', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'ROS_LOCALHOST_ONLY': '0', 'OGRE_RESOURCE_PATH': '/usr/lib/x86_64-linux-gnu/OGRE-1.9.0', 'PATH': '/opt/ros/humble/bin:/home/user/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/vmw2204:@/tmp/.ICE-unix/1710,unix/vmw2204:/tmp/.ICE-unix/1710', 'XDG_MENU_PREFIX': 'gnome-', 'LC_ADDRESS': 'ja_JP.UTF-8', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/d8f10d10_1f0e_4694_85a3_b6e2adcf2cb1', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'LC_TELEPHONE': 'ja_JP.UTF-8', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.6APEL2', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'GNOME_TERMINAL_SERVICE': ':1.102', 'SSH_AGENT_LAUNCHER': 'gnome-keyring', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'ROS_DOMAIN_ID': '30', 'AMENT_PREFIX_PATH': '/home/user/ros2_ws_demo/install/mytest:/home/user/ros2_ws/install/mytest:/opt/ros/humble', 'SHELL': '/bin/bash', 'LC_NAME': 'ja_JP.UTF-8', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'LC_MEASUREMENT': 'ja_JP.UTF-8', 'GAZEBO_RESOURCE_PATH': '/usr/share/gazebo-11:', 'LC_IDENTIFICATION': 'ja_JP.UTF-8', 'GAZEBO_MODEL_DATABASE_URI': 'http://models.gazebosim.org', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/user/ros2_ws_demo/build/gemini', 'TURTLEBOT3_MODEL': 'burger', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'GAZEBO_PLUGIN_PATH': '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'LDS_MODEL': 'LDS-02', 'PYTHONPATH': '/home/user/ros2_ws_demo/build/gemini/prefix_override:/home/user/ros2_ws_demo/install/gemini/lib/python3.10/site-packages:/home/user/ros2_ws_demo/install/mytest/lib/python3.10/site-packages:/home/user/ros2_ws/install/mytest/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'LC_NUMERIC': 'ja_JP.UTF-8', 'LC_PAPER': 'ja_JP.UTF-8', 'COLCON': '1', 'VTE_VERSION': '6800'}, 'shell': False}
+[6.727243] (-) TimerEvent: {}
+[6.827834] (-) TimerEvent: {}
+[6.928578] (-) TimerEvent: {}
+[7.029463] (-) TimerEvent: {}
+[7.134960] (-) TimerEvent: {}
+[7.235600] (-) TimerEvent: {}
+[7.336158] (-) TimerEvent: {}
+[7.436873] (-) TimerEvent: {}
+[7.537478] (-) TimerEvent: {}
+[7.637997] (-) TimerEvent: {}
+[7.738635] (-) TimerEvent: {}
+[7.839450] (-) TimerEvent: {}
+[7.940127] (-) TimerEvent: {}
+[8.040814] (-) TimerEvent: {}
+[8.141371] (-) TimerEvent: {}
+[8.202968] (gemini) StdoutLine: {'line': b'running egg_info\n'}
+[8.205318] (gemini) StdoutLine: {'line': b'writing ../../build/gemini/gemini.egg-info/PKG-INFO\n'}
+[8.208471] (gemini) StdoutLine: {'line': b'writing dependency_links to ../../build/gemini/gemini.egg-info/dependency_links.txt\n'}
+[8.210742] (gemini) StdoutLine: {'line': b'writing entry points to ../../build/gemini/gemini.egg-info/entry_points.txt\n'}
+[8.212645] (gemini) StdoutLine: {'line': b'writing requirements to ../../build/gemini/gemini.egg-info/requires.txt\n'}
+[8.214313] (gemini) StdoutLine: {'line': b'writing top-level names to ../../build/gemini/gemini.egg-info/top_level.txt\n'}
+[8.226518] (gemini) StdoutLine: {'line': b"reading manifest file '../../build/gemini/gemini.egg-info/SOURCES.txt'\n"}
+[8.230149] (gemini) StdoutLine: {'line': b"writing manifest file '../../build/gemini/gemini.egg-info/SOURCES.txt'\n"}
+[8.231835] (gemini) StdoutLine: {'line': b'running build\n'}
+[8.232405] (gemini) StdoutLine: {'line': b'running build_py\n'}
+[8.240628] (gemini) StdoutLine: {'line': b'running install\n'}
+[8.241506] (-) TimerEvent: {}
+[8.243159] (gemini) StdoutLine: {'line': b'running install_lib\n'}
+[8.250250] (gemini) StdoutLine: {'line': b'running install_data\n'}
+[8.257402] (gemini) StdoutLine: {'line': b'copying resource/gemini -> /home/user/ros2_ws_demo/install/gemini/share/ament_index/resource_index/packages\n'}
+[8.258690] (gemini) StdoutLine: {'line': b'copying package.xml -> /home/user/ros2_ws_demo/install/gemini/share/gemini\n'}
+[8.260692] (gemini) StdoutLine: {'line': b'running install_egg_info\n'}
+[8.267949] (gemini) StdoutLine: {'line': b'Copying ../../build/gemini/gemini.egg-info to /home/user/ros2_ws_demo/install/gemini/lib/python3.10/site-packages/gemini-0.0.0-py3.10.egg-info\n'}
+[8.277479] (gemini) StdoutLine: {'line': b'running install_scripts\n'}
+[8.342409] (-) TimerEvent: {}
+[8.367022] (gemini) StdoutLine: {'line': b'Installing move script to /home/user/ros2_ws_demo/install/gemini/lib/gemini\n'}
+[8.368290] (gemini) StdoutLine: {'line': b'Installing plot script to /home/user/ros2_ws_demo/install/gemini/lib/gemini\n'}
+[8.372088] (gemini) StdoutLine: {'line': b'Installing sensor_pnnx script to /home/user/ros2_ws_demo/install/gemini/lib/gemini\n'}
+[8.373056] (gemini) StdoutLine: {'line': b"writing list of installed files to '/home/user/ros2_ws_demo/build/gemini/install.log'\n"}
+[8.442615] (-) TimerEvent: {}
+[8.476234] (gemini) CommandEnded: {'returncode': 0}
+[8.543025] (-) TimerEvent: {}
+[8.644094] (-) TimerEvent: {}
+[8.745274] (-) TimerEvent: {}
+[8.843486] (gemini) JobEnded: {'identifier': 'gemini', 'rc': 0}
+[8.845557] (-) TimerEvent: {}
+[8.847076] (-) EventReactorShutdown: {}

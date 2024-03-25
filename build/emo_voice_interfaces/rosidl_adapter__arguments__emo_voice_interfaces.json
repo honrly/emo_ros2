@@ -1,0 +1,6 @@
+{
+  "package_name": "emo_voice_interfaces",
+  "non_idl_tuples": [
+    "/home/user/ros2_emo_voice/src/emo_voice_interfaces:srv/GenText.srv"
+  ]
+}

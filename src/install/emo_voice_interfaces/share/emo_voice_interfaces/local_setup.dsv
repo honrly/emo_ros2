@@ -1,0 +1,4 @@
+source;share/emo_voice_interfaces/environment/ament_prefix_path.sh
+source;share/emo_voice_interfaces/environment/library_path.sh
+source;share/emo_voice_interfaces/environment/path.sh
+source;share/emo_voice_interfaces/environment/pythonpath.sh

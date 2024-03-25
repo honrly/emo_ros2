@@ -1,0 +1,1 @@
+Invoking command in '/home/user/ros2_ws_demo/build/gemini_interfaces': CMAKE_PREFIX_PATH=/home/user/ros2_ws_demo/install/mytest:/home/user/ros2_ws/install/mytest:/opt/ros/humble /usr/bin/cmake /home/user/ros2_ws_demo/src/gemini_interfaces -DCMAKE_INSTALL_PREFIX=/home/user/ros2_ws_demo/install/gemini_interfaces

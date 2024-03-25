@@ -1,0 +1,4 @@
+srv/GenText.idl
+srv/GenText.srv
+srv/GenText_Request.msg
+srv/GenText_Response.msg

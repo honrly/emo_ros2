@@ -1,5 +1,0 @@
-[console_scripts]
-plot = mytest.plot:main
-pnn = mytest.pnn:main
-sensor = mytest.sensor:main
-

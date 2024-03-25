@@ -1,0 +1,17 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from emo_voice_interfaces/srv/GenText.srv
+// generated code does not contain a copyright notice
+
+
+module emo_voice_interfaces {
+  module srv {
+    struct GenText_Request {
+      string emo;
+
+      string name;
+    };
+    struct GenText_Response {
+      sequence<int32> text;
+    };
+  };
+};

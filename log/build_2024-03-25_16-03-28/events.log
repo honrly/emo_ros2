@@ -1,0 +1,218 @@
+[0.000000] (-) TimerEvent: {}
+[0.001873] (-) JobUnselected: {'identifier': 'gemini'}
+[0.002122] (gemini_interfaces) JobQueued: {'identifier': 'gemini_interfaces', 'dependencies': OrderedDict()}
+[0.004122] (gemini_interfaces) JobStarted: {'identifier': 'gemini_interfaces'}
+[0.097609] (-) TimerEvent: {}
+[0.201284] (-) TimerEvent: {}
+[0.307223] (-) TimerEvent: {}
+[0.410389] (-) TimerEvent: {}
+[0.504539] (gemini_interfaces) JobProgress: {'identifier': 'gemini_interfaces', 'progress': 'cmake'}
+[0.510035] (gemini_interfaces) JobProgress: {'identifier': 'gemini_interfaces', 'progress': 'build'}
+[0.510694] (-) TimerEvent: {}
+[0.513086] (gemini_interfaces) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/user/ros2_ws_demo/build/gemini_interfaces', '--', '-j2', '-l2'], 'cwd': '/home/user/ros2_ws_demo/build/gemini_interfaces', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_US:'), ('USER', 'user'), ('LC_TIME', 'ja_JP.UTF-8'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:'), ('HOME', '/home/user'), ('OLDPWD', '/home/user'), ('DESKTOP_SESSION', 'ubuntu'), ('GAZEBO_MASTER_URI', 'http://localhost:11345'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'ja_JP.UTF-8'), ('SYSTEMD_EXEC_PID', '1731'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/user/ros2_ws_demo/install:/home/user/ros2_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'user'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'user'), ('TERM', 'xterm-256color'), ('GAZEBO_MODEL_PATH', '/usr/share/gazebo-11/models:'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('OGRE_RESOURCE_PATH', '/usr/lib/x86_64-linux-gnu/OGRE-1.9.0'), ('PATH', '/opt/ros/humble/bin:/home/user/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/vmw2204:@/tmp/.ICE-unix/1701,unix/vmw2204:/tmp/.ICE-unix/1701'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'ja_JP.UTF-8'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/b2a94235_d5e8_4a3a_b48a_3e3018674754'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'ja_JP.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.D0JBL2'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.102'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('ROS_DOMAIN_ID', '30'), ('AMENT_PREFIX_PATH', '/home/user/ros2_ws_demo/install/mytest:/home/user/ros2_ws_demo/install/gemini:/home/user/ros2_ws/install/mytest:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'ja_JP.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'ja_JP.UTF-8'), ('GAZEBO_RESOURCE_PATH', '/usr/share/gazebo-11:'), ('LC_IDENTIFICATION', 'ja_JP.UTF-8'), ('GAZEBO_MODEL_DATABASE_URI', 'http://models.gazebosim.org'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/user/ros2_ws_demo/build/gemini_interfaces'), ('TURTLEBOT3_MODEL', 'burger'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('GAZEBO_PLUGIN_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('LDS_MODEL', 'LDS-02'), ('PYTHONPATH', '/home/user/ros2_ws_demo/install/mytest/lib/python3.10/site-packages:/home/user/ros2_ws_demo/install/gemini/lib/python3.10/site-packages:/home/user/ros2_ws/install/mytest/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'ja_JP.UTF-8'), ('LC_PAPER', 'ja_JP.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/user/ros2_ws_demo/install/mytest:/home/user/ros2_ws_demo/install/gemini:/home/user/ros2_ws/install/mytest:/opt/ros/humble')]), 'shell': False}
+[0.611034] (-) TimerEvent: {}
+[0.712116] (-) TimerEvent: {}
+[0.812921] (-) TimerEvent: {}
+[0.913747] (-) TimerEvent: {}
+[1.014772] (-) TimerEvent: {}
+[1.115511] (-) TimerEvent: {}
+[1.216347] (-) TimerEvent: {}
+[1.317284] (-) TimerEvent: {}
+[1.418203] (-) TimerEvent: {}
+[1.519511] (-) TimerEvent: {}
+[1.541150] (gemini_interfaces) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.6 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[1.619682] (-) TimerEvent: {}
+[1.720759] (-) TimerEvent: {}
+[1.821891] (-) TimerEvent: {}
+[1.923290] (-) TimerEvent: {}
+[2.024120] (-) TimerEvent: {}
+[2.125034] (-) TimerEvent: {}
+[2.226629] (-) TimerEvent: {}
+[2.327873] (-) TimerEvent: {}
+[2.430790] (-) TimerEvent: {}
+[2.532026] (-) TimerEvent: {}
+[2.632935] (-) TimerEvent: {}
+[2.733953] (-) TimerEvent: {}
+[2.834641] (-) TimerEvent: {}
+[2.941812] (-) TimerEvent: {}
+[3.042469] (-) TimerEvent: {}
+[3.059960] (gemini_interfaces) StdoutLine: {'line': b'-- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)\n'}
+[3.098666] (gemini_interfaces) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[3.142759] (-) TimerEvent: {}
+[3.159607] (gemini_interfaces) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[3.243147] (-) TimerEvent: {}
+[3.344116] (-) TimerEvent: {}
+[3.445964] (-) TimerEvent: {}
+[3.547186] (-) TimerEvent: {}
+[3.586429] (gemini_interfaces) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[3.647412] (-) TimerEvent: {}
+[3.748097] (-) TimerEvent: {}
+[3.849143] (-) TimerEvent: {}
+[3.949987] (-) TimerEvent: {}
+[4.051279] (-) TimerEvent: {}
+[4.153445] (-) TimerEvent: {}
+[4.254661] (-) TimerEvent: {}
+[4.356031] (-) TimerEvent: {}
+[4.466685] (-) TimerEvent: {}
+[4.570031] (-) TimerEvent: {}
+[4.672033] (-) TimerEvent: {}
+[4.774044] (-) TimerEvent: {}
+[4.875390] (-) TimerEvent: {}
+[4.976620] (-) TimerEvent: {}
+[5.079490] (-) TimerEvent: {}
+[5.182330] (-) TimerEvent: {}
+[5.283242] (-) TimerEvent: {}
+[5.384196] (-) TimerEvent: {}
+[5.485383] (-) TimerEvent: {}
+[5.588115] (-) TimerEvent: {}
+[5.691776] (-) TimerEvent: {}
+[5.793145] (-) TimerEvent: {}
+[5.896491] (-) TimerEvent: {}
+[5.999677] (-) TimerEvent: {}
+[6.100373] (-) TimerEvent: {}
+[6.201467] (-) TimerEvent: {}
+[6.298201] (gemini_interfaces) StdoutLine: {'line': b'-- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)\n'}
+[6.301792] (-) TimerEvent: {}
+[6.402900] (-) TimerEvent: {}
+[6.504122] (-) TimerEvent: {}
+[6.605299] (-) TimerEvent: {}
+[6.706997] (-) TimerEvent: {}
+[6.808325] (-) TimerEvent: {}
+[6.909568] (-) TimerEvent: {}
+[7.010879] (-) TimerEvent: {}
+[7.112177] (-) TimerEvent: {}
+[7.213109] (-) TimerEvent: {}
+[7.314360] (-) TimerEvent: {}
+[7.376849] (gemini_interfaces) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[7.414758] (-) TimerEvent: {}
+[7.515759] (-) TimerEvent: {}
+[7.617023] (-) TimerEvent: {}
+[7.718424] (-) TimerEvent: {}
+[7.819378] (-) TimerEvent: {}
+[7.920657] (-) TimerEvent: {}
+[8.021942] (-) TimerEvent: {}
+[8.123710] (-) TimerEvent: {}
+[8.224750] (-) TimerEvent: {}
+[8.326116] (-) TimerEvent: {}
+[8.417015] (gemini_interfaces) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[8.426625] (-) TimerEvent: {}
+[8.520542] (gemini_interfaces) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3.6") \n'}
+[8.526887] (-) TimerEvent: {}
+[8.537187] (gemini_interfaces) StdoutLine: {'line': b'-- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)\n'}
+[8.627086] (-) TimerEvent: {}
+[8.728120] (-) TimerEvent: {}
+[8.774763] (gemini_interfaces) StdoutLine: {'line': b'-- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.10.so (found suitable version "3.10.12", minimum required is "3.5") \n'}
+[8.776305] (gemini_interfaces) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[8.777458] (gemini_interfaces) StdoutLine: {'line': b'-- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10\n'}
+[8.778252] (gemini_interfaces) StdoutLine: {'line': b'-- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so\n'}
+[8.828316] (-) TimerEvent: {}
+[8.879290] (gemini_interfaces) StdoutLine: {'line': b'-- Found PythonExtra: .so  \n'}
+[8.928490] (-) TimerEvent: {}
+[9.029303] (-) TimerEvent: {}
+[9.103576] (gemini_interfaces) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.12.9 (/opt/ros/humble/share/ament_lint_auto/cmake)\n'}
+[9.129487] (-) TimerEvent: {}
+[9.226355] (gemini_interfaces) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[9.229711] (-) TimerEvent: {}
+[9.238404] (gemini_interfaces) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[9.271777] (gemini_interfaces) StdoutLine: {'line': b'-- Configuring done\n'}
+[9.330405] (-) TimerEvent: {}
+[9.434582] (-) TimerEvent: {}
+[9.501438] (gemini_interfaces) StdoutLine: {'line': b'-- Generating done\n'}
+[9.517820] (gemini_interfaces) StdoutLine: {'line': b'-- Build files have been written to: /home/user/ros2_ws_demo/build/gemini_interfaces\n'}
+[9.537469] (-) TimerEvent: {}
+[9.638602] (-) TimerEvent: {}
+[9.704545] (gemini_interfaces) StdoutLine: {'line': b'[  3%] \x1b[34m\x1b[1mGenerating C code for ROS interfaces\x1b[0m\n'}
+[9.738734] (-) TimerEvent: {}
+[9.769254] (gemini_interfaces) StdoutLine: {'line': b'[  6%] \x1b[34m\x1b[1mGenerating C++ code for ROS interfaces\x1b[0m\n'}
+[9.838902] (-) TimerEvent: {}
+[9.939494] (-) TimerEvent: {}
+[10.040318] (-) TimerEvent: {}
+[10.141054] (-) TimerEvent: {}
+[10.241851] (-) TimerEvent: {}
+[10.342563] (-) TimerEvent: {}
+[10.443529] (-) TimerEvent: {}
+[10.544211] (-) TimerEvent: {}
+[10.644790] (-) TimerEvent: {}
+[10.745866] (-) TimerEvent: {}
+[10.846619] (-) TimerEvent: {}
+[10.947403] (-) TimerEvent: {}
+[11.048247] (-) TimerEvent: {}
+[11.149424] (-) TimerEvent: {}
+[11.250178] (-) TimerEvent: {}
+[11.351090] (-) TimerEvent: {}
+[11.405114] (gemini_interfaces) StdoutLine: {'line': b'[  6%] Built target gemini_interfaces__cpp\n'}
+[11.432836] (gemini_interfaces) StdoutLine: {'line': b'[  9%] \x1b[32mBuilding C object CMakeFiles/gemini_interfaces__rosidl_generator_c.dir/rosidl_generator_c/gemini_interfaces/srv/detail/emo__functions.c.o\x1b[0m\n'}
+[11.451468] (-) TimerEvent: {}
+[11.552461] (-) TimerEvent: {}
+[11.565895] (gemini_interfaces) StdoutLine: {'line': b'[  9%] Built target ament_cmake_python_copy_gemini_interfaces\n'}
+[11.643448] (gemini_interfaces) StdoutLine: {'line': b'[ 12%] \x1b[34m\x1b[1mGenerating C++ introspection for ROS interfaces\x1b[0m\n'}
+[11.652759] (-) TimerEvent: {}
+[11.722109] (gemini_interfaces) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/user/ros2_ws_demo/build/gemini_interfaces/rosidl_generator_c/gemini_interfaces/srv/detail/emo__functions.h:19\x1b[m\x1b[K,\n'}
+[11.722898] (gemini_interfaces) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/user/ros2_ws_demo/build/gemini_interfaces/rosidl_generator_c/gemini_interfaces/srv/detail/emo__functions.c:4\x1b[m\x1b[K:\n'}
+[11.723396] (gemini_interfaces) StderrLine: {'line': b'\x1b[01m\x1b[K/home/user/ros2_ws_demo/build/gemini_interfaces/rosidl_generator_c/gemini_interfaces/srv/detail/emo__struct.h:22:10:\x1b[m\x1b[K \x1b[01;31m\x1b[Kfatal error: \x1b[m\x1b[Kgemini_interfaces/msg/detail/string__struct.h: No such file or directory\n'}
+[11.723755] (gemini_interfaces) StderrLine: {'line': b'   22 | #include \x1b[01;31m\x1b[K"gemini_interfaces/msg/detail/string__struct.h"\x1b[m\x1b[K\n'}
+[11.724107] (gemini_interfaces) StderrLine: {'line': b'      |          \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[11.724527] (gemini_interfaces) StderrLine: {'line': b'compilation terminated.\n'}
+[11.732173] (gemini_interfaces) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/gemini_interfaces__rosidl_generator_c.dir/build.make:105: CMakeFiles/gemini_interfaces__rosidl_generator_c.dir/rosidl_generator_c/gemini_interfaces/srv/detail/emo__functions.c.o] Error 1\n'}
+[11.734620] (gemini_interfaces) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:213: CMakeFiles/gemini_interfaces__rosidl_generator_c.dir/all] Error 2\n'}
+[11.735419] (gemini_interfaces) StderrLine: {'line': b'gmake[1]: *** Waiting for unfinished jobs....\n'}
+[11.753414] (-) TimerEvent: {}
+[11.854883] (-) TimerEvent: {}
+[11.956235] (-) TimerEvent: {}
+[12.058007] (-) TimerEvent: {}
+[12.159446] (-) TimerEvent: {}
+[12.260987] (-) TimerEvent: {}
+[12.362703] (-) TimerEvent: {}
+[12.464214] (-) TimerEvent: {}
+[12.565464] (-) TimerEvent: {}
+[12.667111] (-) TimerEvent: {}
+[12.767887] (-) TimerEvent: {}
+[12.868845] (-) TimerEvent: {}
+[12.970267] (-) TimerEvent: {}
+[13.072364] (-) TimerEvent: {}
+[13.175221] (-) TimerEvent: {}
+[13.277235] (-) TimerEvent: {}
+[13.379645] (-) TimerEvent: {}
+[13.482669] (-) TimerEvent: {}
+[13.500584] (gemini_interfaces) StdoutLine: {'line': b'[ 16%] \x1b[32mBuilding CXX object CMakeFiles/gemini_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/gemini_interfaces/srv/detail/emo__type_support.cpp.o\x1b[0m\n'}
+[13.583108] (-) TimerEvent: {}
+[13.685767] (-) TimerEvent: {}
+[13.786948] (-) TimerEvent: {}
+[13.887999] (-) TimerEvent: {}
+[13.989847] (-) TimerEvent: {}
+[14.091568] (-) TimerEvent: {}
+[14.192814] (-) TimerEvent: {}
+[14.297212] (-) TimerEvent: {}
+[14.401043] (-) TimerEvent: {}
+[14.504115] (-) TimerEvent: {}
+[14.606476] (-) TimerEvent: {}
+[14.709136] (-) TimerEvent: {}
+[14.796980] (gemini_interfaces) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/user/ros2_ws_demo/build/gemini_interfaces/rosidl_typesupport_introspection_cpp/gemini_interfaces/srv/detail/emo__type_support.cpp:12\x1b[m\x1b[K:\n'}
+[14.799801] (gemini_interfaces) StderrLine: {'line': b'\x1b[01m\x1b[K/home/user/ros2_ws_demo/build/gemini_interfaces/rosidl_generator_cpp/gemini_interfaces/srv/detail/emo__struct.hpp:20:10:\x1b[m\x1b[K \x1b[01;31m\x1b[Kfatal error: \x1b[m\x1b[Kgemini_interfaces/msg/detail/string__struct.hpp: No such file or directory\n'}
+[14.801043] (gemini_interfaces) StderrLine: {'line': b'   20 | #include \x1b[01;31m\x1b[K"gemini_interfaces/msg/detail/string__struct.hpp"\x1b[m\x1b[K\n'}
+[14.802167] (gemini_interfaces) StderrLine: {'line': b'      |          \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[14.803399] (gemini_interfaces) StderrLine: {'line': b'compilation terminated.\n'}
+[14.809344] (-) TimerEvent: {}
+[14.817020] (gemini_interfaces) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/gemini_interfaces__rosidl_typesupport_introspection_cpp.dir/build.make:91: CMakeFiles/gemini_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/gemini_interfaces/srv/detail/emo__type_support.cpp.o] Error 1\n'}
+[14.818793] (gemini_interfaces) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:369: CMakeFiles/gemini_interfaces__rosidl_typesupport_introspection_cpp.dir/all] Error 2\n'}
+[14.827974] (gemini_interfaces) StderrLine: {'line': b'gmake: *** [Makefile:146: all] Error 2\n'}
+[14.839731] (gemini_interfaces) CommandEnded: {'returncode': 2}
+[14.910138] (-) TimerEvent: {}
+[15.011446] (-) TimerEvent: {}
+[15.113161] (-) TimerEvent: {}
+[15.222150] (-) TimerEvent: {}
+[15.324060] (-) TimerEvent: {}
+[15.426585] (-) TimerEvent: {}
+[15.528311] (-) TimerEvent: {}
+[15.630341] (-) TimerEvent: {}
+[15.733780] (-) TimerEvent: {}
+[15.836740] (-) TimerEvent: {}
+[15.939238] (-) TimerEvent: {}
+[16.042823] (-) TimerEvent: {}
+[16.151713] (-) TimerEvent: {}
+[16.253924] (-) TimerEvent: {}
+[16.354863] (-) TimerEvent: {}
+[16.462962] (-) TimerEvent: {}
+[16.564353] (-) TimerEvent: {}
+[16.616942] (gemini_interfaces) JobEnded: {'identifier': 'gemini_interfaces', 'rc': 2}
+[16.639416] (-) EventReactorShutdown: {}

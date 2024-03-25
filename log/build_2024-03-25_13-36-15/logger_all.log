@@ -1,0 +1,139 @@
+[10.916s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build', '--packages-select', 'gemini']
+[10.918s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=2, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=['gemini'], packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x71c10df81210>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x71c10df80160>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x71c10df80160>>)
+[11.584s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[11.584s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[11.584s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[11.584s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[11.585s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[11.585s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[11.585s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/user/ros2_ws_demo'
+[11.586s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[11.586s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[11.587s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[11.588s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[11.588s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[11.589s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[11.589s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[11.589s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[11.590s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[11.698s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[11.698s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[11.698s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[11.699s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[11.699s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[11.699s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[11.699s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[11.700s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[11.708s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[11.709s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[11.709s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[11.710s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[11.711s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[11.711s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[11.712s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[11.713s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[11.713s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[11.714s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[11.714s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[11.714s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[11.714s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[11.714s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[11.715s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[11.715s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[11.715s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[11.715s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[11.716s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[11.716s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[11.718s] Level 1:colcon.colcon_core.package_identification:_identify(src/gemini) by extensions ['ignore', 'ignore_ament_install']
+[11.719s] Level 1:colcon.colcon_core.package_identification:_identify(src/gemini) by extension 'ignore'
+[11.719s] Level 1:colcon.colcon_core.package_identification:_identify(src/gemini) by extension 'ignore_ament_install'
+[11.719s] Level 1:colcon.colcon_core.package_identification:_identify(src/gemini) by extensions ['colcon_pkg']
+[11.719s] Level 1:colcon.colcon_core.package_identification:_identify(src/gemini) by extension 'colcon_pkg'
+[11.720s] Level 1:colcon.colcon_core.package_identification:_identify(src/gemini) by extensions ['colcon_meta']
+[11.720s] Level 1:colcon.colcon_core.package_identification:_identify(src/gemini) by extension 'colcon_meta'
+[11.720s] Level 1:colcon.colcon_core.package_identification:_identify(src/gemini) by extensions ['ros']
+[11.720s] Level 1:colcon.colcon_core.package_identification:_identify(src/gemini) by extension 'ros'
+[11.743s] DEBUG:colcon.colcon_core.package_identification:Package 'src/gemini' with type 'ros.ament_python' and name 'gemini'
+[11.746s] Level 1:colcon.colcon_core.package_identification:_identify(src/gemini_interfaces) by extensions ['ignore', 'ignore_ament_install']
+[11.746s] Level 1:colcon.colcon_core.package_identification:_identify(src/gemini_interfaces) by extension 'ignore'
+[11.746s] Level 1:colcon.colcon_core.package_identification:_identify(src/gemini_interfaces) by extension 'ignore_ament_install'
+[11.748s] Level 1:colcon.colcon_core.package_identification:_identify(src/gemini_interfaces) by extensions ['colcon_pkg']
+[11.748s] Level 1:colcon.colcon_core.package_identification:_identify(src/gemini_interfaces) by extension 'colcon_pkg'
+[11.748s] Level 1:colcon.colcon_core.package_identification:_identify(src/gemini_interfaces) by extensions ['colcon_meta']
+[11.748s] Level 1:colcon.colcon_core.package_identification:_identify(src/gemini_interfaces) by extension 'colcon_meta'
+[11.750s] Level 1:colcon.colcon_core.package_identification:_identify(src/gemini_interfaces) by extensions ['ros']
+[11.750s] Level 1:colcon.colcon_core.package_identification:_identify(src/gemini_interfaces) by extension 'ros'
+[11.756s] DEBUG:colcon.colcon_core.package_identification:Package 'src/gemini_interfaces' with type 'ros.ament_cmake' and name 'gemini_interfaces'
+[11.756s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[11.759s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[11.759s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[11.759s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[11.759s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[12.451s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'gemini_interfaces' in 'src/gemini_interfaces'
+[12.680s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[12.681s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[12.938s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 1 installed packages in /home/user/ros2_ws_demo/install
+[13.278s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 1 installed packages in /home/user/ros2_ws/install
+[13.377s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 396 installed packages in /opt/ros/humble
+[13.384s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[14.564s] Level 5:colcon.colcon_core.verb:set package 'gemini' build argument 'cmake_args' from command line to 'None'
+[14.565s] Level 5:colcon.colcon_core.verb:set package 'gemini' build argument 'cmake_target' from command line to 'None'
+[14.565s] Level 5:colcon.colcon_core.verb:set package 'gemini' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[14.572s] Level 5:colcon.colcon_core.verb:set package 'gemini' build argument 'cmake_clean_cache' from command line to 'False'
+[14.573s] Level 5:colcon.colcon_core.verb:set package 'gemini' build argument 'cmake_clean_first' from command line to 'False'
+[14.573s] Level 5:colcon.colcon_core.verb:set package 'gemini' build argument 'cmake_force_configure' from command line to 'False'
+[14.573s] Level 5:colcon.colcon_core.verb:set package 'gemini' build argument 'ament_cmake_args' from command line to 'None'
+[14.574s] Level 5:colcon.colcon_core.verb:set package 'gemini' build argument 'catkin_cmake_args' from command line to 'None'
+[14.574s] Level 5:colcon.colcon_core.verb:set package 'gemini' build argument 'catkin_skip_building_tests' from command line to 'False'
+[14.580s] DEBUG:colcon.colcon_core.verb:Building package 'gemini' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/user/ros2_ws_demo/build/gemini', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/user/ros2_ws_demo/install/gemini', 'merge_install': False, 'path': '/home/user/ros2_ws_demo/src/gemini', 'symlink_install': False, 'test_result_base': None}
+[14.760s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[14.983s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[14.984s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/user/ros2_ws_demo/src/gemini' with build type 'ament_python'
+[14.985s] Level 1:colcon.colcon_core.shell:create_environment_hook('gemini', 'ament_prefix_path')
+[15.317s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[15.318s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/user/ros2_ws_demo/install/gemini/share/gemini/hook/ament_prefix_path.ps1'
+[15.339s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/user/ros2_ws_demo/install/gemini/share/gemini/hook/ament_prefix_path.dsv'
+[15.343s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/user/ros2_ws_demo/install/gemini/share/gemini/hook/ament_prefix_path.sh'
+[15.486s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[15.486s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[17.478s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/user/ros2_ws_demo/src/gemini'
+[17.583s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[17.583s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[21.684s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/user/ros2_ws_demo/src/gemini': PYTHONPATH=/home/user/ros2_ws_demo/build/gemini/prefix_override:/home/user/ros2_ws_demo/install/gemini/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/gemini build --build-base /home/user/ros2_ws_demo/build/gemini/build install --record /home/user/ros2_ws_demo/build/gemini/install.log --single-version-externally-managed
+[23.446s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/user/ros2_ws_demo/src/gemini' returned '0': PYTHONPATH=/home/user/ros2_ws_demo/build/gemini/prefix_override:/home/user/ros2_ws_demo/install/gemini/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/gemini build --build-base /home/user/ros2_ws_demo/build/gemini/build install --record /home/user/ros2_ws_demo/build/gemini/install.log --single-version-externally-managed
+[23.562s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws_demo/install/gemini' for CMake module files
+[23.563s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws_demo/install/gemini' for CMake config files
+[23.566s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws_demo/install/gemini/lib'
+[23.567s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws_demo/install/gemini/bin'
+[23.568s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws_demo/install/gemini/lib/pkgconfig/gemini.pc'
+[23.569s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws_demo/install/gemini/lib/python3.10/site-packages'
+[23.569s] Level 1:colcon.colcon_core.shell:create_environment_hook('gemini', 'pythonpath')
+[23.688s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/user/ros2_ws_demo/install/gemini/share/gemini/hook/pythonpath.ps1'
+[23.690s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/user/ros2_ws_demo/install/gemini/share/gemini/hook/pythonpath.dsv'
+[23.691s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/user/ros2_ws_demo/install/gemini/share/gemini/hook/pythonpath.sh'
+[23.694s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws_demo/install/gemini/bin'
+[23.694s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(gemini)
+[23.790s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws_demo/install/gemini/share/gemini/package.ps1'
+[23.795s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/user/ros2_ws_demo/install/gemini/share/gemini/package.dsv'
+[23.799s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws_demo/install/gemini/share/gemini/package.sh'
+[23.802s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws_demo/install/gemini/share/gemini/package.bash'
+[23.807s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws_demo/install/gemini/share/gemini/package.zsh'
+[23.811s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/user/ros2_ws_demo/install/gemini/share/colcon-core/packages/gemini)
+[23.814s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[23.815s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[23.816s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[23.816s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[23.918s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[23.918s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[23.918s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[23.966s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[24.126s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/user/ros2_ws_demo/install/local_setup.ps1'
+[24.136s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/user/ros2_ws_demo/install/_local_setup_util_ps1.py'
+[24.147s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/user/ros2_ws_demo/install/setup.ps1'
+[24.230s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/user/ros2_ws_demo/install/local_setup.sh'
+[24.234s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/user/ros2_ws_demo/install/_local_setup_util_sh.py'
+[24.236s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/user/ros2_ws_demo/install/setup.sh'
+[24.325s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/user/ros2_ws_demo/install/local_setup.bash'
+[24.330s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/user/ros2_ws_demo/install/setup.bash'
+[24.423s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/user/ros2_ws_demo/install/local_setup.zsh'
+[24.427s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/user/ros2_ws_demo/install/setup.zsh'

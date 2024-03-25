@@ -1,8 +1,8 @@
 import rclpy
-import serial
 from rclpy.node import Node
 from geometry_msgs.msg import Twist
 from std_msgs.msg import Int32
+import serial
 import numpy as np
 
 SENSOR = serial.Serial('/dev/ttyACM0', 115200)
@@ -11,17 +11,17 @@ X_PNN = 50
 
 class SensorNode(Node):
     def __init__(self):
-        super().__init__('serial_node')
+        super().__init__('sensor_node')
         
         self.pub_pnnx = self.create_publisher(Int32, 'serial_pnnx', 10)
         self.pnnx = Int32() # pnnx
-        self.pnnx.data = 0 # 格納、送信データ
+        self.pnnx.data = 0 # 送信データ
 
         self.rri = 0
         self.rri_arr = []
         self.xx_count = 0
     
-    def serial_reader(self):
+    def calc_pnnx(self):
         sensor_data = SENSOR.readline().decode(encoding='utf-8').strip()
         if sensor_data.startswith('Q'):
             print(f"センサーの値：{sensor_data}, pnnx:{self.pnnx.data}")
@@ -50,7 +50,7 @@ class SensorNode(Node):
         
     def run(self):
         while rclpy.ok():
-            self.serial_reader()
+            self.calc_pnnx()
 
 def main(args=None):
     rclpy.init(args=args)

@@ -7,38 +7,30 @@ import numpy as np
 
 MAX_LEN_DATA = 30
 
-class PnnNode(Node):
+class MoveNode(Node):
     def __init__(self):
-        super().__init__('pnn_node')
+        super().__init__('move_node')
         
-        self.first_move = True # 最初のロボの行動
-        
-        self.pnnx_rest = [] # 何も無い時(安静時)のpnnxデータ(30個)
-        self.pnnx_stimuli = [] # ロボが行動したときのpnnxデータ(30個)
-        
-        self.pnnx_stimuli_ave = -1 # ロボが行動したときのpnnx平均
+        self.create_subscription(Int32, 'serial_pnnx', self.move, 10)
         
         self.pub = self.create_publisher(Twist, 'cmd_vel', 10)
         self.vel = Twist()
+        self.first_move = True # 最初のロボの行動
         
-        self.pub_pnnx = self.create_publisher(Int32, 'pnnx_plot', 10)
+        # self.pub_pnnx = self.create_publisher(Int32, 'pnnx_plot', 10)
         self.pub_pnnx_rest_ave = self.create_publisher(Int32, 'pnnx_rest_ave', 10)
         
         self.pnnx_rest_ave = Int32() # 何も無い時のpnnx平均
         self.pnnx_rest_ave.data = -1 # 格納、送信データ
         
-        self.create_subscription(Int32, 'serial_pnnx', self.move, 10)
-    
-    def pnnx_callback(self):
-        # global PNNX
-        # self.pnnx.data = PNNX
-        # pnnxの値に応じて動かす
-        self.move()
-            
-        # print(f"RRI: {self.RRI}, pnnx: {self.pnnx.data}\n")
+        self.pnnx_rest = [] # 何も無い時(安静時)のpnnxデータ(30個)
+        self.pnnx_stimuli = [] # ロボが行動したときのpnnxデータ(30個)
+        
+        self.pnnx_stimuli_ave = -1 # ロボが行動したときのpnnx平均
 
     def move(self, msg_serial_pnn):
         print(f"pnnx:{msg_serial_pnn.data}")
+        
         # 安静時のpnnxデータを貯める
         if len(self.pnnx_rest) < MAX_LEN_DATA:
             self.pnnx_rest.append(msg_serial_pnn.data)
@@ -65,18 +57,20 @@ class PnnNode(Node):
             # 悲しい
             self.vel.angular.z = 0.1
 
+        
         self.pub.publish(self.vel)
+        """
         int32_msg = Int32()
         int32_msg.data = msg_serial_pnn.data
         self.pub_pnnx.publish(int32_msg)
-        
+        """
         
     def run(self):
         rclpy.spin(self)
 
 def main(args=None):
     rclpy.init(args=args)
-    listener = PnnNode()
+    listener = MoveNode()
     try:
         listener.run()
     except KeyboardInterrupt:

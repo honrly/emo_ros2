@@ -20,8 +20,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-		'sensor = mytest.sensor:main', 
-        'pnn = mytest.pnn:main', 
+		'sensor_pnnx = mytest.sensor_pnnx:main', 
+        'move = mytest.move:main', 
         'plot = mytest.plot:main', 
         ],
     },

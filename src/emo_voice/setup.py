@@ -23,6 +23,8 @@ setup(
 		'sensor_pnnx = emo_voice.sensor_pnnx:main', 
         'move = emo_voice.move:main', 
         'plot = emo_voice.plot:main', 
+        'client = emo_voice.client:main', 
+        'server = emo_voice.voice:main', 
         ],
     },
 )

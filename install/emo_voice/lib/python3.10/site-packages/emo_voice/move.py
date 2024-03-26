@@ -11,7 +11,7 @@ class MoveNode(Node):
     def __init__(self):
         super().__init__('move_node')
         
-        self.create_subscription(Int32, 'serial_pnnx', self.move, 10)
+        self.create_subscription(Int32, 'sensor_pnnx', self.move, 10)
         
         self.pub = self.create_publisher(Twist, 'cmd_vel', 10)
         self.vel = Twist()

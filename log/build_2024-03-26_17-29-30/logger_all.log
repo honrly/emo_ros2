@@ -1,0 +1,209 @@
+[6.051s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[6.052s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=2, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x73a059577fa0>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x73a059574460>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x73a059574460>>)
+[6.386s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[6.386s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[6.386s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[6.386s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[6.386s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[6.387s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[6.387s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/user/ros2_emo_voice'
+[6.387s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[6.387s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[6.387s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[6.388s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[6.388s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[6.388s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[6.388s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[6.388s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[6.388s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[6.449s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[6.449s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[6.449s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[6.449s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[6.450s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[6.450s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[6.451s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[6.451s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[6.451s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[6.452s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[6.452s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[6.453s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[6.453s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[6.454s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[6.455s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[6.455s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[6.455s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[6.456s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[6.456s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[6.456s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[6.456s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[6.456s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[6.456s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[6.457s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[6.458s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[6.458s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[6.458s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[6.458s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[6.459s] Level 1:colcon.colcon_core.package_identification:_identify(src/build) by extensions ['ignore', 'ignore_ament_install']
+[6.460s] Level 1:colcon.colcon_core.package_identification:_identify(src/build) by extension 'ignore'
+[6.462s] Level 1:colcon.colcon_core.package_identification:_identify(src/build) ignored
+[6.463s] Level 1:colcon.colcon_core.package_identification:_identify(src/emo_voice) by extensions ['ignore', 'ignore_ament_install']
+[6.463s] Level 1:colcon.colcon_core.package_identification:_identify(src/emo_voice) by extension 'ignore'
+[6.463s] Level 1:colcon.colcon_core.package_identification:_identify(src/emo_voice) by extension 'ignore_ament_install'
+[6.464s] Level 1:colcon.colcon_core.package_identification:_identify(src/emo_voice) by extensions ['colcon_pkg']
+[6.464s] Level 1:colcon.colcon_core.package_identification:_identify(src/emo_voice) by extension 'colcon_pkg'
+[6.464s] Level 1:colcon.colcon_core.package_identification:_identify(src/emo_voice) by extensions ['colcon_meta']
+[6.464s] Level 1:colcon.colcon_core.package_identification:_identify(src/emo_voice) by extension 'colcon_meta'
+[6.464s] Level 1:colcon.colcon_core.package_identification:_identify(src/emo_voice) by extensions ['ros']
+[6.465s] Level 1:colcon.colcon_core.package_identification:_identify(src/emo_voice) by extension 'ros'
+[6.480s] DEBUG:colcon.colcon_core.package_identification:Package 'src/emo_voice' with type 'ros.ament_python' and name 'emo_voice'
+[6.481s] Level 1:colcon.colcon_core.package_identification:_identify(src/emo_voice_interfaces) by extensions ['ignore', 'ignore_ament_install']
+[6.482s] Level 1:colcon.colcon_core.package_identification:_identify(src/emo_voice_interfaces) by extension 'ignore'
+[6.482s] Level 1:colcon.colcon_core.package_identification:_identify(src/emo_voice_interfaces) by extension 'ignore_ament_install'
+[6.482s] Level 1:colcon.colcon_core.package_identification:_identify(src/emo_voice_interfaces) by extensions ['colcon_pkg']
+[6.482s] Level 1:colcon.colcon_core.package_identification:_identify(src/emo_voice_interfaces) by extension 'colcon_pkg'
+[6.483s] Level 1:colcon.colcon_core.package_identification:_identify(src/emo_voice_interfaces) by extensions ['colcon_meta']
+[6.483s] Level 1:colcon.colcon_core.package_identification:_identify(src/emo_voice_interfaces) by extension 'colcon_meta'
+[6.483s] Level 1:colcon.colcon_core.package_identification:_identify(src/emo_voice_interfaces) by extensions ['ros']
+[6.483s] Level 1:colcon.colcon_core.package_identification:_identify(src/emo_voice_interfaces) by extension 'ros'
+[6.487s] DEBUG:colcon.colcon_core.package_identification:Package 'src/emo_voice_interfaces' with type 'ros.ament_cmake' and name 'emo_voice_interfaces'
+[6.488s] Level 1:colcon.colcon_core.package_identification:_identify(src/install) by extensions ['ignore', 'ignore_ament_install']
+[6.489s] Level 1:colcon.colcon_core.package_identification:_identify(src/install) by extension 'ignore'
+[6.489s] Level 1:colcon.colcon_core.package_identification:_identify(src/install) ignored
+[6.490s] Level 1:colcon.colcon_core.package_identification:_identify(src/log) by extensions ['ignore', 'ignore_ament_install']
+[6.491s] Level 1:colcon.colcon_core.package_identification:_identify(src/log) by extension 'ignore'
+[6.491s] Level 1:colcon.colcon_core.package_identification:_identify(src/log) ignored
+[6.491s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[6.491s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[6.492s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[6.492s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[6.492s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[6.929s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[6.930s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[7.051s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 2 installed packages in /home/user/ros2_emo_voice/install
+[7.142s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 1 installed packages in /home/user/ros2_ws/install
+[7.206s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 396 installed packages in /opt/ros/humble
+[7.209s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[7.800s] Level 5:colcon.colcon_core.verb:set package 'emo_voice' build argument 'cmake_args' from command line to 'None'
+[7.800s] Level 5:colcon.colcon_core.verb:set package 'emo_voice' build argument 'cmake_target' from command line to 'None'
+[7.801s] Level 5:colcon.colcon_core.verb:set package 'emo_voice' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[7.801s] Level 5:colcon.colcon_core.verb:set package 'emo_voice' build argument 'cmake_clean_cache' from command line to 'False'
+[7.801s] Level 5:colcon.colcon_core.verb:set package 'emo_voice' build argument 'cmake_clean_first' from command line to 'False'
+[7.801s] Level 5:colcon.colcon_core.verb:set package 'emo_voice' build argument 'cmake_force_configure' from command line to 'False'
+[7.801s] Level 5:colcon.colcon_core.verb:set package 'emo_voice' build argument 'ament_cmake_args' from command line to 'None'
+[7.801s] Level 5:colcon.colcon_core.verb:set package 'emo_voice' build argument 'catkin_cmake_args' from command line to 'None'
+[7.801s] Level 5:colcon.colcon_core.verb:set package 'emo_voice' build argument 'catkin_skip_building_tests' from command line to 'False'
+[7.802s] DEBUG:colcon.colcon_core.verb:Building package 'emo_voice' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/user/ros2_emo_voice/build/emo_voice', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/user/ros2_emo_voice/install/emo_voice', 'merge_install': False, 'path': '/home/user/ros2_emo_voice/src/emo_voice', 'symlink_install': False, 'test_result_base': None}
+[7.851s] Level 5:colcon.colcon_core.verb:set package 'emo_voice_interfaces' build argument 'cmake_args' from command line to 'None'
+[7.851s] Level 5:colcon.colcon_core.verb:set package 'emo_voice_interfaces' build argument 'cmake_target' from command line to 'None'
+[7.851s] Level 5:colcon.colcon_core.verb:set package 'emo_voice_interfaces' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[7.851s] Level 5:colcon.colcon_core.verb:set package 'emo_voice_interfaces' build argument 'cmake_clean_cache' from command line to 'False'
+[7.852s] Level 5:colcon.colcon_core.verb:set package 'emo_voice_interfaces' build argument 'cmake_clean_first' from command line to 'False'
+[7.852s] Level 5:colcon.colcon_core.verb:set package 'emo_voice_interfaces' build argument 'cmake_force_configure' from command line to 'False'
+[7.852s] Level 5:colcon.colcon_core.verb:set package 'emo_voice_interfaces' build argument 'ament_cmake_args' from command line to 'None'
+[7.852s] Level 5:colcon.colcon_core.verb:set package 'emo_voice_interfaces' build argument 'catkin_cmake_args' from command line to 'None'
+[7.852s] Level 5:colcon.colcon_core.verb:set package 'emo_voice_interfaces' build argument 'catkin_skip_building_tests' from command line to 'False'
+[7.852s] DEBUG:colcon.colcon_core.verb:Building package 'emo_voice_interfaces' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/user/ros2_emo_voice/build/emo_voice_interfaces', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/user/ros2_emo_voice/install/emo_voice_interfaces', 'merge_install': False, 'path': '/home/user/ros2_emo_voice/src/emo_voice_interfaces', 'symlink_install': False, 'test_result_base': None}
+[7.903s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[7.956s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[7.957s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/user/ros2_emo_voice/src/emo_voice' with build type 'ament_python'
+[7.957s] Level 1:colcon.colcon_core.shell:create_environment_hook('emo_voice', 'ament_prefix_path')
+[8.045s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[8.046s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/user/ros2_emo_voice/install/emo_voice/share/emo_voice/hook/ament_prefix_path.ps1'
+[8.053s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/user/ros2_emo_voice/install/emo_voice/share/emo_voice/hook/ament_prefix_path.dsv'
+[8.058s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/user/ros2_emo_voice/install/emo_voice/share/emo_voice/hook/ament_prefix_path.sh'
+[8.178s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[8.178s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[8.419s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/user/ros2_emo_voice/src/emo_voice_interfaces' with build type 'ament_cmake'
+[8.421s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/user/ros2_emo_voice/src/emo_voice_interfaces'
+[8.488s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[8.488s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[9.661s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/user/ros2_emo_voice/src/emo_voice'
+[9.714s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[9.714s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[10.020s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/user/ros2_emo_voice/build/emo_voice_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/user/ros2_emo_voice/install/emo_voice:/home/user/ros2_ws/install/mytest:/opt/ros/humble /usr/bin/cmake --build /home/user/ros2_emo_voice/build/emo_voice_interfaces -- -j2 -l2
+[13.072s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/user/ros2_emo_voice/src/emo_voice': PYTHONPATH=/home/user/ros2_emo_voice/build/emo_voice/prefix_override:/home/user/ros2_emo_voice/install/emo_voice/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/emo_voice build --build-base /home/user/ros2_emo_voice/build/emo_voice/build install --record /home/user/ros2_emo_voice/build/emo_voice/install.log --single-version-externally-managed
+[14.567s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/user/ros2_emo_voice/build/emo_voice_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/user/ros2_emo_voice/install/emo_voice:/home/user/ros2_ws/install/mytest:/opt/ros/humble /usr/bin/cmake --build /home/user/ros2_emo_voice/build/emo_voice_interfaces -- -j2 -l2
+[15.088s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/user/ros2_emo_voice/src/emo_voice' returned '0': PYTHONPATH=/home/user/ros2_emo_voice/build/emo_voice/prefix_override:/home/user/ros2_emo_voice/install/emo_voice/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/emo_voice build --build-base /home/user/ros2_emo_voice/build/emo_voice/build install --record /home/user/ros2_emo_voice/build/emo_voice/install.log --single-version-externally-managed
+[15.274s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_emo_voice/install/emo_voice' for CMake module files
+[15.276s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_emo_voice/install/emo_voice' for CMake config files
+[15.284s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_emo_voice/install/emo_voice/lib'
+[15.286s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_emo_voice/install/emo_voice/bin'
+[15.286s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_emo_voice/install/emo_voice/lib/pkgconfig/emo_voice.pc'
+[15.293s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_emo_voice/install/emo_voice/lib/python3.10/site-packages'
+[15.294s] Level 1:colcon.colcon_core.shell:create_environment_hook('emo_voice', 'pythonpath')
+[15.402s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/user/ros2_emo_voice/install/emo_voice/share/emo_voice/hook/pythonpath.ps1'
+[15.405s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/user/ros2_emo_voice/install/emo_voice/share/emo_voice/hook/pythonpath.dsv'
+[15.408s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/user/ros2_emo_voice/install/emo_voice/share/emo_voice/hook/pythonpath.sh'
+[15.412s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_emo_voice/install/emo_voice/bin'
+[15.412s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(emo_voice)
+[15.481s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_emo_voice/install/emo_voice/share/emo_voice/package.ps1'
+[15.487s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/user/ros2_emo_voice/install/emo_voice/share/emo_voice/package.dsv'
+[15.491s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_emo_voice/install/emo_voice/share/emo_voice/package.sh'
+[15.496s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_emo_voice/install/emo_voice/share/emo_voice/package.bash'
+[15.502s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_emo_voice/install/emo_voice/share/emo_voice/package.zsh'
+[15.509s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/user/ros2_emo_voice/install/emo_voice/share/colcon-core/packages/emo_voice)
+[15.576s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/user/ros2_emo_voice/build/emo_voice_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/user/ros2_emo_voice/install/emo_voice:/home/user/ros2_ws/install/mytest:/opt/ros/humble /usr/bin/cmake --install /home/user/ros2_emo_voice/build/emo_voice_interfaces
+[16.133s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(emo_voice_interfaces)
+[16.148s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/user/ros2_emo_voice/build/emo_voice_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/user/ros2_emo_voice/install/emo_voice:/home/user/ros2_ws/install/mytest:/opt/ros/humble /usr/bin/cmake --install /home/user/ros2_emo_voice/build/emo_voice_interfaces
+[16.242s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_emo_voice/install/emo_voice_interfaces' for CMake module files
+[16.244s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_emo_voice/install/emo_voice_interfaces' for CMake config files
+[16.249s] Level 1:colcon.colcon_core.shell:create_environment_hook('emo_voice_interfaces', 'cmake_prefix_path')
+[16.349s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/hook/cmake_prefix_path.ps1'
+[16.352s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/hook/cmake_prefix_path.dsv'
+[16.356s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/hook/cmake_prefix_path.sh'
+[16.360s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_emo_voice/install/emo_voice_interfaces/lib'
+[16.361s] Level 1:colcon.colcon_core.shell:create_environment_hook('emo_voice_interfaces', 'ld_library_path_lib')
+[16.421s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/hook/ld_library_path_lib.ps1'
+[16.423s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/hook/ld_library_path_lib.dsv'
+[16.425s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/hook/ld_library_path_lib.sh'
+[16.428s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_emo_voice/install/emo_voice_interfaces/bin'
+[16.429s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_emo_voice/install/emo_voice_interfaces/lib/pkgconfig/emo_voice_interfaces.pc'
+[16.429s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_emo_voice/install/emo_voice_interfaces/lib/python3.10/site-packages'
+[16.430s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_emo_voice/install/emo_voice_interfaces/bin'
+[16.486s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/package.ps1'
+[16.489s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/package.dsv'
+[16.492s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/package.sh'
+[16.494s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/package.bash'
+[16.496s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/package.zsh'
+[16.499s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/user/ros2_emo_voice/install/emo_voice_interfaces/share/colcon-core/packages/emo_voice_interfaces)
+[17.092s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(emo_voice_interfaces)
+[17.236s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_emo_voice/install/emo_voice_interfaces' for CMake module files
+[17.247s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_emo_voice/install/emo_voice_interfaces' for CMake config files
+[17.248s] Level 1:colcon.colcon_core.shell:create_environment_hook('emo_voice_interfaces', 'cmake_prefix_path')
+[17.329s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/hook/cmake_prefix_path.ps1'
+[17.333s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/hook/cmake_prefix_path.dsv'
+[17.334s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/hook/cmake_prefix_path.sh'
+[17.340s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_emo_voice/install/emo_voice_interfaces/lib'
+[17.340s] Level 1:colcon.colcon_core.shell:create_environment_hook('emo_voice_interfaces', 'ld_library_path_lib')
+[17.440s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/hook/ld_library_path_lib.ps1'
+[17.442s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/hook/ld_library_path_lib.dsv'
+[17.443s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/hook/ld_library_path_lib.sh'
+[17.446s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_emo_voice/install/emo_voice_interfaces/bin'
+[17.446s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_emo_voice/install/emo_voice_interfaces/lib/pkgconfig/emo_voice_interfaces.pc'
+[17.447s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_emo_voice/install/emo_voice_interfaces/lib/python3.10/site-packages'
+[17.448s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_emo_voice/install/emo_voice_interfaces/bin'
+[17.556s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/package.ps1'
+[17.559s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/package.dsv'
+[17.562s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/package.sh'
+[17.565s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/package.bash'
+[17.567s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/package.zsh'
+[17.571s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/user/ros2_emo_voice/install/emo_voice_interfaces/share/colcon-core/packages/emo_voice_interfaces)
+[17.572s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[17.575s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[17.575s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[17.575s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[17.757s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[17.758s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[17.759s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[17.859s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[18.070s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/user/ros2_emo_voice/install/local_setup.ps1'
+[18.081s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/user/ros2_emo_voice/install/_local_setup_util_ps1.py'
+[18.091s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/user/ros2_emo_voice/install/setup.ps1'
+[18.224s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/user/ros2_emo_voice/install/local_setup.sh'
+[18.230s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/user/ros2_emo_voice/install/_local_setup_util_sh.py'
+[18.232s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/user/ros2_emo_voice/install/setup.sh'
+[18.305s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/user/ros2_emo_voice/install/local_setup.bash'
+[18.308s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/user/ros2_emo_voice/install/setup.bash'
+[18.427s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/user/ros2_emo_voice/install/local_setup.zsh'
+[18.431s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/user/ros2_emo_voice/install/setup.zsh'

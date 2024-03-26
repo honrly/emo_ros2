@@ -1,15 +1,19 @@
+import rclpy
+from rclpy.node import Node
+from emo_voice_interfaces.srv import GenText
+
 import requests
 import json
 import pygame
 import io
 import google.generativeai as genai
-import random
+import numpy as np
 
 GEMINI_API_KEY = 'AIzaSyBngdp3djAPSK6MjNQm4U5TjJaACxJepvE'
 
 def vvox_test(text):
     # エンジン起動時に表示されているIP、portを指定
-    host = "127.0.0.1"
+    host = "192.168.0.8"
     port = 50021
     
     # 音声化する文言と話者を指定(3で標準ずんだもんになる)
@@ -31,48 +35,66 @@ def vvox_test(text):
         params=params,
         data=json.dumps(query.json())
     )
+
+    return synthesis.content
     
-    # Pygameを初期化
-    pygame.init()
-    pygame.mixer.init(frequency=24000)
 
-    # 音声を再生
-    voice = io.BytesIO(synthesis.content)
-    pygame.mixer.music.load(voice)
-    pygame.mixer.music.play()
+class VoiceNode(Node):
+    def __init__(self):
+        super().__init__('voice_node')
 
-    # 再生が終わるまで待機
-    while pygame.mixer.music.get_busy():
-        pygame.time.Clock().tick(10)
-
-    # Pygameを終了
-    pygame.mixer.quit()
-    pygame.quit()
-    
-def gen_text_gemini(emo):
-        if emo == 'リラックス':
-            text = f'ある人は{emo}しています。一緒に嬉しくなる反応を1つ簡潔に返してください。'
-        elif emo == '普通':
+        # Gemini初期設定
+        genai.configure(api_key=GEMINI_API_KEY)
+        self.model = genai.GenerativeModel('gemini-pro')
+        
+        self.srv = self.create_service(GenText, 'gen_text_srv', self.gen_text_callback)
+        
+    def gen_text_callback(self, request, response):
+        if request.emo == 'リラックス':
+            text = f'ある人は{request.emo}しています。嬉しいという反応を1つ簡潔に返してください。'
+        elif request.emo == '普通':
             text = f'短い挨拶を1つ返してください。'
-        elif emo == '緊張':
-            text = f'ある人は{emo}しています。その人をリラックスさせるような短い声掛けを1つ返してください。'
+        elif request.emo == '緊張':
+            text = f'ある人は{request.emo}しています。その人をリラックスさせるような短い声掛けを1つ返してください。'
         
         print(text)
-        genai.configure(api_key=GEMINI_API_KEY)
-        model = genai.GenerativeModel('gemini-pro')
-        response = model.generate_content(text)
-        print(response.text)
-        return response.text
+        response_gemini = self.model.generate_content(text)
+        print(response_gemini.text)
+        voice = vvox_test(request.name + response_gemini.text)
+        print("bytes")
+        voice_bytes = bytes(voice)
+        voice_int = np.frombuffer(voice_bytes, dtype=np.int32).tolist()
 
-if __name__ == "__main__":
-    random_val = random.randint(0, 2)
-    if random_val == 0:
-        emo = 'リラックス'
-    elif random_val == 1:
-        emo = '普通'
-    elif random_val == 2:
-        emo = '緊張'
-    print(emo)
-    emo = 'リラックス'
-    text = gen_text_gemini(emo)
-    vvox_test(text)
+        # Assign the list of integers to response.text
+        response.text = voice_int
+        return response
+        # print(type(voice))
+        # print(len(voice))
+        # self.pub_text.publish(response_gemini.text)
+        # values = [int(x) for x in voice]
+        # print("int")
+        # print(len(values))
+        # print(type(values[0]))
+        # response.text = voice
+        # print(len(response.text))
+        # return response
+    
+    def run(self):
+        while rclpy.ok():
+            rclpy.spin(self)
+
+def main(args=None):
+    rclpy.init(args=args)
+    talker = VoiceNode()
+    print("a")
+    try:
+        talker.run()
+    except KeyboardInterrupt:
+        pass
+    finally:
+        talker.destroy_node()
+        rclpy.shutdown()
+
+
+if __name__ == '__main__':
+    main()

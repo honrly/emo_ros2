@@ -1,0 +1,296 @@
+[0.000000] (-) TimerEvent: {}
+[0.002670] (emo_voice) JobQueued: {'identifier': 'emo_voice', 'dependencies': OrderedDict()}
+[0.003025] (emo_voice_interfaces) JobQueued: {'identifier': 'emo_voice_interfaces', 'dependencies': OrderedDict()}
+[0.003128] (emo_voice) JobStarted: {'identifier': 'emo_voice'}
+[0.095857] (-) TimerEvent: {}
+[0.196495] (-) TimerEvent: {}
+[0.297988] (-) TimerEvent: {}
+[0.399339] (-) TimerEvent: {}
+[0.442182] (emo_voice_interfaces) JobStarted: {'identifier': 'emo_voice_interfaces'}
+[0.499564] (-) TimerEvent: {}
+[0.600389] (-) TimerEvent: {}
+[0.701164] (-) TimerEvent: {}
+[0.801847] (-) TimerEvent: {}
+[0.902652] (-) TimerEvent: {}
+[1.003477] (-) TimerEvent: {}
+[1.104145] (-) TimerEvent: {}
+[1.204971] (-) TimerEvent: {}
+[1.309575] (-) TimerEvent: {}
+[1.410073] (-) TimerEvent: {}
+[1.511532] (-) TimerEvent: {}
+[1.613008] (-) TimerEvent: {}
+[1.721748] (-) TimerEvent: {}
+[1.826623] (-) TimerEvent: {}
+[1.927889] (-) TimerEvent: {}
+[2.028822] (-) TimerEvent: {}
+[2.129669] (-) TimerEvent: {}
+[2.230469] (-) TimerEvent: {}
+[2.331134] (-) TimerEvent: {}
+[2.432032] (-) TimerEvent: {}
+[2.532997] (-) TimerEvent: {}
+[2.638865] (-) TimerEvent: {}
+[2.741632] (-) TimerEvent: {}
+[2.850107] (-) TimerEvent: {}
+[2.885631] (emo_voice_interfaces) JobProgress: {'identifier': 'emo_voice_interfaces', 'progress': 'cmake'}
+[2.903198] (emo_voice_interfaces) JobProgress: {'identifier': 'emo_voice_interfaces', 'progress': 'build'}
+[2.904420] (emo_voice_interfaces) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/user/ros2_emo_voice/build/emo_voice_interfaces', '--', '-j2', '-l2'], 'cwd': '/home/user/ros2_emo_voice/build/emo_voice_interfaces', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_US:'), ('USER', 'user'), ('LC_TIME', 'ja_JP.UTF-8'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/user/ros2_emo_voice/install/emo_voice_interfaces/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:'), ('HOME', '/home/user'), ('OLDPWD', '/home/user'), ('DESKTOP_SESSION', 'ubuntu'), ('GAZEBO_MASTER_URI', 'http://localhost:11345'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'ja_JP.UTF-8'), ('SYSTEMD_EXEC_PID', '1782'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/user/ros2_emo_voice/install:/home/user/ros2_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'user'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'user'), ('TERM', 'xterm-256color'), ('GAZEBO_MODEL_PATH', '/usr/share/gazebo-11/models:'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('OGRE_RESOURCE_PATH', '/usr/lib/x86_64-linux-gnu/OGRE-1.9.0'), ('PATH', '/opt/ros/humble/bin:/home/user/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/vmw2204:@/tmp/.ICE-unix/1740,unix/vmw2204:/tmp/.ICE-unix/1740'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'ja_JP.UTF-8'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/25017816_ae6a_4570_9dfd_3e385bdd4b68'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'ja_JP.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.U264K2'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.109'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('ROS_DOMAIN_ID', '30'), ('AMENT_PREFIX_PATH', '/home/user/ros2_emo_voice/install/emo_voice_interfaces:/home/user/ros2_emo_voice/install/emo_voice:/home/user/ros2_ws/install/mytest:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'ja_JP.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'ja_JP.UTF-8'), ('GAZEBO_RESOURCE_PATH', '/usr/share/gazebo-11:'), ('LC_IDENTIFICATION', 'ja_JP.UTF-8'), ('GAZEBO_MODEL_DATABASE_URI', 'http://models.gazebosim.org'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/user/ros2_emo_voice/build/emo_voice_interfaces'), ('TURTLEBOT3_MODEL', 'burger'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('GAZEBO_PLUGIN_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('LDS_MODEL', 'LDS-02'), ('PYTHONPATH', '/home/user/ros2_emo_voice/install/emo_voice_interfaces/local/lib/python3.10/dist-packages:/home/user/ros2_emo_voice/install/emo_voice/lib/python3.10/site-packages:/home/user/ros2_ws/install/mytest/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'ja_JP.UTF-8'), ('LC_PAPER', 'ja_JP.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/user/ros2_emo_voice/install/emo_voice_interfaces:/home/user/ros2_emo_voice/install/emo_voice:/home/user/ros2_ws/install/mytest:/opt/ros/humble')]), 'shell': False}
+[2.995135] (-) TimerEvent: {}
+[3.095752] (-) TimerEvent: {}
+[3.196865] (-) TimerEvent: {}
+[3.298176] (-) TimerEvent: {}
+[3.398968] (-) TimerEvent: {}
+[3.499675] (-) TimerEvent: {}
+[3.600222] (-) TimerEvent: {}
+[3.700705] (-) TimerEvent: {}
+[3.801685] (-) TimerEvent: {}
+[3.902481] (-) TimerEvent: {}
+[3.982785] (emo_voice_interfaces) StdoutLine: {'line': b'[  3%] Built target emo_voice_interfaces__cpp\n'}
+[4.002967] (-) TimerEvent: {}
+[4.103879] (-) TimerEvent: {}
+[4.137928] (emo_voice_interfaces) StdoutLine: {'line': b'[ 12%] Built target emo_voice_interfaces__rosidl_generator_c\n'}
+[4.204058] (-) TimerEvent: {}
+[4.305099] (-) TimerEvent: {}
+[4.406617] (-) TimerEvent: {}
+[4.425374] (emo_voice_interfaces) StdoutLine: {'line': b'[ 12%] Built target ament_cmake_python_copy_emo_voice_interfaces\n'}
+[4.506761] (-) TimerEvent: {}
+[4.607577] (-) TimerEvent: {}
+[4.611710] (emo_voice_interfaces) StdoutLine: {'line': b'[ 22%] Built target emo_voice_interfaces__rosidl_typesupport_fastrtps_cpp\n'}
+[4.707848] (-) TimerEvent: {}
+[4.778509] (emo_voice_interfaces) StdoutLine: {'line': b'[ 32%] Built target emo_voice_interfaces__rosidl_typesupport_introspection_cpp\n'}
+[4.808024] (-) TimerEvent: {}
+[4.909132] (-) TimerEvent: {}
+[4.928677] (emo_voice_interfaces) StdoutLine: {'line': b'[ 41%] Built target emo_voice_interfaces__rosidl_typesupport_cpp\n'}
+[5.009560] (-) TimerEvent: {}
+[5.048210] (emo_voice_interfaces) StdoutLine: {'line': b'[ 51%] Built target emo_voice_interfaces__rosidl_typesupport_fastrtps_c\n'}
+[5.109933] (-) TimerEvent: {}
+[5.211147] (-) TimerEvent: {}
+[5.211878] (emo_voice_interfaces) StdoutLine: {'line': b'[ 61%] Built target emo_voice_interfaces__rosidl_typesupport_introspection_c\n'}
+[5.312040] (-) TimerEvent: {}
+[5.382295] (emo_voice_interfaces) StdoutLine: {'line': b'[ 70%] Built target emo_voice_interfaces__rosidl_typesupport_c\n'}
+[5.412884] (-) TimerEvent: {}
+[5.514519] (-) TimerEvent: {}
+[5.616704] (-) TimerEvent: {}
+[5.718811] (-) TimerEvent: {}
+[5.820085] (-) TimerEvent: {}
+[5.921310] (-) TimerEvent: {}
+[6.022534] (-) TimerEvent: {}
+[6.123974] (-) TimerEvent: {}
+[6.224978] (-) TimerEvent: {}
+[6.326385] (-) TimerEvent: {}
+[6.427386] (-) TimerEvent: {}
+[6.528548] (-) TimerEvent: {}
+[6.629759] (-) TimerEvent: {}
+[6.731061] (-) TimerEvent: {}
+[6.833962] (emo_voice) Command: {'cmd': ['/usr/bin/python3', 'setup.py', 'egg_info', '--egg-base', '../../build/emo_voice', 'build', '--build-base', '/home/user/ros2_emo_voice/build/emo_voice/build', 'install', '--record', '/home/user/ros2_emo_voice/build/emo_voice/install.log', '--single-version-externally-managed'], 'cwd': '/home/user/ros2_emo_voice/src/emo_voice', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'LANGUAGE': 'en_US:', 'USER': 'user', 'LC_TIME': 'ja_JP.UTF-8', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/user/ros2_emo_voice/install/emo_voice_interfaces/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:', 'HOME': '/home/user', 'OLDPWD': '/home/user', 'DESKTOP_SESSION': 'ubuntu', 'GAZEBO_MASTER_URI': 'http://localhost:11345', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'LC_MONETARY': 'ja_JP.UTF-8', 'SYSTEMD_EXEC_PID': '1782', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/user/ros2_emo_voice/install:/home/user/ros2_ws/install', 'ROS_DISTRO': 'humble', 'LOGNAME': 'user', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'user', 'TERM': 'xterm-256color', 'GAZEBO_MODEL_PATH': '/usr/share/gazebo-11/models:', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'ROS_LOCALHOST_ONLY': '0', 'OGRE_RESOURCE_PATH': '/usr/lib/x86_64-linux-gnu/OGRE-1.9.0', 'PATH': '/opt/ros/humble/bin:/home/user/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/vmw2204:@/tmp/.ICE-unix/1740,unix/vmw2204:/tmp/.ICE-unix/1740', 'XDG_MENU_PREFIX': 'gnome-', 'LC_ADDRESS': 'ja_JP.UTF-8', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/25017816_ae6a_4570_9dfd_3e385bdd4b68', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'LC_TELEPHONE': 'ja_JP.UTF-8', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.U264K2', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'GNOME_TERMINAL_SERVICE': ':1.109', 'SSH_AGENT_LAUNCHER': 'gnome-keyring', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'ROS_DOMAIN_ID': '30', 'AMENT_PREFIX_PATH': '/home/user/ros2_emo_voice/install/emo_voice_interfaces:/home/user/ros2_emo_voice/install/emo_voice:/home/user/ros2_ws/install/mytest:/opt/ros/humble', 'SHELL': '/bin/bash', 'LC_NAME': 'ja_JP.UTF-8', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'LC_MEASUREMENT': 'ja_JP.UTF-8', 'GAZEBO_RESOURCE_PATH': '/usr/share/gazebo-11:', 'LC_IDENTIFICATION': 'ja_JP.UTF-8', 'GAZEBO_MODEL_DATABASE_URI': 'http://models.gazebosim.org', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/user/ros2_emo_voice/build/emo_voice', 'TURTLEBOT3_MODEL': 'burger', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'GAZEBO_PLUGIN_PATH': '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'LDS_MODEL': 'LDS-02', 'PYTHONPATH': '/home/user/ros2_emo_voice/build/emo_voice/prefix_override:/home/user/ros2_emo_voice/install/emo_voice/lib/python3.10/site-packages:/home/user/ros2_emo_voice/install/emo_voice_interfaces/local/lib/python3.10/dist-packages:/home/user/ros2_emo_voice/install/emo_voice/lib/python3.10/site-packages:/home/user/ros2_ws/install/mytest/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'LC_NUMERIC': 'ja_JP.UTF-8', 'LC_PAPER': 'ja_JP.UTF-8', 'COLCON': '1', 'VTE_VERSION': '6800', 'CMAKE_PREFIX_PATH': '/home/user/ros2_emo_voice/install/emo_voice_interfaces'}, 'shell': False}
+[6.843508] (-) TimerEvent: {}
+[6.950263] (-) TimerEvent: {}
+[7.051175] (-) TimerEvent: {}
+[7.151835] (-) TimerEvent: {}
+[7.220784] (emo_voice_interfaces) StdoutLine: {'line': b'running egg_info\n'}
+[7.227242] (emo_voice_interfaces) StdoutLine: {'line': b'writing emo_voice_interfaces.egg-info/PKG-INFO\n'}
+[7.227618] (emo_voice_interfaces) StdoutLine: {'line': b'writing dependency_links to emo_voice_interfaces.egg-info/dependency_links.txt\n'}
+[7.227848] (emo_voice_interfaces) StdoutLine: {'line': b'writing top-level names to emo_voice_interfaces.egg-info/top_level.txt\n'}
+[7.233580] (emo_voice_interfaces) StdoutLine: {'line': b"reading manifest file 'emo_voice_interfaces.egg-info/SOURCES.txt'\n"}
+[7.236162] (emo_voice_interfaces) StdoutLine: {'line': b"writing manifest file 'emo_voice_interfaces.egg-info/SOURCES.txt'\n"}
+[7.251995] (-) TimerEvent: {}
+[7.329757] (emo_voice_interfaces) StdoutLine: {'line': b'[ 70%] Built target ament_cmake_python_build_emo_voice_interfaces_egg\n'}
+[7.352195] (-) TimerEvent: {}
+[7.417771] (emo_voice_interfaces) StdoutLine: {'line': b'[ 70%] Built target emo_voice_interfaces\n'}
+[7.452413] (-) TimerEvent: {}
+[7.545338] (emo_voice_interfaces) StdoutLine: {'line': b'[ 74%] Built target emo_voice_interfaces__py\n'}
+[7.552782] (-) TimerEvent: {}
+[7.653845] (-) TimerEvent: {}
+[7.713103] (emo_voice_interfaces) StdoutLine: {'line': b'[ 80%] Built target emo_voice_interfaces__rosidl_generator_py\n'}
+[7.754023] (-) TimerEvent: {}
+[7.854999] (-) TimerEvent: {}
+[7.859856] (emo_voice_interfaces) StdoutLine: {'line': b'[ 87%] Built target emo_voice_interfaces__rosidl_typesupport_fastrtps_c__pyext\n'}
+[7.955259] (-) TimerEvent: {}
+[8.014680] (emo_voice_interfaces) StdoutLine: {'line': b'[ 93%] Built target emo_voice_interfaces__rosidl_typesupport_introspection_c__pyext\n'}
+[8.055425] (-) TimerEvent: {}
+[8.102660] (emo_voice) StdoutLine: {'line': b'running egg_info\n'}
+[8.110106] (emo_voice) StdoutLine: {'line': b'writing ../../build/emo_voice/emo_voice.egg-info/PKG-INFO\n'}
+[8.117601] (emo_voice) StdoutLine: {'line': b'writing dependency_links to ../../build/emo_voice/emo_voice.egg-info/dependency_links.txt\n'}
+[8.122852] (emo_voice) StdoutLine: {'line': b'writing entry points to ../../build/emo_voice/emo_voice.egg-info/entry_points.txt\n'}
+[8.127760] (emo_voice) StdoutLine: {'line': b'writing requirements to ../../build/emo_voice/emo_voice.egg-info/requires.txt\n'}
+[8.132918] (emo_voice) StdoutLine: {'line': b'writing top-level names to ../../build/emo_voice/emo_voice.egg-info/top_level.txt\n'}
+[8.146584] (emo_voice) StdoutLine: {'line': b"reading manifest file '../../build/emo_voice/emo_voice.egg-info/SOURCES.txt'\n"}
+[8.152562] (emo_voice) StdoutLine: {'line': b"writing manifest file '../../build/emo_voice/emo_voice.egg-info/SOURCES.txt'\n"}
+[8.155569] (emo_voice) StdoutLine: {'line': b'running build\n'}
+[8.156079] (-) TimerEvent: {}
+[8.156451] (emo_voice) StdoutLine: {'line': b'running build_py\n'}
+[8.170492] (emo_voice) StdoutLine: {'line': b'copying emo_voice/voice.py -> /home/user/ros2_emo_voice/build/emo_voice/build/lib/emo_voice\n'}
+[8.178364] (emo_voice_interfaces) StdoutLine: {'line': b'[100%] Built target emo_voice_interfaces__rosidl_typesupport_c__pyext\n'}
+[8.183137] (emo_voice) StdoutLine: {'line': b'copying emo_voice/client.py -> /home/user/ros2_emo_voice/build/emo_voice/build/lib/emo_voice\n'}
+[8.197300] (emo_voice) StdoutLine: {'line': b'running install\n'}
+[8.201325] (emo_voice) StdoutLine: {'line': b'running install_lib\n'}
+[8.208583] (emo_voice) StdoutLine: {'line': b'copying /home/user/ros2_emo_voice/build/emo_voice/build/lib/emo_voice/voice.py -> /home/user/ros2_emo_voice/install/emo_voice/lib/python3.10/site-packages/emo_voice\n'}
+[8.217973] (emo_voice) StdoutLine: {'line': b'copying /home/user/ros2_emo_voice/build/emo_voice/build/lib/emo_voice/client.py -> /home/user/ros2_emo_voice/install/emo_voice/lib/python3.10/site-packages/emo_voice\n'}
+[8.228865] (emo_voice) StdoutLine: {'line': b'byte-compiling /home/user/ros2_emo_voice/install/emo_voice/lib/python3.10/site-packages/emo_voice/voice.py to voice.cpython-310.pyc\n'}
+[8.311552] (emo_voice) StdoutLine: {'line': b'byte-compiling /home/user/ros2_emo_voice/install/emo_voice/lib/python3.10/site-packages/emo_voice/client.py to client.cpython-310.pyc\n'}
+[8.312237] (-) TimerEvent: {}
+[8.312657] (emo_voice) StdoutLine: {'line': b'running install_data\n'}
+[8.343682] (emo_voice_interfaces) CommandEnded: {'returncode': 0}
+[8.345155] (emo_voice) StdoutLine: {'line': b'running install_egg_info\n'}
+[8.361727] (emo_voice) StdoutLine: {'line': b"removing '/home/user/ros2_emo_voice/install/emo_voice/lib/python3.10/site-packages/emo_voice-0.0.0-py3.10.egg-info' (and everything under it)\n"}
+[8.393709] (emo_voice) StdoutLine: {'line': b'Copying ../../build/emo_voice/emo_voice.egg-info to /home/user/ros2_emo_voice/install/emo_voice/lib/python3.10/site-packages/emo_voice-0.0.0-py3.10.egg-info\n'}
+[8.408127] (emo_voice) StdoutLine: {'line': b'running install_scripts\n'}
+[8.412586] (-) TimerEvent: {}
+[8.513185] (-) TimerEvent: {}
+[8.586551] (emo_voice) StdoutLine: {'line': b'Installing client script to /home/user/ros2_emo_voice/install/emo_voice/lib/emo_voice\n'}
+[8.593729] (emo_voice) StdoutLine: {'line': b'Installing move script to /home/user/ros2_emo_voice/install/emo_voice/lib/emo_voice\n'}
+[8.595669] (emo_voice) StdoutLine: {'line': b'Installing plot script to /home/user/ros2_emo_voice/install/emo_voice/lib/emo_voice\n'}
+[8.597369] (emo_voice) StdoutLine: {'line': b'Installing sensor_pnnx script to /home/user/ros2_emo_voice/install/emo_voice/lib/emo_voice\n'}
+[8.601478] (emo_voice) StdoutLine: {'line': b'Installing server script to /home/user/ros2_emo_voice/install/emo_voice/lib/emo_voice\n'}
+[8.605984] (emo_voice) StdoutLine: {'line': b"writing list of installed files to '/home/user/ros2_emo_voice/build/emo_voice/install.log'\n"}
+[8.613370] (-) TimerEvent: {}
+[8.714202] (-) TimerEvent: {}
+[8.785826] (emo_voice) CommandEnded: {'returncode': 0}
+[8.814651] (-) TimerEvent: {}
+[8.922347] (-) TimerEvent: {}
+[9.023516] (-) TimerEvent: {}
+[9.126434] (-) TimerEvent: {}
+[9.231710] (-) TimerEvent: {}
+[9.269316] (emo_voice) JobEnded: {'identifier': 'emo_voice', 'rc': 0}
+[9.274790] (emo_voice_interfaces) JobProgress: {'identifier': 'emo_voice_interfaces', 'progress': 'install'}
+[9.331929] (-) TimerEvent: {}
+[9.348838] (emo_voice_interfaces) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/user/ros2_emo_voice/build/emo_voice_interfaces'], 'cwd': '/home/user/ros2_emo_voice/build/emo_voice_interfaces', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_US:'), ('USER', 'user'), ('LC_TIME', 'ja_JP.UTF-8'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/user/ros2_emo_voice/install/emo_voice_interfaces/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:'), ('HOME', '/home/user'), ('OLDPWD', '/home/user'), ('DESKTOP_SESSION', 'ubuntu'), ('GAZEBO_MASTER_URI', 'http://localhost:11345'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'ja_JP.UTF-8'), ('SYSTEMD_EXEC_PID', '1782'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/user/ros2_emo_voice/install:/home/user/ros2_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'user'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'user'), ('TERM', 'xterm-256color'), ('GAZEBO_MODEL_PATH', '/usr/share/gazebo-11/models:'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('OGRE_RESOURCE_PATH', '/usr/lib/x86_64-linux-gnu/OGRE-1.9.0'), ('PATH', '/opt/ros/humble/bin:/home/user/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/vmw2204:@/tmp/.ICE-unix/1740,unix/vmw2204:/tmp/.ICE-unix/1740'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'ja_JP.UTF-8'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/25017816_ae6a_4570_9dfd_3e385bdd4b68'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'ja_JP.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.U264K2'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.109'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('ROS_DOMAIN_ID', '30'), ('AMENT_PREFIX_PATH', '/home/user/ros2_emo_voice/install/emo_voice_interfaces:/home/user/ros2_emo_voice/install/emo_voice:/home/user/ros2_ws/install/mytest:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'ja_JP.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'ja_JP.UTF-8'), ('GAZEBO_RESOURCE_PATH', '/usr/share/gazebo-11:'), ('LC_IDENTIFICATION', 'ja_JP.UTF-8'), ('GAZEBO_MODEL_DATABASE_URI', 'http://models.gazebosim.org'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/user/ros2_emo_voice/build/emo_voice_interfaces'), ('TURTLEBOT3_MODEL', 'burger'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('GAZEBO_PLUGIN_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('LDS_MODEL', 'LDS-02'), ('PYTHONPATH', '/home/user/ros2_emo_voice/install/emo_voice_interfaces/local/lib/python3.10/dist-packages:/home/user/ros2_emo_voice/install/emo_voice/lib/python3.10/site-packages:/home/user/ros2_ws/install/mytest/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'ja_JP.UTF-8'), ('LC_PAPER', 'ja_JP.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/user/ros2_emo_voice/install/emo_voice_interfaces:/home/user/ros2_emo_voice/install/emo_voice:/home/user/ros2_ws/install/mytest:/opt/ros/humble')]), 'shell': False}
+[9.428464] (emo_voice_interfaces) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[9.432410] (-) TimerEvent: {}
+[9.436116] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/ament_index/resource_index/rosidl_interfaces/emo_voice_interfaces\n'}
+[9.437641] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces\n'}
+[9.438920] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/msg\n'}
+[9.439659] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/msg/rosidl_generator_c__visibility_control.h\n'}
+[9.440247] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/srv\n'}
+[9.440872] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/srv/detail\n'}
+[9.441567] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/srv/detail/gen_text__struct.h\n'}
+[9.442398] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/srv/detail/gen_text__type_support.h\n'}
+[9.443620] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/srv/detail/gen_text__functions.h\n'}
+[9.444228] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/srv/detail/gen_text__functions.c\n'}
+[9.444833] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/srv/gen_text.h\n'}
+[9.445685] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/environment/library_path.sh\n'}
+[9.446675] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/environment/library_path.dsv\n'}
+[9.454220] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/lib/libemo_voice_interfaces__rosidl_generator_c.so\n'}
+[9.458127] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces\n'}
+[9.458769] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/msg\n'}
+[9.461288] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/msg/rosidl_typesupport_fastrtps_c__visibility_control.h\n'}
+[9.461977] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/srv\n'}
+[9.462480] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/srv/detail\n'}
+[9.463006] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/srv/detail/gen_text__rosidl_typesupport_fastrtps_c.h\n'}
+[9.466079] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/lib/libemo_voice_interfaces__rosidl_typesupport_fastrtps_c.so\n'}
+[9.469208] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces\n'}
+[9.472670] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/msg\n'}
+[9.474312] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/msg/rosidl_typesupport_introspection_c__visibility_control.h\n'}
+[9.475378] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/srv\n'}
+[9.478010] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/srv/detail\n'}
+[9.479034] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/srv/detail/gen_text__rosidl_typesupport_introspection_c.h\n'}
+[9.479809] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/srv/detail/gen_text__type_support.c\n'}
+[9.481703] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/lib/libemo_voice_interfaces__rosidl_typesupport_introspection_c.so\n'}
+[9.484720] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/lib/libemo_voice_interfaces__rosidl_typesupport_c.so\n'}
+[9.487648] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces\n'}
+[9.488810] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/srv\n'}
+[9.489998] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/srv/detail\n'}
+[9.491055] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/srv/detail/gen_text__traits.hpp\n'}
+[9.491865] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/srv/detail/gen_text__struct.hpp\n'}
+[9.492706] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/srv/detail/gen_text__builder.hpp\n'}
+[9.493881] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/srv/gen_text.hpp\n'}
+[9.494964] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces\n'}
+[9.495961] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/msg\n'}
+[9.496838] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h\n'}
+[9.497680] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/srv\n'}
+[9.498563] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/srv/detail\n'}
+[9.499469] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/srv/detail/gen_text__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[9.500569] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/srv/detail/dds_fastrtps\n'}
+[9.502619] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/lib/libemo_voice_interfaces__rosidl_typesupport_fastrtps_cpp.so\n'}
+[9.504480] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces\n'}
+[9.505362] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/srv\n'}
+[9.506282] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/srv/detail\n'}
+[9.507171] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/srv/detail/gen_text__rosidl_typesupport_introspection_cpp.hpp\n'}
+[9.507965] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/srv/detail/gen_text__type_support.cpp\n'}
+[9.510468] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/lib/libemo_voice_interfaces__rosidl_typesupport_introspection_cpp.so\n'}
+[9.513340] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/lib/libemo_voice_interfaces__rosidl_typesupport_cpp.so\n'}
+[9.515248] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/environment/pythonpath.sh\n'}
+[9.516160] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/environment/pythonpath.dsv\n'}
+[9.517300] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/local/lib/python3.10/dist-packages/emo_voice_interfaces-0.0.0-py3.10.egg-info\n'}
+[9.518297] (emo_voice_interfaces) StdoutLine: {'line': b'-- Installing: /home/user/ros2_emo_voice/install/emo_voice_interfaces/local/lib/python3.10/dist-packages/emo_voice_interfaces-0.0.0-py3.10.egg-info/top_level.txt\n'}
+[9.520962] (emo_voice_interfaces) StdoutLine: {'line': b'-- Installing: /home/user/ros2_emo_voice/install/emo_voice_interfaces/local/lib/python3.10/dist-packages/emo_voice_interfaces-0.0.0-py3.10.egg-info/PKG-INFO\n'}
+[9.523388] (emo_voice_interfaces) StdoutLine: {'line': b'-- Installing: /home/user/ros2_emo_voice/install/emo_voice_interfaces/local/lib/python3.10/dist-packages/emo_voice_interfaces-0.0.0-py3.10.egg-info/SOURCES.txt\n'}
+[9.525938] (emo_voice_interfaces) StdoutLine: {'line': b'-- Installing: /home/user/ros2_emo_voice/install/emo_voice_interfaces/local/lib/python3.10/dist-packages/emo_voice_interfaces-0.0.0-py3.10.egg-info/dependency_links.txt\n'}
+[9.527557] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/local/lib/python3.10/dist-packages/emo_voice_interfaces\n'}
+[9.528379] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/local/lib/python3.10/dist-packages/emo_voice_interfaces/_emo_voice_interfaces_s.ep.rosidl_typesupport_c.c\n'}
+[9.529103] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/local/lib/python3.10/dist-packages/emo_voice_interfaces/_emo_voice_interfaces_s.ep.rosidl_typesupport_introspection_c.c\n'}
+[9.529920] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/local/lib/python3.10/dist-packages/emo_voice_interfaces/_emo_voice_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c\n'}
+[9.530494] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/local/lib/python3.10/dist-packages/emo_voice_interfaces/emo_voice_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\n'}
+[9.531751] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/local/lib/python3.10/dist-packages/emo_voice_interfaces/__init__.py\n'}
+[9.532675] (-) TimerEvent: {}
+[9.533496] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/local/lib/python3.10/dist-packages/emo_voice_interfaces/emo_voice_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\n'}
+[9.534004] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/local/lib/python3.10/dist-packages/emo_voice_interfaces/emo_voice_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\n'}
+[9.534548] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/local/lib/python3.10/dist-packages/emo_voice_interfaces/srv\n'}
+[9.535110] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/local/lib/python3.10/dist-packages/emo_voice_interfaces/srv/_gen_text_s.c\n'}
+[9.535720] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/local/lib/python3.10/dist-packages/emo_voice_interfaces/srv/_gen_text.py\n'}
+[9.536150] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/local/lib/python3.10/dist-packages/emo_voice_interfaces/srv/__init__.py\n'}
+[9.536782] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/local/lib/python3.10/dist-packages/emo_voice_interfaces/libemo_voice_interfaces__rosidl_generator_py.so\n'}
+[9.632882] (-) TimerEvent: {}
+[9.687211] (emo_voice_interfaces) StdoutLine: {'line': b"Listing '/home/user/ros2_emo_voice/install/emo_voice_interfaces/local/lib/python3.10/dist-packages/emo_voice_interfaces'...\n"}
+[9.687493] (emo_voice_interfaces) StdoutLine: {'line': b"Listing '/home/user/ros2_emo_voice/install/emo_voice_interfaces/local/lib/python3.10/dist-packages/emo_voice_interfaces/srv'...\n"}
+[9.697674] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/local/lib/python3.10/dist-packages/emo_voice_interfaces/emo_voice_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\n'}
+[9.705893] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/local/lib/python3.10/dist-packages/emo_voice_interfaces/emo_voice_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\n'}
+[9.706272] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/local/lib/python3.10/dist-packages/emo_voice_interfaces/emo_voice_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\n'}
+[9.706466] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/lib/libemo_voice_interfaces__rosidl_generator_py.so\n'}
+[9.706645] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/srv/GenText.idl\n'}
+[9.706812] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/srv/GenText.srv\n'}
+[9.707023] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/srv/GenText_Request.msg\n'}
+[9.707206] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/srv/GenText_Response.msg\n'}
+[9.707372] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/ament_index/resource_index/package_run_dependencies/emo_voice_interfaces\n'}
+[9.707540] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/ament_index/resource_index/parent_prefix_path/emo_voice_interfaces\n'}
+[9.707726] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/environment/ament_prefix_path.sh\n'}
+[9.707897] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/environment/ament_prefix_path.dsv\n'}
+[9.708061] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/environment/path.sh\n'}
+[9.708230] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/environment/path.dsv\n'}
+[9.708401] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/local_setup.bash\n'}
+[9.709133] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/local_setup.sh\n'}
+[9.709335] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/local_setup.zsh\n'}
+[9.709708] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/local_setup.dsv\n'}
+[9.709904] (emo_voice_interfaces) StdoutLine: {'line': b'-- Installing: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/package.dsv\n'}
+[9.710877] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/ament_index/resource_index/packages/emo_voice_interfaces\n'}
+[9.712644] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/cmake/export_emo_voice_interfaces__rosidl_generator_cExport.cmake\n'}
+[9.713247] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/cmake/export_emo_voice_interfaces__rosidl_generator_cExport-noconfig.cmake\n'}
+[9.719335] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/cmake/export_emo_voice_interfaces__rosidl_typesupport_fastrtps_cExport.cmake\n'}
+[9.720161] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/cmake/export_emo_voice_interfaces__rosidl_typesupport_fastrtps_cExport-noconfig.cmake\n'}
+[9.721695] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/cmake/emo_voice_interfaces__rosidl_typesupport_introspection_cExport.cmake\n'}
+[9.722537] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/cmake/emo_voice_interfaces__rosidl_typesupport_introspection_cExport-noconfig.cmake\n'}
+[9.724280] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/cmake/emo_voice_interfaces__rosidl_typesupport_cExport.cmake\n'}
+[9.724938] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/cmake/emo_voice_interfaces__rosidl_typesupport_cExport-noconfig.cmake\n'}
+[9.729855] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/cmake/export_emo_voice_interfaces__rosidl_generator_cppExport.cmake\n'}
+[9.731738] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/cmake/export_emo_voice_interfaces__rosidl_typesupport_fastrtps_cppExport.cmake\n'}
+[9.732977] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/cmake/export_emo_voice_interfaces__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake\n'}
+[9.733275] (-) TimerEvent: {}
+[9.734966] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/cmake/emo_voice_interfaces__rosidl_typesupport_introspection_cppExport.cmake\n'}
+[9.735612] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/cmake/emo_voice_interfaces__rosidl_typesupport_introspection_cppExport-noconfig.cmake\n'}
+[9.737492] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/cmake/emo_voice_interfaces__rosidl_typesupport_cppExport.cmake\n'}
+[9.738634] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/cmake/emo_voice_interfaces__rosidl_typesupport_cppExport-noconfig.cmake\n'}
+[9.740126] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/cmake/export_emo_voice_interfaces__rosidl_generator_pyExport.cmake\n'}
+[9.740799] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/cmake/export_emo_voice_interfaces__rosidl_generator_pyExport-noconfig.cmake\n'}
+[9.741483] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/cmake/rosidl_cmake-extras.cmake\n'}
+[9.744327] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[9.745057] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[9.745771] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[9.746408] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake\n'}
+[9.746993] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[9.747785] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake\n'}
+[9.748471] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/cmake/emo_voice_interfacesConfig.cmake\n'}
+[9.753673] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/cmake/emo_voice_interfacesConfig-version.cmake\n'}
+[9.754295] (emo_voice_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/package.xml\n'}
+[9.769703] (emo_voice_interfaces) CommandEnded: {'returncode': 0}
+[9.833762] (-) TimerEvent: {}
+[9.935235] (-) TimerEvent: {}
+[10.036655] (-) TimerEvent: {}
+[10.138609] (-) TimerEvent: {}
+[10.239439] (-) TimerEvent: {}
+[10.340426] (-) TimerEvent: {}
+[10.441561] (-) TimerEvent: {}
+[10.542632] (-) TimerEvent: {}
+[10.645237] (-) TimerEvent: {}
+[10.758052] (-) TimerEvent: {}
+[10.861699] (-) TimerEvent: {}
+[10.871310] (emo_voice_interfaces) JobEnded: {'identifier': 'emo_voice_interfaces', 'rc': 0}
+[10.886982] (-) EventReactorShutdown: {}

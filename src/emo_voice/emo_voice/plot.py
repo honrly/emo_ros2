@@ -18,7 +18,7 @@ class PlotNode(Node):
         self.line, = self.ax.plot(self.x, self.y)
         self.line_rest, = self.ax.plot(self.x, self.y_rest, 'r--')  # pnnx_rest_ave の線を赤色で追加
 
-        self.create_subscription(Int32, 'serial_pnnx', self.graph_callback, 10)
+        self.create_subscription(Int32, 'sensor_pnnx', self.graph_callback, 10)
         self.create_subscription(Int32, 'pnnx_rest_ave', self.pnnx_rest_ave_callback, 10)
     
     def graph_callback(self, msg_pnnx):

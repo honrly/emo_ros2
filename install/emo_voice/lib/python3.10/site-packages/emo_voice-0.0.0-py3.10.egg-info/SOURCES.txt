@@ -9,10 +9,12 @@ setup.py
 ../../build/emo_voice/emo_voice.egg-info/top_level.txt
 ../../build/emo_voice/emo_voice.egg-info/zip-safe
 emo_voice/__init__.py
-emo_voice/gemini.py
+emo_voice/client.py
 emo_voice/move.py
 emo_voice/plot.py
 emo_voice/sensor_pnnx.py
+emo_voice/server_gentext.py
+emo_voice/test_voice.py
 emo_voice/voice.py
 resource/emo_voice
 test/test_copyright.py

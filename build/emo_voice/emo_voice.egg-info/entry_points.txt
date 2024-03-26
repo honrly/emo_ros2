@@ -1,5 +1,7 @@
 [console_scripts]
+client = emo_voice.client:main
 move = emo_voice.move:main
 plot = emo_voice.plot:main
 sensor_pnnx = emo_voice.sensor_pnnx:main
+server = emo_voice.voice:main
 

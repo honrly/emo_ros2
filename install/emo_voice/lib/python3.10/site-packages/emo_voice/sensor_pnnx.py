@@ -13,7 +13,7 @@ class SensorNode(Node):
     def __init__(self):
         super().__init__('sensor_node')
         
-        self.pub_pnnx = self.create_publisher(Int32, 'serial_pnnx', 10)
+        self.pub_pnnx = self.create_publisher(Int32, 'sensor_pnnx', 10)
         self.pnnx = Int32() # pnnx
         self.pnnx.data = 0 # 送信データ
 

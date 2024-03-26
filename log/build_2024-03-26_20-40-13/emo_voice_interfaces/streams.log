@@ -1,0 +1,222 @@
+[2.171s] Invoking command in '/home/user/ros2_emo_voice/build/emo_voice_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/user/ros2_emo_voice/install/emo_voice:/home/user/ros2_ws/install/mytest:/opt/ros/humble /usr/bin/cmake --build /home/user/ros2_emo_voice/build/emo_voice_interfaces -- -j2 -l2
+[2.569s] -- Found ament_cmake: 1.3.6 (/opt/ros/humble/share/ament_cmake/cmake)
+[3.166s] -- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)
+[3.181s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[3.200s] -- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[3.454s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[4.616s] -- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)
+[5.296s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[6.366s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[6.462s] -- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)
+[6.569s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[6.569s] -- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10
+[6.570s] -- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so
+[6.621s] -- Found ament_lint_auto: 0.12.9 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[6.725s] -- Added test 'lint_cmake' to check CMake code style
+[6.735s] -- Added test 'xmllint' to check XML markup files
+[6.765s] -- Configuring done
+[7.139s] -- Generating done
+[7.174s] -- Build files have been written to: /home/user/ros2_emo_voice/build/emo_voice_interfaces
+[7.393s] [  3%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[8.429s] [  3%] Built target emo_voice_interfaces__cpp
+[8.475s] [  6%] [34m[1mGenerating C code for ROS interfaces[0m
+[9.556s] [35m[1mConsolidate compiler generated dependencies of target emo_voice_interfaces__rosidl_generator_c[0m
+[9.628s] [  9%] [32mBuilding C object CMakeFiles/emo_voice_interfaces__rosidl_generator_c.dir/rosidl_generator_c/emo_voice_interfaces/srv/detail/gen_text__functions.c.o[0m
+[10.613s] [ 12%] [32m[1mLinking C shared library libemo_voice_interfaces__rosidl_generator_c.so[0m
+[11.095s] [ 12%] Built target emo_voice_interfaces__rosidl_generator_c
+[11.462s] [ 12%] Built target ament_cmake_python_copy_emo_voice_interfaces
+[11.570s] [ 16%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[12.662s] [35m[1mConsolidate compiler generated dependencies of target emo_voice_interfaces__rosidl_typesupport_cpp[0m
+[12.827s] [ 19%] [32mBuilding CXX object CMakeFiles/emo_voice_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/emo_voice_interfaces/srv/gen_text__type_support.cpp.o[0m
+[15.198s] [ 22%] [32m[1mLinking CXX shared library libemo_voice_interfaces__rosidl_typesupport_cpp.so[0m
+[15.509s] [ 22%] Built target emo_voice_interfaces__rosidl_typesupport_cpp
+[15.610s] [ 25%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[16.627s] [35m[1mConsolidate compiler generated dependencies of target emo_voice_interfaces__rosidl_typesupport_fastrtps_c[0m
+[16.704s] [ 29%] [32mBuilding CXX object CMakeFiles/emo_voice_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/emo_voice_interfaces/srv/detail/gen_text__type_support_c.cpp.o[0m
+[18.707s] [ 32%] [32m[1mLinking CXX shared library libemo_voice_interfaces__rosidl_typesupport_fastrtps_c.so[0m
+[19.399s] [ 32%] Built target emo_voice_interfaces__rosidl_typesupport_fastrtps_c
+[19.503s] [ 35%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[20.446s] [35m[1mConsolidate compiler generated dependencies of target emo_voice_interfaces__rosidl_typesupport_introspection_c[0m
+[20.508s] [ 38%] [32mBuilding C object CMakeFiles/emo_voice_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/emo_voice_interfaces/srv/detail/gen_text__type_support.c.o[0m
+[20.684s] [ 41%] [32m[1mLinking C shared library libemo_voice_interfaces__rosidl_typesupport_introspection_c.so[0m
+[20.832s] [ 41%] Built target emo_voice_interfaces__rosidl_typesupport_introspection_c
+[20.890s] [ 45%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[21.626s] [35m[1mConsolidate compiler generated dependencies of target emo_voice_interfaces__rosidl_typesupport_c[0m
+[21.696s] [ 48%] [32mBuilding CXX object CMakeFiles/emo_voice_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/emo_voice_interfaces/srv/gen_text__type_support.cpp.o[0m
+[21.835s] [ 51%] [32m[1mLinking CXX shared library libemo_voice_interfaces__rosidl_typesupport_c.so[0m
+[22.058s] [ 51%] Built target emo_voice_interfaces__rosidl_typesupport_c
+[22.112s] [ 54%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[23.032s] [35m[1mConsolidate compiler generated dependencies of target emo_voice_interfaces__rosidl_typesupport_fastrtps_cpp[0m
+[23.123s] [ 58%] [32mBuilding CXX object CMakeFiles/emo_voice_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/emo_voice_interfaces/srv/detail/dds_fastrtps/gen_text__type_support.cpp.o[0m
+[24.716s] [ 61%] [32m[1mLinking CXX shared library libemo_voice_interfaces__rosidl_typesupport_fastrtps_cpp.so[0m
+[25.063s] [ 61%] Built target emo_voice_interfaces__rosidl_typesupport_fastrtps_cpp
+[25.154s] [ 64%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[25.993s] [35m[1mConsolidate compiler generated dependencies of target emo_voice_interfaces__rosidl_typesupport_introspection_cpp[0m
+[26.059s] [ 67%] [32mBuilding CXX object CMakeFiles/emo_voice_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/emo_voice_interfaces/srv/detail/gen_text__type_support.cpp.o[0m
+[27.765s] [ 70%] [32m[1mLinking CXX shared library libemo_voice_interfaces__rosidl_typesupport_introspection_cpp.so[0m
+[28.056s] [ 70%] Built target emo_voice_interfaces__rosidl_typesupport_introspection_cpp
+[29.073s] running egg_info
+[29.076s] writing emo_voice_interfaces.egg-info/PKG-INFO
+[29.078s] writing dependency_links to emo_voice_interfaces.egg-info/dependency_links.txt
+[29.080s] writing top-level names to emo_voice_interfaces.egg-info/top_level.txt
+[29.090s] reading manifest file 'emo_voice_interfaces.egg-info/SOURCES.txt'
+[29.093s] writing manifest file 'emo_voice_interfaces.egg-info/SOURCES.txt'
+[29.184s] [ 70%] Built target ament_cmake_python_build_emo_voice_interfaces_egg
+[29.281s] [ 70%] Built target emo_voice_interfaces
+[29.413s] [ 74%] [34m[1mGenerating Python code for ROS interfaces[0m
+[30.924s] [ 74%] Built target emo_voice_interfaces__py
+[30.986s] [35m[1mConsolidate compiler generated dependencies of target emo_voice_interfaces__rosidl_generator_py[0m
+[31.080s] [ 77%] [32mBuilding C object CMakeFiles/emo_voice_interfaces__rosidl_generator_py.dir/rosidl_generator_py/emo_voice_interfaces/srv/_gen_text_s.c.o[0m
+[31.918s] [ 80%] [32m[1mLinking C shared library rosidl_generator_py/emo_voice_interfaces/libemo_voice_interfaces__rosidl_generator_py.so[0m
+[32.083s] [ 80%] Built target emo_voice_interfaces__rosidl_generator_py
+[32.143s] [35m[1mConsolidate compiler generated dependencies of target emo_voice_interfaces__rosidl_typesupport_fastrtps_c__pyext[0m
+[32.223s] [ 83%] [32mBuilding C object CMakeFiles/emo_voice_interfaces__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/emo_voice_interfaces/_emo_voice_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[32.659s] [ 87%] [32m[1mLinking C shared library rosidl_generator_py/emo_voice_interfaces/emo_voice_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so[0m
+[32.835s] [ 87%] Built target emo_voice_interfaces__rosidl_typesupport_fastrtps_c__pyext
+[32.880s] [35m[1mConsolidate compiler generated dependencies of target emo_voice_interfaces__rosidl_typesupport_introspection_c__pyext[0m
+[32.938s] [ 90%] [32mBuilding C object CMakeFiles/emo_voice_interfaces__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/emo_voice_interfaces/_emo_voice_interfaces_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[33.364s] [ 93%] [32m[1mLinking C shared library rosidl_generator_py/emo_voice_interfaces/emo_voice_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so[0m
+[33.512s] [ 93%] Built target emo_voice_interfaces__rosidl_typesupport_introspection_c__pyext
+[33.561s] [35m[1mConsolidate compiler generated dependencies of target emo_voice_interfaces__rosidl_typesupport_c__pyext[0m
+[33.639s] [ 96%] [32mBuilding C object CMakeFiles/emo_voice_interfaces__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/emo_voice_interfaces/_emo_voice_interfaces_s.ep.rosidl_typesupport_c.c.o[0m
+[33.991s] [100%] [32m[1mLinking C shared library rosidl_generator_py/emo_voice_interfaces/emo_voice_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so[0m
+[34.145s] [100%] Built target emo_voice_interfaces__rosidl_typesupport_c__pyext
+[34.222s] Invoked command in '/home/user/ros2_emo_voice/build/emo_voice_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/user/ros2_emo_voice/install/emo_voice:/home/user/ros2_ws/install/mytest:/opt/ros/humble /usr/bin/cmake --build /home/user/ros2_emo_voice/build/emo_voice_interfaces -- -j2 -l2
+[34.731s] Invoking command in '/home/user/ros2_emo_voice/build/emo_voice_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/user/ros2_emo_voice/install/emo_voice:/home/user/ros2_ws/install/mytest:/opt/ros/humble /usr/bin/cmake --install /home/user/ros2_emo_voice/build/emo_voice_interfaces
+[34.768s] -- Install configuration: ""
+[34.780s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/ament_index/resource_index/rosidl_interfaces/emo_voice_interfaces
+[34.783s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces
+[34.786s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/msg
+[34.787s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/msg/rosidl_generator_c__visibility_control.h
+[34.787s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/srv
+[34.796s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/srv/detail
+[34.796s] -- Installing: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/srv/detail/gen_text__struct.h
+[34.797s] -- Installing: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/srv/detail/gen_text__type_support.h
+[34.797s] -- Installing: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/srv/detail/gen_text__functions.h
+[34.797s] -- Installing: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/srv/detail/gen_text__functions.c
+[34.798s] -- Installing: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/srv/gen_text.h
+[34.798s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/environment/library_path.sh
+[34.799s] -- Installing: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/environment/library_path.dsv
+[34.807s] -- Installing: /home/user/ros2_emo_voice/install/emo_voice_interfaces/lib/libemo_voice_interfaces__rosidl_generator_c.so
+[34.808s] -- Set runtime path of "/home/user/ros2_emo_voice/install/emo_voice_interfaces/lib/libemo_voice_interfaces__rosidl_generator_c.so" to ""
+[34.810s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces
+[34.810s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/msg
+[34.816s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[34.817s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/srv
+[34.817s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/srv/detail
+[34.822s] -- Installing: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/srv/detail/gen_text__rosidl_typesupport_fastrtps_c.h
+[34.823s] -- Installing: /home/user/ros2_emo_voice/install/emo_voice_interfaces/lib/libemo_voice_interfaces__rosidl_typesupport_fastrtps_c.so
+[34.823s] -- Set runtime path of "/home/user/ros2_emo_voice/install/emo_voice_interfaces/lib/libemo_voice_interfaces__rosidl_typesupport_fastrtps_c.so" to ""
+[34.823s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces
+[34.823s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/msg
+[34.824s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[34.824s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/srv
+[34.824s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/srv/detail
+[34.824s] -- Installing: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/srv/detail/gen_text__rosidl_typesupport_introspection_c.h
+[34.824s] -- Installing: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/srv/detail/gen_text__type_support.c
+[34.825s] -- Installing: /home/user/ros2_emo_voice/install/emo_voice_interfaces/lib/libemo_voice_interfaces__rosidl_typesupport_introspection_c.so
+[34.825s] -- Set runtime path of "/home/user/ros2_emo_voice/install/emo_voice_interfaces/lib/libemo_voice_interfaces__rosidl_typesupport_introspection_c.so" to ""
+[34.829s] -- Installing: /home/user/ros2_emo_voice/install/emo_voice_interfaces/lib/libemo_voice_interfaces__rosidl_typesupport_c.so
+[34.830s] -- Set runtime path of "/home/user/ros2_emo_voice/install/emo_voice_interfaces/lib/libemo_voice_interfaces__rosidl_typesupport_c.so" to ""
+[34.831s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces
+[34.831s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/srv
+[34.831s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/srv/detail
+[34.831s] -- Installing: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/srv/detail/gen_text__traits.hpp
+[34.831s] -- Installing: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/srv/detail/gen_text__struct.hpp
+[34.835s] -- Installing: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/srv/detail/gen_text__builder.hpp
+[34.837s] -- Installing: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/srv/gen_text.hpp
+[34.837s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces
+[34.837s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/msg
+[34.838s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[34.842s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/srv
+[34.843s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/srv/detail
+[34.846s] -- Installing: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/srv/detail/gen_text__rosidl_typesupport_fastrtps_cpp.hpp
+[34.846s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/srv/detail/dds_fastrtps
+[34.850s] -- Installing: /home/user/ros2_emo_voice/install/emo_voice_interfaces/lib/libemo_voice_interfaces__rosidl_typesupport_fastrtps_cpp.so
+[34.850s] -- Set runtime path of "/home/user/ros2_emo_voice/install/emo_voice_interfaces/lib/libemo_voice_interfaces__rosidl_typesupport_fastrtps_cpp.so" to ""
+[34.850s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces
+[34.850s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/srv
+[34.851s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/srv/detail
+[34.851s] -- Installing: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/srv/detail/gen_text__rosidl_typesupport_introspection_cpp.hpp
+[34.851s] -- Installing: /home/user/ros2_emo_voice/install/emo_voice_interfaces/include/emo_voice_interfaces/emo_voice_interfaces/srv/detail/gen_text__type_support.cpp
+[34.851s] -- Installing: /home/user/ros2_emo_voice/install/emo_voice_interfaces/lib/libemo_voice_interfaces__rosidl_typesupport_introspection_cpp.so
+[34.851s] -- Set runtime path of "/home/user/ros2_emo_voice/install/emo_voice_interfaces/lib/libemo_voice_interfaces__rosidl_typesupport_introspection_cpp.so" to ""
+[34.852s] -- Installing: /home/user/ros2_emo_voice/install/emo_voice_interfaces/lib/libemo_voice_interfaces__rosidl_typesupport_cpp.so
+[34.856s] -- Set runtime path of "/home/user/ros2_emo_voice/install/emo_voice_interfaces/lib/libemo_voice_interfaces__rosidl_typesupport_cpp.so" to ""
+[34.857s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/environment/pythonpath.sh
+[34.863s] -- Installing: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/environment/pythonpath.dsv
+[34.863s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/local/lib/python3.10/dist-packages/emo_voice_interfaces-0.0.0-py3.10.egg-info
+[34.863s] -- Installing: /home/user/ros2_emo_voice/install/emo_voice_interfaces/local/lib/python3.10/dist-packages/emo_voice_interfaces-0.0.0-py3.10.egg-info/top_level.txt
+[34.864s] -- Installing: /home/user/ros2_emo_voice/install/emo_voice_interfaces/local/lib/python3.10/dist-packages/emo_voice_interfaces-0.0.0-py3.10.egg-info/PKG-INFO
+[34.864s] -- Installing: /home/user/ros2_emo_voice/install/emo_voice_interfaces/local/lib/python3.10/dist-packages/emo_voice_interfaces-0.0.0-py3.10.egg-info/SOURCES.txt
+[34.864s] -- Installing: /home/user/ros2_emo_voice/install/emo_voice_interfaces/local/lib/python3.10/dist-packages/emo_voice_interfaces-0.0.0-py3.10.egg-info/dependency_links.txt
+[34.864s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/local/lib/python3.10/dist-packages/emo_voice_interfaces
+[34.865s] -- Installing: /home/user/ros2_emo_voice/install/emo_voice_interfaces/local/lib/python3.10/dist-packages/emo_voice_interfaces/_emo_voice_interfaces_s.ep.rosidl_typesupport_c.c
+[34.866s] -- Installing: /home/user/ros2_emo_voice/install/emo_voice_interfaces/local/lib/python3.10/dist-packages/emo_voice_interfaces/_emo_voice_interfaces_s.ep.rosidl_typesupport_introspection_c.c
+[34.866s] -- Installing: /home/user/ros2_emo_voice/install/emo_voice_interfaces/local/lib/python3.10/dist-packages/emo_voice_interfaces/_emo_voice_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c
+[34.866s] -- Installing: /home/user/ros2_emo_voice/install/emo_voice_interfaces/local/lib/python3.10/dist-packages/emo_voice_interfaces/emo_voice_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[34.866s] -- Installing: /home/user/ros2_emo_voice/install/emo_voice_interfaces/local/lib/python3.10/dist-packages/emo_voice_interfaces/__init__.py
+[34.866s] -- Installing: /home/user/ros2_emo_voice/install/emo_voice_interfaces/local/lib/python3.10/dist-packages/emo_voice_interfaces/emo_voice_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[34.867s] -- Installing: /home/user/ros2_emo_voice/install/emo_voice_interfaces/local/lib/python3.10/dist-packages/emo_voice_interfaces/emo_voice_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[34.867s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/local/lib/python3.10/dist-packages/emo_voice_interfaces/srv
+[34.867s] -- Installing: /home/user/ros2_emo_voice/install/emo_voice_interfaces/local/lib/python3.10/dist-packages/emo_voice_interfaces/srv/_gen_text_s.c
+[34.867s] -- Installing: /home/user/ros2_emo_voice/install/emo_voice_interfaces/local/lib/python3.10/dist-packages/emo_voice_interfaces/srv/_gen_text.py
+[34.867s] -- Installing: /home/user/ros2_emo_voice/install/emo_voice_interfaces/local/lib/python3.10/dist-packages/emo_voice_interfaces/srv/__init__.py
+[34.867s] -- Installing: /home/user/ros2_emo_voice/install/emo_voice_interfaces/local/lib/python3.10/dist-packages/emo_voice_interfaces/libemo_voice_interfaces__rosidl_generator_py.so
+[35.022s] Listing '/home/user/ros2_emo_voice/install/emo_voice_interfaces/local/lib/python3.10/dist-packages/emo_voice_interfaces'...
+[35.022s] Compiling '/home/user/ros2_emo_voice/install/emo_voice_interfaces/local/lib/python3.10/dist-packages/emo_voice_interfaces/__init__.py'...
+[35.023s] Listing '/home/user/ros2_emo_voice/install/emo_voice_interfaces/local/lib/python3.10/dist-packages/emo_voice_interfaces/srv'...
+[35.023s] Compiling '/home/user/ros2_emo_voice/install/emo_voice_interfaces/local/lib/python3.10/dist-packages/emo_voice_interfaces/srv/__init__.py'...
+[35.023s] Compiling '/home/user/ros2_emo_voice/install/emo_voice_interfaces/local/lib/python3.10/dist-packages/emo_voice_interfaces/srv/_gen_text.py'...
+[35.045s] -- Installing: /home/user/ros2_emo_voice/install/emo_voice_interfaces/local/lib/python3.10/dist-packages/emo_voice_interfaces/emo_voice_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[35.046s] -- Set runtime path of "/home/user/ros2_emo_voice/install/emo_voice_interfaces/local/lib/python3.10/dist-packages/emo_voice_interfaces/emo_voice_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so" to ""
+[35.046s] -- Installing: /home/user/ros2_emo_voice/install/emo_voice_interfaces/local/lib/python3.10/dist-packages/emo_voice_interfaces/emo_voice_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[35.046s] -- Set runtime path of "/home/user/ros2_emo_voice/install/emo_voice_interfaces/local/lib/python3.10/dist-packages/emo_voice_interfaces/emo_voice_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so" to ""
+[35.047s] -- Installing: /home/user/ros2_emo_voice/install/emo_voice_interfaces/local/lib/python3.10/dist-packages/emo_voice_interfaces/emo_voice_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[35.047s] -- Set runtime path of "/home/user/ros2_emo_voice/install/emo_voice_interfaces/local/lib/python3.10/dist-packages/emo_voice_interfaces/emo_voice_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so" to ""
+[35.048s] -- Installing: /home/user/ros2_emo_voice/install/emo_voice_interfaces/lib/libemo_voice_interfaces__rosidl_generator_py.so
+[35.050s] -- Set runtime path of "/home/user/ros2_emo_voice/install/emo_voice_interfaces/lib/libemo_voice_interfaces__rosidl_generator_py.so" to ""
+[35.051s] -- Installing: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/srv/GenText.idl
+[35.052s] -- Installing: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/srv/GenText.srv
+[35.054s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/srv/GenText_Request.msg
+[35.056s] -- Installing: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/srv/GenText_Response.msg
+[35.056s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/ament_index/resource_index/package_run_dependencies/emo_voice_interfaces
+[35.057s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/ament_index/resource_index/parent_prefix_path/emo_voice_interfaces
+[35.057s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/environment/ament_prefix_path.sh
+[35.057s] -- Installing: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/environment/ament_prefix_path.dsv
+[35.060s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/environment/path.sh
+[35.060s] -- Installing: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/environment/path.dsv
+[35.061s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/local_setup.bash
+[35.063s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/local_setup.sh
+[35.063s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/local_setup.zsh
+[35.063s] -- Installing: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/local_setup.dsv
+[35.064s] -- Installing: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/package.dsv
+[35.065s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/ament_index/resource_index/packages/emo_voice_interfaces
+[35.067s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/cmake/export_emo_voice_interfaces__rosidl_generator_cExport.cmake
+[35.067s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/cmake/export_emo_voice_interfaces__rosidl_generator_cExport-noconfig.cmake
+[35.068s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/cmake/export_emo_voice_interfaces__rosidl_typesupport_fastrtps_cExport.cmake
+[35.069s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/cmake/export_emo_voice_interfaces__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[35.070s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/cmake/emo_voice_interfaces__rosidl_typesupport_introspection_cExport.cmake
+[35.070s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/cmake/emo_voice_interfaces__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[35.071s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/cmake/emo_voice_interfaces__rosidl_typesupport_cExport.cmake
+[35.078s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/cmake/emo_voice_interfaces__rosidl_typesupport_cExport-noconfig.cmake
+[35.078s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/cmake/export_emo_voice_interfaces__rosidl_generator_cppExport.cmake
+[35.079s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/cmake/export_emo_voice_interfaces__rosidl_typesupport_fastrtps_cppExport.cmake
+[35.079s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/cmake/export_emo_voice_interfaces__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[35.079s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/cmake/emo_voice_interfaces__rosidl_typesupport_introspection_cppExport.cmake
+[35.079s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/cmake/emo_voice_interfaces__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[35.080s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/cmake/emo_voice_interfaces__rosidl_typesupport_cppExport.cmake
+[35.080s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/cmake/emo_voice_interfaces__rosidl_typesupport_cppExport-noconfig.cmake
+[35.080s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/cmake/export_emo_voice_interfaces__rosidl_generator_pyExport.cmake
+[35.081s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/cmake/export_emo_voice_interfaces__rosidl_generator_pyExport-noconfig.cmake
+[35.081s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/cmake/rosidl_cmake-extras.cmake
+[35.081s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/cmake/ament_cmake_export_include_directories-extras.cmake
+[35.082s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/cmake/ament_cmake_export_libraries-extras.cmake
+[35.082s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/cmake/ament_cmake_export_targets-extras.cmake
+[35.082s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[35.082s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/cmake/ament_cmake_export_dependencies-extras.cmake
+[35.083s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[35.083s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/cmake/emo_voice_interfacesConfig.cmake
+[35.083s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/cmake/emo_voice_interfacesConfig-version.cmake
+[35.083s] -- Up-to-date: /home/user/ros2_emo_voice/install/emo_voice_interfaces/share/emo_voice_interfaces/package.xml
+[35.095s] Invoked command in '/home/user/ros2_emo_voice/build/emo_voice_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/user/ros2_emo_voice/install/emo_voice:/home/user/ros2_ws/install/mytest:/opt/ros/humble /usr/bin/cmake --install /home/user/ros2_emo_voice/build/emo_voice_interfaces

@@ -63,15 +63,12 @@ class ClientNode(Node):
             if self.future.done():
                 try:
                     response = self.future.result()
-                    print("int")
                     # print(len(response.text))
                     voicetext = response.text
                     voice = bytes(voicetext)
-                    print("bytes")
-                    # print(len(voice))
+                    print(len(voice))
                     play(voice)
                     print('ok')
-                    time.sleep(4)
                 except Exception as e:
                     # Pygameを終了
                     pygame.mixer.quit()

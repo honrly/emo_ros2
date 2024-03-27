@@ -30,7 +30,6 @@ class ClientNode(Node):
         self.req = GenText.Request()
 
         self.create_subscription(Int32, 'sensor_pnnx', self.emo_callback, 10)
-        # self.flg = False
         timer_period = 15.0
         self.timer = self.create_timer(timer_period, self.send_request)
 
@@ -39,8 +38,8 @@ class ClientNode(Node):
         pygame.init()
 
     def emo_callback(self, msg):
-        # self.flg = True
         pnnx = msg.data
+        print(pnnx)
         global status
         if pnnx < 20:
             status = '緊張'
@@ -66,13 +65,10 @@ class ClientNode(Node):
                     # print(len(response.text))
                     voicetext = response.text
                     voice = bytes(voicetext)
-                    # print(len(voice))
+                    print(len(voice))
                     play(voice)
                     print('ok')
                 except Exception as e:
-                    # Pygameを終了
-                    pygame.mixer.quit()
-                    pygame.quit()
                     break
 
 def main(args=None):

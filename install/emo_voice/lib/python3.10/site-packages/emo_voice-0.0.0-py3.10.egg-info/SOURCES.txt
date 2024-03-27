@@ -16,6 +16,7 @@ emo_voice/sensor_pnnx.py
 emo_voice/server_gentext.py
 emo_voice/test_voice.py
 emo_voice/voice.py
+launch/emo_voice_launch.py
 resource/emo_voice
 test/test_copyright.py
 test/test_flake8.py

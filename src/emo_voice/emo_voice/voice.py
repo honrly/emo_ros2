@@ -12,7 +12,7 @@ GEMINI_API_KEY = 'AIzaSyBngdp3djAPSK6MjNQm4U5TjJaACxJepvE'
 
 def vvox_test(text):
     # エンジン起動時に表示されているIP、portを指定
-    host = "192.168.0.8"
+    host = "192.168.32.5"
     port = 50021
     
     # 音声化する文言と話者を指定(3で標準ずんだもんになる)
@@ -35,8 +35,7 @@ def vvox_test(text):
         data=json.dumps(query.json())
     )
 
-    return synthesis.content
-    
+    return synthesis.content   
 
 class VoiceNode(Node):
     def __init__(self):
@@ -62,8 +61,12 @@ class VoiceNode(Node):
         # self.pub_text.publish(response_gemini.text)
 
         voice = vvox_test(request.name + res_gemini.text)
+        print(len(voice))
+        print("bbb")
         voice_bytes = bytes(voice)
+        print(len(voice_bytes))
         voice_int = np.frombuffer(voice_bytes, dtype=np.int32).tolist()
+        # voice_int = [int(x) for x in voice]
         response.text = voice_int
         return response
     
@@ -82,7 +85,6 @@ def main(args=None):
     finally:
         talker.destroy_node()
         rclpy.shutdown()
-
 
 if __name__ == '__main__':
     main()

@@ -5,7 +5,6 @@ from emo_voice_interfaces.srv import GenText
 import requests
 import json
 import pygame
-import io
 import google.generativeai as genai
 import numpy as np
 
@@ -13,7 +12,7 @@ GEMINI_API_KEY = 'AIzaSyBngdp3djAPSK6MjNQm4U5TjJaACxJepvE'
 
 def vvox_test(text):
     # エンジン起動時に表示されているIP、portを指定
-    host = "192.168.0.8"
+    host = "192.168.32.5"
     port = 50021
     
     # 音声化する文言と話者を指定(3で標準ずんだもんになる)
@@ -58,26 +57,19 @@ class VoiceNode(Node):
             text = f'ある人は{request.emo}しています。その人をリラックスさせるような短い声掛けを1つ返してください。'
         
         print(text)
-        response_gemini = self.model.generate_content(text)
-        print(response_gemini.text)
-        voice = vvox_test(request.name + response_gemini.text)
-        print("bytes")
-        voice_bytes = bytes(voice)
-        voice_int = np.frombuffer(voice_bytes, dtype=np.int32).tolist()
+        res_gemini = self.model.generate_content(text)
+        print(res_gemini.text)
+        # self.pub_text.publish(response_gemini.text)
 
-        # Assign the list of integers to response.text
+        voice = vvox_test(request.name + res_gemini.text)
+        print(len(voice))
+        print("bbb")
+        voice_bytes = bytes(voice)
+        print(len(voice_bytes))
+        voice_int = np.frombuffer(voice_bytes, dtype=np.int32).tolist()
+        # voice_int = [int(x) for x in voice]
         response.text = voice_int
         return response
-        # print(type(voice))
-        # print(len(voice))
-        # self.pub_text.publish(response_gemini.text)
-        # values = [int(x) for x in voice]
-        # print("int")
-        # print(len(values))
-        # print(type(values[0]))
-        # response.text = voice
-        # print(len(response.text))
-        # return response
     
     def run(self):
         while rclpy.ok():

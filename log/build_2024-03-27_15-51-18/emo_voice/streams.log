@@ -1,0 +1,28 @@
+[9.539s] Invoking command in '/home/user/ros2_emo_voice/src/emo_voice': PYTHONPATH=/home/user/ros2_emo_voice/build/emo_voice/prefix_override:/home/user/ros2_emo_voice/install/emo_voice/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/emo_voice build --build-base /home/user/ros2_emo_voice/build/emo_voice/build install --record /home/user/ros2_emo_voice/build/emo_voice/install.log --single-version-externally-managed
+[12.822s] running egg_info
+[12.830s] writing ../../build/emo_voice/emo_voice.egg-info/PKG-INFO
+[12.830s] writing dependency_links to ../../build/emo_voice/emo_voice.egg-info/dependency_links.txt
+[12.835s] writing entry points to ../../build/emo_voice/emo_voice.egg-info/entry_points.txt
+[12.835s] writing requirements to ../../build/emo_voice/emo_voice.egg-info/requires.txt
+[12.844s] writing top-level names to ../../build/emo_voice/emo_voice.egg-info/top_level.txt
+[12.860s] reading manifest file '../../build/emo_voice/emo_voice.egg-info/SOURCES.txt'
+[12.874s] writing manifest file '../../build/emo_voice/emo_voice.egg-info/SOURCES.txt'
+[12.875s] running build
+[12.875s] running build_py
+[12.886s] copying emo_voice/voice.py -> /home/user/ros2_emo_voice/build/emo_voice/build/lib/emo_voice
+[12.887s] running install
+[12.888s] running install_lib
+[12.898s] copying /home/user/ros2_emo_voice/build/emo_voice/build/lib/emo_voice/voice.py -> /home/user/ros2_emo_voice/install/emo_voice/lib/python3.10/site-packages/emo_voice
+[12.904s] byte-compiling /home/user/ros2_emo_voice/install/emo_voice/lib/python3.10/site-packages/emo_voice/voice.py to voice.cpython-310.pyc
+[12.911s] running install_data
+[12.921s] running install_egg_info
+[12.928s] removing '/home/user/ros2_emo_voice/install/emo_voice/lib/python3.10/site-packages/emo_voice-0.0.0-py3.10.egg-info' (and everything under it)
+[12.946s] Copying ../../build/emo_voice/emo_voice.egg-info to /home/user/ros2_emo_voice/install/emo_voice/lib/python3.10/site-packages/emo_voice-0.0.0-py3.10.egg-info
+[12.947s] running install_scripts
+[13.102s] Installing client script to /home/user/ros2_emo_voice/install/emo_voice/lib/emo_voice
+[13.103s] Installing move script to /home/user/ros2_emo_voice/install/emo_voice/lib/emo_voice
+[13.105s] Installing plot script to /home/user/ros2_emo_voice/install/emo_voice/lib/emo_voice
+[13.109s] Installing sensor_pnnx script to /home/user/ros2_emo_voice/install/emo_voice/lib/emo_voice
+[13.110s] Installing server script to /home/user/ros2_emo_voice/install/emo_voice/lib/emo_voice
+[13.120s] writing list of installed files to '/home/user/ros2_emo_voice/build/emo_voice/install.log'
+[13.336s] Invoked command in '/home/user/ros2_emo_voice/src/emo_voice' returned '0': PYTHONPATH=/home/user/ros2_emo_voice/build/emo_voice/prefix_override:/home/user/ros2_emo_voice/install/emo_voice/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/emo_voice build --build-base /home/user/ros2_emo_voice/build/emo_voice/build install --record /home/user/ros2_emo_voice/build/emo_voice/install.log --single-version-externally-managed

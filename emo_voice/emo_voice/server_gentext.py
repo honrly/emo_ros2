@@ -19,11 +19,11 @@ class GenTextNode(Node):
         self.pub_text = self.create_publisher(String, 'gen_text', 10)
     
     def gen_text_callback(self, request):
-        if request.emo == 'リラックス':
+        if request.emo == 'Relax':
             text = f'ある人は{request.emo}しています。嬉しいという反応を1つ簡潔に返してください。'
-        elif request.emo == '普通':
+        elif request.emo == 'Normal':
             text = f'短い挨拶を1つ返してください。'
-        elif request.emo == '緊張':
+        elif request.emo == 'Tense':
             text = f'ある人は{request.emo}しています。その人をリラックスさせるような短い声掛けを1つ返してください。'
         
         print(text)

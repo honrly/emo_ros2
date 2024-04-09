@@ -23,7 +23,7 @@ class MoveNode(Node):
 
     def move_callback(self, msg_serial_pnnx):
         global pnnx_rest_ave, first_move
-        print(f"pnnx:{msg_serial_pnnx.data}, 安静時:{pnnx_rest_ave}")
+        self.get_logger.info(f'pnnx:{msg_serial_pnnx.data}, rest:{pnnx_rest_ave}')
         
         # ロボ行動時のpnnxデータを貯める
         if len(self.pnnx_stimuli) < MAX_LEN_DATA:

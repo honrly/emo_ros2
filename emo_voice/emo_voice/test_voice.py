@@ -9,7 +9,7 @@ GEMINI_API_KEY = 'AIzaSyBngdp3djAPSK6MjNQm4U5TjJaACxJepvE'
 
 def vvox_test(text):
     # エンジン起動時に表示されているIP、portを指定
-    host = "127.0.0.1"
+    host = 'localhost'
     port = 50021
     
     # 音声化する文言と話者を指定(3で標準ずんだもんになる)
@@ -27,7 +27,7 @@ def vvox_test(text):
     # 音声合成を実施
     synthesis = requests.post(
         f'http://{host}:{port}/synthesis',
-        headers={"Content-Type": "application/json"},
+        headers={'Content-Type': 'application/json'},
         params=params,
         data=json.dumps(query.json())
     )
@@ -64,7 +64,7 @@ def gen_text_gemini(emo):
         print(response.text)
         return response.text
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     random_val = random.randint(0, 2)
     if random_val == 0:
         emo = 'リラックス'

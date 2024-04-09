@@ -31,6 +31,7 @@ setup(
         'client = emo_voice.client:main', 
         'server = emo_voice.voice:main', 
         'brain_wave = emo_voice.brain_wave:main', 
+        'emo_status = emo_voice.emo_status:main', 
         ],
     },
 )

@@ -33,7 +33,7 @@ class PlotNode(Node):
 
     def pnnx_rest_ave_callback(self, msg_pnnx_rest_ave):
         self.pnnx_rest_ave = msg_pnnx_rest_ave.data
-        print(f"安静時平均:{self.pnnx_rest_ave}")
+        self.get_logger.info(f'Rest pnnx:{self.pnnx_rest_ave}')
         self.y_rest = np.full(30, self.pnnx_rest_ave)  # pnnx_rest_ave の値で埋めた配列を更新
 
         self.line_rest.set_ydata(self.y_rest)  # pnnx_rest_ave の線
@@ -50,5 +50,5 @@ def main(args=None):
         rclpy.shutdown()
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

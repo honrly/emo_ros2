@@ -31,6 +31,11 @@ def generate_launch_description():
         Node(
             package='emo_voice',
             namespace='emo_voice',
+            executable='emo_status',
+        ),
+        Node(
+            package='emo_voice',
+            namespace='emo_voice',
             executable='plot',
         ),
     ])

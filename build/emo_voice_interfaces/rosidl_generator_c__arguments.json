@@ -1,9 +1,9 @@
 {
   "package_name": "emo_voice_interfaces",
-  "output_dir": "/home/user/ros2_emo_voice/build/emo_voice_interfaces/rosidl_generator_c/emo_voice_interfaces",
+  "output_dir": "/home/user/ros2_ws_demo/src/build/emo_voice_interfaces/rosidl_generator_c/emo_voice_interfaces",
   "template_dir": "/opt/ros/humble/share/rosidl_generator_c/cmake/../resource",
   "idl_tuples": [
-    "/home/user/ros2_emo_voice/build/emo_voice_interfaces/rosidl_adapter/emo_voice_interfaces:srv/GenText.idl"
+    "/home/user/ros2_ws_demo/src/build/emo_voice_interfaces/rosidl_adapter/emo_voice_interfaces:srv/GenText.idl"
   ],
   "target_dependencies": [
     "/opt/ros/humble/share/rosidl_generator_c/cmake/../../../lib/rosidl_generator_c/rosidl_generator_c",
@@ -19,6 +19,6 @@
     "/opt/ros/humble/share/rosidl_generator_c/cmake/../resource/msg__struct.h.em",
     "/opt/ros/humble/share/rosidl_generator_c/cmake/../resource/msg__type_support.h.em",
     "/opt/ros/humble/share/rosidl_generator_c/cmake/../resource/srv__type_support.h.em",
-    "/home/user/ros2_emo_voice/build/emo_voice_interfaces/rosidl_adapter/emo_voice_interfaces/srv/GenText.idl"
+    "/home/user/ros2_ws_demo/src/build/emo_voice_interfaces/rosidl_adapter/emo_voice_interfaces/srv/GenText.idl"
   ]
 }

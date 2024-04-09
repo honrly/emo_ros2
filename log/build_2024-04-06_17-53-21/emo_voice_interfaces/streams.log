@@ -1,0 +1,6 @@
+[1.188s] Invoking command in '/home/user/ros2_emo_voice/src/build/emo_voice_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/user/ros2_emo_voice/install/emo_voice:/home/user/ros2_ws/install/mytest:/opt/ros/humble /usr/bin/cmake --build /home/user/ros2_emo_voice/src/build/emo_voice_interfaces -- -j2 -l2
+[1.727s] [0mCMake Error: The current CMakeCache.txt directory /home/user/ros2_emo_voice/src/build/emo_voice_interfaces/CMakeCache.txt is different than the directory /home/user/ros2_ws_demo/src/build/emo_voice_interfaces where CMakeCache.txt was created. This may result in binaries being created in the wrong place. If you are not sure, reedit the CMakeCache.txt[0m
+[1.942s] [0mCMake Error: The source directory "/home/user/ros2_ws_demo/src/emo_voice_interfaces" does not exist.
+[1.943s] Specify --help for usage, or press the help button on the CMake GUI.[0m
+[2.012s] gmake: *** [Makefile:747: cmake_check_build_system] Error 1
+[2.032s] Invoked command in '/home/user/ros2_emo_voice/src/build/emo_voice_interfaces' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/user/ros2_emo_voice/install/emo_voice:/home/user/ros2_ws/install/mytest:/opt/ros/humble /usr/bin/cmake --build /home/user/ros2_emo_voice/src/build/emo_voice_interfaces -- -j2 -l2

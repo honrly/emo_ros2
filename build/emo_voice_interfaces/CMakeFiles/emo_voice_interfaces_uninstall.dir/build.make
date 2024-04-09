@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/user/ros2_emo_voice/src/emo_voice_interfaces
+CMAKE_SOURCE_DIR = /home/user/ros2_ws_demo/src/emo_voice_interfaces
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/user/ros2_emo_voice/build/emo_voice_interfaces
+CMAKE_BINARY_DIR = /home/user/ros2_ws_demo/src/build/emo_voice_interfaces
 
 # Utility rule file for emo_voice_interfaces_uninstall.
 
@@ -67,7 +67,7 @@ include CMakeFiles/emo_voice_interfaces_uninstall.dir/compiler_depend.make
 include CMakeFiles/emo_voice_interfaces_uninstall.dir/progress.make
 
 CMakeFiles/emo_voice_interfaces_uninstall:
-	/usr/bin/cmake -P /home/user/ros2_emo_voice/build/emo_voice_interfaces/ament_cmake_uninstall_target/ament_cmake_uninstall_target.cmake
+	/usr/bin/cmake -P /home/user/ros2_ws_demo/src/build/emo_voice_interfaces/ament_cmake_uninstall_target/ament_cmake_uninstall_target.cmake
 
 emo_voice_interfaces_uninstall: CMakeFiles/emo_voice_interfaces_uninstall
 emo_voice_interfaces_uninstall: CMakeFiles/emo_voice_interfaces_uninstall.dir/build.make
@@ -82,6 +82,6 @@ CMakeFiles/emo_voice_interfaces_uninstall.dir/clean:
 .PHONY : CMakeFiles/emo_voice_interfaces_uninstall.dir/clean
 
 CMakeFiles/emo_voice_interfaces_uninstall.dir/depend:
-	cd /home/user/ros2_emo_voice/build/emo_voice_interfaces && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/user/ros2_emo_voice/src/emo_voice_interfaces /home/user/ros2_emo_voice/src/emo_voice_interfaces /home/user/ros2_emo_voice/build/emo_voice_interfaces /home/user/ros2_emo_voice/build/emo_voice_interfaces /home/user/ros2_emo_voice/build/emo_voice_interfaces/CMakeFiles/emo_voice_interfaces_uninstall.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/user/ros2_ws_demo/src/build/emo_voice_interfaces && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/user/ros2_ws_demo/src/emo_voice_interfaces /home/user/ros2_ws_demo/src/emo_voice_interfaces /home/user/ros2_ws_demo/src/build/emo_voice_interfaces /home/user/ros2_ws_demo/src/build/emo_voice_interfaces /home/user/ros2_ws_demo/src/build/emo_voice_interfaces/CMakeFiles/emo_voice_interfaces_uninstall.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/emo_voice_interfaces_uninstall.dir/depend
 

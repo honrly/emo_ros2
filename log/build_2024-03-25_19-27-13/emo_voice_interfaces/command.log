@@ -1,4 +1,0 @@
-Invoking command in '/home/user/ros2_emo_voice/build/emo_voice_interfaces': /usr/bin/cmake --build /home/user/ros2_emo_voice/build/emo_voice_interfaces -- -j2 -l2
-Invoked command in '/home/user/ros2_emo_voice/build/emo_voice_interfaces' returned '0': /usr/bin/cmake --build /home/user/ros2_emo_voice/build/emo_voice_interfaces -- -j2 -l2
-Invoking command in '/home/user/ros2_emo_voice/build/emo_voice_interfaces': /usr/bin/cmake --install /home/user/ros2_emo_voice/build/emo_voice_interfaces
-Invoked command in '/home/user/ros2_emo_voice/build/emo_voice_interfaces' returned '0': /usr/bin/cmake --install /home/user/ros2_emo_voice/build/emo_voice_interfaces

@@ -1,9 +1,9 @@
 {
   "package_name": "emo_voice_interfaces",
-  "output_dir": "/home/user/ros2_emo_voice/build/emo_voice_interfaces/rosidl_generator_py/emo_voice_interfaces",
+  "output_dir": "/home/user/ros2_ws_demo/src/build/emo_voice_interfaces/rosidl_generator_py/emo_voice_interfaces",
   "template_dir": "/opt/ros/humble/share/rosidl_generator_py/cmake/../resource",
   "idl_tuples": [
-    "/home/user/ros2_emo_voice/build/emo_voice_interfaces/rosidl_adapter/emo_voice_interfaces:srv/GenText.idl"
+    "/home/user/ros2_ws_demo/src/build/emo_voice_interfaces/rosidl_adapter/emo_voice_interfaces:srv/GenText.idl"
   ],
   "target_dependencies": [
     "/opt/ros/humble/share/rosidl_generator_py/cmake/../../../lib/rosidl_generator_py/rosidl_generator_py",
@@ -19,6 +19,6 @@
     "/opt/ros/humble/share/rosidl_generator_py/cmake/../resource/_msg.py.em",
     "/opt/ros/humble/share/rosidl_generator_py/cmake/../resource/_srv_pkg_typesupport_entry_point.c.em",
     "/opt/ros/humble/share/rosidl_generator_py/cmake/../resource/_srv.py.em",
-    "/home/user/ros2_emo_voice/build/emo_voice_interfaces/rosidl_adapter/emo_voice_interfaces/srv/GenText.idl"
+    "/home/user/ros2_ws_demo/src/build/emo_voice_interfaces/rosidl_adapter/emo_voice_interfaces/srv/GenText.idl"
   ]
 }

@@ -1,9 +1,9 @@
 {
   "package_name": "emo_voice_interfaces",
-  "output_dir": "/home/user/ros2_emo_voice/build/emo_voice_interfaces/rosidl_typesupport_fastrtps_cpp/emo_voice_interfaces",
+  "output_dir": "/home/user/ros2_ws_demo/src/build/emo_voice_interfaces/rosidl_typesupport_fastrtps_cpp/emo_voice_interfaces",
   "template_dir": "/opt/ros/humble/share/rosidl_typesupport_fastrtps_cpp/resource",
   "idl_tuples": [
-    "/home/user/ros2_emo_voice/build/emo_voice_interfaces/rosidl_adapter/emo_voice_interfaces:srv/GenText.idl"
+    "/home/user/ros2_ws_demo/src/build/emo_voice_interfaces/rosidl_adapter/emo_voice_interfaces:srv/GenText.idl"
   ],
   "target_dependencies": [
     "/opt/ros/humble/lib/rosidl_typesupport_fastrtps_cpp/rosidl_typesupport_fastrtps_cpp",
@@ -14,6 +14,6 @@
     "/opt/ros/humble/share/rosidl_typesupport_fastrtps_cpp/resource/msg__type_support.cpp.em",
     "/opt/ros/humble/share/rosidl_typesupport_fastrtps_cpp/resource/srv__rosidl_typesupport_fastrtps_cpp.hpp.em",
     "/opt/ros/humble/share/rosidl_typesupport_fastrtps_cpp/resource/srv__type_support.cpp.em",
-    "/home/user/ros2_emo_voice/build/emo_voice_interfaces/rosidl_adapter/emo_voice_interfaces/srv/GenText.idl"
+    "/home/user/ros2_ws_demo/src/build/emo_voice_interfaces/rosidl_adapter/emo_voice_interfaces/srv/GenText.idl"
   ]
 }

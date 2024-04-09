@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/user/ros2_emo_voice/src/emo_voice_interfaces
+CMAKE_SOURCE_DIR = /home/user/ros2_ws_demo/src/emo_voice_interfaces
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/user/ros2_emo_voice/build/emo_voice_interfaces
+CMAKE_BINARY_DIR = /home/user/ros2_ws_demo/src/build/emo_voice_interfaces
 
 # Utility rule file for ament_cmake_python_build_emo_voice_interfaces_egg.
 
@@ -67,7 +67,7 @@ include CMakeFiles/ament_cmake_python_build_emo_voice_interfaces_egg.dir/compile
 include CMakeFiles/ament_cmake_python_build_emo_voice_interfaces_egg.dir/progress.make
 
 CMakeFiles/ament_cmake_python_build_emo_voice_interfaces_egg:
-	cd /home/user/ros2_emo_voice/build/emo_voice_interfaces/ament_cmake_python/emo_voice_interfaces && /usr/bin/python3.10 setup.py egg_info
+	cd /home/user/ros2_ws_demo/src/build/emo_voice_interfaces/ament_cmake_python/emo_voice_interfaces && /usr/bin/python3.10 setup.py egg_info
 
 ament_cmake_python_build_emo_voice_interfaces_egg: CMakeFiles/ament_cmake_python_build_emo_voice_interfaces_egg
 ament_cmake_python_build_emo_voice_interfaces_egg: CMakeFiles/ament_cmake_python_build_emo_voice_interfaces_egg.dir/build.make
@@ -82,6 +82,6 @@ CMakeFiles/ament_cmake_python_build_emo_voice_interfaces_egg.dir/clean:
 .PHONY : CMakeFiles/ament_cmake_python_build_emo_voice_interfaces_egg.dir/clean
 
 CMakeFiles/ament_cmake_python_build_emo_voice_interfaces_egg.dir/depend:
-	cd /home/user/ros2_emo_voice/build/emo_voice_interfaces && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/user/ros2_emo_voice/src/emo_voice_interfaces /home/user/ros2_emo_voice/src/emo_voice_interfaces /home/user/ros2_emo_voice/build/emo_voice_interfaces /home/user/ros2_emo_voice/build/emo_voice_interfaces /home/user/ros2_emo_voice/build/emo_voice_interfaces/CMakeFiles/ament_cmake_python_build_emo_voice_interfaces_egg.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/user/ros2_ws_demo/src/build/emo_voice_interfaces && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/user/ros2_ws_demo/src/emo_voice_interfaces /home/user/ros2_ws_demo/src/emo_voice_interfaces /home/user/ros2_ws_demo/src/build/emo_voice_interfaces /home/user/ros2_ws_demo/src/build/emo_voice_interfaces /home/user/ros2_ws_demo/src/build/emo_voice_interfaces/CMakeFiles/ament_cmake_python_build_emo_voice_interfaces_egg.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/ament_cmake_python_build_emo_voice_interfaces_egg.dir/depend
 

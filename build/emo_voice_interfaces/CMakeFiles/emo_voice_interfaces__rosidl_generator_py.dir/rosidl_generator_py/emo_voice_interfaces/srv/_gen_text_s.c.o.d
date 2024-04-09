@@ -1,5 +1,5 @@
 CMakeFiles/emo_voice_interfaces__rosidl_generator_py.dir/rosidl_generator_py/emo_voice_interfaces/srv/_gen_text_s.c.o: \
- /home/user/ros2_emo_voice/build/emo_voice_interfaces/rosidl_generator_py/emo_voice_interfaces/srv/_gen_text_s.c \
+ /home/user/ros2_ws_demo/src/build/emo_voice_interfaces/rosidl_generator_py/emo_voice_interfaces/srv/_gen_text_s.c \
  /usr/include/stdc-predef.h /usr/include/python3.10/Python.h \
  /usr/include/python3.10/patchlevel.h /usr/include/python3.10/pyconfig.h \
  /usr/include/x86_64-linux-gnu/python3.10/pyconfig.h \
@@ -207,10 +207,10 @@ CMakeFiles/emo_voice_interfaces__rosidl_generator_py.dir/rosidl_generator_py/emo
  /usr/include/python3.10/numpy/_neighborhood_iterator_imp.h \
  /usr/include/python3.10/numpy/__multiarray_api.h \
  /opt/ros/humble/include/rosidl_runtime_c/rosidl_runtime_c/visibility_control.h \
- /home/user/ros2_emo_voice/build/emo_voice_interfaces/rosidl_generator_c/emo_voice_interfaces/srv/detail/gen_text__struct.h \
+ /home/user/ros2_ws_demo/src/build/emo_voice_interfaces/rosidl_generator_c/emo_voice_interfaces/srv/detail/gen_text__struct.h \
  /opt/ros/humble/include/rosidl_runtime_c/rosidl_runtime_c/string.h \
  /opt/ros/humble/include/rosidl_runtime_c/rosidl_runtime_c/primitives_sequence.h \
- /home/user/ros2_emo_voice/build/emo_voice_interfaces/rosidl_generator_c/emo_voice_interfaces/srv/detail/gen_text__functions.h \
- /home/user/ros2_emo_voice/build/emo_voice_interfaces/rosidl_generator_c/emo_voice_interfaces/msg/rosidl_generator_c__visibility_control.h \
+ /home/user/ros2_ws_demo/src/build/emo_voice_interfaces/rosidl_generator_c/emo_voice_interfaces/srv/detail/gen_text__functions.h \
+ /home/user/ros2_ws_demo/src/build/emo_voice_interfaces/rosidl_generator_c/emo_voice_interfaces/msg/rosidl_generator_c__visibility_control.h \
  /opt/ros/humble/include/rosidl_runtime_c/rosidl_runtime_c/string_functions.h \
  /opt/ros/humble/include/rosidl_runtime_c/rosidl_runtime_c/primitives_sequence_functions.h

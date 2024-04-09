@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/user/ros2_emo_voice/src/emo_voice_interfaces
+CMAKE_SOURCE_DIR = /home/user/ros2_ws_demo/src/emo_voice_interfaces
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/user/ros2_emo_voice/build/emo_voice_interfaces
+CMAKE_BINARY_DIR = /home/user/ros2_ws_demo/src/build/emo_voice_interfaces
 
 # Utility rule file for emo_voice_interfaces__cpp.
 
@@ -87,8 +87,8 @@ rosidl_generator_cpp/emo_voice_interfaces/srv/gen_text.hpp: /opt/ros/humble/shar
 rosidl_generator_cpp/emo_voice_interfaces/srv/gen_text.hpp: /opt/ros/humble/share/rosidl_generator_cpp/resource/srv__struct.hpp.em
 rosidl_generator_cpp/emo_voice_interfaces/srv/gen_text.hpp: /opt/ros/humble/share/rosidl_generator_cpp/resource/srv__traits.hpp.em
 rosidl_generator_cpp/emo_voice_interfaces/srv/gen_text.hpp: rosidl_adapter/emo_voice_interfaces/srv/GenText.idl
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/user/ros2_emo_voice/build/emo_voice_interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C++ code for ROS interfaces"
-	/usr/bin/python3.10 /opt/ros/humble/share/rosidl_generator_cpp/cmake/../../../lib/rosidl_generator_cpp/rosidl_generator_cpp --generator-arguments-file /home/user/ros2_emo_voice/build/emo_voice_interfaces/rosidl_generator_cpp__arguments.json
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/user/ros2_ws_demo/src/build/emo_voice_interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C++ code for ROS interfaces"
+	/usr/bin/python3.10 /opt/ros/humble/share/rosidl_generator_cpp/cmake/../../../lib/rosidl_generator_cpp/rosidl_generator_cpp --generator-arguments-file /home/user/ros2_ws_demo/src/build/emo_voice_interfaces/rosidl_generator_cpp__arguments.json
 
 rosidl_generator_cpp/emo_voice_interfaces/srv/detail/gen_text__builder.hpp: rosidl_generator_cpp/emo_voice_interfaces/srv/gen_text.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/emo_voice_interfaces/srv/detail/gen_text__builder.hpp
@@ -116,6 +116,6 @@ CMakeFiles/emo_voice_interfaces__cpp.dir/clean:
 .PHONY : CMakeFiles/emo_voice_interfaces__cpp.dir/clean
 
 CMakeFiles/emo_voice_interfaces__cpp.dir/depend:
-	cd /home/user/ros2_emo_voice/build/emo_voice_interfaces && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/user/ros2_emo_voice/src/emo_voice_interfaces /home/user/ros2_emo_voice/src/emo_voice_interfaces /home/user/ros2_emo_voice/build/emo_voice_interfaces /home/user/ros2_emo_voice/build/emo_voice_interfaces /home/user/ros2_emo_voice/build/emo_voice_interfaces/CMakeFiles/emo_voice_interfaces__cpp.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/user/ros2_ws_demo/src/build/emo_voice_interfaces && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/user/ros2_ws_demo/src/emo_voice_interfaces /home/user/ros2_ws_demo/src/emo_voice_interfaces /home/user/ros2_ws_demo/src/build/emo_voice_interfaces /home/user/ros2_ws_demo/src/build/emo_voice_interfaces /home/user/ros2_ws_demo/src/build/emo_voice_interfaces/CMakeFiles/emo_voice_interfaces__cpp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/emo_voice_interfaces__cpp.dir/depend
 

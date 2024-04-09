@@ -1,8 +1,8 @@
-# Install script for directory: /home/user/ros2_emo_voice/build/emo_voice_interfaces/emo_voice_interfaces__py
+# Install script for directory: /home/user/ros2_ws_demo/src/build/emo_voice_interfaces/emo_voice_interfaces__py
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/user/ros2_emo_voice/install/emo_voice_interfaces")
+  set(CMAKE_INSTALL_PREFIX "/home/user/ros2_ws_demo/src/install/emo_voice_interfaces")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 

@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/user/ros2_emo_voice/src/emo_voice_interfaces
+CMAKE_SOURCE_DIR = /home/user/ros2_ws_demo/src/emo_voice_interfaces
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/user/ros2_emo_voice/build/emo_voice_interfaces
+CMAKE_BINARY_DIR = /home/user/ros2_ws_demo/src/build/emo_voice_interfaces
 
 # Include any dependencies generated for this target.
 include CMakeFiles/emo_voice_interfaces__rosidl_generator_c.dir/depend.make
@@ -83,8 +83,8 @@ rosidl_generator_c/emo_voice_interfaces/srv/gen_text.h: /opt/ros/humble/share/ro
 rosidl_generator_c/emo_voice_interfaces/srv/gen_text.h: /opt/ros/humble/share/rosidl_generator_c/resource/msg__type_support.h.em
 rosidl_generator_c/emo_voice_interfaces/srv/gen_text.h: /opt/ros/humble/share/rosidl_generator_c/resource/srv__type_support.h.em
 rosidl_generator_c/emo_voice_interfaces/srv/gen_text.h: rosidl_adapter/emo_voice_interfaces/srv/GenText.idl
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/user/ros2_emo_voice/build/emo_voice_interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C code for ROS interfaces"
-	/usr/bin/python3.10 /opt/ros/humble/share/rosidl_generator_c/cmake/../../../lib/rosidl_generator_c/rosidl_generator_c --generator-arguments-file /home/user/ros2_emo_voice/build/emo_voice_interfaces/rosidl_generator_c__arguments.json
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/user/ros2_ws_demo/src/build/emo_voice_interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C code for ROS interfaces"
+	/usr/bin/python3.10 /opt/ros/humble/share/rosidl_generator_c/cmake/../../../lib/rosidl_generator_c/rosidl_generator_c --generator-arguments-file /home/user/ros2_ws_demo/src/build/emo_voice_interfaces/rosidl_generator_c__arguments.json
 
 rosidl_generator_c/emo_voice_interfaces/srv/detail/gen_text__functions.h: rosidl_generator_c/emo_voice_interfaces/srv/gen_text.h
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/emo_voice_interfaces/srv/detail/gen_text__functions.h
@@ -101,16 +101,16 @@ rosidl_generator_c/emo_voice_interfaces/srv/detail/gen_text__functions.c: rosidl
 CMakeFiles/emo_voice_interfaces__rosidl_generator_c.dir/rosidl_generator_c/emo_voice_interfaces/srv/detail/gen_text__functions.c.o: CMakeFiles/emo_voice_interfaces__rosidl_generator_c.dir/flags.make
 CMakeFiles/emo_voice_interfaces__rosidl_generator_c.dir/rosidl_generator_c/emo_voice_interfaces/srv/detail/gen_text__functions.c.o: rosidl_generator_c/emo_voice_interfaces/srv/detail/gen_text__functions.c
 CMakeFiles/emo_voice_interfaces__rosidl_generator_c.dir/rosidl_generator_c/emo_voice_interfaces/srv/detail/gen_text__functions.c.o: CMakeFiles/emo_voice_interfaces__rosidl_generator_c.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/user/ros2_emo_voice/build/emo_voice_interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/emo_voice_interfaces__rosidl_generator_c.dir/rosidl_generator_c/emo_voice_interfaces/srv/detail/gen_text__functions.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/emo_voice_interfaces__rosidl_generator_c.dir/rosidl_generator_c/emo_voice_interfaces/srv/detail/gen_text__functions.c.o -MF CMakeFiles/emo_voice_interfaces__rosidl_generator_c.dir/rosidl_generator_c/emo_voice_interfaces/srv/detail/gen_text__functions.c.o.d -o CMakeFiles/emo_voice_interfaces__rosidl_generator_c.dir/rosidl_generator_c/emo_voice_interfaces/srv/detail/gen_text__functions.c.o -c /home/user/ros2_emo_voice/build/emo_voice_interfaces/rosidl_generator_c/emo_voice_interfaces/srv/detail/gen_text__functions.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/user/ros2_ws_demo/src/build/emo_voice_interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/emo_voice_interfaces__rosidl_generator_c.dir/rosidl_generator_c/emo_voice_interfaces/srv/detail/gen_text__functions.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/emo_voice_interfaces__rosidl_generator_c.dir/rosidl_generator_c/emo_voice_interfaces/srv/detail/gen_text__functions.c.o -MF CMakeFiles/emo_voice_interfaces__rosidl_generator_c.dir/rosidl_generator_c/emo_voice_interfaces/srv/detail/gen_text__functions.c.o.d -o CMakeFiles/emo_voice_interfaces__rosidl_generator_c.dir/rosidl_generator_c/emo_voice_interfaces/srv/detail/gen_text__functions.c.o -c /home/user/ros2_ws_demo/src/build/emo_voice_interfaces/rosidl_generator_c/emo_voice_interfaces/srv/detail/gen_text__functions.c
 
 CMakeFiles/emo_voice_interfaces__rosidl_generator_c.dir/rosidl_generator_c/emo_voice_interfaces/srv/detail/gen_text__functions.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/emo_voice_interfaces__rosidl_generator_c.dir/rosidl_generator_c/emo_voice_interfaces/srv/detail/gen_text__functions.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/user/ros2_emo_voice/build/emo_voice_interfaces/rosidl_generator_c/emo_voice_interfaces/srv/detail/gen_text__functions.c > CMakeFiles/emo_voice_interfaces__rosidl_generator_c.dir/rosidl_generator_c/emo_voice_interfaces/srv/detail/gen_text__functions.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/user/ros2_ws_demo/src/build/emo_voice_interfaces/rosidl_generator_c/emo_voice_interfaces/srv/detail/gen_text__functions.c > CMakeFiles/emo_voice_interfaces__rosidl_generator_c.dir/rosidl_generator_c/emo_voice_interfaces/srv/detail/gen_text__functions.c.i
 
 CMakeFiles/emo_voice_interfaces__rosidl_generator_c.dir/rosidl_generator_c/emo_voice_interfaces/srv/detail/gen_text__functions.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/emo_voice_interfaces__rosidl_generator_c.dir/rosidl_generator_c/emo_voice_interfaces/srv/detail/gen_text__functions.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/user/ros2_emo_voice/build/emo_voice_interfaces/rosidl_generator_c/emo_voice_interfaces/srv/detail/gen_text__functions.c -o CMakeFiles/emo_voice_interfaces__rosidl_generator_c.dir/rosidl_generator_c/emo_voice_interfaces/srv/detail/gen_text__functions.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/user/ros2_ws_demo/src/build/emo_voice_interfaces/rosidl_generator_c/emo_voice_interfaces/srv/detail/gen_text__functions.c -o CMakeFiles/emo_voice_interfaces__rosidl_generator_c.dir/rosidl_generator_c/emo_voice_interfaces/srv/detail/gen_text__functions.c.s
 
 # Object files for target emo_voice_interfaces__rosidl_generator_c
 emo_voice_interfaces__rosidl_generator_c_OBJECTS = \
@@ -124,7 +124,7 @@ libemo_voice_interfaces__rosidl_generator_c.so: CMakeFiles/emo_voice_interfaces_
 libemo_voice_interfaces__rosidl_generator_c.so: /opt/ros/humble/lib/librosidl_runtime_c.so
 libemo_voice_interfaces__rosidl_generator_c.so: /opt/ros/humble/lib/librcutils.so
 libemo_voice_interfaces__rosidl_generator_c.so: CMakeFiles/emo_voice_interfaces__rosidl_generator_c.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/user/ros2_emo_voice/build/emo_voice_interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C shared library libemo_voice_interfaces__rosidl_generator_c.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/user/ros2_ws_demo/src/build/emo_voice_interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C shared library libemo_voice_interfaces__rosidl_generator_c.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/emo_voice_interfaces__rosidl_generator_c.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -140,6 +140,6 @@ CMakeFiles/emo_voice_interfaces__rosidl_generator_c.dir/depend: rosidl_generator
 CMakeFiles/emo_voice_interfaces__rosidl_generator_c.dir/depend: rosidl_generator_c/emo_voice_interfaces/srv/detail/gen_text__struct.h
 CMakeFiles/emo_voice_interfaces__rosidl_generator_c.dir/depend: rosidl_generator_c/emo_voice_interfaces/srv/detail/gen_text__type_support.h
 CMakeFiles/emo_voice_interfaces__rosidl_generator_c.dir/depend: rosidl_generator_c/emo_voice_interfaces/srv/gen_text.h
-	cd /home/user/ros2_emo_voice/build/emo_voice_interfaces && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/user/ros2_emo_voice/src/emo_voice_interfaces /home/user/ros2_emo_voice/src/emo_voice_interfaces /home/user/ros2_emo_voice/build/emo_voice_interfaces /home/user/ros2_emo_voice/build/emo_voice_interfaces /home/user/ros2_emo_voice/build/emo_voice_interfaces/CMakeFiles/emo_voice_interfaces__rosidl_generator_c.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/user/ros2_ws_demo/src/build/emo_voice_interfaces && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/user/ros2_ws_demo/src/emo_voice_interfaces /home/user/ros2_ws_demo/src/emo_voice_interfaces /home/user/ros2_ws_demo/src/build/emo_voice_interfaces /home/user/ros2_ws_demo/src/build/emo_voice_interfaces /home/user/ros2_ws_demo/src/build/emo_voice_interfaces/CMakeFiles/emo_voice_interfaces__rosidl_generator_c.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/emo_voice_interfaces__rosidl_generator_c.dir/depend
 

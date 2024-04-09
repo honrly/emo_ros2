@@ -13,7 +13,7 @@ GEMINI_API_KEY = 'AIzaSyBngdp3djAPSK6MjNQm4U5TjJaACxJepvE'
 
 def vvox_test(text):
     # エンジン起動時に表示されているIP、portを指定
-    host = "192.168.65.143"
+    host = 'localhost'
     port = 50021
     
     # 音声化する文言と話者を指定(3で標準ずんだもんになる)
@@ -31,7 +31,7 @@ def vvox_test(text):
     # 音声合成を実施
     synthesis = requests.post(
         f'http://{host}:{port}/synthesis',
-        headers={"Content-Type": "application/json"},
+        headers={'Content-Type': 'application/json'},
         params=params,
         data=json.dumps(query.json())
     )
@@ -49,26 +49,24 @@ class VoiceNode(Node):
         self.srv = self.create_service(GenText, 'gen_text_srv', self.gen_text_callback)
         
     def gen_text_callback(self, request, response):
-        print(request.emo)
-        if request.emo == 'リラックス':
-            text = f'ある人は{request.emo}しています。嬉しいという反応を1つ簡潔に返してください。'
-        elif request.emo == '普通':
+        self.get_logger.info(request.emo)
+        if request.emo == 'Relax':
+            text = f'ある人はリラックスしています。嬉しいという反応を1つ簡潔に返してください。'
+        elif request.emo == 'Normal':
             text = f'短い挨拶を1つ返してください。'
-        elif request.emo == '緊張':
-            text = f'ある人は{request.emo}しています。その人をリラックスさせるような短い声掛けを1つ返してください。'
+        elif request.emo == 'Tense':
+            text = f'ある人は緊張しています。その人をリラックスさせるような短い声掛けを1つ返してください。'
         
-        print(text)
+        self.get_logger.info(text)
         res_gemini = self.model.generate_content(text)
-        print(res_gemini.text)
-        print("")
+        self.get_logger.info(res_gemini.text)
         # self.pub_text.publish(response_gemini.text)
 
         # voice = vvox_test(request.name + res_gemini.text)
         voice = vvox_test(res_gemini.text)
-        # print(len(voice))
-        # print("bbb")
+        # self.get_logger.info(len(voice))
         voice_bytes = bytes(voice)
-        # print(len(voice_bytes))
+        # self.get_logger.info(len(voice_bytes))
         voice_int = np.frombuffer(voice_bytes, dtype=np.int32).tolist()
         # voice_int = [int(x) for x in voice]
         response.text = voice_int
@@ -81,7 +79,6 @@ class VoiceNode(Node):
 def main(args=None):
     rclpy.init(args=args)
     talker = VoiceNode()
-    print("a")
     try:
         talker.run()
     except KeyboardInterrupt:

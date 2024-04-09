@@ -7,7 +7,7 @@ import pygame
 from time import sleep
 import io
 
-status = '緊張'
+status = 'Relax'
 name = 'ずんだ'
 
 def play(voice):
@@ -21,53 +21,36 @@ class ClientNode(Node):
     def __init__(self):
         super().__init__('client_node')
 
-        self.pnnx = 0
-        self.b_a = 0.0
         self.is_request_sent = False
-
         # クライアントの生成
         self.cli = self.create_client(GenText, 'gen_text_srv')
         # サーバー接続まで待機
         while not self.cli.wait_for_service(timeout_sec=1.0):
-            self.get_logger().info("service not available...")
+            self.get_logger().info('service not available...')
         # リクエストの生成
         self.req = GenText.Request()
 
-        self.create_subscription(Int32, 'pnnx', self.pnnx_callback, 10)
-        self.create_subscription(Float32, 'brain_wave', self.brain_wave_callback, 10)
-        timer_period_emo = 1.0
+        self.emo_status = ''
+        self.create_subscription(String, 'emo_status', self.emo_status_callback, 10)
+        
         timer_period = 15.0
-        self.timer_emo = self.create_timer(timer_period_emo, self.emo_callback)
         self.timer = self.create_timer(timer_period, self.send_request)
 
         # 音声再生の初期化
         pygame.mixer.pre_init(frequency=24000, size=-16, channels=1)
         pygame.init()
 
-    def emo_callback(self):
-        global status
-        if self.pnnx < 20 and self.b_a > 1.0:
-            status = '緊張'
-        elif self.pnnx < 50 and self.b_a > 0.5:
-            status = '普通'
-        else:
-            status = 'リラックス'
+    def emo_status_callback(self, msg):
+        self.emo_status = msg.data
+        self.get_logger.info(f'emo_status:{self.emo_status}')
     
-    def pnnx_callback(self, msg):
-        self.pnnx = msg.data
-        print(f'pnnx:{self.pnnx}')
-    
-    def brain_wave_callback(self, msg):
-        self.b_a = msg.data
-        print(f'lowB/lowA:{self.b_a}')
-
     def send_request(self):
         global status, name
         if not self.is_request_sent:
             self.req.emo = status
             self.req.name = name + 'さん、'
             self.future = self.cli.call_async(self.req)
-            print(f'req.emo:{status}')
+            self.get_logger.info(f'req.emo:{status}')
             self.is_request_sent = True
         
     def run(self):
@@ -79,12 +62,12 @@ class ClientNode(Node):
                     response = self.future.result()
                     voicetext = response.text
                     voice = bytes(voicetext)
-                    # print(len(voice))
+                    # self.get_logger.info(len(voice))
                     play(voice)
-                    # print('ok')
+                    # self.get_logger.info('ok')
                     self.is_request_sent = False
                 except Exception as e:
-                    self.get_logger().error(f"Service call failed: {e}")
+                    self.get_logger().error(f'Service call failed: {e}')
 
 def main(args=None):
     rclpy.init(args=args)

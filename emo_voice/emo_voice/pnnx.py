@@ -31,8 +31,8 @@ class PnnxNode(Node):
     def publish_pnnx(self):
         sensor_data = self.sensor.readline().decode(encoding='utf-8').strip()
         if sensor_data.startswith('Q'):
-            print(f"センサーの値：{sensor_data}, pnnx:{self.pnnx.data}")
-            # print(f"安静時平均：{self.pnnx_rest_ave.data}, 直前平均：{self.pnnx_stimuli_ave}")
+            self.get_logger.info(f'Sensor_data:{sensor_data}, pnnx:{self.pnnx.data}')
+            # self.get_logger.info(f'安静時平均：{self.pnnx_rest_ave.data}, 直前平均：{self.pnnx_stimuli_ave}')
             self.rri = int(sensor_data[1:])
             self.xx_count += 1
             
@@ -50,12 +50,12 @@ class PnnxNode(Node):
                 self.pub_pnnx.publish(self.pnnx)
                 # 安静時平均をpublish
                 self.publish_pnnx_rest_ave(self.pnnx)
-                print(self.pnnx.data)
+                self.get_logger.info(self.pnnx.data)
 
             # pnnxに必要なデータ数が足りない時は貯める
             elif self.xx_count < MAX_LEN_DATA + 2:
                 self.rri_arr.append(self.rri)
-                print(f"貯まったデータ数：{len(self.rri_arr)}")
+                self.get_logger.info(f'貯まったデータ数：{len(self.rri_arr)}')
         
     def publish_pnnx_rest_ave(self, pnnx):
         # 安静時データを貯める

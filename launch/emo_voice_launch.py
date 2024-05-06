@@ -6,22 +6,7 @@ def generate_launch_description():
         Node(
             package='emo_voice',
             namespace='emo_voice',
-            executable='client',
-        ),
-        Node(
-            package='emo_voice',
-            namespace='emo_voice',
-            executable='server',
-        ),
-        Node(
-            package='emo_voice',
-            namespace='emo_voice',
             executable='move',
-        ),
-        Node(
-            package='emo_voice',
-            namespace='emo_voice',
-            executable='pnnx',
         ),
         Node(
             package='emo_voice',
@@ -32,10 +17,5 @@ def generate_launch_description():
             package='emo_voice',
             namespace='emo_voice',
             executable='emo_status',
-        ),
-        Node(
-            package='emo_voice',
-            namespace='emo_voice',
-            executable='plot',
         ),
     ])

@@ -11,8 +11,8 @@ def print_eeg_data(eeg_data):
 mw = MindWave(address='C4:64:E3:E7:C6:71', autostart=False, verbose=3)
 # mw = MindWave(autostart=False, verbose=3)  # Autoscan for MindWave Mobile
 # mw.set_callback('eeg', lambda x: print(x))
-# mw.set_callback('values', lambda x: print(x))
-mw.set_callback('eeg', print_eeg_data)
+mw.set_callback('meditation', lambda x: print(x))
+# mw.set_callback('eeg', print_eeg_data)
 mw.start()
 try:
     while True:
@@ -21,5 +21,7 @@ try:
 except KeyboardInterrupt:
     pass
 finally:
+    mw.unset_callback('signal')
+    mw.unset_callback('values')
     mw.unset_callback('eeg')
     mw.stop()

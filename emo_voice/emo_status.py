@@ -1,48 +1,94 @@
 import rclpy
 from rclpy.node import Node
 from std_msgs.msg import Int32, Float32, String
+import math
 
-MAX_LEN_DATA = 30
-X_PNN = 50
-
-class PnnxNode(Node):
+class EmoStatusNode(Node):
     def __init__(self):
         super().__init__('emo_status_node')
         
-        self.create_subscription(Int32, 'pnnx', self.pnnx_callback, 10)
-        self.create_subscription(Float32, 'brain_wave', self.brain_wave_callback, 10)
-        self.pnnx = 0
-        self.b_a = 0
+        self.create_subscription(Float32, 'pnnx', self.pnnx_callback, 10)
+        self.create_subscription(Int32, 'brain_wave', self.brain_wave_callback, 10)
+        self.pnnx = 0.0 # valence
+        self.att_med = 0 # arousal
 
         self.pub_emo_status = self.create_publisher(String, 'emo_status', 10)
         self.emo_status = String() # 感情状態
         self.emo_status.data = '' # 送信データ
+        self.THRESHOLD = 0.236 # pnnxの平均指標
 
+        timer_period = 1.0
+        self.timer = self.create_timer(timer_period, self.publish_emo_status)
+    
     def pnnx_callback(self, msg):
         self.pnnx = msg.data
-        self.get_logger().info(f'pnnx:{self.pnnx}')
     
     def brain_wave_callback(self, msg):
-        self.b_a = msg.data
-        self.get_logger().info(f'lowB/lowA:{self.b_a}')
-
-    def publish_emo_status(self):
-        if self.pnnx < 20 and self.b_a > 1.0:
-            self.emo_status.data = 'Tense'
-        elif self.pnnx < 40 and self.b_a > 0.5:
-            self.emo_status.data = 'Normal'
-        else:
-            self.emo_status.data = 'Relax'
-        
-        self.pub_emo_status.publish(self.emo_status)
+        self.att_med = msg.data
     
+    '''
+    def cal_arousal(self, msg):
+        tmp = msg.data.split(',')
+        arousal = float(tmp[0]) - float(tmp[1]) # Attention - Meditation
+        self.get_logger().info("arousal: " + str(arousal))
+        return arousal
+    '''
+
+    def cal_valence(self):
+        if (self.pnnx < self.THRESHOLD):
+            valence = (100 - ((self.pnnx / self.THRESHOLD) * 100)) * (-1)
+        else:
+            valence = ((self.pnnx - self.THRESHOLD) / (1 - self.THRESHOLD)) * 100
+        self.get_logger().info("valence: " + str(valence))
+        return valence
+
+    def cal_angle(self, arousal, valence):
+        angle = math.atan2(arousal, valence) * 180 / math.pi
+        if (angle < 0):
+            angle += 360
+        angle = int(angle)
+        self.get_logger().info("Angle: " + str(angle))
+        return angle
+
+    def cal_distance(self, arousal, valence):
+        distance = math.sqrt(arousal*arousal + valence*valence)
+        self.get_logger().info("Distance: " + str(distance))
+        return distance
+
+    def classify_emotion(self, angle):
+        if angle <= 90:
+            return 'Happy'
+        elif angle <= 180:
+            return 'Anger'
+        elif angle <= 270:
+            return 'Sadness'
+        else:
+            return 'Relax'
+
+    def estimate_emotion(self):
+        arousal = self.att_med
+        valence = self.cal_valence()
+
+        angle = self.cal_angle(arousal, valence)
+        emo_value = self.cal_distance(arousal, valence)
+        emo_name = self.classify_emotion(angle)
+        return [emo_name, emo_value]
+    
+    def publish_emo_status(self):
+        sub_emo = self.estimate_emotion()
+
+        self.emo_status.data = str(sub_emo[0]) + "," + str(sub_emo[1])
+        self.pub_emo_status.publish(self.emo_status)
+        self.get_logger().info("Emotion: " + str(sub_emo[0]) + ", Value: " + str(sub_emo[1]))
+ 
     def run(self):
         while rclpy.ok():
-            self.publish_pnnx()
+            rclpy.spin(self)
+            
 
 def main(args=None):
     rclpy.init(args=args)
-    talker = PnnxNode()
+    talker = EmoStatusNode()
     try:
         talker.run()
     except KeyboardInterrupt:
@@ -50,7 +96,6 @@ def main(args=None):
     finally:
         talker.destroy_node()
         rclpy.shutdown()
-
 
 if __name__ == '__main__':
     main()

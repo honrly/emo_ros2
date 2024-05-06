@@ -1,6 +1,6 @@
 import rclpy
 from rclpy.node import Node
-from std_msgs.msg import Int32
+from std_msgs.msg import Float32
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
@@ -18,8 +18,8 @@ class PlotNode(Node):
         self.line, = self.ax.plot(self.x, self.y)
         self.line_rest, = self.ax.plot(self.x, self.y_rest, 'r--')  # pnnx_rest_ave の線を赤色で追加
 
-        self.create_subscription(Int32, 'pnnx', self.graph_callback, 10)
-        self.create_subscription(Int32, 'pnnx_rest_ave', self.pnnx_rest_ave_callback, 10)
+        self.create_subscription(Float32, 'pnnx', self.graph_callback, 10)
+        self.create_subscription(Float32, 'pnnx_rest_ave', self.pnnx_rest_ave_callback, 10)
     
     def graph_callback(self, msg_pnnx):
         pnnx = msg_pnnx.data

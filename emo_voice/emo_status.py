@@ -7,7 +7,7 @@ class EmoStatusNode(Node):
     def __init__(self):
         super().__init__('emo_status_node')
         
-        self.create_subscription(Float32, 'pnnx', self.pnnx_callback, 10)
+        self.create_subscription(Float32, 'pulse', self.pnnx_callback, 10)
         self.create_subscription(Int32, 'brain_wave', self.brain_wave_callback, 10)
         self.pnnx = 0.0 # valence
         self.att_med = 0 # arousal
@@ -36,6 +36,7 @@ class EmoStatusNode(Node):
 
     def cal_valence(self):
         if (self.pnnx < self.THRESHOLD):
+            # 正規化、梶原さん
             valence = (100 - ((self.pnnx / self.THRESHOLD) * 100)) * (-1)
         else:
             valence = ((self.pnnx - self.THRESHOLD) / (1 - self.THRESHOLD)) * 100
@@ -43,6 +44,7 @@ class EmoStatusNode(Node):
         return valence
 
     def cal_angle(self, arousal, valence):
+        # 
         angle = math.atan2(arousal, valence) * 180 / math.pi
         if (angle < 0):
             angle += 360
@@ -51,6 +53,7 @@ class EmoStatusNode(Node):
         return angle
 
     def cal_distance(self, arousal, valence):
+        # 無の感情基準、
         distance = math.sqrt(arousal*arousal + valence*valence)
         self.get_logger().info("Distance: " + str(distance))
         return distance

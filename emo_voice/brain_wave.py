@@ -12,8 +12,8 @@ class BrainWaveNode(Node):
         super().__init__('brain_wave_node')
 
         # MindWave Setting
-        self.mw = MindWave(address=MINDWAVE_ADDRESS, autostart=False, verbose=3, retry_count=3)
-        # self.mw = MindWave(autostart=False, verbose=3, retry_count=3)  # Autoscan for MindWave Mobile
+        self.mw = MindWave(address=MINDWAVE_ADDRESS, autostart=False, verbose=3)
+        # self.mw = MindWave(autostart=False, verbose=3)  # Autoscan for MindWave Mobile
         self.mw.set_callback('attention', self.get_att)
         self.mw.set_callback('meditation', self.get_med)
         self.mw.start()

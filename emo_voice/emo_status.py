@@ -1,13 +1,14 @@
 import rclpy
 from rclpy.node import Node
 from std_msgs.msg import Int32, Float32, String
+from my_custom_message.msg import BioData
 import math
 
 class EmoStatusNode(Node):
     def __init__(self):
         super().__init__('emo_status_node')
         
-        self.create_subscription(Float32, 'pnnx', self.pnnx_callback, 10)
+        self.create_subscription(BioData, 'pulse', self.pnnx_callback, 10)
         self.create_subscription(Int32, 'brain_wave', self.brain_wave_callback, 10)
         self.pnnx = 0.0 # valence
         self.att_med = 0 # arousal
@@ -21,7 +22,8 @@ class EmoStatusNode(Node):
         self.timer = self.create_timer(timer_period, self.publish_emo_status)
     
     def pnnx_callback(self, msg):
-        self.pnnx = msg.data
+        self.pnnx = msg.pnn50
+        print(self.pnnx)
     
     def brain_wave_callback(self, msg):
         self.att_med = msg.data

@@ -5,7 +5,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 
-# Nodeクラスを継承
 class PlotNode(Node):
     def __init__(self):
         super().__init__('plot_node')

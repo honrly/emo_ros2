@@ -1,6 +1,7 @@
 import rclpy
 from rclpy.node import Node
-from std_msgs.msg import Int32
+from std_msgs.msg import Float32
+from my_custom_message.msg import BrainData
 from neuropy3.neuropy3 import MindWave
 from time import sleep
 import datetime
@@ -14,30 +15,42 @@ class BrainWaveNode(Node):
         # MindWave Setting
         self.mw = MindWave(address=MINDWAVE_ADDRESS, autostart=False, verbose=3)
         # self.mw = MindWave(autostart=False, verbose=3)  # Autoscan for MindWave Mobile
-        self.mw.set_callback('attention', self.get_att)
-        self.mw.set_callback('meditation', self.get_med)
+        self.mw.set_callback('signal', self.publish_brain_wave) # poor signal
+        self.mw.set_callback('eeg', self.set_brain_data)
         self.mw.start()
 
-        # Publish Attention-Meditation
-        self.pub_att_med = self.create_publisher(Int32, 'brain_wave', 10)
-        self.att_med = Int32()
-        self.att_med.data = 0
-        self.attention_val = 0
-        self.meditation_val = 0
+        # Publish MindWave Data
+        self.pub_brain_wave = self.create_publisher(BrainData, 'brain_wave', 10)
+        self.brain_wave = BrainData()
+        self.brain_wave.poorsignal = 0
+        self.brain_wave.delta = 0
+        self.brain_wave.theta = 0
+        self.brain_wave.alpha_l = 0
+        self.brain_wave.alpha_h= 0
+        self.brain_wave.beta_l = 0
+        self.brain_wave.beta_h = 0
+        self.brain_wave.gamma_l = 0
+        self.brain_wave.gamma_m = 0
 
-        timer_period = 1.0
-        self.timer = self.create_timer(timer_period, self.publish_att_med)
+        #timer_period = 1.0
+        #self.timer = self.create_timer(timer_period, self.publish_)
 
-    def get_att(self, mw_data):
-        self.attention_val = mw_data
+    def set_brain_data(self, eeg_data):
+        self.brain_wave.delta = eeg_data['delta']
+        self.brain_wave.theta = eeg_data['theta']
+        self.brain_wave.alpha_l = eeg_data['alpha_l']
+        self.brain_wave.alpha_h= eeg_data['alpha_h']
+        self.brain_wave.beta_l = eeg_data['beta_l']
+        self.brain_wave.beta_h = eeg_data['beta_h']
+        self.brain_wave.gamma_l = eeg_data['gamma_l']
+        self.brain_wave.gamma_m = eeg_data['gamma_m']
+        
+        self.get_logger().info(f'EED_DATA: {eeg_data}\n\n')
 
-    def get_med(self, mw_data):
-        self.meditation_val = mw_data
-    
-    def publish_att_med(self):
-        self.att_med.data = self.attention_val - self.meditation_val
-        self.pub_att_med.publish(self.att_med)
-        self.get_logger().info(f'Att - Med: {self.att_med.data}, {self.attention_val}, {self.meditation_val}')
+    def publish_brain_wave(self, poorsignal_data):
+        self.brain_wave.poorsignal = poorsignal_data
+        self.get_logger().info(f'POORSIGNAL: {self.brain_wave.poorsignal}')
+        self.pub_brain_wave.publish(self.brain_wave)
     
     def run(self):
         while rclpy.ok():
@@ -50,9 +63,11 @@ def main(args=None):
         talker.run()
     except KeyboardInterrupt:
         pass
+    except TimeoutError:
+        pass
     finally:
-        talker.mw.unset_callback('attention')
-        talker.mw.unset_callback('meditation')
+        talker.mw.unset_callback('eeg')
+        talker.mw.unset_callback('signal')
         talker.mw.stop()
         talker.destroy_node()
         rclpy.shutdown()

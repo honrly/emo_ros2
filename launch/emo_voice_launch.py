@@ -6,11 +6,6 @@ def generate_launch_description():
         Node(
             package='emo_voice',
             namespace='emo_voice',
-            executable='move',
-        ),
-        Node(
-            package='emo_voice',
-            namespace='emo_voice',
             executable='brain_wave',
         ),
         Node(

@@ -3,6 +3,7 @@ from rclpy.node import Node
 from std_msgs.msg import Int32, Float32, String
 from my_custom_message.msg import PulseData, BrainData
 import math
+import os
 import csv
 from datetime import datetime
 
@@ -13,12 +14,24 @@ class EmoStatusNode(Node):
         self.create_subscription(PulseData, 'pulse', self.pulse_callback, 10)
         self.create_subscription(BrainData, 'brain_wave', self.beta_l_alpha_l_callback, 10)
         
+        # bio_data
         self.pnn10 = 0.0 # valence
         self.pnn20 = 0.0
         self.pnn30 = 0.0
         self.pnn40 = 0.0
         self.pnn50 = 0.0
         self.rmssd = 0.0
+        
+        self.poorsignal = 0
+        self.delta = 0
+        self.theta = 0
+        self.alpha_l = 0
+        self.alpha_h = 0
+        self.beta_l = 0
+        self.beta_h = 0
+        self.gamma_l = 0
+        self.gamma_m = 0
+        
         self.beta_l_alpha_l = 0 # arousal
 
         self.pub_emo_status = self.create_publisher(String, 'emo_status', 10)
@@ -43,23 +56,50 @@ class EmoStatusNode(Node):
         timer_period = 1.0
         self.timer = self.create_timer(timer_period, self.publish_emo_status)
     
-        directory_path = '/home/user/ros2_ws/src/emo_voice'
-        # directory_path = '/home/user/turtlebot3_ws/src/emotion_ros'
+        # directory_path = '/home/user/ros2_ws/src/emo_voice'
+        directory_path = '/home/user/turtlebot3_ws/src/emotion_ros'
         
+        '''
         timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
         self.csv_filename = f'{directory_path}/bio_data/{timestamp}.csv'
         self.csv_file = open(self.csv_filename, mode='w', newline='')
         self.csv_writer = csv.writer(self.csv_file)
-        self.csv_writer.writerow(['timestamp', 'beta_l_alpha_l', 'pnn50'])
+        self.csv_writer.writerow(['timestamp', 'threshold_b_a', 'threshold_pnn', 'beta_l_alpha_l', 
+                                  'poorsignal', 'delta', 'theta', 'alpha_l', 'alpha_h', 'beta_l', 'beta_h', 'gamma_l', 'gamma_m', 
+                                  'bpm', 'ibi', 'sdnn', 'cvnn', 'rmssd', 'pnn10', 'pnn20', 'pnn30', 'pnn40', 'pnn50'])
         
         self.emo_csv_filename = f'{directory_path}/emo_data/{timestamp}.csv'
         self.emo_csv_file = open(self.emo_csv_filename, mode='w', newline='')
         self.emo_csv_writer = csv.writer(self.emo_csv_file)
         self.emo_csv_writer.writerow(['timestamp', 'beta_l_alpha_l', 'pnn50', 'emo', 'threshold_b_a', 'threshold_pnn'])
+        '''
+        
+        bio_data_path = os.path.join(directory_path, 'bio_data')
+        emo_data_path = os.path.join(directory_path, 'emo_data')
+
+        os.makedirs(bio_data_path, exist_ok=True)
+        os.makedirs(emo_data_path, exist_ok=True)
+
+        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+
+        self.csv_filename = os.path.join(bio_data_path, f'{timestamp}.csv')
+        self.csv_file = open(self.csv_filename, mode='w', newline='')
+        self.csv_writer = csv.writer(self.csv_file)
+        self.csv_writer.writerow(['timestamp', 'threshold_b_a', 'threshold_pnn', 'beta_l_alpha_l', 
+                                'poorsignal', 'delta', 'theta', 'alpha_l', 'alpha_h', 'beta_l', 'beta_h', 'gamma_l', 'gamma_m', 
+                                'bpm', 'ibi', 'sdnn', 'cvnn', 'rmssd', 'pnn10', 'pnn20', 'pnn30', 'pnn40', 'pnn50'])
+
+        self.emo_csv_filename = os.path.join(emo_data_path, f'{timestamp}.csv')
+        self.emo_csv_file = open(self.emo_csv_filename, mode='w', newline='')
+        self.emo_csv_writer = csv.writer(self.emo_csv_file)
+        self.emo_csv_writer.writerow(['timestamp', 'beta_l_alpha_l', 'pnn50', 'emo', 'threshold_b_a', 'threshold_pnn'])
+
     
     def write_bio_data(self):
         timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')[:-3]
-        self.csv_writer.writerow([timestamp, self.beta_l_alpha_l, self.pnn50])
+        self.csv_writer.writerow([timestamp, self.THRESHOLD_AROUSAL, self.THRESHOLD_VALENCE, self.beta_l_alpha_l, 
+                                  self.poorsignal, self.delta, self.theta, self.alpha_l, self.alpha_h, self.beta_l, self.beta_h, self.gamma_l, self.gamma_m, 
+                                  self.bpm, self.ibi, self.sdnn, self.cvnn, self.rmssd, self.pnn10, self.pnn20, self.pnn30, self.pnn40, self.pnn50])
         self.csv_file.flush()
         
     def pulse_callback(self, msg):
@@ -73,8 +113,19 @@ class EmoStatusNode(Node):
         
         self.write_bio_data()
     
-    def beta_l_alpha_l_callback(self, msg):
+    def beta_l_alpha_l_callback(self, msg):        
+        self.poorsignal = msg.poorsignal
+        self.delta = msg.delta
+        self.theta = msg.theta
+        self.alpha_l = msg.alpha_l
+        self.alpha_h = msg.alpha_h
+        self.beta_l = msg.beta_l
+        self.beta_h = msg.beta_h
+        self.gamma_l = msg.gamma_l
+        self.gamma_m = msg.gamma_m
+        
         self.beta_l_alpha_l = msg.beta_l / msg.alpha_l
+        
         self.get_logger().info(f'LOWBETA / LOWALPHA {self.beta_l_alpha_l}, {msg.beta_l}, {msg.alpha_l}')
         
         if self.rest_count < self.REST_TIME:
@@ -100,33 +151,33 @@ class EmoStatusNode(Node):
     def estimate_emotion(self):
         emo_name = ""
         
-        # Happy
-        if self.beta_l_alpha_l >= self.THRESHOLD_AROUSAL and self.pnn50 >= self.THRESHOLD_VALENCE:
-            emo_name = "Happy"   
-        # Relax
-        elif self.beta_l_alpha_l < self.THRESHOLD_AROUSAL and self.pnn50 >= self.THRESHOLD_VALENCE:
-            emo_name = "Relax"
-        # Sad
-        elif self.beta_l_alpha_l < self.THRESHOLD_AROUSAL and self.pnn50 < self.THRESHOLD_VALENCE:
-            emo_name = "Sad"
-        # Angry
-        elif self.beta_l_alpha_l >= self.THRESHOLD_AROUSAL and self.pnn50 < self.THRESHOLD_VALENCE:
-            emo_name = "Angry"
+        if self.FLAG_THRESHOLD != 0:
+            # Happy
+            if self.beta_l_alpha_l >= self.THRESHOLD_AROUSAL and self.pnn50 >= self.THRESHOLD_VALENCE:
+                emo_name = "Happy"   
+            # Relax
+            elif self.beta_l_alpha_l < self.THRESHOLD_AROUSAL and self.pnn50 >= self.THRESHOLD_VALENCE:
+                emo_name = "Relax"
+            # Sad
+            elif self.beta_l_alpha_l < self.THRESHOLD_AROUSAL and self.pnn50 < self.THRESHOLD_VALENCE:
+                emo_name = "Sad"
+            # Angry
+            elif self.beta_l_alpha_l >= self.THRESHOLD_AROUSAL and self.pnn50 < self.THRESHOLD_VALENCE:
+                emo_name = "Angry"
         
         return [emo_name, self.beta_l_alpha_l, self.pnn50]
     
     def publish_emo_status(self):
-        if self.FLAG_THRESHOLD != 0:
-            emo_and_bio = self.estimate_emotion()
-            
-            self.emo_status.data = emo_and_bio[0]
-            self.pub_emo_status.publish(self.emo_status)
-            
-            self.write_emo_data(emo_and_bio[1], emo_and_bio[2], emo_and_bio[0])
-            
-            self.get_logger().info(f'Emotion: {emo_and_bio[0]}, lowb/a: {emo_and_bio[1]}, pnn: {emo_and_bio[2]}')
-            self.get_logger().info(f'THRESHOLD_VALENCE, {self.THRESHOLD_VALENCE}')
-            self.get_logger().info(f'THRESHOLD_AROUSAL, {self.THRESHOLD_AROUSAL}\n\n')
+        emo_and_bio = self.estimate_emotion()
+        
+        self.emo_status.data = emo_and_bio[0]
+        self.pub_emo_status.publish(self.emo_status)
+        
+        self.write_emo_data(emo_and_bio[1], emo_and_bio[2], emo_and_bio[0])
+        
+        self.get_logger().info(f'Emotion: {emo_and_bio[0]}, lowb/a: {emo_and_bio[1]}, pnn: {emo_and_bio[2]}')
+        self.get_logger().info(f'THRESHOLD_VALENCE, {self.THRESHOLD_VALENCE}')
+        self.get_logger().info(f'THRESHOLD_AROUSAL, {self.THRESHOLD_AROUSAL}\n\n')
     
     def write_emo_data(self, b_a, pnn, emo):
         timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')[:-3]

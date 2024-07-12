@@ -76,7 +76,7 @@ def main(args=None):
   except KeyboardInterrupt:
     pass
   finally:
-    os.system("setterm -cursor on>/dev/tty0")
+    # os.system("setterm -cursor on>/dev/tty0")
     talker.destroy_node()
     rclpy.shutdown()
   

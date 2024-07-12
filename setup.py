@@ -31,14 +31,16 @@ setup(
             'EasyClassify2b = emotion_ros.EasyClassify2b:main',
             'motion_ctrlb = emotion_ros.motion_ctrlb:main',
             'motion_ctrlb_fsm = emotion_ros.motion_ctrlb_fsm:main',
+            'motion_ctrlb_no_distance= emotion_ros.motion_ctrlb_no_distance:main',
             'face_ctrl = emotion_ros.face_ctrl:main',
             'face_ctrl_cv = emotion_ros.face_ctrl_cv:main',
             'face_ctrl_cv2 = emotion_ros.face_ctrl_cv2:main',
             'sound_ctrl_eng = emotion_ros.sound_ctrl_eng:main',
+            'sound_ctrl_ja = emotion_ros.sound_ctrl_ja:main',
             'test_motion2 = emotion_ros.test_motion2:main',
             'emo_status = emotion_ros.emo_status:main',
             'emo_status_rest_base= emotion_ros.emo_status_rest_base:main',
-            'motion_ctrlb_no_distance= emotion_ros.motion_ctrlb_no_distance:main',
+            
         ],
     },
 )

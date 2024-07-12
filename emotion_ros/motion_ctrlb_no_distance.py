@@ -55,33 +55,24 @@ class MotionCtrl(Node):
     return n
 
   def callback_emotion(self, msg):
+    face = msg.data
     self.get_logger().info("Message " + str(msg.data) + " recieved")
-
-    tmp = msg.data.split(',')
-    face = tmp[0]
-    EMO_PERCENTAGE = float(tmp[1])  # 感情強度（float）
-    self.get_logger().info("face " + str(face) + ", EMO_PERCENTAGE " + str(EMO_PERCENTAGE))
     
-    # 感情毎の最大強度を記録
-    '''
-    if face == 'Happy':
-        if EMO_PERCENTAGE > self.em_score[0]: self.em_score[0] = EMO_PERCENTAGE
-    if face == 'Relax':
-        if EMO_PERCENTAGE > self.em_score[1]: self.em_score[1] = EMO_PERCENTAGE
-    if face == 'Anger':
-        if EMO_PERCENTAGE > self.em_score[2]: self.em_score[2] = EMO_PERCENTAGE
-    if face == 'Sadness':
-        if EMO_PERCENTAGE > self.em_score[3]: self.em_score[3] = EMO_PERCENTAGE
-    '''
+    if face == '':
+        self.get_logger().info("\n###############\n### Rest ###\n###############")
+        tmp.data = "rest"
+        self.pub_face.publish(tmp)
+        return
+    
     # 感情毎の強度を累積
     if face == 'Happy':
-        self.em_score[0] = self.em_score[0] + EMO_PERCENTAGE
+        self.em_score[0] += 1
     if face == 'Relax':
-        self.em_score[1] = self.em_score[1] + EMO_PERCENTAGE
+        self.em_score[1] += 1
     if face == 'Anger':
-        self.em_score[2] = self.em_score[2] + EMO_PERCENTAGE
+        self.em_score[2] += 1
     if face == 'Sadness':
-        self.em_score[3] = self.em_score[3] + EMO_PERCENTAGE
+        self.em_score[3] += 1
     
     self.get_logger().info("em_score [" + str(self.em_score[0]) + "," + str(self.em_score[1]) + "," + str(self.em_score[2]) + "," + str(self.em_score[3]) + "]")
 
@@ -112,6 +103,7 @@ class MotionCtrl(Node):
         face = 'Sadness'
         self.get_logger().info("\n###############\n### Sadness ###\n###############")
     
+    '''
     #if face == self.old_face: return    # 感情が変化したときだけ、応答を変える
     if face != self.old_face:  # 感情状態が変化したときは応答する
         self.rep_cnt = 0
@@ -123,7 +115,7 @@ class MotionCtrl(Node):
     else:
         self.rep_cnt = self.rep_cnt + 1
         if self.rep_cnt == self.rep_max: self.rep_cnt = 0
-
+    '''
     # emotion2トピック用に最大強度を記録した感情と強度をメッセージに編集
     # Edit the emotion and intensity recorded with maximum intensity into a message for the emotion2 topic
     msg.data = face + "," + str(max_em_score)

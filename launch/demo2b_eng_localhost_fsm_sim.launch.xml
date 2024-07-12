@@ -1,0 +1,29 @@
+<?xml version='1.0' ?>
+
+<launch>
+  <!-- <include file="$(find-pkg-share tirtlebot3_fake_node)/launch/turtlebot3_fake_node.launch.py"> -->
+  <!--
+  <include file="$(find-pkg-share emotion_ros)/launch/turtlebot3_fake_node2.launch.py">
+  </include>
+  -->
+  <include file="$(find-pkg-share emotion_ros)/launch/turtlebot3_fake_node.launch.py">
+  </include>
+  
+  <node pkg="emotion_ros" exec="EasyClassify2b" output="screen">
+  </node>
+  
+  <node pkg="emotion_ros" exec="biodata_bridge_node3b" output="screen">
+  </node>
+
+  <node pkg="emotion_ros" exec="face_ctrl_cv" output="screen">
+  </node>
+  
+  <node pkg="emotion_ros" exec="sound_ctrl_eng" output="screen">
+  </node>
+
+  <node pkg="emotion_ros" exec="test_motion2" output="screen">
+  </node>
+
+  <node pkg="emotion_ros" exec="motion_ctrlb_fsm" output="screen">
+  </node>
+</launch>

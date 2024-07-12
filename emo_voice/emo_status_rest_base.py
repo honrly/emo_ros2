@@ -43,13 +43,16 @@ class EmoStatusNode(Node):
         timer_period = 1.0
         self.timer = self.create_timer(timer_period, self.publish_emo_status)
     
+        directory_path = '/home/user/ros2_ws/src/emo_voice'
+        # directory_path = '/home/user/turtlebot3_ws/src/emotion_ros'
+        
         timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-        self.csv_filename = f'/home/user/ros2_ws/src/emo_voice/bio_data/{timestamp}.csv'
+        self.csv_filename = f'{directory_path}/bio_data/{timestamp}.csv'
         self.csv_file = open(self.csv_filename, mode='w', newline='')
         self.csv_writer = csv.writer(self.csv_file)
         self.csv_writer.writerow(['timestamp', 'beta_l_alpha_l', 'pnn50'])
         
-        self.emo_csv_filename = f'/home/user/ros2_ws/src/emo_voice/emo__data/{timestamp}.csv'
+        self.emo_csv_filename = f'{directory_path}/emo_data/{timestamp}.csv'
         self.emo_csv_file = open(self.emo_csv_filename, mode='w', newline='')
         self.emo_csv_writer = csv.writer(self.emo_csv_file)
         self.emo_csv_writer.writerow(['timestamp', 'beta_l_alpha_l', 'pnn50', 'emo', 'threshold_b_a', 'threshold_pnn'])
@@ -121,9 +124,9 @@ class EmoStatusNode(Node):
             
             self.write_emo_data(emo_and_bio[1], emo_and_bio[2], emo_and_bio[0])
             
-            self.get_logger().info(f'Emotion: {str(sub_emo[0])}, Value: {str(sub_emo[1])}\n\n')
+            self.get_logger().info(f'Emotion: {emo_and_bio[0]}, lowb/a: {emo_and_bio[1]}, pnn: {emo_and_bio[2]}')
             self.get_logger().info(f'THRESHOLD_VALENCE, {self.THRESHOLD_VALENCE}')
-            self.get_logger().info(f'THRESHOLD_AROUSAL, {self.THRESHOLD_AROUSAL}')
+            self.get_logger().info(f'THRESHOLD_AROUSAL, {self.THRESHOLD_AROUSAL}\n\n')
     
     def write_emo_data(self, b_a, pnn, emo):
         timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')[:-3]

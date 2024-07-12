@@ -38,6 +38,7 @@ setup(
             'test_motion2 = emotion_ros.test_motion2:main',
             'emo_status = emotion_ros.emo_status:main',
             'emo_status_rest_base= emotion_ros.emo_status_rest_base:main',
+            'motion_ctrlb_no_distance= emotion_ros.motion_ctrlb_no_distance:main',
         ],
     },
 )

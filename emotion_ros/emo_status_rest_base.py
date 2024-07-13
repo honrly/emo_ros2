@@ -88,7 +88,7 @@ class EmoStatusNode(Node):
         self.csv_file.flush()
         
     def pulse_callback(self, msg):
-        self.pnn10 = msg.pnn10 # valence
+        self.pnn10 = msg.pnn10
         self.pnn20 = msg.pnn20
         self.pnn30 = msg.pnn30
         self.pnn40 = msg.pnn40

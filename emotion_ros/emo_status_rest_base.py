@@ -58,22 +58,7 @@ class EmoStatusNode(Node):
     
         # directory_path = '/home/user/ros2_ws/src/emo_voice'
         directory_path = '/home/user/turtlebot3_ws/src/emotion_ros'
-        
-        '''
-        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-        self.csv_filename = f'{directory_path}/bio_data/{timestamp}.csv'
-        self.csv_file = open(self.csv_filename, mode='w', newline='')
-        self.csv_writer = csv.writer(self.csv_file)
-        self.csv_writer.writerow(['timestamp', 'threshold_b_a', 'threshold_pnn', 'beta_l_alpha_l', 
-                                  'poorsignal', 'delta', 'theta', 'alpha_l', 'alpha_h', 'beta_l', 'beta_h', 'gamma_l', 'gamma_m', 
-                                  'bpm', 'ibi', 'sdnn', 'cvnn', 'rmssd', 'pnn10', 'pnn20', 'pnn30', 'pnn40', 'pnn50'])
-        
-        self.emo_csv_filename = f'{directory_path}/emo_data/{timestamp}.csv'
-        self.emo_csv_file = open(self.emo_csv_filename, mode='w', newline='')
-        self.emo_csv_writer = csv.writer(self.emo_csv_file)
-        self.emo_csv_writer.writerow(['timestamp', 'beta_l_alpha_l', 'pnn50', 'emo', 'threshold_b_a', 'threshold_pnn'])
-        '''
-        
+         
         bio_data_path = os.path.join(directory_path, 'bio_data')
         emo_data_path = os.path.join(directory_path, 'emo_data')
 

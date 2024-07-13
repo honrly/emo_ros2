@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>emo_voice</name>
+  <name>emotion_ros</name>
   <version>0.0.0</version>
   <description>TODO: Package description</description>
   <maintainer email="user@todo.todo">user</maintainer>
@@ -14,14 +14,11 @@
 
   <export>
     <build_type>ament_python</build_type>
-    <build_depend>emo_voice_interfaces</build_depend>
     <exec_depend>rclpy</exec_depend>
     <exec_depend>std_msgs</exec_depend>
     <exec_depend>geometry_msgs</exec_depend>
-    <exec_depend>google-generativeai</exec_depend>
-    <exec_depend>requests</exec_depend>
-    <exec_depend>json</exec_depend>
-    <exec_depend>pygame</exec_depend>
-    <exec_depend>neuropy3</exec_depend>
+    <exec_depend>nav_msgs</exec_depend>
+    <exec_depend>sensor_msgs</exec_depend>
+    <exec_depend>tf_transformations</exec_depend>
   </export>
 </package>

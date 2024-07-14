@@ -6,12 +6,22 @@ def generate_launch_description():
         Node(
             package='emotion_ros',
             namespace='emotion_ros',
+            executable='emo_status_rest_base',
+        ),
+        Node(
+            package='emotion_ros',
+            namespace='emotion_ros',
+            executable='motion_ctrlb_no_distance',
+        ),
+        Node(
+            package='emotion_ros',
+            namespace='emotion_ros',
             executable='face_ctrl',
         ),
         Node(
             package='emotion_ros',
             namespace='emotion_ros',
-            executable='motion_ctrl_ja',
+            executable='sound_ctrl_ja',
         ),
         Node(
             package='emotion_ros',

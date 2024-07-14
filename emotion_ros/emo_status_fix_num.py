@@ -43,17 +43,9 @@ class EmoStatusNode(Node):
         self.emo_status = String() # 感情状態
         self.emo_status.data = '' # 送信データ
         
-        self.THRESHOLD_VALENCE = -1.0 # valenceの平均指標
-        self.THRESHOLD_AROUSAL = -1.0 # arousalの平均指標
+        self.THRESHOLD_VALENCE = 0.236 # valenceの平均指標
+        self.THRESHOLD_AROUSAL = 0 # arousalの平均指標
         self.FLAG_THRESHOLD = 0
-        
-        self.pnn10_rest = []
-        self.pnn20_rest = []
-        self.pnn30_rest = []
-        self.pnn40_rest = []
-        self.pnn50_rest = []
-        self.rmssd_rest = []
-        self.beta_l_alpha_l_rest = []
         
         self.rest_count = 0
         self.REST_TIME = 10
@@ -120,21 +112,10 @@ class EmoStatusNode(Node):
         
         if self.rest_count < self.REST_TIME:
             self.rest_count += 1
-            self.pnn10_rest.append(self.pnn10)
-            self.pnn20_rest.append(self.pnn20)
-            self.pnn30_rest.append(self.pnn30)
-            self.pnn40_rest.append(self.pnn40)
-            self.pnn50_rest.append(self.pnn50)
-            self.rmssd_rest.append(self.rmssd)
-            self.beta_l_alpha_l_rest.append(self.beta_l_alpha_l)
             self.get_logger().info(f'rest_count {self.rest_count}')
             
-            if self.rest_count == self.REST_TIME and self.FLAG_THRESHOLD == 0:
+            if self.rest_count == self.REST_TIME:
                 self.FLAG_THRESHOLD += 1
-                self.THRESHOLD_VALENCE = sum(self.pnn50_rest) / self.REST_TIME
-                self.THRESHOLD_AROUSAL = sum(self.beta_l_alpha_l_rest) / self.REST_TIME
-                self.get_logger().info(f'THRESHOLD_VALENCE, {self.THRESHOLD_VALENCE}')
-                self.get_logger().info(f'THRESHOLD_AROUSAL, {self.THRESHOLD_AROUSAL}')
 
         self.write_bio_data()
     

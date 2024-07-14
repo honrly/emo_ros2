@@ -39,8 +39,11 @@ setup(
             'sound_ctrl_ja = emotion_ros.sound_ctrl_ja:main',
             'test_motion2 = emotion_ros.test_motion2:main',
             'emo_status = emotion_ros.emo_status:main',
-            'emo_status_rest_base= emotion_ros.emo_status_rest_base:main',
-            
+            'emo_status_fix_num = emotion_ros.emo_status_fix_num:main',
+            'emo_status_rest_base = emotion_ros.emo_status_rest_base:main',
+            'brain_wave = emotion_ros.brain_wave:main',
+            'stimu = emotion_ros.stimu:main',
+            'visualizer = emotion_ros.visualizer:main',
         ],
     },
 )

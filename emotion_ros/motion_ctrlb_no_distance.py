@@ -17,7 +17,7 @@ from std_msgs.msg import String
 
 class MotionCtrl(Node):
   def __init__(self):
-    super().__init__('motion_ctrlb')
+    super().__init__('motion_ctrlb_no_distance')
     
     self.mode = 1 # motion switch
     self.old_face = '' # previous emotion
@@ -58,9 +58,10 @@ class MotionCtrl(Node):
     face = msg.data
     self.get_logger().info("Message " + str(msg.data) + " recieved")
     
-    if face == '':
+    tmp = String()
+    if face == 'Rest':
         self.get_logger().info("\n###############\n### Rest ###\n###############")
-        tmp.data = "rest"
+        tmp.data = 'initial'
         self.pub_face.publish(tmp)
         return
     
@@ -103,7 +104,7 @@ class MotionCtrl(Node):
         face = 'Sadness'
         self.get_logger().info("\n###############\n### Sadness ###\n###############")
     
-    '''
+    
     #if face == self.old_face: return    # 感情が変化したときだけ、応答を変える
     if face != self.old_face:  # 感情状態が変化したときは応答する
         self.rep_cnt = 0
@@ -115,14 +116,13 @@ class MotionCtrl(Node):
     else:
         self.rep_cnt = self.rep_cnt + 1
         if self.rep_cnt == self.rep_max: self.rep_cnt = 0
-    '''
+    
     # emotion2トピック用に最大強度を記録した感情と強度をメッセージに編集
     # Edit the emotion and intensity recorded with maximum intensity into a message for the emotion2 topic
     msg.data = face + "," + str(max_em_score)
     self.pub_emotion2.publish(msg)
 
     # 実際の応答を実行
-    tmp = String()
     if face == 'Happy':
         self.get_logger().info("\n#############\n### Happy ###\n#############")
         tmp.data = "happy5"

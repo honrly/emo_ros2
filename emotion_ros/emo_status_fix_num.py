@@ -12,7 +12,7 @@ class EmoStatusNode(Node):
         super().__init__('emo_status_rest_base')
         
         self.create_subscription(PulseData, 'pulse', self.pulse_callback, 10)
-        self.create_subscription(BrainData, 'brain_wave', self.beta_l_alpha_l_callback, 10)
+        self.create_subscription(BrainData, 'brain_wave', self.brain_wave_callback, 10)
         
         # bio_data
         self.bpm = 0
@@ -47,31 +47,34 @@ class EmoStatusNode(Node):
         self.THRESHOLD_AROUSAL = 0 # arousalの平均指標
         self.FLAG_THRESHOLD = 0
         
-        self.rest_count = 0
+        # Rest time manage
         self.REST_TIME = 10
+        self.pub_time_count = self.create_publisher(Int32, 'time_count', 10)
+        self.time_count = Int32()
+        self.time_count.data = 0
 
         timer_period = 1.0
         self.timer = self.create_timer(timer_period, self.publish_emo_status)
     
-        # directory_path = '/home/user/ros2_ws/src/emo_voice'
+        # Record csv
+        # directory_path = '/home/user/ros2_ws/src/emotion_ros'
         directory_path = '/home/user/turtlebot3_ws/src/emotion_ros'
          
-        bio_data_path = os.path.join(directory_path, 'bio_data')
-        emo_data_path = os.path.join(directory_path, 'emo_data')
-
+        bio_data_path = os.path.join(directory_path, 'bio_record/bio_data')
+        emo_data_path = os.path.join(directory_path, 'bio_record/emo_data')
         os.makedirs(bio_data_path, exist_ok=True)
         os.makedirs(emo_data_path, exist_ok=True)
 
         timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
 
-        self.csv_filename = os.path.join(bio_data_path, f'{timestamp}.csv')
+        self.csv_filename = os.path.join(bio_data_path, f'{timestamp}_fix_num.csv')
         self.csv_file = open(self.csv_filename, mode='w', newline='')
         self.csv_writer = csv.writer(self.csv_file)
         self.csv_writer.writerow(['timestamp', 'threshold_b_a', 'threshold_pnn', 'beta_l_alpha_l', 
                                 'poorsignal', 'delta', 'theta', 'alpha_l', 'alpha_h', 'beta_l', 'beta_h', 'gamma_l', 'gamma_m', 
                                 'bpm', 'ibi', 'sdnn', 'cvnn', 'rmssd', 'pnn10', 'pnn20', 'pnn30', 'pnn40', 'pnn50'])
 
-        self.emo_csv_filename = os.path.join(emo_data_path, f'{timestamp}.csv')
+        self.emo_csv_filename = os.path.join(emo_data_path, f'{timestamp}_fix_num.csv')
         self.emo_csv_file = open(self.emo_csv_filename, mode='w', newline='')
         self.emo_csv_writer = csv.writer(self.emo_csv_file)
         self.emo_csv_writer.writerow(['timestamp', 'beta_l_alpha_l', 'pnn50', 'emo', 'threshold_b_a', 'threshold_pnn'])
@@ -95,7 +98,7 @@ class EmoStatusNode(Node):
         
         self.write_bio_data()
     
-    def beta_l_alpha_l_callback(self, msg):        
+    def brain_wave_callback(self, msg):        
         self.poorsignal = msg.poorsignal
         self.delta = msg.delta
         self.theta = msg.theta
@@ -109,14 +112,14 @@ class EmoStatusNode(Node):
         self.beta_l_alpha_l = msg.beta_l / msg.alpha_l
         
         self.get_logger().info(f'LOWBETA / LOWALPHA {self.beta_l_alpha_l}, {msg.beta_l}, {msg.alpha_l}')
-        
-        if self.rest_count < self.REST_TIME:
-            self.rest_count += 1
-            self.get_logger().info(f'rest_count {self.rest_count}')
-            
-            if self.rest_count == self.REST_TIME:
-                self.FLAG_THRESHOLD += 1
 
+        if self.time_count.data == self.REST_TIME:
+            self.FLAG_THRESHOLD += 1
+
+        self.time_count.data += 1
+        self.get_logger().info(f'time_count {self.time_count.data}')
+        self.pub_time_count.publish(self.time_count)
+        
         self.write_bio_data()
     
     def estimate_emotion(self):

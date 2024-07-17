@@ -1,0 +1,2 @@
+timestamp,threshold_b_a,threshold_pnn,beta_l_alpha_l,poorsignal,delta,theta,alpha_l,alpha_h,beta_l,beta_h,gamma_l,gamma_m,bpm,ibi,sdnn,cvnn,rmssd,pnn10,pnn20,pnn30,pnn40,pnn50
+2024-07-16 17:31:18.247,0,0.236,11.179023430819223,200,1794938,633781,23388,82632,261455,145304,79186,85248,0,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0

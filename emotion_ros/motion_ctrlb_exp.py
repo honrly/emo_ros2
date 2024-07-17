@@ -17,7 +17,7 @@ from std_msgs.msg import String
 
 class MotionCtrl(Node):
   def __init__(self):
-    super().__init__('motion_ctrlb_no_distance')
+    super().__init__('motion_ctrlb_rest')
     
     self.mode = 1 # motion switch
     self.old_face = '' # previous emotion
@@ -57,70 +57,7 @@ class MotionCtrl(Node):
   def callback_emotion(self, msg):
     face = msg.data
     self.get_logger().info("Message " + str(msg.data) + " recieved")
-    
     tmp = String()
-    if face in ('Rest1', 'Rest2', 'Stimu1', 'Stimu2'):
-        self.get_logger().info("\n###############\n### Rest ###\n###############")
-        tmp.data = 'initial'
-        self.pub_face.publish(tmp)
-        return
-    
-    # 感情毎の強度を累積
-    if face == 'Happy':
-        self.em_score[0] += 1
-    if face == 'Relax':
-        self.em_score[1] += 1
-    if face == 'Anger':
-        self.em_score[2] += 1
-    if face == 'Sadness':
-        self.em_score[3] += 1
-    
-    self.get_logger().info("em_score [" + str(self.em_score[0]) + "," + str(self.em_score[1]) + "," + str(self.em_score[2]) + "," + str(self.em_score[3]) + "]")
-
-    self.recv_cnt = self.recv_cnt + 1
-    if self.recv_cnt < self.recv_max:
-        return
-    self.recv_cnt = 0
-
-    # 最大強度を記録した感情を求める
-    max_em_score = 0
-    max_em_id = 1  # Default : Relax
-    for i in range(4):
-        if self.em_score[i] > max_em_score:
-            max_em_score = self.em_score[i]
-            max_em_id = i
-    self.em_score = [0, 0, 0, 0]
-
-    if max_em_id == 0:
-        face = 'Happy'
-        self.get_logger().info("\n#############\n### Happy ###\n#############")
-    if max_em_id == 1:
-        face = 'Relax'
-        self.get_logger().info("\n#############\n### Relax ###\n#############")
-    if max_em_id == 2:
-        face = 'Anger'
-        self.get_logger().info("\n#############\n### Anger ###\n#############")
-    if max_em_id == 3:
-        face = 'Sadness'
-        self.get_logger().info("\n###############\n### Sadness ###\n###############")
-    
-    
-    #if face == self.old_face: return    # 感情が変化したときだけ、応答を変える
-    if face != self.old_face:  # 感情状態が変化したときは応答する
-        self.rep_cnt = 0
-    self.old_face = face
-    if self.rep_cnt != 0:  # 感情状態が継続中はrep_max回に1回応答する
-        self.rep_cnt = self.rep_cnt + 1
-        if self.rep_cnt == self.rep_max: self.rep_cnt = 0
-        return
-    else:
-        self.rep_cnt = self.rep_cnt + 1
-        if self.rep_cnt == self.rep_max: self.rep_cnt = 0
-    
-    # emotion2トピック用に最大強度を記録した感情と強度をメッセージに編集
-    # Edit the emotion and intensity recorded with maximum intensity into a message for the emotion2 topic
-    msg.data = face + "," + str(max_em_score)
-    self.pub_emotion2.publish(msg)
 
     # 実際の応答を実行
     if face == 'Happy':

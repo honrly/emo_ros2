@@ -166,24 +166,24 @@ class EmoStatusNode(Node):
     
     
     def publish_emo_status(self):
-        if self.time_count.data < self.REST_TIME*2:
+        if self.time_count.data < self.REST_TIME:
             self.stimu = 'Rest1'
             
-            if self.time_count.data < self.REST_TIME:
-                self.stimu = 'Rest2'
-                
-                self.pnn10_rest.append(self.pnn10)
-                self.pnn20_rest.append(self.pnn20)
-                self.pnn30_rest.append(self.pnn30)
-                self.pnn40_rest.append(self.pnn40)
-                self.pnn50_rest.append(self.pnn50)
-                self.rmssd_rest.append(self.rmssd)
-                self.beta_l_alpha_l_rest.append(self.beta_l_alpha_l)
+        elif self.time_count.data < self.REST_TIME*2:
+            self.stimu = 'Rest2'
             
-            emo_and_bio = self.estimate_emotion_rest_base()
+            self.pnn10_rest.append(self.pnn10)
+            self.pnn20_rest.append(self.pnn20)
+            self.pnn30_rest.append(self.pnn30)
+            self.pnn40_rest.append(self.pnn40)
+            self.pnn50_rest.append(self.pnn50)
+            self.rmssd_rest.append(self.rmssd)
+            self.beta_l_alpha_l_rest.append(self.beta_l_alpha_l)             
+            
+        emo_and_bio = self.estimate_emotion_rest_base()
         
-            self.emo_status.data = emo_and_bio[0]
-            self.pub_emo_status.publish(self.emo_status)
+        self.emo_status.data = emo_and_bio[0]
+        self.pub_emo_status.publish(self.emo_status)
             
         if self.time_count.data == self.REST_TIME*2:
             self.stimu = 'Stimu1'

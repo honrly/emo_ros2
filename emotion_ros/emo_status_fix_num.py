@@ -9,7 +9,15 @@ from datetime import datetime
 
 class EmoStatusNode(Node):
     def __init__(self):
-        super().__init__('emo_status_rest_base')
+        super().__init__('emo_status_fix_num')
+        
+        # Rest time manage
+        self.REST_TIME = 10
+        self.pub_time_count = self.create_publisher(Int32, 'time_count', 10)
+        self.time_count = Int32()
+        self.time_count.data = 0
+        
+        self.stimu = 'None'
         
         self.create_subscription(PulseData, 'pulse', self.pulse_callback, 10)
         self.create_subscription(BrainData, 'brain_wave', self.brain_wave_callback, 10)
@@ -46,12 +54,6 @@ class EmoStatusNode(Node):
         self.THRESHOLD_VALENCE = 0.236 # valenceの平均指標
         self.THRESHOLD_AROUSAL = 0 # arousalの平均指標
         self.FLAG_THRESHOLD = 0
-        
-        # Rest time manage
-        self.REST_TIME = 10
-        self.pub_time_count = self.create_publisher(Int32, 'time_count', 10)
-        self.time_count = Int32()
-        self.time_count.data = 0
 
         timer_period = 1.0
         self.timer = self.create_timer(timer_period, self.publish_emo_status)
@@ -77,7 +79,7 @@ class EmoStatusNode(Node):
         self.emo_csv_filename = os.path.join(emo_data_path, f'{timestamp}_fix_num.csv')
         self.emo_csv_file = open(self.emo_csv_filename, mode='w', newline='')
         self.emo_csv_writer = csv.writer(self.emo_csv_file)
-        self.emo_csv_writer.writerow(['timestamp', 'beta_l_alpha_l', 'pnn50', 'emo', 'threshold_b_a', 'threshold_pnn'])
+        self.emo_csv_writer.writerow(['timestamp', 'stimu', 'emo', 'beta_l_alpha_l', 'pnn10', 'pnn20', 'pnn30', 'pnn40', 'pnn50', 'threshold_b_a', 'threshold_pnn'])
 
     
     def write_bio_data(self):
@@ -123,39 +125,39 @@ class EmoStatusNode(Node):
         self.write_bio_data()
     
     def estimate_emotion(self):
-        emo_name = "Rest"
+        emo_name = 'Rest1'
         
-        if self.FLAG_THRESHOLD != 0:
-            # Happy
-            if self.beta_l_alpha_l >= self.THRESHOLD_AROUSAL and self.pnn50 >= self.THRESHOLD_VALENCE:
-                emo_name = "Happy"   
-            # Relax
-            elif self.beta_l_alpha_l < self.THRESHOLD_AROUSAL and self.pnn50 >= self.THRESHOLD_VALENCE:
-                emo_name = "Relax"
-            # Sad
-            elif self.beta_l_alpha_l < self.THRESHOLD_AROUSAL and self.pnn50 < self.THRESHOLD_VALENCE:
-                emo_name = "Sad"
-            # Angry
-            elif self.beta_l_alpha_l >= self.THRESHOLD_AROUSAL and self.pnn50 < self.THRESHOLD_VALENCE:
-                emo_name = "Angry"
-        
-        return [emo_name, self.beta_l_alpha_l, self.pnn50]
+        # if self.FLAG_THRESHOLD != 0:
+        # Happy
+        if self.beta_l_alpha_l >= self.THRESHOLD_AROUSAL and self.pnn50 >= self.THRESHOLD_VALENCE:
+            emo_name = 'Happy'   
+        # Relax
+        elif self.beta_l_alpha_l < self.THRESHOLD_AROUSAL and self.pnn50 >= self.THRESHOLD_VALENCE:
+            emo_name = 'Relax'
+        # Sadness
+        elif self.beta_l_alpha_l < self.THRESHOLD_AROUSAL and self.pnn50 < self.THRESHOLD_VALENCE:
+            emo_name = 'Sadness'
+        # Anger
+        elif self.beta_l_alpha_l >= self.THRESHOLD_AROUSAL and self.pnn50 < self.THRESHOLD_VALENCE:
+            emo_name = 'Anger'
+    
+        return [self.stimu, emo_name, self.beta_l_alpha_l, self.pnn10, self.pnn20, self.pnn30, self.pnn40, self.pnn50]
     
     def publish_emo_status(self):
         emo_and_bio = self.estimate_emotion()
         
-        self.emo_status.data = emo_and_bio[0]
+        self.emo_status.data = emo_and_bio[1]
         self.pub_emo_status.publish(self.emo_status)
         
-        self.write_emo_data(emo_and_bio[1], emo_and_bio[2], emo_and_bio[0])
+        self.write_emo_data(emo_and_bio[0], emo_and_bio[1], emo_and_bio[2], emo_and_bio[3], emo_and_bio[4], emo_and_bio[5], emo_and_bio[6], emo_and_bio[7])
         
-        self.get_logger().info(f'Emotion: {emo_and_bio[0]}, lowb/a: {emo_and_bio[1]}, pnn: {emo_and_bio[2]}')
+        self.get_logger().info(f'Emotion: {emo_and_bio[6]}, lowb/a: {emo_and_bio[0]}, pnn50: {emo_and_bio[5]}')
         self.get_logger().info(f'THRESHOLD_VALENCE, {self.THRESHOLD_VALENCE}')
         self.get_logger().info(f'THRESHOLD_AROUSAL, {self.THRESHOLD_AROUSAL}\n\n')
     
-    def write_emo_data(self, b_a, pnn, emo):
+    def write_emo_data(self, stimu, emo, b_a, pnn10, pnn20, pnn30, pnn40, pnn50):
         timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')[:-3]
-        self.emo_csv_writer.writerow([timestamp, b_a, pnn, emo, self.THRESHOLD_AROUSAL, self.THRESHOLD_VALENCE])
+        self.emo_csv_writer.writerow([timestamp, stimu, emo, b_a, pnn10, pnn20, pnn30, pnn40, pnn50, self.THRESHOLD_AROUSAL, self.THRESHOLD_VALENCE])
         self.emo_csv_file.flush()
     
     def run(self):

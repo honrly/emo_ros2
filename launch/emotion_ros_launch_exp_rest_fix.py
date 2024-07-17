@@ -13,7 +13,7 @@ def generate_launch_description():
     return LaunchDescription([
         Node(
             package='emotion_ros',
-            executable='emo_status_fix_num',
+            executable='emo_status_exp_rest_fix',
         ),
         Node(
             package='emotion_ros',

@@ -11,6 +11,12 @@ class EmoStatusNode(Node):
     def __init__(self):
         super().__init__('emo_status_fix_num')
         
+        # self.THRESHOLD_VALENCE = 0.236 # valenceの平均指標
+        # self.THRESHOLD_AROUSAL = 0 # arousalの平均指標
+        self.THRESHOLD_VALENCE = 0.3277777835726738 # valenceの平均指標
+        self.THRESHOLD_AROUSAL = 1.377136356037288 # arousalの平均指標
+        self.FLAG_THRESHOLD = 0
+        
         # Rest time manage
         self.REST_TIME = 10
         self.pub_time_count = self.create_publisher(Int32, 'time_count', 10)
@@ -50,10 +56,6 @@ class EmoStatusNode(Node):
         self.pub_emo_status = self.create_publisher(String, 'emo_status', 10)
         self.emo_status = String() # 感情状態
         self.emo_status.data = '' # 送信データ
-        
-        self.THRESHOLD_VALENCE = 0.236 # valenceの平均指標
-        self.THRESHOLD_AROUSAL = 0 # arousalの平均指標
-        self.FLAG_THRESHOLD = 0
 
         timer_period = 1.0
         self.timer = self.create_timer(timer_period, self.publish_emo_status)
@@ -144,6 +146,12 @@ class EmoStatusNode(Node):
         return [self.stimu, emo_name, self.beta_l_alpha_l, self.pnn10, self.pnn20, self.pnn30, self.pnn40, self.pnn50]
     
     def publish_emo_status(self):
+        if self.time_count.data < self.REST_TIME*2:
+            self.stimu = 'Rest1'
+        
+            if self.time_count.data < self.REST_TIME:
+                self.stimu = 'Rest2'
+        
         emo_and_bio = self.estimate_emotion()
         
         self.emo_status.data = emo_and_bio[1]

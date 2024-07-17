@@ -13,8 +13,8 @@ class EmoStatusNode(Node):
         
         # self.THRESHOLD_VALENCE = 0.236 # valenceの平均指標
         # self.THRESHOLD_AROUSAL = 0 # arousalの平均指標
-        self.THRESHOLD_VALENCE = 0.3277777835726738 # valenceの平均指標
-        self.THRESHOLD_AROUSAL = 1.377136356037288 # arousalの平均指標
+        self.THRESHOLD_VALENCE = 0.27666667848825455 # valenceの平均指標
+        self.THRESHOLD_AROUSAL = 1.110091384479267 # arousalの平均指標
         self.FLAG_THRESHOLD = 0
         
         # Rest time manage

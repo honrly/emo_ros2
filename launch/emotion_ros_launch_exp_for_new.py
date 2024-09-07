@@ -17,7 +17,7 @@ def generate_launch_description():
         ),
         Node(
             package='emotion_ros',
-            executable='motion_ctrlb_exp',
+            executable='motion_ctrlb_no_distance_new',
         ),
         Node(
             package='emotion_ros',

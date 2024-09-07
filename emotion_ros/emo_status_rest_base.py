@@ -12,7 +12,7 @@ class EmoStatusNode(Node):
         super().__init__('emo_status_rest_base')
         
         # Rest time manage
-        self.REST_TIME = 10
+        self.REST_TIME = 30
         self.pub_time_count = self.create_publisher(Int32, 'time_count', 10)
         self.time_count = Int32()
         self.time_count.data = 0
@@ -70,8 +70,8 @@ class EmoStatusNode(Node):
         # directory_path = '/home/user/ros2_ws/src/emotion_ros'
         directory_path = '/home/user/turtlebot3_ws/src/emotion_ros'
          
-        bio_data_path = os.path.join(directory_path, 'bio_record/bio_data')
-        emo_data_path = os.path.join(directory_path, 'bio_record/emo_data')
+        bio_data_path = os.path.join(directory_path, 'data_record/bio_data')
+        emo_data_path = os.path.join(directory_path, 'data_record/emo_data')
 
         os.makedirs(bio_data_path, exist_ok=True)
         os.makedirs(emo_data_path, exist_ok=True)
@@ -168,7 +168,7 @@ class EmoStatusNode(Node):
     def publish_emo_status(self):
         emo_and_bio = self.estimate_emotion()
         
-        self.emo_status.data = emo_and_bio[1]
+        self.emo_status.data = emo_and_bio[6]
         self.pub_emo_status.publish(self.emo_status)
         
         self.write_emo_data(emo_and_bio[0], emo_and_bio[1], emo_and_bio[2], emo_and_bio[3], emo_and_bio[4], emo_and_bio[5], emo_and_bio[6], emo_and_bio[7])

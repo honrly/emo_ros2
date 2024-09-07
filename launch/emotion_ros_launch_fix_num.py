@@ -23,4 +23,18 @@ def generate_launch_description():
             package='emotion_ros',
             executable='face_ctrl',
         ),
+        Node(
+            package='emotion_ros',
+            executable='sound_ctrl_eng',
+        ),
+        Node(
+            package='emotion_ros',
+            executable='test_motion2',
+        ),
+        IncludeLaunchDescription(
+            PythonLaunchDescriptionSource([
+                package_share_directory, '/launch/', launch_file_name
+            ]),
+            
+        ),
     ])

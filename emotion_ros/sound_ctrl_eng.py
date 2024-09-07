@@ -10,6 +10,9 @@ from pydub.playback import play
 from pydub.playback import _play_with_simpleaudio
 from std_msgs.msg import String
 import os
+import csv
+from datetime import datetime
+from zoneinfo import ZoneInfo
 
 class SoundCtrl(Node):
   def __init__(self):
@@ -29,6 +32,25 @@ class SoundCtrl(Node):
     self.playback = _play_with_simpleaudio(audio_trim)
 
     self.create_subscription(String, 'speech', self.callback, 10)
+    
+    # Record csv
+    # directory_path = '/home/user/ros2_ws/src/emotion_ros'
+    directory_path = '/home/user/turtlebot3_ws/src/emotion_ros'
+      
+    sound_data_path = os.path.join(directory_path, 'data_record/sound_data')
+    os.makedirs(sound_data_path, exist_ok=True)
+
+    timestamp = datetime.now(ZoneInfo("Asia/Tokyo")).strftime('%Y%m%d_%H%M%S')
+
+    self.csv_filename = os.path.join(sound_data_path, f'{timestamp}_fix_num.csv')
+    self.csv_file = open(self.csv_filename, mode='w', newline='')
+    self.csv_writer = csv.writer(self.csv_file)
+    self.csv_writer.writerow(['timestamp', 'sound'])
+
+  def write_sound_data(self, sound):
+    timestamp = datetime.now(ZoneInfo("Asia/Tokyo")).strftime('%Y-%m-%d %H:%M:%S.%f')[:-3]
+    self.csv_writer.writerow([timestamp, sound])
+    self.csv_file.flush()
 
   def play_wav(self, sound_file, vol):
     fpath = self.home_dir + "/turtlebot3_ws/src/emotion_ros/Voice_EN/" + sound_file
@@ -44,6 +66,7 @@ class SoundCtrl(Node):
         self.playback = _play_with_simpleaudio(audio)
 
   def callback(self, msg):
+    self.write_sound_data(msg.data)
     self.get_logger().info("Message " + str(msg.data) + " recieved")
     self.play_wav(msg.data, self.volume)
 

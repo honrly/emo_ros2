@@ -13,6 +13,10 @@ import sys
 import numpy as np
 import math
 from sensor_msgs.msg import LaserScan   #message from laser range finder
+import os
+import csv
+from datetime import datetime
+from zoneinfo import ZoneInfo
 
 #########################
 # MQTT
@@ -127,6 +131,25 @@ class TestMotion(Node):
     self.pub_cmd_vel = self.create_publisher(Twist, 'cmd_vel', 10)
     timer_period = 0.05 # sec
     self.timer = self.create_timer(timer_period, self.pub_callback_timer)
+    
+    # Record csv
+    # directory_path = '/home/user/ros2_ws/src/emotion_ros'
+    directory_path = '/home/user/turtlebot3_ws/src/emotion_ros'
+      
+    motion_data_path = os.path.join(directory_path, 'data_record/motion_data')
+    os.makedirs(motion_data_path, exist_ok=True)
+
+    timestamp = datetime.now(ZoneInfo("Asia/Tokyo")).strftime('%Y%m%d_%H%M%S')
+
+    self.csv_filename = os.path.join(motion_data_path, f'{timestamp}_fix_num.csv')
+    self.csv_file = open(self.csv_filename, mode='w', newline='')
+    self.csv_writer = csv.writer(self.csv_file)
+    self.csv_writer.writerow(['timestamp', 'motion'])
+
+  def write_motion_data(self, motion):
+    timestamp = datetime.now(ZoneInfo("Asia/Tokyo")).strftime('%Y-%m-%d %H:%M:%S.%f')[:-3]
+    self.csv_writer.writerow([timestamp, motion])
+    self.csv_file.flush()
 
   def pub_callback_timer(self):
     global mqttc_a
@@ -234,6 +257,7 @@ class TestMotion(Node):
     self.org_a = self.closest_dir
 
   def callback_motion(self, msg):
+    self.write_motion_data(msg.data)
     self.get_logger().info("Message " +  str(msg.data) + " recieved")
     tmp = str(msg.data).split(",")
     self.get_logger().info("Message " + tmp[0] + ", " + tmp[1] + ", " + tmp[2] + ", " + tmp[3] + ", " + tmp[4])

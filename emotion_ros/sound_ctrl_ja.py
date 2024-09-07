@@ -23,7 +23,7 @@ class SoundCtrl(Node):
     self.get_logger().info("Volume: " + str(self.volume))
 
     ### get playback ###
-    fpath = self.home_dir + "/turtlebot3_ws/src/emotion_ros/Voice_EN/1secBrank.wav"
+    fpath = self.home_dir + "/turtlebot3_ws/src/emotion_ros/Voice_JP/1secBrank.wav"
     audio = AudioSegment.from_file(fpath)
     audio_trim = audio[0:10]
     self.playback = _play_with_simpleaudio(audio_trim)
@@ -31,7 +31,7 @@ class SoundCtrl(Node):
     self.create_subscription(String, 'speech', self.callback, 10)
 
   def play_wav(self, sound_file, vol):
-    fpath = self.home_dir + "/turtlebot3_ws/src/emotion_ros/Voice_JA/" + sound_file
+    fpath = self.home_dir + "/turtlebot3_ws/src/emotion_ros/Voice_JP/" + sound_file
     audio = AudioSegment.from_file(fpath)
     if self.playback.is_playing():
         self.playback.stop()

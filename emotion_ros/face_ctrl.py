@@ -11,6 +11,9 @@ import filecmp
 import threading
 import cv2
 from std_msgs.msg import String
+import csv
+from datetime import datetime
+from zoneinfo import ZoneInfo
 
 class FaceCtrl(Node):
   def __init__(self):
@@ -27,6 +30,26 @@ class FaceCtrl(Node):
     t = threading.Thread(args=(), target=self.disp_thread)
     t.start()
     self.create_subscription(String, 'face', self.callback, 10)
+    
+    # Record csv
+    # directory_path = '/home/user/ros2_ws/src/emotion_ros'
+    directory_path = '/home/user/turtlebot3_ws/src/emotion_ros'
+      
+    face_data_path = os.path.join(directory_path, 'data_record/face_data')
+    os.makedirs(face_data_path, exist_ok=True)
+
+    timestamp = datetime.now(ZoneInfo("Asia/Tokyo")).strftime('%Y%m%d_%H%M%S')
+
+    self.csv_filename = os.path.join(face_data_path, f'{timestamp}_fix_num.csv')
+    self.csv_file = open(self.csv_filename, mode='w', newline='')
+    self.csv_writer = csv.writer(self.csv_file)
+    self.csv_writer.writerow(['timestamp', 'face'])
+
+  def write_face_data(self, face):
+    timestamp = datetime.now(ZoneInfo("Asia/Tokyo")).strftime('%Y-%m-%d %H:%M:%S.%f')[:-3]
+    self.csv_writer.writerow([timestamp, face])
+    self.csv_file.flush()
+    
 
   def cmp_file(self, fn1, fn2):
     f1 = open(fn1, 'rb')
@@ -64,6 +87,7 @@ class FaceCtrl(Node):
         time.sleep(0.1)      
 
   def callback(self, msg):
+    self.write_face_data(msg.data)
     self.get_logger().info("Message " + str(msg.data) + " recieved")
     self.target_image = msg.data
 

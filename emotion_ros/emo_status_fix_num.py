@@ -6,6 +6,7 @@ import math
 import os
 import csv
 from datetime import datetime
+from zoneinfo import ZoneInfo
 
 class EmoStatusNode(Node):
     def __init__(self):
@@ -13,8 +14,8 @@ class EmoStatusNode(Node):
         
         # self.THRESHOLD_VALENCE = 0.236 # valenceの平均指標
         # self.THRESHOLD_AROUSAL = 0 # arousalの平均指標
-        self.THRESHOLD_VALENCE = 0.27666667848825455 # valenceの平均指標
-        self.THRESHOLD_AROUSAL = 1.110091384479267 # arousalの平均指標
+        self.THRESHOLD_VALENCE = 0.0# valenceの平均指標
+        self.THRESHOLD_AROUSAL = 0.6907022116738551 # arousalの平均指標
         self.FLAG_THRESHOLD = 0
         
         # Rest time manage
@@ -64,12 +65,12 @@ class EmoStatusNode(Node):
         # directory_path = '/home/user/ros2_ws/src/emotion_ros'
         directory_path = '/home/user/turtlebot3_ws/src/emotion_ros'
          
-        bio_data_path = os.path.join(directory_path, 'bio_record/bio_data')
-        emo_data_path = os.path.join(directory_path, 'bio_record/emo_data')
+        bio_data_path = os.path.join(directory_path, 'data_record/bio_data')
+        emo_data_path = os.path.join(directory_path, 'data_record/emo_data')
         os.makedirs(bio_data_path, exist_ok=True)
         os.makedirs(emo_data_path, exist_ok=True)
 
-        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+        timestamp = datetime.now(ZoneInfo("Asia/Tokyo")).strftime('%Y%m%d_%H%M%S')
 
         self.csv_filename = os.path.join(bio_data_path, f'{timestamp}_fix_num.csv')
         self.csv_file = open(self.csv_filename, mode='w', newline='')
@@ -85,7 +86,7 @@ class EmoStatusNode(Node):
 
     
     def write_bio_data(self):
-        timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')[:-3]
+        timestamp = datetime.now(ZoneInfo("Asia/Tokyo")).strftime('%Y-%m-%d %H:%M:%S.%f')[:-3]
         self.csv_writer.writerow([timestamp, self.THRESHOLD_AROUSAL, self.THRESHOLD_VALENCE, self.beta_l_alpha_l, 
                                   self.poorsignal, self.delta, self.theta, self.alpha_l, self.alpha_h, self.beta_l, self.beta_h, self.gamma_l, self.gamma_m, 
                                   self.bpm, self.ibi, self.sdnn, self.cvnn, self.rmssd, self.pnn10, self.pnn20, self.pnn30, self.pnn40, self.pnn50])
@@ -98,9 +99,11 @@ class EmoStatusNode(Node):
         self.pnn40 = msg.pnn40
         self.pnn50 = msg.pnn50
         self.rmssd = msg.rmssd
-        self.get_logger().info(f'PNN50: {self.pnn50}')
         
         self.write_bio_data()
+        self.get_logger().info(f'PNN50: {self.pnn50}')
+        
+        
     
     def brain_wave_callback(self, msg):        
         self.poorsignal = msg.poorsignal
@@ -115,6 +118,8 @@ class EmoStatusNode(Node):
         
         self.beta_l_alpha_l = msg.beta_l / msg.alpha_l
         
+        self.write_bio_data()
+        
         self.get_logger().info(f'LOWBETA / LOWALPHA {self.beta_l_alpha_l}, {msg.beta_l}, {msg.alpha_l}')
 
         if self.time_count.data == self.REST_TIME:
@@ -124,7 +129,7 @@ class EmoStatusNode(Node):
         self.get_logger().info(f'time_count {self.time_count.data}')
         self.pub_time_count.publish(self.time_count)
         
-        self.write_bio_data()
+        
     
     def estimate_emotion(self):
         emo_name = 'Rest1'
@@ -155,16 +160,15 @@ class EmoStatusNode(Node):
         emo_and_bio = self.estimate_emotion()
         
         self.emo_status.data = emo_and_bio[1]
-        self.pub_emo_status.publish(self.emo_status)
-        
         self.write_emo_data(emo_and_bio[0], emo_and_bio[1], emo_and_bio[2], emo_and_bio[3], emo_and_bio[4], emo_and_bio[5], emo_and_bio[6], emo_and_bio[7])
+        self.pub_emo_status.publish(self.emo_status)
         
         self.get_logger().info(f'Emotion: {emo_and_bio[6]}, lowb/a: {emo_and_bio[0]}, pnn50: {emo_and_bio[5]}')
         self.get_logger().info(f'THRESHOLD_VALENCE, {self.THRESHOLD_VALENCE}')
         self.get_logger().info(f'THRESHOLD_AROUSAL, {self.THRESHOLD_AROUSAL}\n\n')
     
     def write_emo_data(self, stimu, emo, b_a, pnn10, pnn20, pnn30, pnn40, pnn50):
-        timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')[:-3]
+        timestamp = datetime.now(ZoneInfo("Asia/Tokyo")).strftime('%Y-%m-%d %H:%M:%S.%f')[:-3]
         self.emo_csv_writer.writerow([timestamp, stimu, emo, b_a, pnn10, pnn20, pnn30, pnn40, pnn50, self.THRESHOLD_AROUSAL, self.THRESHOLD_VALENCE])
         self.emo_csv_file.flush()
     

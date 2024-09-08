@@ -12,6 +12,7 @@ from matplotlib import patches
 import pandas as pd
 import datetime
 import math
+import concurrent.futures
 
 pnnx_min, pnnx_max = 0.0, 1.0
 brain_min, brain_max = 0.0, 2.0
@@ -286,9 +287,14 @@ class VisualizerNode(Node):
         
     def plot_callback(self):
         self.plot_bio_table(self.ax_bio_table)
-        self.plot_emotion_map(self.ax_emo_map_pnn20, self.pulse._pnn20, self.be_al, 0.094, 1.0)
-        self.plot_emotion_map(self.ax_emo_map_pnn50, self.pulse._pnn50, self.be_al, 0.236, 1.0)
+        with concurrent.futures.ThreadPoolExecutor() as executor:
+            futures = []
+            futures.append(executor.submit(self.plot_bio_table, self.ax_bio_table))
+            futures.append(executor.submit(self.plot_emotion_map, self.ax_emo_map_pnn20, self.pulse._pnn20, self.be_al, 0.094, self.brain_rest_ave))
+            futures.append(executor.submit(self.plot_emotion_map, self.ax_emo_map_pnn50, self.pulse._pnn50, self.be_al, self.pnnx_rest_ave, self.brain_rest_ave))
 
+            concurrent.futures.wait(futures)
+            
 def main(args=None):
     rclpy.init(args=args)
     visualizer = VisualizerNode()

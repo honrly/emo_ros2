@@ -123,7 +123,8 @@ class EmoStatusNode(Node):
         self.gamma_l = msg.gamma_l
         self.gamma_m = msg.gamma_m
         
-        self.beta_l_alpha_l = msg.beta_l / msg.alpha_l
+        if msg.alpha_l != 0 and msg.beta_l != 0:
+            self.beta_l_alpha_l = msg.beta_l / msg.alpha_l
         
         self.write_bio_data()        
         self.get_logger().info(f'LOWBETA / LOWALPHA {self.beta_l_alpha_l}, {msg.beta_l}, {msg.alpha_l}')

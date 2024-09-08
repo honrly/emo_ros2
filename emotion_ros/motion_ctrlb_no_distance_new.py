@@ -171,7 +171,7 @@ class MotionCtrl(Node):
         self.pub_face.publish(tmp)
         tmp.data = self.snd_happy[self.cnt_happy]
         self.pub_sound.publish(tmp)
-        cnt_happy = self.get_next(self.cnt_happy, len(self.snd_happy))
+        self.cnt_happy = self.get_next(self.cnt_happy, len(self.snd_happy))
         if self.mode == 1:
             #tmp.data = "FB2,0.05,1.0,0.1,0"
             tmp.data = "LR,0.2,2.0,0.6,0"
@@ -182,7 +182,7 @@ class MotionCtrl(Node):
         self.pub_face.publish(tmp)
         tmp.data = self.snd_relax[self.cnt_relax]
         self.pub_sound.publish(tmp)
-        cnt_relax = self.get_next(self.cnt_relax, len(self.snd_relax))
+        self.cnt_relax = self.get_next(self.cnt_relax, len(self.snd_relax))
         if self.mode == 1:
             tmp.data = "LR,0.0,2.0,0.3,0"
             self.pub_motion.publish(tmp)
@@ -192,7 +192,7 @@ class MotionCtrl(Node):
         self.pub_face.publish(tmp)
         tmp.data = self.snd_anger[self.cnt_anger]
         self.pub_sound.publish(tmp)
-        cnt_anger = self.get_next(self.cnt_anger, len(self.snd_anger))
+        self.cnt_anger = self.get_next(self.cnt_anger, len(self.snd_anger))
         if self.mode == 1:
             tmp.data = "LR,0.4,2.0,0.6,0"
             self.pub_motion.publish(tmp)
@@ -202,7 +202,7 @@ class MotionCtrl(Node):
         self.pub_face.publish(tmp)
         tmp.data = self.snd_sadness[self.cnt_sadness]
         self.pub_sound.publish(tmp)
-        cnt_sadness = self.get_next(self.cnt_sadness, len(self.snd_sadness))
+        self.cnt_sadness = self.get_next(self.cnt_sadness, len(self.snd_sadness))
         if self.mode == 1:
             tmp.data = "LR,0.2,2.0,0.2,0"
             self.pub_motion.publish(tmp)

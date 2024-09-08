@@ -14,8 +14,8 @@ class EmoStatusNode(Node):
         
         # self.THRESHOLD_VALENCE = 0.236 # valenceの平均指標
         # self.THRESHOLD_AROUSAL = 0 # arousalの平均指標
-        self.THRESHOLD_VALENCE = 0.0# valenceの平均指標
-        self.THRESHOLD_AROUSAL = 0.6907022116738551 # arousalの平均指標
+        self.THRESHOLD_VALENCE = 0.236# valenceの平均指標
+        self.THRESHOLD_AROUSAL = 1.0 # arousalの平均指標
         self.FLAG_THRESHOLD = 0
         
         # Rest time manage
@@ -116,7 +116,8 @@ class EmoStatusNode(Node):
         self.gamma_l = msg.gamma_l
         self.gamma_m = msg.gamma_m
         
-        self.beta_l_alpha_l = msg.beta_l / msg.alpha_l
+        if msg.alpha_l != 0 and msg.beta_l != 0:
+            self.beta_l_alpha_l = msg.beta_l / msg.alpha_l
         
         self.write_bio_data()
         

@@ -12,7 +12,6 @@ from matplotlib import patches
 import pandas as pd
 import datetime
 import math
-import concurrent.futures
 
 pnnx_min, pnnx_max = 0.0, 1.0
 brain_min, brain_max = 0.0, 2.0
@@ -48,9 +47,9 @@ class VisualizerNode(Node):
         
         self.create_subscription(PulseData, 'pulse', self.pnnx_graph_callback, 10)
         self.create_subscription(BrainData, 'brain_wave', self.brain_graph_callback, 10)
-        # self.create_subscription(PulseData, 'pnnx_rest_ave', self.pnnx_rest_ave_callback, 10)
         
         # 各グラフ、map、tableの配置
+        plt.ion()
         self.fig = plt.figure(figsize=(19.0, 10.0))
         self.gs = gridspec.GridSpec(13, 23)
         
@@ -67,10 +66,13 @@ class VisualizerNode(Node):
         
         self.ax_line_pnn.set_xlim((0, 29))       
         self.ax_line_pnn.set_ylim(pnnx_min, pnnx_max)
+        self.ax_line_pnn.set_yticks([0, 0.2, 0.4, 0.6, 0.8, 1.0])
+        self.ax_line_pnn.set_title('pnn20, pnn50')
         
         self.ax_line_be_al.set_xlim((0, 29))
         self.ax_line_be_al.set_ylim(brain_min, brain_max)
         self.ax_line_be_al.set_yticks([0, 0.5, 1.0, 1.5, 2.0])
+        self.ax_line_be_al.set_title('low beta / low alpha')
         
         # グラフ
         self.x = np.arange(30)
@@ -91,43 +93,20 @@ class VisualizerNode(Node):
         plt.subplots_adjust(left=0.05, right=0.95, bottom=0.05, top=0.95, wspace=0.4, hspace=0.4)
         
         mplstyle.use('fast')
-        
-    '''
-    def pnnx_rest_ave_callback(self, msg):
-        self.pnnx_rest_ave = 0
-        self.get_logger().info(f'Rest pnnx:{self.pnnx_rest_ave}')
-        self.y_rest = np.full(30, self.pnnx_rest_ave)  # pnnx_rest_ave の値で埋めた配列を更新
 
-        self.line_rest.set_ydata(self.y_rest)  # pnnx_rest_ave の線
-    '''
+        plt.pause(0.01)
+        self.get_logger().info('ok')
     
     def pnnx_graph_callback(self, msg):
         self.pulse._bpm = msg.bpm
         self.pulse._ibi = msg.ibi
         self.pulse._pnn20 = round(msg.pnn20, 3)
-        self.pulse._pnn50 = round(msg.pnn50, 3)
-        
-        self.y_pnn20 = np.append(self.y_pnn20[1:], self.pulse._pnn20) # 古いデータを捨てて新しいデータを追加
-        self.y_pnn50 = np.append(self.y_pnn50[1:], self.pulse._pnn50) # 古いデータを捨てて新しいデータを追加
-
-        self.line_pnn20.set_ydata(self.y_pnn20)
-        self.line_pnn50.set_ydata(self.y_pnn50)
-        
-        plt.pause(0.01)
-        
+        self.pulse._pnn50 = round(msg.pnn50, 3)        
     
     def brain_graph_callback(self, msg):
         self.brain._poorsignal = msg.poorsignal
         self.brain._beta_l = msg.beta_l
         self.brain._alpha_l = msg.alpha_l
-        
-        self.be_al = self.brain._beta_l / self.brain._alpha_l
-        
-        self.y_be_al = np.append(self.y_be_al[1:], self.be_al) # 古いデータを捨てて新しいデータを追加
-
-        self.line_be_al.set_ydata(self.y_be_al)
-        
-        plt.pause(0.01)
     
     def init_emotion_map(self, ax):
         ax.set_aspect('equal') # 正方形比にする
@@ -236,8 +215,6 @@ class VisualizerNode(Node):
         if r > 3:
             outer_wedge = patches.Wedge(center=(0, 0), r=6, theta1=angle_start, theta2=angle_end, width=2, color=emotion_color[row_index][3])
             ax.add_patch(outer_wedge)
-        
-        plt.pause(0.01)
             
     def init_bio_table(self, ax):
         ax.axis('off')
@@ -282,18 +259,28 @@ class VisualizerNode(Node):
                     cell.set_text_props(fontsize=24, horizontalalignment='right', verticalalignment='center', linespacing=0)
 
                 cell.PAD = 0.05
-                
-        plt.pause(0.01)
         
+    def plot_line_graph(self):
+        self.y_pnn20 = np.append(self.y_pnn20[1:], self.pulse._pnn20) # 古いデータを捨てて新しいデータを追加
+        self.y_pnn50 = np.append(self.y_pnn50[1:], self.pulse._pnn50)
+
+        self.line_pnn20.set_ydata(self.y_pnn20)
+        self.line_pnn50.set_ydata(self.y_pnn50)
+        
+        if self.brain._alpha_l != 0 and self.brain._beta_l != 0:
+            self.be_al = self.brain._beta_l / self.brain._alpha_l
+        
+        self.y_be_al = np.append(self.y_be_al[1:], self.be_al)
+
+        self.line_be_al.set_ydata(self.y_be_al)
+    
     def plot_callback(self):
         self.plot_bio_table(self.ax_bio_table)
-        with concurrent.futures.ThreadPoolExecutor() as executor:
-            futures = []
-            futures.append(executor.submit(self.plot_bio_table, self.ax_bio_table))
-            futures.append(executor.submit(self.plot_emotion_map, self.ax_emo_map_pnn20, self.pulse._pnn20, self.be_al, 0.094, self.brain_rest_ave))
-            futures.append(executor.submit(self.plot_emotion_map, self.ax_emo_map_pnn50, self.pulse._pnn50, self.be_al, self.pnnx_rest_ave, self.brain_rest_ave))
-
-            concurrent.futures.wait(futures)
+        self.plot_line_graph()
+        self.plot_emotion_map(self.ax_emo_map_pnn20, self.pulse._pnn20, self.be_al, 0.094, self.brain_rest_ave)
+        self.plot_emotion_map(self.ax_emo_map_pnn50, self.pulse._pnn50, self.be_al, self.pnnx_rest_ave, self.brain_rest_ave)
+        plt.draw()
+        plt.pause(0.01)
             
 def main(args=None):
     rclpy.init(args=args)

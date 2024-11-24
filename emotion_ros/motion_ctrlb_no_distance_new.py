@@ -45,6 +45,10 @@ class MotionCtrl(Node):
     self.create_subscription(String, 'emo_status', self.callback_emotion, 10)
 
     ### publisher ###
+    self.pub_recog_emo = self.create_publisher(String, 'recog_emo', 10)
+    self.recog_emo = String() # 認識感情
+    self.recog_emo.data = '' # 送信データ
+    
     self.pub_emotion2 = self.create_publisher(String, 'emotion2', 10)
     self.pub_face = self.create_publisher(String, 'face', 10)
     self.pub_sound = self.create_publisher(String, 'speech', 10)
@@ -146,6 +150,8 @@ class MotionCtrl(Node):
         face = 'Sadness'
         self.get_logger().info("\n###############\n### Sadness ###\n###############")
     
+    self.recog_emo.data = face
+    self.pub_recog_emo.publish(self.recog_emo)
     
     #if face == self.old_face: return    # 感情が変化したときだけ、応答を変える
     if face != self.old_face:  # 感情状態が変化したときは応答する

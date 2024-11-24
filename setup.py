@@ -50,6 +50,7 @@ setup(
             'stimulation = emotion_ros.stimulation:main',
             'user_enter = emotion_ros.user_enter:main',
             'visualizer = emotion_ros.visualizer:main',
+            'talk_ctrl_ja = emotion_ros.talk_ctrl_ja:main',
         ],
     },
 )

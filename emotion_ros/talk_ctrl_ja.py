@@ -55,6 +55,7 @@ class TalkCtrl(Node):
             self.jtalk("こんにちは")
         while rclpy.ok():
             audio_buffer = self.record_audio()  # 録音した音声データを取得
+            print(type(audio_buffer))
             
             # バイト列データを直接送信
             files = {'file': ('usre_input.wav', audio_buffer, 'audio/wav')}
@@ -72,7 +73,7 @@ class TalkCtrl(Node):
                     #start_time = time.time()
                     #self.get_logger().info(f"Your Voice: {response.json()['input']}")
                     #self.get_logger().info(f"Response: {response.json()['response']}")
-                    # Flaskサーバーからの応答を音声で再生
+
                     #self.jtalk(f"{response.json()['response']}")
                     end_time = time.time()
                     voice = base64.b64decode(response.json()['voice'])
@@ -158,11 +159,11 @@ class TalkCtrl(Node):
         subprocess.run(['aplay', '-q', temp_wav_path])
     
     def record_audio(self):
-        rec_time = 5             # 録音時間[s]
+        rec_time = 20             # 録音時間[s]
         fmt = pyaudio.paInt16     # 音声のフォーマット
         ch = 6                    # チャンネル1(モノラル), ReSpeaker 4 Mic Array = max 6
         sampling_rate = 16000     # サンプリング周波数
-        chunk = 2**11             # チャンク（データ点数）, 8192?
+        chunk = 2048             # チャンク（データ点数）, 2048
         audio = pyaudio.PyAudio()
         index = 3                 # 録音デバイスのインデックス番号（デフォルト1）
 

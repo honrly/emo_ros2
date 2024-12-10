@@ -25,10 +25,6 @@ def generate_launch_description():
         ),
         Node(
             package='emotion_ros',
-            executable='talk_ctrl_ja',
-        ),
-        Node(
-            package='emotion_ros',
             executable='test_motion2',
         ),
         Node(
@@ -40,6 +36,10 @@ def generate_launch_description():
             package='micro_ros_agent',
             executable='micro_ros_agent',
             arguments=['udp4', '--port', '55000', '-v6']
+        ),
+        Node(
+            package='emotion_ros',
+            executable='talk_ctrl_ja',
         ),
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource([

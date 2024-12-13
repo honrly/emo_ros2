@@ -16,16 +16,37 @@ import subprocess
 import tempfile
 
 import torch
-import pyaudio
 from scipy.io.wavfile import write
 from collections import deque
 import os
-import pickle
+
+import threading
+from collections import deque
+
+from dataclasses import dataclass
 
 GPU_SERVER_URL = 'http://192.168.65.146:5000/'
 
+SAMPLE_RATE = 16000
+CHANNEL = 1  # チャンネル1(モノラル), ReSpeaker 4 Mic Array = max 6だけど音声検知をリアルタイムで処理するにはラズパイだと馬鹿多いので1で良い
+CHUNK_SIZE = 2048 # ラズパイは2048、1回のデータ取得量
+BUFFER_SIZE = 10 # どれくらい貯めるか
+SILENCE_DURATION = 1.0  # 発話終了と判定する無音時間
+
+audio = pyaudio.PyAudio()
+FORMAT = pyaudio.paInt16
+
+lock = threading.Lock()
+event = threading.Event()
+
+buffer = deque(maxlen=BUFFER_SIZE)
+recorded_data = []
+is_speaking = False
+silence_start_time = None
+
+
 def load_vad_model():
-    model, utils = torch.hub.load(repo_or_dir='snakers4/silero-vad', model='silero_vad', force_reload=True)
+    model, utils = torch.hub.load(repo_or_dir='snakers4/silero-vad', model='silero_vad', force_reload=False)
     (get_speech_timestamps, _, _, _, _) = utils
     return model, get_speech_timestamps
 
@@ -36,6 +57,13 @@ def play_audio(audio_data):
     while pygame.mixer.get_busy():
         pygame.time.Clock().tick(10)
 
+def save_wave(file, data):
+    with wave.open(file, 'wb') as wf:
+        wf.setnchannels(CHANNEL)
+        wf.setsampwidth(audio.get_sample_size(FORMAT))
+        wf.setframerate(SAMPLE_RATE)
+        wf.writeframes(b''.join(data))
+
 class TalkCtrl(Node):
     def __init__(self):
         super().__init__('vad_ctrl')
@@ -44,8 +72,8 @@ class TalkCtrl(Node):
         self.emo = ''
         self.flag_emosub = False
         
-        # 音声再生の初期化、voicevox
-        #pygame.mixer.pre_init(frequency=24000, size=-16, channels=1)
+        # voicevoxの場合24000指定なので、音声再生の初期化
+        # pygame.mixer.pre_init(frequency=24000, size=-16, channels=1)
         pygame.init()
         
         open_jtalk=['open_jtalk']
@@ -53,17 +81,14 @@ class TalkCtrl(Node):
         htsvoice=['-m','/usr/share/hts-voice/mei/mei_normal.htsvoice']
         speed=['-r','1.0']
         self.cmd = open_jtalk + mech + htsvoice + speed
+        
+        self.output_dir = f"{os.getcwd()}/src/emotion_ros/output_audio/"
+        os.makedirs(self.output_dir, exist_ok=True)
 
     def emo_callback(self, msg):
         self.emo = msg.data
         self.flag_emosub = True
         self.get_logger().info(f"Recog_emotion: {self.emo}")
-    
-    def talk(self):
-        output_dir = f"{os.getcwd()}/src/emotion_ros/output_audio"
-        os.makedirs(output_dir, exist_ok=True)
-        model, get_speech_timestamps = load_vad_model()
-        threading.Thread(target=self.send_msg_server(output_dir, model, get_speech_timestamps), daemon=True).start()
       
     def play_jtalk(self, audio_data, total_time):
         start_time = time.time()
@@ -118,107 +143,114 @@ class TalkCtrl(Node):
         # 音声ファイルを再生
         subprocess.run(['aplay', '-q', temp_wav_path])
     
-    def send_msg_server(self, output_dir, model, get_speech_timestamps):
-        RATE = 16000
-        CHUNK = 2048  # ラズパイは2048
-        FORMAT = pyaudio.paInt16
-        CHANNELS = 1  # チャンネル1(モノラル), ReSpeaker 4 Mic Array = max 6だけど音声検知をリアルタイムで処理するにはラズパイだと馬鹿多いので1で良い
+    def send_audio(self, file_name, output_path):
+        file = {'file': (f"{file_name}", open(f"{output_path}", 'rb'), 'audio/wav')}
+        emo = {'emo': f'{self.emo}'}
+        self.get_logger().info(f"Send_emotion: {self.emo}")
+        
+        
+        try:
+            start_time = time.time()
+            # データを送信
+            response = requests.post(GPU_SERVER_URL, files=file, data=emo)
+            file['file'][1].close()
+            if response.status_code == 200:
+                end_time = time.time()
+                voice = base64.b64decode(response.json()['voice'])
+                
+                self.get_logger().info(f"Your Voice: {response.json()['input']}")
+                self.get_logger().info(f"Received from Flask: {response.json()['text']}")
+                self.get_logger().info("生成時間: {:.2f} seconds, {}文字".format(end_time - start_time, len(response.json()['text'])))
+                total_time = end_time - start_time
+                
+                self.play_jtalk(voice, total_time)
+            else:
+                self.get_logger().info(f"Error: {response.status_code}")
+        except Exception as e:
+            self.get_logger().info(f"Request failed: {e}")
+    
+    def voice_ad(self):
+        global is_speaking, silence_start_time
+        
+        model, get_speech_timestamps = load_vad_model()
+        while True:
+            time.sleep(0.1)  # チェック間隔
+            with lock:
+                if len(buffer) > 0:
+                    # 音声データを処理
+                    audio_tensor = torch.from_numpy(np.concatenate(buffer)).float() / 32768.0  # Normalize audio data
 
-        # マイク
-        audio = pyaudio.PyAudio()
-        stream = audio.open(format=FORMAT, channels=CHANNELS,
-                            rate=RATE, input=True,
-                            input_device_index=3,
-                            frames_per_buffer=CHUNK)
-        buffer = deque(maxlen=10)
-        first_speech_audio = deque(maxlen=10) # 検知したあと音声データを保存すると最初が抜けおるちのでそれ用
-        speech_audio = []
-        recording = False
+                    # 発話のタイムスタンプ
+                    speech_timestamps = get_speech_timestamps(audio_tensor, model, sampling_rate=SAMPLE_RATE, threshold=0.5)
+
+                    if speech_timestamps:
+                        # 発話開始
+                        if not is_speaking:
+                            self.get_logger().info("Thread B: 発話検知、録音開始")
+                            start_time = time.time()
+                            for buf_data in buffer:
+                                recorded_data.append(buf_data.tobytes())
+                        is_speaking = True # 発話中
+                        silence_start_time = None  # 無音時間リセット
+                    else:
+                        # 無音が一定時間継続した場合に発話終了と判定
+                        if is_speaking:
+                            if silence_start_time is None:
+                                silence_start_time = time.time()
+                            elif (time.time() - silence_start_time >= SILENCE_DURATION) or (time.time() - start_time >= 29):
+                                self.get_logger().info("Thread B: 発話終了")
+                                is_speaking = False
+                                buffer.clear()
+                                event.set()  # 発話終了のシグナルを送信
+                        else:
+                            silence_start_time = None  # 無音時間リセット
+
+    def audio_record(self):
+        global recorded_data
         file_count = 0
-
-        self.get_logger().info("マイク起動")
-
+        
+        stream = audio.open(format=FORMAT, channels=CHANNEL, rate=SAMPLE_RATE, 
+                            input=True, input_device_index=3,frames_per_buffer=CHUNK_SIZE)
+        self.get_logger().info("Thread A: マイク起動")
         try:
             if self.flag_emosub:
                 self.jtalk("こんにちは")
             while rclpy.ok():
-                # マイク入力
-                data = stream.read(CHUNK, exception_on_overflow=False)
-                audio_chunk = np.frombuffer(data, dtype=np.int16)
-                buffer.append(audio_chunk)
+                data = stream.read(CHUNK_SIZE, exception_on_overflow=False)
+                with lock:
+                    audio_array = np.frombuffer(data, dtype=np.int16)
+                    if is_speaking:
+                        recorded_data.append(data)
+                    buffer.append(audio_array)
 
-                # 音声データをVADで判定
-                audio_tensor = torch.from_numpy(np.concatenate(buffer)).float() / 32768.0
-                is_speech = get_speech_timestamps(audio_tensor, model, sampling_rate=RATE, threshold=0.3)
-
-                if is_speech and not recording:
-                    self.get_logger().info("発話開始検知")
-                    recording = True
-                    speech_audio = []  # 初期化
-                
-                if recording:
-                    speech_audio.extend(audio_chunk)  # データ連結
-
-                    if not is_speech:
-                        self.get_logger().info("発話終了検知")
-                        recording = False
-
+                # 発話終了のシグナルを受信
+                if event.is_set():
+                    with lock:
                         file_count += 1
-                        speech_audio = list(first_speech_audio) + speech_audio
-                        #byte_data = pickle.dumps(speech_audio)
-                        #send_audio = io.BytesIO(byte_data)
-                        first_speech_audio.clear()  # 初期化
                         file_name = f"speech_{file_count}.wav"
-                        output_path = os.path.join(output_dir, file_name)
-                        write(output_path, RATE, np.array(speech_audio, dtype=np.int16))
-                        self.get_logger().info(f"保存 {output_path}")
-                        
-                        file = {'file': (f"{file_name}", open(f"{output_path}", 'rb'), 'audio/wav')}
-                        print(type(file))
-                        emo = {'emo': f'{self.emo}'}
-                        self.get_logger().info(f"Send_emotion: {self.emo}")
-                        
-                        
-                        try:
-                            start_time = time.time()
-                            # データを送信
-                            response = requests.post(GPU_SERVER_URL, files=file, data=emo)
-                            file['file'][1].close()
-                            if response.status_code == 200:
-                                end_time = time.time()
-                                voice = base64.b64decode(response.json()['voice'])
-                                
-                                self.get_logger().info(f"Your Voice: {response.json()['input']}")
-                                self.get_logger().info(f"Received from Flask: {response.json()['text']}")
-                                self.get_logger().info("生成時間: {:.2f} seconds, {}文字".format(end_time - start_time, len(response.json()['text'])))
-                                total_time = end_time - start_time
-                                
-                                #play_audio(audio_data)
-                                self.play_jtalk(voice, total_time)
-                                #total_time += end_time - start_time
-                                length = len(response.json()['text'])
-                                #self.play_jtalk(voice, total_time)
-                                #self.get_logger().info("talk time: {:.2f} seconds".format(end_time - start_time))
-                            else:
-                                self.get_logger().info(f"Error: {response.status_code}")
-                        except Exception as e:
-                            self.get_logger().info(f"Request failed: {e}")
-                else:
-                    first_speech_audio.extend(audio_chunk)
-
-        except KeyboardInterrupt:
-            pass
+                        file_path = self.output_dir + file_name
+                        save_wave(file_path, recorded_data)
+                        self.get_logger().info(f"Thread A: 保存{file_name}")
+                        self.send_audio(file_name, file_path)
+                        recorded_data.clear()
+                    event.clear()
+                    buffer.clear()
         finally:
             stream.stop_stream()
             stream.close()
-            audio.terminate()
-
+    
+    def start(self):        
+        thread_a = threading.Thread(target=self.audio_record, daemon=True)
+        thread_b = threading.Thread(target=self.voice_ad, daemon=True)
+        
+        thread_a.start()
+        thread_b.start()
 
 def main(args=None):
     try:
       rclpy.init(args=args)
       talker = TalkCtrl()
-      talker.talk()
+      talker.start()
       rclpy.spin(talker)
     except KeyboardInterrupt:
       pass

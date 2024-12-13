@@ -71,7 +71,7 @@ def audio_record():
         stream.stop_stream()
         stream.close()
 
-def do_vad():
+def voice_ad():
     global is_speaking, silence_start_time
     while True:
         time.sleep(0.1)  # チェック間隔
@@ -109,7 +109,7 @@ def main():
     model, get_speech_timestamps = load_model()
 
     thread_a = threading.Thread(target=audio_record, daemon=True)
-    thread_b = threading.Thread(target=do_vad, daemon=True)
+    thread_b = threading.Thread(target=voice_ad, daemon=True)
 
     thread_a.start()
     thread_b.start()

@@ -23,9 +23,11 @@ import os
 import threading
 from collections import deque
 
+import random
+
 from dataclasses import dataclass
 
-GPU_SERVER_URL = 'http://192.168.65.146:5000/'
+GPU_SERVER_URL = 'https://square-macaque-thankfully.ngrok-free.app/llm'
 
 SAMPLE_RATE = 16000
 CHANNEL = 1  # チャンネル1(モノラル), ReSpeaker 4 Mic Array = max 6だけど音声検知をリアルタイムで処理するにはラズパイだと馬鹿多いので1で良い
@@ -44,18 +46,46 @@ recorded_data = []
 is_speaking = False
 silence_start_time = None
 
+'''
+# ラズパイ上でjtalkの音声合成、使わない関数
+def jtalk(tt):
+    start_time = time.time()
+
+    # 一時ファイルを作成
+    with tempfile.NamedTemporaryFile(delete=False, suffix='.wav') as temp_wav:
+        temp_wav_path = temp_wav.name
+
+    # open_jtalk コマンドを準備してファイルに音声を保存
+    cmd = cmd + ['-ow', temp_wav_path]
+    subprocess.run(cmd, input=tt.encode())
+    end_time = time.time()
+    print("音声合成: {:.2f} seconds, {}文字".format(end_time - start_time, len(tt))) 
+
+    # 音声ファイルを再生
+    subprocess.run(['aplay', '-q', temp_wav_path])
+'''
+
 
 def load_vad_model():
     model, utils = torch.hub.load(repo_or_dir='snakers4/silero-vad', model='silero_vad', force_reload=False)
     (get_speech_timestamps, _, _, _, _) = utils
     return model, get_speech_timestamps
 
-def play_audio(audio_data):
+def play_audio(audio_data): # ずんだもん
     tmp = pygame.mixer.Sound(buffer=audio_data)
     pygame.mixer.Sound.play(tmp)
     # 再生が終わるまで待機
     while pygame.mixer.get_busy():
         pygame.time.Clock().tick(10)
+
+def play_wave(directory, wav_file):
+    file_path = os.path.join(directory, wav_file)
+    sound = pygame.mixer.Sound(file_path)
+    sound.play()
+    # 再生が終わるまで待機
+    time.sleep(sound.get_length())
+    # 再生の終了
+    sound.stop()
 
 def save_wave(file, data):
     with wave.open(file, 'wb') as wf:
@@ -82,14 +112,24 @@ class TalkCtrl(Node):
         speed=['-r','1.0']
         self.cmd = open_jtalk + mech + htsvoice + speed
         
-        self.output_dir = f"{os.getcwd()}/src/emotion_ros/output_audio/"
+        self.output_dir = "/home/user/turtlebot3_ws/src/emotion_ros/output_audio/"
         os.makedirs(self.output_dir, exist_ok=True)
+        
+        self.filler_dir = "/home/user/turtlebot3_ws/src/emotion_ros/Filler_JP/"
+        self.filler_files = os.listdir(self.filler_dir)
+        
+        self.voice_dir = "/home/user/turtlebot3_ws/src/emotion_ros/Voice_JP/"
+        self.hello_wave = "こんにちは_normal.wav"
 
     def emo_callback(self, msg):
         self.emo = msg.data
         self.flag_emosub = True
         self.get_logger().info(f"Recog_emotion: {self.emo}")
       
+    def play_filler(self):
+        random_file = random.choice(self.filler_files)
+        play_wave(self.filler_dir, random_file)
+    
     def play_jtalk(self, audio_data, total_time):
         start_time = time.time()
         pygame.mixer.quit()  # ミキサーを初期化し直す
@@ -125,29 +165,15 @@ class TalkCtrl(Node):
         # 再生が終わるまで待機
         while pygame.mixer.get_busy():
             pygame.time.Clock().tick(10)
-      
-      
-    def jtalk(self, tt):
-        start_time = time.time()
-
-        # 一時ファイルを作成
-        with tempfile.NamedTemporaryFile(delete=False, suffix='.wav') as temp_wav:
-            temp_wav_path = temp_wav.name
-
-        # open_jtalk コマンドを準備してファイルに音声を保存
-        cmd = self.cmd + ['-ow', temp_wav_path]
-        subprocess.run(cmd, input=tt.encode())
-        end_time = time.time()
-        self.get_logger().info("音声合成: {:.2f} seconds, {}文字".format(end_time - start_time, len(tt))) 
-
-        # 音声ファイルを再生
-        subprocess.run(['aplay', '-q', temp_wav_path])
     
     def send_audio(self, file_name, output_path):
+        # 相槌
+        filler_thread = threading.Thread(target=self.play_filler)
+        filler_thread.start()
+        
         file = {'file': (f"{file_name}", open(f"{output_path}", 'rb'), 'audio/wav')}
         emo = {'emo': f'{self.emo}'}
         self.get_logger().info(f"Send_emotion: {self.emo}")
-        
         
         try:
             start_time = time.time()
@@ -163,12 +189,16 @@ class TalkCtrl(Node):
                 self.get_logger().info("生成時間: {:.2f} seconds, {}文字".format(end_time - start_time, len(response.json()['text'])))
                 total_time = end_time - start_time
                 
+                # 相槌が終了するまで待機
+                filler_thread.join()
+                
                 self.play_jtalk(voice, total_time)
             else:
                 self.get_logger().info(f"Error: {response.status_code}")
         except Exception as e:
             self.get_logger().info(f"Request failed: {e}")
     
+    # VADの判定
     def voice_ad(self):
         global is_speaking, silence_start_time
         
@@ -205,6 +235,7 @@ class TalkCtrl(Node):
                         else:
                             silence_start_time = None  # 無音時間リセット
 
+    # メインのループ
     def audio_record(self):
         global recorded_data
         file_count = 0
@@ -213,28 +244,32 @@ class TalkCtrl(Node):
                             input=True, input_device_index=3,frames_per_buffer=CHUNK_SIZE)
         self.get_logger().info("Thread A: マイク起動")
         try:
-            if self.flag_emosub:
-                self.jtalk("こんにちは")
-            while rclpy.ok():
-                data = stream.read(CHUNK_SIZE, exception_on_overflow=False)
-                with lock:
-                    audio_array = np.frombuffer(data, dtype=np.int16)
-                    if is_speaking:
-                        recorded_data.append(data)
-                    buffer.append(audio_array)
-
-                # 発話終了のシグナルを受信
-                if event.is_set():
+            # if self.flag_emosub:
+            if True:
+                play_wave(self.voice_dir, self.hello_wave)
+                while rclpy.ok():
+                    data = stream.read(CHUNK_SIZE, exception_on_overflow=False)
                     with lock:
-                        file_count += 1
-                        file_name = f"speech_{file_count}.wav"
-                        file_path = self.output_dir + file_name
-                        save_wave(file_path, recorded_data)
-                        self.get_logger().info(f"Thread A: 保存{file_name}")
-                        self.send_audio(file_name, file_path)
-                        recorded_data.clear()
-                    event.clear()
-                    buffer.clear()
+                        audio_array = np.frombuffer(data, dtype=np.int16)
+                        if is_speaking:
+                            recorded_data.append(data)
+                        buffer.append(audio_array)
+
+                    # 発話終了のシグナルを受信
+                    if event.is_set():
+                        with lock:
+                            file_count += 1
+                            file_name = f"speech_{file_count}.wav"
+                            file_path = self.output_dir + file_name
+                            
+                            save_wave(file_path, recorded_data)
+                            self.get_logger().info(f"Thread A: 保存{file_name}")
+                            
+                            # 録音した音声をwavファイルで送信
+                            self.send_audio(file_name, file_path)
+                            recorded_data.clear()
+                        event.clear()
+                        buffer.clear()
         finally:
             stream.stop_stream()
             stream.close()

@@ -15,7 +15,7 @@ import wave
 import subprocess
 import tempfile
 
-GPU_SERVER_URL = 'http://192.168.65.146:5000/'
+GPU_SERVER_URL = 'http://192.168.65.146:5000/llm'
 
 def play_audio(audio_data):
     tmp = pygame.mixer.Sound(buffer=audio_data)

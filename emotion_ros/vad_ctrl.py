@@ -14,14 +14,12 @@ import io
 import wave
 import subprocess
 import tempfile
+import json
 
 import torch
 from scipy.io.wavfile import write
 from collections import deque
 import os
-
-import threading
-from collections import deque
 
 import random
 
@@ -178,26 +176,38 @@ class TalkCtrl(Node):
         try:
             start_time = time.time()
             # データを送信
-            response = requests.post(GPU_SERVER_URL, files=file, data=emo)
+            response = requests.post(GPU_SERVER_URL, stream=True, files=file, data=emo)
             file['file'][1].close()
+
             if response.status_code == 200:
                 end_time = time.time()
-                voice = base64.b64decode(response.json()['voice'])
-                
-                self.get_logger().info(f"Your Voice: {response.json()['input']}")
-                self.get_logger().info(f"Received from Flask: {response.json()['text']}")
-                self.get_logger().info("生成時間: {:.2f} seconds, {}文字".format(end_time - start_time, len(response.json()['text'])))
-                total_time = end_time - start_time
-                
-                # 相槌が終了するまで待機
-                filler_thread.join()
-                
-                self.play_jtalk(voice, total_time)
+                buffer = ""
+                for chunk in response.iter_content(chunk_size=None):
+                    buffer += chunk.decode('utf-8')  # チャンクをバッファに追加
+                    while "\n" in buffer:
+                        line, buffer = buffer.split("\n", 1)  # 改行で分割
+                        try:
+                            data = json.loads(line)
+                            # データ処理
+                            if "voice" in data:
+                                    audio_data = base64.b64decode(data["voice"])
+                                    total_time = end_time - start_time
+                                    # 相槌が終了するまで待機
+                                    filler_thread.join()
+                                    self.play_jtalk(audio_data, total_time)
+                            elif "text" in data:
+                                self.get_logger().info(f"認識した音声: {data['input']}")
+                                self.get_logger().info(f"返事: {data['text']}")
+                                self.get_logger().info(f"生成時間: {end_time - start_time} seconds, {len(data['text'])}文字")
+                        except json.JSONDecodeError:
+                            # jsonが途中
+                            self.get_logger().info(f"json streaming")
+                            continue
             else:
                 self.get_logger().info(f"Error: {response.status_code}")
         except Exception as e:
             self.get_logger().info(f"Request failed: {e}")
-    
+
     # VADの判定
     def voice_ad(self):
         global is_speaking, silence_start_time

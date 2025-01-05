@@ -52,6 +52,8 @@ setup(
             'visualizer = emotion_ros.visualizer:main',
             'talk_ctrl_ja = emotion_ros.talk_ctrl_ja:main',
             'vad_ctrl = emotion_ros.vad_ctrl:main',
+            'museS = emotion_ros.museS:main',
+            'receive_rri = emotion_ros.receive_rri:main',
         ],
     },
 )

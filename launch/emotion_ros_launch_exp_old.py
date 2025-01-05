@@ -21,12 +21,8 @@ def generate_launch_description():
         ),
         Node(
             package='emotion_ros',
-            executable='face_ctrl',
+            executable='sound_ctrl_ja',
         ),
-        #Node(
-        #    package='emotion_ros',
-        #    executable='test_motion2',
-        #),
         Node(
             package='micro_ros_agent',
             executable='micro_ros_agent',
@@ -37,14 +33,4 @@ def generate_launch_description():
             executable='micro_ros_agent',
             arguments=['udp4', '--port', '55000', '-v6']
         ),
-        Node(
-            package='emotion_ros',
-            executable='vad_ctrl',
-        ),
-        #IncludeLaunchDescription(
-        #    PythonLaunchDescriptionSource([
-        #        package_share_directory, '/launch/', launch_file_name
-        #    ]),
-            
-        #),
     ])

@@ -165,17 +165,24 @@ class TalkCtrl(Node):
             pygame.time.Clock().tick(10)
     
     def send_audio(self, file_name, output_path):
-        # 相槌
-        filler_thread = threading.Thread(target=self.play_filler)
+        def play_filler_loop():
+            while not response_event.is_set():
+                self.play_filler()
+                time.sleep(2.0)
+
+        # レスポンス受信完了を監視するためのイベントフラグ
+        response_event = threading.Event()
+
+        # 相槌スレッドを起動
+        filler_thread = threading.Thread(target=play_filler_loop, daemon=True)
         filler_thread.start()
-        
+
         file = {'file': (f"{file_name}", open(f"{output_path}", 'rb'), 'audio/wav')}
         emo = {'emo': f'{self.emo}'}
         self.get_logger().info(f"Send_emotion: {self.emo}")
-        
+
         try:
             start_time = time.time()
-            # データを送信
             response = requests.post(GPU_SERVER_URL, stream=True, files=file, data=emo)
             file['file'][1].close()
 
@@ -183,18 +190,17 @@ class TalkCtrl(Node):
                 end_time = time.time()
                 buffer = ""
                 for chunk in response.iter_content(chunk_size=None):
-                    buffer += chunk.decode('utf-8')  # チャンクをバッファに追加
+                    buffer += chunk.decode('utf-8')
                     while "\n" in buffer:
-                        line, buffer = buffer.split("\n", 1)  # 改行で分割
+                        line, buffer = buffer.split("\n", 1)
                         try:
                             data = json.loads(line)
-                            # データ処理
                             if "voice" in data:
-                                    audio_data = base64.b64decode(data["voice"])
-                                    total_time = end_time - start_time
-                                    # 相槌が終了するまで待機
-                                    filler_thread.join()
-                                    self.play_jtalk(audio_data, total_time)
+                                audio_data = base64.b64decode(data["voice"])
+                                total_time = end_time - start_time
+                                response_event.set()  # レスポンス受信の通知
+                                filler_thread.join()
+                                self.play_jtalk(audio_data, total_time)
                             elif "text" in data:
                                 self.get_logger().info(f"認識した音声: {data['input']}")
                                 self.get_logger().info(f"返事: {data['text']}")
@@ -207,6 +213,9 @@ class TalkCtrl(Node):
                 self.get_logger().info(f"Error: {response.status_code}")
         except Exception as e:
             self.get_logger().info(f"Request failed: {e}")
+        finally:
+            response_event.set()  # 処理終了時にフラグを設定
+
 
     # VADの判定
     def voice_ad(self):

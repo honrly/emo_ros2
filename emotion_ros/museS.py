@@ -59,13 +59,22 @@ class MuseSNode(Node):
         self.board.start_stream()
         time.sleep(10)
         
-        self.pub_pnnx = self.create_publisher(Float32, 'pnnx', 10)
-        self.pnnx = Float32() # pnnx
-        self.pnnx.data = 0.0 # 送信データ
-        # pnnxの計算に使用
-        self.rri = 0
-        self.rri_arr = []
-        self.xx_count = 0
+        
+        # Publish EEG
+        self.pub_brain_wave = self.create_publisher(BrainData, 'brain_wave', 10)
+        self.brain_wave = BrainData()
+        self.brain_wave.poorsignal = 0
+        self.brain_wave.delta = 0
+        self.brain_wave.theta = 0
+        self.brain_wave.alpha_l = 0
+        self.brain_wave.alpha_h= 0
+        self.brain_wave.beta_l = 0
+        self.brain_wave.beta_h = 0
+        self.brain_wave.gamma_l = 0
+        self.brain_wave.gamma_m = 0
+
+        #timer_period = 1.0
+        #self.timer = self.create_timer(timer_period, self.publish_)
 
         # 安静時のpnnx
         self.pub_pnnx_rest_ave = self.create_publisher(Float32, 'pnnx_rest_ave', 10)
@@ -73,6 +82,23 @@ class MuseSNode(Node):
         self.pnnx_rest_ave.data = -1.0 # 送信データ
         # 安静時のpnnxの計算に使用
         self.pnnx_rest = [] # 何も無い時のpnnxデータ(30個)
+    
+    def set_brain_data(self, eeg_data):
+        self.brain_wave.delta = eeg_data['delta']
+        self.brain_wave.theta = eeg_data['theta']
+        self.brain_wave.alpha_l = eeg_data['alpha_l']
+        self.brain_wave.alpha_h= eeg_data['alpha_h']
+        self.brain_wave.beta_l = eeg_data['beta_l']
+        self.brain_wave.beta_h = eeg_data['beta_h']
+        self.brain_wave.gamma_l = eeg_data['gamma_l']
+        self.brain_wave.gamma_m = eeg_data['gamma_m']
+        
+        self.get_logger().info(f'EED_DATA: {eeg_data}\n\n')
+
+    def publish_brain_wave(self, poorsignal_data):
+        self.brain_wave.poorsignal = poorsignal_data
+        self.get_logger().info(f'POORSIGNAL: {self.brain_wave.poorsignal}')
+        self.pub_brain_wave.publish(self.brain_wave)
     
     def publish_pnnx(self):
         sensor_data = self.sensor.readline().decode(encoding='utf-8').strip()

@@ -54,6 +54,7 @@ setup(
             'vad_ctrl = emotion_ros.vad_ctrl:main',
             'museS = emotion_ros.museS:main',
             'receive_rri = emotion_ros.receive_rri:main',
+            'time_manager = emotion_ros.time_manager:main',
         ],
     },
 )

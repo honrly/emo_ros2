@@ -3,17 +3,22 @@ from rclpy.node import Node
 from std_msgs.msg import Int32, Float32, String
 from my_custom_message.msg import PulseData, BrainData
 import math
+import numpy as np
 import os
 import csv
+import time
 from datetime import datetime
 from zoneinfo import ZoneInfo
+
+REST_TIME = 10
+ROBOT_TIME = 20
+ALL_TIME = 40
 
 class EmoStatusNode(Node):
     def __init__(self):
         super().__init__('emo_status_exp_rest_fix')
         
         # Rest time manage
-        self.REST_TIME = 30
         self.pub_time_count = self.create_publisher(Int32, 'time_count', 10)
         self.time_count = Int32()
         self.time_count.data = 0
@@ -35,17 +40,11 @@ class EmoStatusNode(Node):
         
         self.THRESHOLD_VALENCE = -1.0 # valenceの平均指標
         self.THRESHOLD_AROUSAL = -1.0 # arousalの平均指標
-        self.THRESHOLD_VALENCE_fix = 0.236 # valenceの平均指標
-        self.THRESHOLD_AROUSAL_fix = 1.0 # arousalの平均指標
         
         self.FLAG_THRESHOLD = 0
         
-        self.pnn10_rest = []
         self.pnn20_rest = []
-        self.pnn30_rest = []
-        self.pnn40_rest = []
         self.pnn50_rest = []
-        self.rmssd_rest = []
         self.beta_l_alpha_l_rest = []
 
         timer_period = 1.0
@@ -115,6 +114,10 @@ class EmoStatusNode(Node):
         self.pulse._pnn40 = msg.pnn40
         self.pulse._pnn50 = msg.pnn50
         
+        if self.FLAG_THRESHOLD == 0:
+            self.pnn20_rest.append(self.pulse._pnn20)
+            self.pnn50_rest.append(self.pulse._pnn50)
+        
         self.write_bio_pulse_data()
         self.get_logger().info(f'PNN50: {self.pulse._pnn50}')
     
@@ -132,140 +135,64 @@ class EmoStatusNode(Node):
         if msg.alpha_l != 0 and msg.beta_l != 0:
             self.beta_l_alpha_l = msg.beta_l / msg.alpha_l
         
+        if self.FLAG_THRESHOLD == 0:
+            self.beta_l_alpha_l_rest.append(self.beta_l_alpha_l) 
+        
         self.write_bio_brain_data()        
         self.get_logger().info(f'LOWBETA / LOWALPHA {self.beta_l_alpha_l}, {msg.beta_l}, {msg.alpha_l}')
     
     def estimate_emotion_rest_base(self):
-        emo_name = 'Rest'
+        emo_name = ''
         
         if self.FLAG_THRESHOLD != 0:
             # Happy
-            if self.beta_l_alpha_l >= self.THRESHOLD_AROUSAL and self.pulse._pnn50 >= self.THRESHOLD_VALENCE:
+            if self.beta_l_alpha_l >= self.THRESHOLD_AROUSAL and self.pulse._pnn20 >= self.THRESHOLD_VALENCE:
                 emo_name = 'Happy'   
             # Relax
-            elif self.beta_l_alpha_l < self.THRESHOLD_AROUSAL and self.pulse._pnn50 >= self.THRESHOLD_VALENCE:
+            elif self.beta_l_alpha_l < self.THRESHOLD_AROUSAL and self.pulse._pnn20 >= self.THRESHOLD_VALENCE:
                 emo_name = 'Relax'
             # Sadness
-            elif self.beta_l_alpha_l < self.THRESHOLD_AROUSAL and self.pulse._pnn50 < self.THRESHOLD_VALENCE:
+            elif self.beta_l_alpha_l < self.THRESHOLD_AROUSAL and self.pulse._pnn20 < self.THRESHOLD_VALENCE:
                 emo_name = 'Sadness'
             # Anger
-            elif self.beta_l_alpha_l >= self.THRESHOLD_AROUSAL and self.pulse._pnn50 < self.THRESHOLD_VALENCE:
+            elif self.beta_l_alpha_l >= self.THRESHOLD_AROUSAL and self.pulse._pnn20 < self.THRESHOLD_VALENCE:
                 emo_name = 'Anger'
-        
-        return emo_name
-    
-    def estimate_emotion_fix(self):
-        # Happy
-        if self.beta_l_alpha_l >= self.THRESHOLD_AROUSAL_fix and self.pulse._pnn50 >= self.THRESHOLD_VALENCE_fix:
-            emo_name = 'Happy'   
-        # Relax
-        elif self.beta_l_alpha_l < self.THRESHOLD_AROUSAL_fix and self.pulse._pnn50 >= self.THRESHOLD_VALENCE_fix:
-            emo_name = 'Relax'
-        # Sad
-        elif self.beta_l_alpha_l < self.THRESHOLD_AROUSAL_fix and self.pulse._pnn50 < self.THRESHOLD_VALENCE_fix:
-            emo_name = 'Sad'
-        # Angry
-        elif self.beta_l_alpha_l >= self.THRESHOLD_AROUSAL_fix and self.pulse._pnn50 < self.THRESHOLD_VALENCE_fix:
-            emo_name = 'Angry'
-    
-        return emo_name
-    
+
+            self.emo_status.data = emo_name
     
     def publish_emo_status(self):
-        if self.time_count.data < self.REST_TIME:
+        if self.time_count.data < REST_TIME:
             self.stimu = 'Rest1'
+            self.emo_status.data = 'Rest1'
+        
+        elif self.time_count.data >= REST_TIME and self.time_count.data < ROBOT_TIME:
+            self.stimu = 'Robot'
             
-            emo_and_bio = self.estimate_emotion_rest_base()
+            if self.FLAG_THRESHOLD == 0:
+                self.THRESHOLD_AROUSAL = np.mean(self.beta_l_alpha_l_rest)
+                self.THRESHOLD_VALENCE = np.mean(self.pnn20_rest)
+                self.FLAG_THRESHOLD == 1
             
-            self.emo_status.data = emo_and_bio
-            self.pub_emo_status.publish(self.emo_status)
+            self.estimate_emotion_rest_base()
             
-        elif self.time_count.data < self.REST_TIME*5:
+        elif self.time_count.data >= ROBOT_TIME and self.time_count.data < ALL_TIME:
             self.stimu = 'Rest2'
-            
-            self.pnn10_rest.append(self.pulse._pnn10)
-            self.pnn20_rest.append(self.pulse._pnn20)
-            self.pnn30_rest.append(self.pulse._pnn30)
-            self.pnn40_rest.append(self.pulse._pnn40)
-            self.pnn50_rest.append(self.pulse._pnn50)
-            self.rmssd_rest.append(self.pulse._rmssd)
-            self.beta_l_alpha_l_rest.append(self.beta_l_alpha_l)             
-            
-            emo_and_bio = self.estimate_emotion_rest_base()
-            
-            self.emo_status.data = emo_and_bio
-            self.pub_emo_status.publish(self.emo_status)
-            
-        if self.time_count.data == self.REST_TIME*5:
-            self.stimu = 'Stimu1'
-            
-            self.FLAG_THRESHOLD += 1
-            self.THRESHOLD_VALENCE = sum(self.pnn50_rest) / len(self.pnn50_rest)
-            self.THRESHOLD_AROUSAL = sum(self.beta_l_alpha_l_rest) / len(self.pnn50_rest)
-            self.get_logger().info(f'THRESHOLD_VALENCE, {self.THRESHOLD_VALENCE}')
-            self.get_logger().info(f'THRESHOLD_AROUSAL, {self.THRESHOLD_AROUSAL}')
-            
-            emo_and_bio = self.estimate_emotion_rest_base()
+            self.emo_status.data = 'Rest2'
         
-            self.emo_status.data = emo_and_bio
-            self.pub_emo_status.publish(self.emo_status)
+        elif self.time_count.data >= ALL_TIME:
+            while True:
+                self.get_logger().info(f"time_count: {self.time_count.data}, EXP Finish")
+                time.sleep(1)
         
-        '''
-        if self.REST_TIME*2 <= self.time_count.data < self.REST_TIME*3:
-            self.stimu = 'Stimu1'
-            
-            self.FLAG_THRESHOLD += 1
-            self.THRESHOLD_VALENCE = sum(self.pnn50_rest) / self.REST_TIME
-            self.THRESHOLD_AROUSAL = sum(self.beta_l_alpha_l_rest) / self.REST_TIME
-            self.get_logger().info(f'THRESHOLD_VALENCE, {self.THRESHOLD_VALENCE}')
-            self.get_logger().info(f'THRESHOLD_AROUSAL, {self.THRESHOLD_AROUSAL}')
-            
-            emo_and_bio = self.estimate_emotion_rest_base()
+        self.pub_emo_status.publish(self.emo_status)
         
-            self.emo_status.data = emo_and_bio[0]
-            self.pub_emo_status.publish(self.emo_status)
-        
-        if self.REST_TIME*3 <= self.time_count.data < self.REST_TIME*4:
-            self.stimu = 'Robot1'
-            
-            emo_and_bio = self.estimate_emotion_rest_base()
-        
-            self.emo_status.data = emo_and_bio[1]
-            self.pub_emo_status.publish(self.emo_status)
-            print(emo_and_bio[1])
-        
-        if self.REST_TIME*4 <= self.time_count.data < self.REST_TIME*5:
-            self.stimu = 'Rest2'
-            
-            emo_and_bio = self.estimate_emotion_rest_base()
-        
-            self.emo_status.data = emo_and_bio[0]
-            self.pub_emo_status.publish(self.emo_status)
-            
-        if self.REST_TIME*5 <= self.time_count.data < self.REST_TIME*6:
-            self.stimu = 'Stimu2'
-            
-            emo_and_bio = self.estimate_emotion_fix()
-        
-            self.emo_status.data = emo_and_bio[0]
-            self.pub_emo_status.publish(self.emo_status)
-        
-        if self.REST_TIME*6 <= self.time_count.data < self.REST_TIME*7:
-            self.stimu = 'Robot2'
-            
-            emo_and_bio = self.estimate_emotion_fix()
-        
-            self.emo_status.data = emo_and_bio[1]
-            self.pub_emo_status.publish(self.emo_status)
-        
-        '''
         self.time_count.data += 1
         self.get_logger().info(f'time_count {self.time_count.data}')
         self.pub_time_count.publish(self.time_count)
         
-        self.write_emo_data(emo_and_bio)  
+        self.write_emo_data(self.emo_status.data)  
         
-        self.get_logger().info(f'Stimu: {self.stimu}, Emotion: {emo_and_bio}, lowb/a: {self.beta_l_alpha_l}, pnn50: {self.pulse._pnn50}')
+        self.get_logger().info(f'Stimu: {self.stimu}, Emotion: {self.emo_status.data}, lowb/a: {self.beta_l_alpha_l}, pnn20: {self.pulse._pnn20}')
         self.get_logger().info(f'THRESHOLD_VALENCE, {self.THRESHOLD_VALENCE}')
         self.get_logger().info(f'THRESHOLD_AROUSAL, {self.THRESHOLD_AROUSAL}\n\n')
     

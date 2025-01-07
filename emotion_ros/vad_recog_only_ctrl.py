@@ -25,7 +25,7 @@ import random
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
-GPU_SERVER_URL = 'https://square-macaque-thankfully.ngrok-free.app/llm'
+GPU_SERVER_URL = 'https://square-macaque-thankfully.ngrok-free.app/recog_only'
 
 SAMPLE_RATE = 16000
 #SAMPLE_RATE = 48000
@@ -53,24 +53,6 @@ def disp(img_file):
     command2 = "cat /dev/fb0 > /home/ubuntu/tmp.raw"
     os.system(command1)
 
-'''
-# ラズパイ上でjtalkの音声合成、使わない関数
-def jtalk(tt):
-    start_time = time.time()
-
-    # 一時ファイルを作成
-    with tempfile.NamedTemporaryFile(delete=False, suffix='.wav') as temp_wav:
-        temp_wav_path = temp_wav.name
-
-    # open_jtalk コマンドを準備してファイルに音声を保存
-    cmd = cmd + ['-ow', temp_wav_path]
-    subprocess.run(cmd, input=tt.encode())
-    end_time = time.time()
-    print("音声合成: {:.2f} seconds, {}文字".format(end_time - start_time, len(tt))) 
-
-    # 音声ファイルを再生
-    subprocess.run(['aplay', '-q', temp_wav_path])
-'''
 
 
 def load_vad_model():
@@ -78,12 +60,6 @@ def load_vad_model():
     (get_speech_timestamps, _, _, _, _) = utils
     return model, get_speech_timestamps
 
-def play_audio(audio_data): # ずんだもん
-    tmp = pygame.mixer.Sound(buffer=audio_data)
-    pygame.mixer.Sound.play(tmp)
-    # 再生が終わるまで待機
-    while pygame.mixer.get_busy():
-        pygame.time.Clock().tick(10)
 
 def play_wave(directory, wav_file):
     file_path = os.path.join(directory, wav_file)
@@ -108,7 +84,6 @@ class TalkCtrl(Node):
         self.shutdown_flag = threading.Event()
         self.create_subscription(String, 'recog_emo', self.emo_callback, 10)
         self.emo = ''
-        self.flag_emosub = False
         
         self.create_subscription(String, 'emo_status', self.exp_manage_callback, 10)
         
@@ -116,17 +91,10 @@ class TalkCtrl(Node):
         # pygame.mixer.pre_init(frequency=24000, size=-16, channels=1)
         pygame.init()
         
-        open_jtalk=['open_jtalk']
-        mech=['-x','/var/lib/mecab/dic/open-jtalk/naist-jdic']
-        htsvoice=['-m','/usr/share/hts-voice/mei/mei_normal.htsvoice']
-        speed=['-r','1.0']
-        self.cmd = open_jtalk + mech + htsvoice + speed
         
         self.output_dir = "/home/user/turtlebot3_ws/src/emotion_ros/output_audio/"
         os.makedirs(self.output_dir, exist_ok=True)
         
-        self.filler_dir = "/home/user/turtlebot3_ws/src/emotion_ros/Filler_JP/"
-        self.filler_files = os.listdir(self.filler_dir)
         
         self.voice_dir = "/home/user/turtlebot3_ws/src/emotion_ros/Voice_JP/"
         self.hello_wave = "こんにちは_normal.wav"
@@ -142,21 +110,16 @@ class TalkCtrl(Node):
 
         self.txt_filename = os.path.join(speech_data_path, f'{timestamp}_speech.txt')
         self.txt_file = open(self.txt_filename, mode='w', newline='')
-        self.txt_file.write('user_time,user_text,user_len,llm_time,llm_text,llm_len,recog_emo\n')
+        self.txt_file.write('user_time,user_text,user_len,recog_emo\n')
         
         self.user_time = None
         self.user_text = ""
         self.user_len = 0
-        self.llm_time = None
-        self.llm_text = ""
-        self.llm_len = 0
         self.csv_emo = ""
-        self.llm_time_flag = 0
         
         
     def write_speech_data(self):
-        self.txt_file.write(f'{self.user_time},{self.user_text},{self.user_len},'
-                            f'{self.llm_time},{self.llm_text},{self.llm_len},{self.csv_emo}\n')
+        self.txt_file.write(f'{self.user_time},{self.user_text},{self.user_len},{self.csv_emo}\n')
         self.txt_file.flush()
     
     def exp_manage_callback(self, msg):
@@ -178,117 +141,32 @@ class TalkCtrl(Node):
     
     def emo_callback(self, msg):
         self.emo = msg.data
-        self.flag_emosub = True
         self.get_logger().info(f"Recog_emotion: {self.emo}")
       
-    def play_filler(self):
-        random_file = random.choice(self.filler_files)
-        play_wave(self.filler_dir, random_file)
-    
-    def play_jtalk(self, audio_data, total_time):
-        start_time = time.time()
-        pygame.mixer.quit()  # ミキサーを初期化し直す
 
-        # バイト列をWaveオブジェクトとして読み込む
-        with io.BytesIO(audio_data) as audio_io:
-            with wave.open(audio_io, 'rb') as wf:
-                n_channels = wf.getnchannels()
-                sample_width = wf.getsampwidth()
-                frame_rate = wf.getframerate()
-                frames = wf.getnframes()
-                audio_frames = wf.readframes(wf.getnframes())
-                self.llm_len += int(frames / frame_rate)
-
-        # numpyでデータを変換
-        if sample_width == 2:
-            dtype = np.int16
-        else:
-            raise ValueError("Unsupported sample width: %d" % sample_width)
-        audio_array = np.frombuffer(audio_frames, dtype=dtype)
-
-        # pygame.mixerを適切なフォーマットで初期化
-        pygame.mixer.init(frequency=frame_rate, size=-8 * sample_width, channels=n_channels)
-
-        # バイト列に戻してpygameで再生
-        tmp = pygame.mixer.Sound(audio_array.tobytes())
-        end_time = time.time()
-        self.get_logger().info("再生時間: {:.2f} seconds".format(end_time - start_time))
-        
-        total_time += end_time - start_time
-        self.get_logger().info("合計時間: {:.2f} seconds".format(total_time))
-        
-        tmp.play()
-
-        # 再生が終わるまで待機
-        while pygame.mixer.get_busy():
-            pygame.time.Clock().tick(10)
-    
     def send_audio(self, file_name, output_path):
-        def play_filler_loop():
-            while not response_event.is_set():
-                self.play_filler()
-                time.sleep(2.0)
-
-        # レスポンス受信完了を監視するためのイベントフラグ
-        response_event = threading.Event()
-
-        # 相槌スレッドを起動
-        filler_thread = threading.Thread(target=play_filler_loop, daemon=True)
-        filler_thread.start()
-
         file = {'file': (f"{file_name}", open(f"{output_path}", 'rb'), 'audio/wav')}
         emo = {'emo': f'{self.emo}'}
         self.get_logger().info(f"Send_emotion: {emo['emo']}")
         self.csv_emo = emo['emo']
 
         try:
-            start_time = time.time()
-            response = requests.post(GPU_SERVER_URL, stream=True, files=file, data=emo)
+            response = requests.post(GPU_SERVER_URL, files=file, data=emo)
             file['file'][1].close()
             
             with wave.open(f"{output_path}", mode='rb') as wf:
                 self.user_len = int(wf.getnframes() / wf.getframerate())
 
             if response.status_code == 200:
-                end_time = time.time()
-                buffer = ""
-                for chunk in response.iter_content(chunk_size=None):
-                    buffer += chunk.decode('utf-8')
-                    while "\n" in buffer:
-                        line, buffer = buffer.split("\n", 1)
-                        try:
-                            data = json.loads(line)
-                            if "voice" in data:
-                                audio_data = base64.b64decode(data["voice"])
-                                total_time = end_time - start_time
-                                response_event.set()  # レスポンス受信の通知
-                                filler_thread.join()
-                                
-                                if self.llm_time_flag == 0:
-                                    self.llm_time = datetime.now(ZoneInfo("Asia/Tokyo")).strftime('%H:%M:%S.%f')[:-3]
-                                    self.llm_time_flag = 1
-                                
-                                self.play_jtalk(audio_data, total_time)
-                            elif "text" in data:
-                                self.get_logger().info(f"認識した音声: {data['input']}")
-                                self.get_logger().info(f"返事: {data['text']}")
-                                self.user_text = data['input']
-                                self.llm_text = data['text']
-                                self.get_logger().info(f"生成時間: {end_time - start_time} seconds, {len(data['text'])}文字")
-                        except json.JSONDecodeError:
-                            # jsonが途中
-                            self.get_logger().info(f"json streaming")
-                            continue
+                self.get_logger().info(f"認識した音声: {response.json()['input']}")
+                self.user_text = response.json()['input']
             else:
                 self.get_logger().info(f"Error: {response.status_code}")
         except Exception as e:
             self.get_logger().info(f"Request failed: {e}")
         finally:
-            response_event.set()
             print('finally')
             self.write_speech_data()
-            self.llm_len = 0
-            self.llm_time_flag = 0
             
     # VADの判定
     def voice_ad(self):
@@ -337,7 +215,6 @@ class TalkCtrl(Node):
                             input=True, input_device_index=3,frames_per_buffer=CHUNK_SIZE)
         self.get_logger().info("Thread A: マイク起動")
         try:
-            # if self.flag_emosub:
             if True:
                 play_wave(self.voice_dir, self.hello_wave)
                 while not self.shutdown_flag.is_set():

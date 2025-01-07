@@ -73,7 +73,7 @@ class MotionCtrl(Node):
 
 
   def write_sub_data(self, emo):
-    timestamp = datetime.now(ZoneInfo("Asia/Tokyo")).strftime('%Y-%m-%d %H:%M:%S.%f')[:-3]
+    timestamp = datetime.now(ZoneInfo("Asia/Tokyo")).strftime('%H:%M:%S.%f')[:-3]
     self.csv_writer.writerow([timestamp, emo])
     self.csv_file.flush()
         

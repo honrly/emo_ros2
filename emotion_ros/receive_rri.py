@@ -11,6 +11,10 @@ from concurrent.futures import ThreadPoolExecutor
 from bluepy.btle import Peripheral
 import bluepy.btle as btle
 import binascii
+import os
+import csv
+from datetime import datetime
+from zoneinfo import ZoneInfo
 
 # 定数
 REST = 180
@@ -30,14 +34,14 @@ class MyDelegate(btle.DefaultDelegate):
         v2 = int(c_data[6:8],16)
         rri1 = (v2<<8) + v1
         RRI_data = np.hstack([RRI_data, rri1])
-        self.get_logger().info(rri1)
+        print(rri1)
         if len(c_data) > 8:
             v3 = int(c_data[8:10],16)
             v4 = int(c_data[10:12],16)
             rri2 = (v4<<8) + v3
             RRI_data = np.hstack([RRI_data, rri2])
-            self.get_logger().info(rri2)
-            self.get_logger().info(RRI_data)
+            print(rri2)
+            print(RRI_data)
  
 # センサークラス
 class SensorBLE(Peripheral):
@@ -58,6 +62,25 @@ class ReceiveRRINode(Node):
         
         self.ibi_list = [0] * IBI_SIZE
         self.ibi_count = 0
+        
+        directory_path = '/home/user'
+        bio_pulse_data_path = os.path.join(directory_path, 'data_raw/pulse')
+        os.makedirs(bio_pulse_data_path, exist_ok=True)
+
+        timestamp = datetime.now(ZoneInfo("Asia/Tokyo")).strftime('%Y%m%d_%H%M%S')
+        self.csv_filename = os.path.join(bio_pulse_data_path, f'{timestamp}_pulse_raw.csv')
+        self.csv_file = open(self.csv_filename, mode='w', newline='')
+        self.csv_writer = csv.writer(self.csv_file)
+        self.csv_writer.writerow(['timestamp', 'bpm', 'ibi', 'sdnn', 'cvnn', 'rmssd', 'pnn10', 'pnn20', 'pnn30', 'pnn40', 'pnn50'])
+        
+    
+    def write_raw_data(self):
+        # 各行にタイムスタンプと生データを記録
+        timestamp = datetime.now(ZoneInfo("Asia/Tokyo")).strftime('%H:%M:%S.%f')[:-3]
+        self.csv_writer.writerow([timestamp, self.pulse.bpm, self.pulse.ibi, self.pulse.sdnn, self.pulse.cvnn, self.pulse.rmssd, 
+                                        self.pulse.pnn10, self.pulse.pnn20, self.pulse.pnn30, self.pulse.pnn40, self.pulse.pnn50])
+        self.csv_file.flush()
+     
     
     def read_mac_address(self):
         file_path = "/home/user/polarH10_address.txt"
@@ -96,7 +119,10 @@ class ReceiveRRINode(Node):
                                     raise Exception("IBI count error")
                                 
                                 self.calc_hrv()
+                                self.write_raw_data()
                                 self.pub_pulse.publish(self.pulse)
+                                
+                            RRI_data = []
                         continue  # 一定時間で接続が切れないように継続
                     
             except btle.BTLEDisconnectError as e:

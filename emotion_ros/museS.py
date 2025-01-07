@@ -69,10 +69,11 @@ class MuseSNode(Node):
         self.last_data_time = time.time()
     
     def write_raw_data(self, raw):
-        timestamp = datetime.now(ZoneInfo("Asia/Tokyo")).strftime('%Y-%m-%d %H:%M:%S.%f')[:-5]
-        self.csv_writer.writerow([timestamp, raw])
+        # 各行にタイムスタンプと生データを記録
+        timestamp = datetime.now(ZoneInfo("Asia/Tokyo")).strftime('%H:%M:%S.%f')[:-5]
+        for row in raw.T:  # 生データを転置して行単位に処理
+            self.csv_writer.writerow([timestamp] + row.tolist())  # タイムスタンプを追加して記録
         self.csv_file.flush()
-     
     
     def setup_muse(self):
         params = BrainFlowInputParams()

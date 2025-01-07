@@ -66,7 +66,7 @@ class EmoStatusNode(Node):
         self.pulse_csv_writer = csv.writer(self.pulse_csv_file)
         self.pulse_csv_writer.writerow(['timestamp', 'threshold_pnn', 'bpm', 'ibi', 'sdnn', 'cvnn', 'rmssd', 'pnn10', 'pnn20', 'pnn30', 'pnn40', 'pnn50'])
         
-        self.brain_csv_filename = os.path.join(bio_pulse_data_path, f'{timestamp}_rest_base.csv')
+        self.brain_csv_filename = os.path.join(bio_brain_data_path, f'{timestamp}_rest_base.csv')
         self.brain_csv_file = open(self.brain_csv_filename, mode='w', newline='')
         self.brain_csv_writer = csv.writer(self.brain_csv_file)
         self.brain_csv_writer.writerow(['timestamp', 'threshold_b_a', 'beta_l_alpha_l', 'poorsignal', 'delta', 'theta', 
@@ -80,19 +80,19 @@ class EmoStatusNode(Node):
                                       'sdnn', 'cvnn', 'rmssd', 'pnn10', 'pnn20', 'pnn30', 'pnn40', 'pnn50'])
     
     def write_bio_pulse_data(self):
-        timestamp = datetime.now(ZoneInfo("Asia/Tokyo")).strftime('%Y-%m-%d %H:%M:%S.%f')[:-3]
+        timestamp = datetime.now(ZoneInfo("Asia/Tokyo")).strftime('%H:%M:%S.%f')[:-3]
         self.pulse_csv_writer.writerow([timestamp, self.THRESHOLD_VALENCE, self.pulse._bpm, self.pulse._ibi, self.pulse._sdnn, self.pulse._cvnn, self.pulse._rmssd, 
                                         self.pulse._pnn10, self.pulse._pnn20, self.pulse._pnn30, self.pulse._pnn40, self.pulse._pnn50])
         self.pulse_csv_file.flush()
         
     def write_bio_brain_data(self):
-        timestamp = datetime.now(ZoneInfo("Asia/Tokyo")).strftime('%Y-%m-%d %H:%M:%S.%f')[:-3]
+        timestamp = datetime.now(ZoneInfo("Asia/Tokyo")).strftime('%H:%M:%S.%f')[:-3]
         self.brain_csv_writer.writerow([timestamp, self.THRESHOLD_AROUSAL, self.beta_l_alpha_l, self.brain._poorsignal, self.brain._delta, self.brain._theta, 
                                         self.brain._alpha_l, self.brain._alpha_h, self.brain._beta_l, self.brain._beta_h, self.brain._gamma_l, self.brain._gamma_m])
         self.brain_csv_file.flush()
     
     def write_emo_data(self, emo):
-        timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')[:-3]
+        timestamp = datetime.now().strftime('%H:%M:%S.%f')[:-3]
         self.emo_csv_writer.writerow([timestamp, self.stimu, emo, self.THRESHOLD_AROUSAL, self.beta_l_alpha_l, self.brain._poorsignal, self.brain._delta, self.brain._theta, 
                                       self.brain._alpha_l, self.brain._alpha_h, self.brain._beta_l, self.brain._beta_h, self.brain._gamma_l, self.brain._gamma_m, 
                                       self.THRESHOLD_VALENCE, self.pulse._bpm, self.pulse._ibi, self.pulse._sdnn, self.pulse._cvnn, self.pulse._rmssd, 

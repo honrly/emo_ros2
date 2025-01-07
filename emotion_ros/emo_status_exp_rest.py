@@ -16,7 +16,7 @@ ALL_TIME = 40
 
 class EmoStatusNode(Node):
     def __init__(self):
-        super().__init__('emo_status_exp_rest_fix')
+        super().__init__('emo_status_exp_rest')
         
         # Rest time manage
         self.pub_time_count = self.create_publisher(Int32, 'time_count', 10)

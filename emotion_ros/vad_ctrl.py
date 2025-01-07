@@ -142,7 +142,7 @@ class TalkCtrl(Node):
 
         self.txt_filename = os.path.join(speech_data_path, f'{timestamp}_speech.txt')
         self.txt_file = open(self.txt_filename, mode='w', newline='')
-        self.txt_file.write('user_time,user_text,user_len,llm_time,llm_text,llm_len,recog_emo\n')
+        self.txt_file.write('user_time,user_text,user_len,llm_time,llm_text,llm_len,recog_emo,filler_time,filler_text\n')
         
         self.user_time = None
         self.user_text = ""
@@ -151,12 +151,16 @@ class TalkCtrl(Node):
         self.llm_text = ""
         self.llm_len = 0
         self.csv_emo = ""
+        self.filler_time = None
+        self.filler_text = ""
         self.llm_time_flag = 0
+        self.filler_flag = 0
         
         
     def write_speech_data(self):
         self.txt_file.write(f'{self.user_time},{self.user_text},{self.user_len},'
-                            f'{self.llm_time},{self.llm_text},{self.llm_len},{self.csv_emo}\n')
+                            f'{self.llm_time},{self.llm_text},{self.llm_len},{self.csv_emo},'
+                            f'{self.filler_time},{self.filler_text}\n')
         self.txt_file.flush()
     
     def exp_manage_callback(self, msg):
@@ -183,6 +187,13 @@ class TalkCtrl(Node):
       
     def play_filler(self):
         random_file = random.choice(self.filler_files)
+        if self.filler_flag == 0:
+            self.filler_time = datetime.now(ZoneInfo("Asia/Tokyo")).strftime('%H:%M:%S.%f')[:-3]
+            self.filler_text += random_file
+            self.filler_flag += 1
+        elif self.filler_flag >= 1:
+            self.filler_text += random_file
+            self.filler_flag += 1
         play_wave(self.filler_dir, random_file)
     
     def play_jtalk(self, audio_data, total_time):
@@ -289,6 +300,7 @@ class TalkCtrl(Node):
             self.write_speech_data()
             self.llm_len = 0
             self.llm_time_flag = 0
+            self.filler_flag = 0
             
     # VADの判定
     def voice_ad(self):

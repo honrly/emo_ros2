@@ -7,72 +7,124 @@ import math
 import datetime
 import time
 import pandas as pd
+from concurrent.futures import ThreadPoolExecutor
+from bluepy.btle import Peripheral
+import bluepy.btle as btle
+import binascii
 
 # 定数
 REST = 180
 IBI_SIZE = 31
+RRI_data = []
 
-def read_mac_address():
-    file_path = "/home/user/museS_address.txt"
-    try:
-        with open(file_path, "r") as f:
-            address = f.readline().strip()
-            return address
-    except FileNotFoundError:
-        print(f"Error: {file_path} が見つかりません。")
-        return None
+class MyDelegate(btle.DefaultDelegate):
+    def __init__(self, params):
+        btle.DefaultDelegate.__init__(self)
+ 
+    def handleNotification(self, cHandle, data):
+        global RRI_data
+        c_data = binascii.b2a_hex(data)
+        ##「c_data」が受信したデータ，デフォルトは16進数標記なので、10進数に戻す必要がある
+        hr = int(c_data[2:4],16)
+        v1 = int(c_data[4:6],16)
+        v2 = int(c_data[6:8],16)
+        rri1 = (v2<<8) + v1
+        RRI_data = np.hstack([RRI_data, rri1])
+        self.get_logger().info(rri1)
+        if len(c_data) > 8:
+            v3 = int(c_data[8:10],16)
+            v4 = int(c_data[10:12],16)
+            rri2 = (v4<<8) + v3
+            RRI_data = np.hstack([RRI_data, rri2])
+            self.get_logger().info(rri2)
+            self.get_logger().info(RRI_data)
+ 
+# センサークラス
+class SensorBLE(Peripheral):
+    def __init__(self, addr):
+        Peripheral.__init__(self, addr, addrType="random")
 
 
 class ReceiveRRINode(Node):
     def __init__(self):
         super().__init__('receive_rri_node')
         
+        self.polar_mac_address = self.read_mac_address()
+        
         self.pulse = PulseData()
         self.pulse.bpm = 0
         
-        self.pub_pnnx = self.create_publisher(PulseData, 'pulse', 10)
+        self.pub_pulse = self.create_publisher(PulseData, 'pulse', 10)
         
         self.ibi_list = [0] * IBI_SIZE
         self.ibi_count = 0
-        self.RRI_data = []
-
-        # 安静時のpnnx
-        self.pub_pnnx_rest_ave = self.create_publisher(Float32, 'pnnx_rest_ave', 10)
-        self.pnnx_rest_ave = Float32() # 何も無い時(安静時)のpnnx平均
-        self.pnnx_rest_ave.data = -1.0 # 送信データ
-        # 安静時のpnnxの計算に使用
-        self.pnnx_rest = []
     
-    def publish_pnnx(self):
-        for ibi in self.RRI_data:
-            self.pulse.ibi = ibi  # 最後の値をメッセージに記録
+    def read_mac_address(self):
+        file_path = "/home/user/polarH10_address.txt"
+        try:
+            with open(file_path, "r") as f:
+                address = f.readline().strip()
+                return address
+        except FileNotFoundError:
+            self.get_logger().info(f"Error: {file_path} が見つかりません。")
+            return None
+    
+    def publish_pulse(self):
+        global RRI_data
+        while True:  # 再接続処理を繰り返すため
+            try:
+                medal = SensorBLE(self.polar_mac_address)
+                medal.setDelegate(MyDelegate(btle.DefaultDelegate))
+                
+                # ノーティフィケーションを有効にする
+                medal.writeCharacteristic(0x0011, b"\x01\x00", True)
+                
+                # データを受信し続ける
+                while True:
+                    if medal.waitForNotifications(1.0):  # 1秒間隔でデータを受け取る
+                        if len(RRI_data) != 0:
+                            for ibi in RRI_data:
+                                self.pulse.ibi = int(ibi)
 
-            if self.ibi_count >= IBI_SIZE:
-                self.ibi_list.pop(0)  # 最も古い値を削除
-                self.ibi_list.append(ibi)  # 新しい値を追加
-            elif self.ibi_count >= 0:
-                self.ibi_list[self.ibi_count] = ibi  # 配列に値を追加
-                self.ibi_count += 1
-            else:
-                raise Exception("IBI count error")
+                                if self.ibi_count >= IBI_SIZE:
+                                    self.ibi_list.pop(0)
+                                    self.ibi_list.append(ibi)
+                                elif self.ibi_count >= 0:
+                                    self.ibi_list[self.ibi_count] = ibi
+                                    self.ibi_count += 1
+                                else:
+                                    raise Exception("IBI count error")
+                                
+                                self.calc_hrv()
+                                self.pub_pulse.publish(self.pulse)
+                        continue  # 一定時間で接続が切れないように継続
+                    
+            except btle.BTLEDisconnectError as e:
+                self.get_logger().info(f"再接続: {e}")
+                time.sleep(1)
+                continue  # 再接続
 
-        
-        self.calc_hrv()
-        self.pub_pnnx.publish(self.pnnx)
-        # 安静時平均をpublish
-        self.publish_pnnx_rest_ave()
-        time_now = datetime.datetime.now()
-        self.get_logger().info(f'Pnnx: {self.pnnx.data}, Time: {time_now}')
+            except ValueError as e:
+                self.get_logger().info(f"データエラー: {e}")
+                try:
+                    medal.writeCharacteristic(0x0011, b"\x00\x00", True)
+                    medal.disconnect()
+                except Exception as e:
+                    medal.writeCharacteristic(0x0011, b"\x00\x00", True)
+                    medal.disconnect()
+                time.sleep(1)
 
-        
-    def publish_pnnx_rest_ave(self):
-        # 安静時データを貯める
-        if len(self.pnnx_rest) < REST:
-            self.pnnx_rest.append(self.pulse.pnn20)  # pnnx.data をリストに追加
-        # 安静時データが貯まっていてまだ平均を出していなければ出す
-        elif self.pnnx_rest_ave.data == -1.0:
-            self.pnnx_rest_ave.data = float(np.mean(self.pnnx_rest))
-            self.pub_pnnx_rest_ave.publish(self.pnnx_rest_ave)
+            except KeyboardInterrupt:
+                self.get_logger().info("終了")
+                break
+
+            finally:
+                try:
+                    if 'medal' in locals() or 'medal' in globals():
+                        medal.writeCharacteristic(0x0011, b"\x00\x00", True)
+                        medal.disconnect()
+                except Exception:
+                    pass
     
     def calc_hrv(self):
         mean = sum(self.ibi_list) / IBI_SIZE
@@ -88,7 +140,6 @@ class ReceiveRRINode(Node):
         self.calc_cvnn(mean, sdnn)
 
     def calc_cvnn(self, mean, sdnn):
-        global msg
         cvnn = sdnn / mean
         self.pulse.cvnn = cvnn
 
@@ -122,7 +173,7 @@ class ReceiveRRINode(Node):
     
     def run(self):
         while rclpy.ok():
-            self.publish_pnnx()
+            self.publish_pulse()
 
 def main(args=None):
     rclpy.init(args=args)

@@ -58,8 +58,7 @@ class MotionCtrl(Node):
     
     
     # Record csv
-    # directory_path = '/home/user/ros2_ws/src/emotion_ros'
-    directory_path = '/home/user/turtlebot3_ws/src/emotion_ros'
+    directory_path = '/home/user'
         
     sub_data_path = os.path.join(directory_path, 'data_record/sub_data')
     os.makedirs(sub_data_path, exist_ok=True)

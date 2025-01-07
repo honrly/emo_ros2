@@ -52,8 +52,7 @@ class EmoStatusNode(Node):
         self.timer = self.create_timer(timer_period, self.publish_emo_status)
     
         # Record csv
-        # directory_path = '/home/user/ros2_ws/src/emotion_ros'
-        directory_path = '/home/user/turtlebot3_ws/src/emotion_ros'
+        directory_path = '/home/user'
          
         bio_pulse_data_path = os.path.join(directory_path, 'data_record/bio_data/pulse')
         bio_brain_data_path = os.path.join(directory_path, 'data_record/bio_data/brain')

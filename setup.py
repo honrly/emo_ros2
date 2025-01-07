@@ -52,6 +52,7 @@ setup(
             'visualizer = emotion_ros.visualizer:main',
             'talk_ctrl_ja = emotion_ros.talk_ctrl_ja:main',
             'vad_ctrl = emotion_ros.vad_ctrl:main',
+            'vad_recog_only_ctrl = emotion_ros.vad_recog_only_ctrl:main',
             'museS = emotion_ros.museS:main',
             'receive_rri = emotion_ros.receive_rri:main',
             'time_manager = emotion_ros.time_manager:main',

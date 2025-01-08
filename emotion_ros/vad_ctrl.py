@@ -27,6 +27,8 @@ from zoneinfo import ZoneInfo
 
 GPU_SERVER_URL = 'https://square-macaque-thankfully.ngrok-free.app/llm'
 
+FLAG_EMOSUB = 0
+
 SAMPLE_RATE = 16000
 #SAMPLE_RATE = 48000
 CHANNEL = 1  # チャンネル1(モノラル), ReSpeaker 4 Mic Array = max 6だけど音声検知をリアルタイムで処理するにはラズパイだと馬鹿多いので1で良い
@@ -108,7 +110,6 @@ class TalkCtrl(Node):
         self.shutdown_flag = threading.Event()
         self.create_subscription(String, 'recog_emo', self.emo_callback, 10)
         self.emo = ''
-        self.flag_emosub = False
         
         self.create_subscription(String, 'emo_status', self.exp_manage_callback, 10)
         
@@ -181,8 +182,9 @@ class TalkCtrl(Node):
             
     
     def emo_callback(self, msg):
+        global FLAG_EMOSUB
         self.emo = msg.data
-        self.flag_emosub = True
+        FLAG_EMOSUB = 1
         self.get_logger().info(f"Recog_emotion: {self.emo}")
       
     def play_filler(self):
@@ -342,39 +344,40 @@ class TalkCtrl(Node):
 
     # メインのループ
     def audio_record(self):
-        global recorded_data
+        global recorded_data, FLAG_EMOSUB
         file_count = None
         
         stream = audio.open(format=FORMAT, channels=CHANNEL, rate=SAMPLE_RATE, 
                             input=True, input_device_index=3,frames_per_buffer=CHUNK_SIZE)
         self.get_logger().info("Thread A: マイク起動")
         try:
-            if self.flag_emosub:
+            while FLAG_EMOSUB == 0:
+                time.sleep(0.1)
             # if True:
-                play_wave(self.voice_dir, self.hello_wave)
-                while not self.shutdown_flag.is_set():
-                    data = stream.read(CHUNK_SIZE, exception_on_overflow=False)
-                    with lock:
-                        audio_array = np.frombuffer(data, dtype=np.int16)
-                        if is_speaking:
-                            recorded_data.append(data)
-                        buffer.append(audio_array)
+            play_wave(self.voice_dir, self.hello_wave)
+            while not self.shutdown_flag.is_set():
+                data = stream.read(CHUNK_SIZE, exception_on_overflow=False)
+                with lock:
+                    audio_array = np.frombuffer(data, dtype=np.int16)
+                    if is_speaking:
+                        recorded_data.append(data)
+                    buffer.append(audio_array)
 
-                    # 発話終了のシグナルを受信
-                    if event.is_set():
-                        with lock:
-                            file_count = datetime.now(ZoneInfo("Asia/Tokyo")).strftime('%Y%m%d_%H%M%S')
-                            file_name = f"speech_{file_count}.wav"
-                            file_path = self.output_dir + file_name
-                            
-                            save_wave(file_path, recorded_data)
-                            self.get_logger().info(f"Thread A: 保存{file_name}")
-                            
-                            # 録音した音声をwavファイルで送信
-                            self.send_audio(file_name, file_path)
-                            recorded_data.clear()
-                        event.clear()
-                        buffer.clear()
+                # 発話終了のシグナルを受信
+                if event.is_set():
+                    with lock:
+                        file_count = datetime.now(ZoneInfo("Asia/Tokyo")).strftime('%Y%m%d_%H%M%S')
+                        file_name = f"speech_{file_count}.wav"
+                        file_path = self.output_dir + file_name
+                        
+                        save_wave(file_path, recorded_data)
+                        self.get_logger().info(f"Thread A: 保存{file_name}")
+                        
+                        # 録音した音声をwavファイルで送信
+                        self.send_audio(file_name, file_path)
+                        recorded_data.clear()
+                    event.clear()
+                    buffer.clear()
         finally:
             stream.stop_stream()
             stream.close()

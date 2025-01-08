@@ -11,7 +11,7 @@ from datetime import datetime
 from zoneinfo import ZoneInfo
 
 REST_TIME = 10
-ROBOT_TIME = 20
+ROBOT_TIME = REST_TIME + 20
 ALL_TIME = 40
 
 class EmoStatusNode(Node):
@@ -170,7 +170,7 @@ class EmoStatusNode(Node):
             if self.FLAG_THRESHOLD == 0:
                 self.THRESHOLD_AROUSAL = np.mean(self.beta_l_alpha_l_rest)
                 self.THRESHOLD_VALENCE = np.mean(self.pnn20_rest)
-                self.FLAG_THRESHOLD == 1
+                self.FLAG_THRESHOLD = 1
             
             self.estimate_emotion_rest_base()
             

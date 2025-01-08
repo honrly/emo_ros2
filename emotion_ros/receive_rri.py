@@ -41,7 +41,7 @@ class MyDelegate(btle.DefaultDelegate):
             rri2 = (v4<<8) + v3
             RRI_data = np.hstack([RRI_data, rri2])
             print(rri2)
-            print(RRI_data)
+        print(RRI_data)
  
 # センサークラス
 class SensorBLE(Peripheral):

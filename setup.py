@@ -46,6 +46,7 @@ setup(
             'emo_status_fix_num = emotion_ros.emo_status_fix_num:main',
             'emo_status_rest_base = emotion_ros.emo_status_rest_base:main',
             'emo_status_exp_rest_fix = emotion_ros.emo_status_exp_rest_fix:main',
+            'emo_status_exp_rest = emotion_ros.emo_status_exp_rest:main',
             'brain_wave = emotion_ros.brain_wave:main',
             'stimulation = emotion_ros.stimulation:main',
             'user_enter = emotion_ros.user_enter:main',

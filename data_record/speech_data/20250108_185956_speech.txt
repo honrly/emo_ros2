@@ -1,0 +1,14 @@
+user_time,user_text,user_len,llm_time,llm_text,llm_len,recog_emo,filler_time,filler_text
+19:04:16.001,,0,None,,0,Sadness,19:04:18.815,あー、えっと_normal.wav
+19:04:19.725,あわ、えっと,3,19:04:25.380,大丈夫ですよ。どうしたいしたいことでもあるの？私、聞かせてください。,5,Sadness,19:04:22.716,あー、えっと_normal.wavおー_normal.wav
+19:04:34.060,3,3,19:04:39.131,3って何を思い浮かべたの？数字が浮かんだのには何か理由があるのかな？,5,Sadness,19:04:36.449,あー、えっと_normal.wavおー_normal.wavうーん_normal.wav
+19:04:50.363,3,3,19:04:55.280,3が浮かんだのには何か理由があるのね。例えば、孫が3人いる、3時のおやつが好きなの、3日前が楽しかった、とか？,9,Sadness,19:04:52.502,あー、えっと_normal.wavおー_normal.wavうーん_normal.wavおぉー_normal.wav
+19:05:08.726,ご飯が3食だからとかかな,4,19:05:15.102,ご飯が3食あるから、3が浮かんだのね。食事は大切なことだから、自然に3が浮かんできたのね。私も、食事は大好きなの。,11,Relax,19:05:12.440,あー、えっと_normal.wavおー_normal.wavうーん_normal.wavおぉー_normal.wavあー_normal.wav
+19:05:30.541,ロボットなどにご飯食べるの?,4,19:05:36.162,ロボットがご飯を食べるの？ううん、ロボットは食べないわね。人と同じように、ロボットもいろいろな動きができるけど、食べることはできないの。,10,Relax,19:05:33.455,あー、えっと_normal.wavおー_normal.wavうーん_normal.wavおぉー_normal.wavあー_normal.wavはい_normal.wav
+19:05:50.842,じゃあ食事のどこが好きなの?,4,19:05:57.418,食事のどこが好きなの？ううん、人と一緒に食べる時間が好きなの。美味しいものを食べるのはもちろん、誰かと一緒に食事する時間は、心が温かくなるの。,12,Relax,19:05:54.590,あー、えっと_normal.wavおー_normal.wavうーん_normal.wavおぉー_normal.wavあー_normal.wavはい_normal.wavえっと_normal.wav
+19:06:13.656,そうだね,3,19:06:18.801,同感！人と一緒に食事する時間は、特別な時間よね。私も、入居者さんと食事をとる時は、会話を楽しみながら食べるの。,10,Relax,19:06:16.048,あー、えっと_normal.wavおー_normal.wavうーん_normal.wavおぉー_normal.wavあー_normal.wavはい_normal.wavえっと_normal.wavうぅーん_normal.wav
+19:06:46.639,僕も家族と食べる時はいろいろお話しながら食べたりするかな,7,19:06:55.836,家族と食べる時は、会話が弾むのね！私も、入居者さんとお話ししながら食事をとるの。昔の話や好きな話題で話が尽きないの。,11,Relax,19:06:52.508,あー、えっと_normal.wavおー_normal.wavうーん_normal.wavおぉー_normal.wavあー_normal.wavはい_normal.wavえっと_normal.wavうぅーん_normal.wavあー、えっと_normal.wav
+19:07:12.729,面白かったお話を教えて,4,19:07:18.869,面白かったお話？ううん、入居者さんの面白い話はたくさんあるの。例えば、昔は、農家をやっていた方が、農作業の話をしてくれたり、戦時中の体験談をしてくれたり。,14,Relax,19:07:16.206,あー、えっと_normal.wavおー_normal.wavうーん_normal.wavおぉー_normal.wavあー_normal.wavはい_normal.wavえっと_normal.wavうぅーん_normal.wavあー、えっと_normal.wavおぉ_normal.wav
+19:07:39.615,すごいね,3,19:07:44.606,すごい！？ええ、すごいわよ。入居者さんの話は、すごく面白いし、勉強にもなるし。私も、入居者さんの話を聞くのが大好き。,11,Relax,19:07:41.719,あー、えっと_normal.wavおー_normal.wavうーん_normal.wavおぉー_normal.wavあー_normal.wavはい_normal.wavえっと_normal.wavうぅーん_normal.wavあー、えっと_normal.wavおぉ_normal.wavえっとね_normal.wav
+19:08:01.453,農家さんはどんなことをやってたの?,4,19:08:07.846,農家さんはね！大根を育ててたのよ。冬の間は、畑で大根を育てて、春になると、畑を耕して、また新しい作物を育ててたの。とても大変だったけど、自然と向き合う仕事が好きな人だったの。,17,Sadness,19:08:05.188,あー、えっと_normal.wavおー_normal.wavうーん_normal.wavおぉー_normal.wavあー_normal.wavはい_normal.wavえっと_normal.wavうぅーん_normal.wavあー、えっと_normal.wavおぉ_normal.wavえっとね_normal.wavあー_normal.wav
+19:08:40.364,秋とか夏はどういったことをしているとか聞いた?,6,19:08:48.353,秋や夏はね！秋は、収穫の時期で、朝早くから大根を掘り起こしてたの。夏は、草刈りや、畑の手入れをしてたの。とても大変な作業だけど、自然と向き合う仕事が好きな人だったの。,15,Relax,19:08:45.694,あー、えっと_normal.wavおー_normal.wavうーん_normal.wavおぉー_normal.wavあー_normal.wavはい_normal.wavえっと_normal.wavうぅーん_normal.wavあー、えっと_normal.wavおぉ_normal.wavえっとね_normal.wavあー_normal.wavあー_normal.wav

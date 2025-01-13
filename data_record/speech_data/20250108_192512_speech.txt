@@ -1,0 +1,4 @@
+user_time,user_text,user_len,recog_emo
+19:25:19.053,,3,
+19:25:47.178,,2,
+19:25:56.699,,5,

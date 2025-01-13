@@ -1,0 +1,4 @@
+user_time,user_text,user_len,llm_time,llm_text,llm_len,recog_emo,filler_time,filler_text
+12:01:07.275,そういう意味をただそういう気になってくる,21,12:01:47.351,心が通じ合うっていうか、言葉にしなくてもわかるっていう瞬間が来るのですね。,6,,12:01:27.375,えっとね_normal.wavあー、えっと_normal.wavうーん_normal.wavうーん_normal.wavうーん_normal.wavうぅーーーん_normal.wavおぉー_normal.wav
+12:01:54.489,今下げてるだけですはいちょっと絶対室閉めていてはいいいですか?はいおしゃれですか?おしゃれですか?ここの子ですねちょっと雑々としていて,30,12:02:29.141,カーテンを閉めると、外の世界から遮断されて、よりくつろげる空間になりますね。,6,,12:02:23.734,えっとね_normal.wavあー、えっと_normal.wavうーん_normal.wavうーん_normal.wavうーん_normal.wavうぅーーーん_normal.wavおぉー_normal.wavおー_normal.wavうぅーん_normal.wav
+12:02:35.982,おかしい,3,12:02:42.100,カーテンを閉めると、外の世界から遮断されて、よりくつろげる空間になりますね。,6,,12:02:38.965,えっとね_normal.wavあー、えっと_normal.wavうーん_normal.wavうーん_normal.wavうーん_normal.wavうぅーーーん_normal.wavおぉー_normal.wavおー_normal.wavうぅーん_normal.wavあーえっと_normal.wav

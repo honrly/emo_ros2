@@ -1,0 +1,9 @@
+user_time,user_text,user_len,llm_time,llm_text,llm_len,recog_emo,filler_time,filler_text
+20:19:49.812,,3,None,,0,Sadness,20:19:52.513,あー、えっと_normal.wav
+20:19:53.910,,3,None,,0,Sadness,20:19:56.282,あー、えっと_normal.wavえーっと_normal.wav
+20:19:57.032,,2,None,,0,Sadness,20:19:59.692,あー、えっと_normal.wavえーっと_normal.wavあーえっと_normal.wav
+20:20:00.588,,2,None,,0,Sadness,20:20:02.811,あー、えっと_normal.wavえーっと_normal.wavあーえっと_normal.wavはい_normal.wav
+20:20:03.870,,1,None,,0,Sadness,20:20:05.116,あー、えっと_normal.wavえーっと_normal.wavあーえっと_normal.wavはい_normal.wavあーえっと_normal.wav
+20:20:05.964,,2,None,,0,Sadness,20:20:08.167,あー、えっと_normal.wavえーっと_normal.wavあーえっと_normal.wavはい_normal.wavあーえっと_normal.wavうん、うん_normal.wav
+20:20:10.417,,2,None,,0,Sadness,20:20:11.737,あー、えっと_normal.wavえーっと_normal.wavあーえっと_normal.wavはい_normal.wavあーえっと_normal.wavうん、うん_normal.wavあーえっと_normal.wav
+20:20:12.579,,3,None,,0,Sadness,20:20:15.328,あー、えっと_normal.wavえーっと_normal.wavあーえっと_normal.wavはい_normal.wavあーえっと_normal.wavうん、うん_normal.wavあーえっと_normal.wavうぅーん_normal.wav

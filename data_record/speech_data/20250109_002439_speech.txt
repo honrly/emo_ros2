@@ -1,0 +1,4 @@
+user_time,user_text,user_len,llm_time,llm_text,llm_len,recog_emo,filler_time,filler_text
+00:24:47.823,こんにちは,3,00:24:52.519,こんにちは。今日はいい日ですね。どうしたいですか？,3,Sadness,00:24:49.853,あー_normal.wav
+00:25:42.075,今日は家にいたい気分です,4,00:25:48.093,家で過ごしたい気分なんですね。家はやっぱり一番くつろげる場所ですもんね。私も家で好きなことして過ごすの好きですよ。何がしたいですか？,10,Sadness,00:25:45.340,あー_normal.wavうぅーん_normal.wav
+00:26:22.616,正解です,3,00:26:27.406,正解、ですか？何か、わからないことがあるの？,4,Sadness,00:26:24.632,あー_normal.wavうぅーん_normal.wavおぉー_normal.wav

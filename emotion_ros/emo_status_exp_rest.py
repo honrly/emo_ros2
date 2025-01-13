@@ -10,9 +10,9 @@ import time
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
-REST_TIME = 10
-ROBOT_TIME = REST_TIME + 20
-ALL_TIME = 40
+REST_TIME = 120
+ROBOT_TIME = REST_TIME + 180
+ALL_TIME = ROBOT_TIME + 120
 
 class EmoStatusNode(Node):
     def __init__(self):

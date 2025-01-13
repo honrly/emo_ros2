@@ -216,7 +216,6 @@ class TalkCtrl(Node):
         self.get_logger().info("Thread A: マイク起動")
         try:
             if True:
-                play_wave(self.voice_dir, self.hello_wave)
                 while not self.shutdown_flag.is_set():
                     data = stream.read(CHUNK_SIZE, exception_on_overflow=False)
                     with lock:

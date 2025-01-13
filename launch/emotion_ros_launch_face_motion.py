@@ -13,24 +13,10 @@ def generate_launch_description():
     return LaunchDescription([
         Node(
             package='emotion_ros',
-            executable='emo_status_fix_num',
+            executable='face_ctrl',
         ),
         Node(
             package='emotion_ros',
-            executable='motion_ctrlb_no_distance_ja',
-        ),
-        Node(
-            package='emotion_ros',
-            executable='sound_ctrl_ja',
-        ),
-        Node(
-            package='micro_ros_agent',
-            executable='micro_ros_agent',
-            arguments=['udp4', '--port', '50000', '-v6']
-        ),
-        Node(
-            package='micro_ros_agent',
-            executable='micro_ros_agent',
-            arguments=['udp4', '--port', '55000', '-v6']
+            executable='motion_ctrlb_exp',
         ),
     ])

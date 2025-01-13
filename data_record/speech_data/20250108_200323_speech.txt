@@ -1,0 +1,7 @@
+user_time,user_text,user_len,llm_time,llm_text,llm_len,recog_emo,filler_time,filler_text
+20:10:01.721,,3,None,,0,Sadness,20:10:05.133,うぅーん_normal.wav
+20:10:09.151,,3,None,,0,Relax,20:10:11.791,うぅーん_normal.wavあーえっと_normal.wav
+20:10:12.650,,2,None,,0,Relax,20:10:14.863,うぅーん_normal.wavあーえっと_normal.wavおー_normal.wav
+20:10:15.717,,2,None,,0,Relax,20:10:17.923,うぅーん_normal.wavあーえっと_normal.wavおー_normal.wavうぅーーーん_normal.wav
+20:10:32.871,,3,None,,0,Relax,20:10:34.702,うぅーん_normal.wavあーえっと_normal.wavおー_normal.wavうぅーーーん_normal.wavうん、うん_normal.wav
+20:10:35.505,,2,None,,0,Relax,20:10:37.893,うぅーん_normal.wavあーえっと_normal.wavおー_normal.wavうぅーーーん_normal.wavうん、うん_normal.wavうぅーーーん_normal.wav

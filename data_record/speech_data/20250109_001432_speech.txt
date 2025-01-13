@@ -1,0 +1,2 @@
+user_time,user_text,user_len,llm_time,llm_text,llm_len,recog_emo,filler_time,filler_text
+00:14:42.401,,0,None,,0,Sadness,00:14:44.858,はい_normal.wav

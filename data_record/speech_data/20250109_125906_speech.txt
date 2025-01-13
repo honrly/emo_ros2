@@ -1,0 +1,9 @@
+user_time,user_text,user_len,llm_time,llm_text,llm_len,recog_emo,filler_time,filler_text
+13:44:30.859,こんにちは,3,13:44:36.763,こんにちは！お元気そうですね。今日はどのようにお過ごしですか？,7,Anger,13:44:33.418,あー、えっと_normal.wav
+13:44:45.809,今日は午前中買い物にスーパーへ行ってきました,6,13:44:57.037,買い物に行ってきたのですね。スーパーって、色々なものがあって目移りしてしまいますよね。何を買ったのですか？,12,Anger,13:44:51.121,あー、えっと_normal.wavおぉー_normal.wavあーえっと_normal.wav
+13:45:10.345,お菓子と野菜じゃなくてきゅうりとかすぐ食べられるものニンジンも買いました,12,13:45:25.370,お菓子と、すぐに食べられる野菜やきゅうり、ニンジンを買ったのですね。きゅうりやニンジンは、さっぱりとして美味しいですよね。,12,Sadness,13:45:22.237,あー、えっと_normal.wavおぉー_normal.wavあーえっと_normal.wavあーえっと_normal.wav
+13:45:38.687,そうですね,3,13:45:44.364,スーパーでのお買い物、楽しかったですか？,4,Relax,13:45:41.658,あー、えっと_normal.wavおぉー_normal.wavあーえっと_normal.wavあーえっと_normal.wavはい_normal.wav
+13:45:50.785,楽しかったです歩くことがとても床と違ってごとことした道を歩きましたので気をつけて歩きました,11,13:46:09.734,買い物の散歩、楽しいですよね。階段や坂道は、特に気を付けて歩く必要がありますね。転ばないように、手すりをしっかりつかまえて、ゆっくり歩かれたのですね。,18,Relax,13:46:01.637,あー、えっと_normal.wavおぉー_normal.wavあーえっと_normal.wavあーえっと_normal.wavはい_normal.wavうぅーん_normal.wavうーん_normal.wavあー_normal.wav
+13:46:29.281,はいそうです,3,13:46:34.922,買い物の後は、ゆっくり休まれていますか？,4,Relax,13:46:32.219,あー、えっと_normal.wavおぉー_normal.wavあーえっと_normal.wavあーえっと_normal.wavはい_normal.wavうぅーん_normal.wavうーん_normal.wavあー_normal.wavはい_normal.wav
+13:46:41.568,今日はお昼をいただいて特に横になっては休みません椅子の上で休みました,11,13:46:56.922,お昼を召し上がって、椅子で休まれたのですね。椅子に座って休むのって、体が休まりますよね。,11,Sadness,13:46:51.353,あー、えっと_normal.wavおぉー_normal.wavあーえっと_normal.wavあーえっと_normal.wavはい_normal.wavうぅーん_normal.wavうーん_normal.wavあー_normal.wavはい_normal.wavうぅーーーん_normal.wavうーん_normal.wav
+13:47:09.340,はい,2,13:47:14.797,体を休めながら、外を眺めるのもいいですよね。自然と見える風景や、鳥の声、風の音など、五感を楽しまれましたか？,14,Relax,13:47:11.662,あー、えっと_normal.wavおぉー_normal.wavあーえっと_normal.wavあーえっと_normal.wavはい_normal.wavうぅーん_normal.wavうーん_normal.wavあー_normal.wavはい_normal.wavうぅーーーん_normal.wavうーん_normal.wavあーえっと_normal.wav

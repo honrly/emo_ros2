@@ -26,6 +26,7 @@ from datetime import datetime
 from zoneinfo import ZoneInfo
 
 GPU_SERVER_URL = 'https://square-macaque-thankfully.ngrok-free.app/llm'
+#GPU_SERVER_URL = 'https://square-macaque-thankfully.ngrok-free.app/llm_emo'
 
 FLAG_EMOSUB = 0
 

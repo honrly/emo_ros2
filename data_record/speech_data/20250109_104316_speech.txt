@@ -1,0 +1,2 @@
+user_time,user_text,user_len,llm_time,llm_text,llm_len,recog_emo,filler_time,filler_text
+10:43:18.388,お処理してください,3,10:43:27.753,散歩のあと、疲れが溜まってきてるかもしれませんね。私が肩もみして差し上げます。,6,,10:43:21.578,あー、えっと_normal.wavえっと_normal.wav

@@ -20,6 +20,7 @@ import torch
 from scipy.io.wavfile import write
 from collections import deque
 import os
+import cv2
 
 import random
 from datetime import datetime
@@ -49,12 +50,31 @@ is_speaking = False
 silence_start_time = None
 
 home_dir = os.environ["HOME"]
+img_path = home_dir + "/turtlebot3_ws/src/emotion_ros/face_DB/"
 os.system("setterm -cursor off>/dev/tty0")
 
 def disp(img_file):
-    command1 = "cat " + home_dir + "/turtlebot3_ws/src/emotion_ros/face_DB/" + img_file + ".raw > /dev/fb0"
+    command1 = "cat " + img_path + img_file + ".raw > /dev/fb0"
     command2 = "cat /dev/fb0 > /home/ubuntu/tmp.raw"
     os.system(command1)
+    
+def disp_jpg(img_file):
+    # フレームバッファ（fbsetの値）
+    FB_WIDTH = 592
+    FB_HEIGHT = 448
+    
+    img_file = img_path + img_file + ".JPG"
+
+    img = cv2.imread(img_file, cv2.IMREAD_COLOR)
+    img_resized = cv2.resize(img, (FB_WIDTH, FB_HEIGHT))
+
+    # 画像をRGB565（16bpp）に変換
+    img_rgb565 = cv2.cvtColor(img_resized, cv2.COLOR_BGR2BGR565)
+    img_bgra = cv2.cvtColor(img_resized, cv2.COLOR_BGR2BGRA)  # 32bpp に変換
+
+    # フレームバッファに書き込み
+    with open("/dev/fb0", "wb") as fb:
+        fb.write(img_bgra.tobytes())
 
 '''
 # ラズパイ上でjtalkの音声合成、使わない関数
@@ -167,9 +187,9 @@ class TalkCtrl(Node):
     
     def exp_manage_callback(self, msg):
         if msg.data == 'Rest1':
-            disp("initial")
+            disp_jpg("initial")
         elif msg.data == 'Robot':
-            disp("happy1")
+            disp_jpg("happy1")
         elif msg.data == 'Rest2':
             self.shutdown_flag.set()
             self.get_logger().info("終了")
@@ -177,7 +197,7 @@ class TalkCtrl(Node):
             while pygame.mixer.get_busy():
                 time.sleep(0.1)
             play_wave(self.voice_dir, self.bye_wave)
-            disp("initial")
+            disp_jpg("initial")
             while True:
                 time.sleep(1)
             
@@ -282,6 +302,7 @@ class TalkCtrl(Node):
                                     self.llm_time = datetime.now(ZoneInfo("Asia/Tokyo")).strftime('%H:%M:%S.%f')[:-3]
                                     self.llm_time_flag = 1
                                 
+                                self.get_logger().info(f"生成時間: {time.time() - start_time} 秒")
                                 self.play_jtalk(audio_data, total_time)
                             elif "text" in data:
                                 self.get_logger().info(f"認識した音声: {data['input']}")

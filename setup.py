@@ -39,6 +39,7 @@ setup(
             'face_ctrl = emotion_ros.face_ctrl:main',
             'face_ctrl_cv = emotion_ros.face_ctrl_cv:main',
             'face_ctrl_cv2 = emotion_ros.face_ctrl_cv2:main',
+            'face_ctrl_jpg = emotion_ros.face_ctrl_jpg:main',
             'sound_ctrl_eng = emotion_ros.sound_ctrl_eng:main',
             'sound_ctrl_ja = emotion_ros.sound_ctrl_ja:main',
             'test_motion2 = emotion_ros.test_motion2:main',

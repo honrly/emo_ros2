@@ -1,0 +1,15 @@
+user_time,user_text,user_len,llm_time,llm_text,llm_len,recog_emo,filler_time,filler_text
+15:13:24.250,誰も知らないかしらない,8,15:13:36.830,知らないのね。誰も知らないって、寂しいことですよね。でもね、知らないっていうことは、知るチャンスがまだあるってことよ。私たち、知りたいって思ってますよ。教えてくださいな。,14,,15:13:31.451,はい_normal.wavおぉ_normal.wav
+15:13:51.433,教えてください,5,15:13:58.328,教えて欲しいのね。何を知りたいの？教えて欲しいことがあるのね。私、聞くよ。何でも話して。,8,,15:13:55.441,はい_normal.wavおぉ_normal.wavえっとね_normal.wav
+15:14:06.891,何でも話して本当に何かできないってわけ,16,15:14:25.197,できないって、不安になることあるよね。でもね、できないことがあるって、できないことを知っているっていうこと自体がすごいことよ。知らないよりは、知っている方が、ずっと前進してるのよ。,13,,15:14:22.127,はい_normal.wavおぉ_normal.wavえっとね_normal.wavうん、うん_normal.wav
+15:14:39.512,よし!,22,15:15:03.177,よし！って、元気出た！？大丈夫、がんばれ！,3,,15:15:00.399,はい_normal.wavおぉ_normal.wavえっとね_normal.wavうん、うん_normal.wavおぉー_normal.wav
+15:15:07.536,何だよありがとうございました,31,15:15:40.265,ありがとうございました、って、感謝の言葉！素敵よ！私、嬉しい！,6,,15:15:37.493,はい_normal.wavおぉ_normal.wavえっとね_normal.wavうん、うん_normal.wavおぉー_normal.wavおぉー_normal.wav
+15:15:47.025,マジでだるい,10,15:15:58.570,だるい、って、疲れちゃったのね。疲れるって、体がしんどいってことよ。無理しないで、休みなよ。,7,,15:15:55.912,はい_normal.wavおぉ_normal.wavえっとね_normal.wavうん、うん_normal.wavおぉー_normal.wavおぉー_normal.wavおぉ_normal.wav
+15:16:06.934,B字マーク?無視してブロックするよ何か何か感動かされてるだけだな,26,15:16:34.483,B字マーク、って、知らない記号ね。ブロックするの、って、距離を置くってこと？感動かされてるだけ、って、心が動いてるのね。,10,,15:16:31.779,はい_normal.wavおぉ_normal.wavえっとね_normal.wavうん、うん_normal.wavおぉー_normal.wavおぉー_normal.wavおぉ_normal.wavはい_normal.wav
+15:16:45.468,これは何?,22,15:17:10.214,これは何？って、わからないもの？心配しないで、教えてあげるよ。,5,,15:17:06.879,はい_normal.wavおぉ_normal.wavえっとね_normal.wavうん、うん_normal.wavおぉー_normal.wavおぉー_normal.wavおぉ_normal.wavはい_normal.wavあー、えっと_normal.wav
+15:17:16.669,教えてあげるよ,3,15:17:22.339,教えてあげるよ、って、優しい心！,3,,15:17:19.198,はい_normal.wavおぉ_normal.wavえっとね_normal.wavうん、うん_normal.wavおぉー_normal.wavおぉー_normal.wavおぉ_normal.wavはい_normal.wavあー、えっと_normal.wavあーえっと_normal.wav
+15:17:26.181,優しいことの,5,15:17:33.140,優しいことの、って、素敵なこと！,3,,15:17:30.387,はい_normal.wavおぉ_normal.wavえっとね_normal.wavうん、うん_normal.wavおぉー_normal.wavおぉー_normal.wavおぉ_normal.wavはい_normal.wavあー、えっと_normal.wavあーえっと_normal.wavうぅーん_normal.wav
+15:17:37.295,好きなこと,2,15:17:41.345,好きなこと、って、心が動くこと！,3,,15:17:38.596,はい_normal.wavおぉ_normal.wavえっとね_normal.wavうん、うん_normal.wavおぉー_normal.wavおぉー_normal.wavおぉ_normal.wavはい_normal.wavあー、えっと_normal.wavあーえっと_normal.wavうぅーん_normal.wavうぅーん_normal.wav
+15:17:45.086,これも,5,15:17:52.442,これも、って、また、好きなこと？,3,,15:17:49.558,はい_normal.wavおぉ_normal.wavえっとね_normal.wavうん、うん_normal.wavおぉー_normal.wavおぉー_normal.wavおぉ_normal.wavはい_normal.wavあー、えっと_normal.wavあーえっと_normal.wavうぅーん_normal.wavうぅーん_normal.wavえっとね_normal.wav
+15:17:55.895,好きなことを,6,15:18:03.496,好きなことを、って、心から大切なこと！,3,,15:18:00.836,はい_normal.wavおぉ_normal.wavえっとね_normal.wavうん、うん_normal.wavおぉー_normal.wavおぉー_normal.wavおぉ_normal.wavはい_normal.wavあー、えっと_normal.wavあーえっと_normal.wavうぅーん_normal.wavうぅーん_normal.wavえっとね_normal.wavおー_normal.wav
+15:18:07.759,これは便利にコンセントを備えてくださいザインはセットにこんな感じの水器があるのでこれパティッてあれば立て上がります,13,15:18:22.728,これは便利にコンセントを備えて、って、生活が楽になる！,4,,15:18:19.836,はい_normal.wavおぉ_normal.wavえっとね_normal.wavうん、うん_normal.wavおぉー_normal.wavおぉー_normal.wavおぉ_normal.wavはい_normal.wavあー、えっと_normal.wavあーえっと_normal.wavうぅーん_normal.wavうぅーん_normal.wavえっとね_normal.wavおー_normal.wavうぅーーーん_normal.wav

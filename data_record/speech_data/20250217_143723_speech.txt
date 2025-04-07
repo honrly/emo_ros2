@@ -1,0 +1,12 @@
+user_time,user_text,user_len,llm_time,llm_text,llm_len,recog_emo,filler_time,filler_text
+14:37:25.873,こんにちは,6,14:37:34.468,こんにちは！,1,,14:37:31.690,おぉー_normal.wav
+14:37:36.392,こんにちは,3,14:37:42.846,また会ったね！,1,,14:37:39.957,おぉー_normal.wavうぅーーーん_normal.wav
+14:37:52.696,最近腰が痛いです,6,14:38:00.464,腰痛大変ね！でも、痛いと分かってるってことは、体が教えてくれてるってこと！,6,,14:37:57.785,おぉー_normal.wavうぅーーーん_normal.wavうーん_normal.wav
+14:38:11.687,ごめん,6,14:38:19.621,大丈夫！「ごめん」は、素直に謝れるって、すごくえらいこと！,5,,14:38:16.737,おぉー_normal.wavうぅーーーん_normal.wavうーん_normal.wavえっとね_normal.wav
+14:38:27.315,こんにちは,4,14:38:32.769,こんにちは！元気そう！,2,,14:38:30.065,おぉー_normal.wavうぅーーーん_normal.wavうーん_normal.wavえっとね_normal.wavはい_normal.wav
+14:38:35.544,ありがとうございました,1,14:38:39.572,またね！,0,,14:38:36.798,おぉー_normal.wavうぅーーーん_normal.wavうーん_normal.wavえっとね_normal.wavはい_normal.wavあぁー_normal.wav
+14:38:53.648,ごめん,3,14:38:58.316,大丈夫！「ごめん」は、素直に謝れるって、すごくえらいこと！,5,,14:38:55.612,おぉー_normal.wavうぅーーーん_normal.wavうーん_normal.wavえっとね_normal.wavはい_normal.wavあぁー_normal.wavはい_normal.wav
+14:39:05.955,ごちそう,2,14:39:10.564,ごちそうさまでした！,1,,14:39:07.429,おぉー_normal.wavうぅーーーん_normal.wavうーん_normal.wavえっとね_normal.wavはい_normal.wavあぁー_normal.wavはい_normal.wavあーえっと_normal.wav
+14:39:18.949,ごめん,3,14:39:24.087,大丈夫！「ごめん」は、素直に謝れるって、すごくえらいこと！,5,,14:39:20.953,おぉー_normal.wavうぅーーーん_normal.wavうーん_normal.wavえっとね_normal.wavはい_normal.wavあぁー_normal.wavはい_normal.wavあーえっと_normal.wavあーえっと_normal.wav
+14:39:36.426,ごめん,8,14:39:46.768,大丈夫！「ごめん」は、素直に謝れるって、すごくえらいこと！,5,,14:39:43.879,おぉー_normal.wavうぅーーーん_normal.wavうーん_normal.wavえっとね_normal.wavはい_normal.wavあぁー_normal.wavはい_normal.wavあーえっと_normal.wavあーえっと_normal.wavうぅーーーん_normal.wav
+14:39:57.863,ごめん,2,14:40:01.798,大丈夫！「ごめん」は、素直に謝れるって、すごくえらいこと！,5,,14:39:59.140,おぉー_normal.wavうぅーーーん_normal.wavうーん_normal.wavえっとね_normal.wavはい_normal.wavあぁー_normal.wavはい_normal.wavあーえっと_normal.wavあーえっと_normal.wavうぅーーーん_normal.wavあー_normal.wav

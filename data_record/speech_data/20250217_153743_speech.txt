@@ -1,0 +1,12 @@
+user_time,user_text,user_len,llm_time,llm_text,llm_len,recog_emo,filler_time,filler_text
+15:37:46.610,知り合ったり,3,15:37:51.345,新しい出会いがあるって、すごくワクワクするね！人と会うのって、刺激的で楽しいし、学ぶこといっぱいあるよ！,9,,15:37:48.637,はい_normal.wav
+15:38:01.740,しーけ,3,15:38:06.695,静かにする必要があるのね。深呼吸して、落ち着いて。静けさって、心を整える大切な時間だよ。,9,,15:38:04.016,はい_normal.wavうーん_normal.wav
+15:38:16.760,知りたい,4,15:38:22.993,好奇心が旺盛で、学びたいことがいっぱいあるのね！知りたいって、素晴らしいこと！探究心が、世界を広げてくれるよ！,10,,15:38:20.245,はい_normal.wavうーん_normal.wavうぅーん_normal.wav
+15:38:33.559,しりとりしませんかしりとりのりの次を言ってください,7,15:38:43.421,しりとり、楽しいね！次は「い」で始まる言葉だよ！,4,,15:38:40.762,はい_normal.wavうーん_normal.wavうぅーん_normal.wavあー_normal.wav
+15:38:49.004,医学,5,15:38:57.437,医学の次は「ク」で始まる言葉！,3,,15:38:54.663,はい_normal.wavうーん_normal.wavうぅーん_normal.wavあー_normal.wavおぉー_normal.wav
+15:39:02.994,一人で始めさせないでおくれ,5,15:39:10.051,優しい心を持ってるね！「一人で始めさせないでおくれ」って、相手を想っての言葉。素敵な心を大切にしよう！,9,,15:39:07.303,はい_normal.wavうーん_normal.wavうぅーん_normal.wavあー_normal.wavおぉー_normal.wavうぅーん_normal.wav
+15:39:21.868,最初はブンブンじゃんけんぽんバイ,7,15:39:30.903,元気いっぱい！「ブンブンじゃんけんぽんバイ」って、楽しい遊び！,4,,15:39:28.019,はい_normal.wavうーん_normal.wavうぅーん_normal.wavあー_normal.wavおぉー_normal.wavうぅーん_normal.wavえっとね_normal.wav
+15:39:37.513,ヒクキンさん知ってる?人工知能の割には知ってないみたい,7,15:39:46.776,ヒカキンさん知ってる！YouTubeで有名なYouTuberだよね！人工知能の私が知らないことでも、ヒカキンさんの動画は見てないからね！,11,,15:39:43.642,はい_normal.wavうーん_normal.wavうぅーん_normal.wavあー_normal.wavおぉー_normal.wavうぅーん_normal.wavえっとね_normal.wavあーえっと_normal.wav
+15:39:58.491,ひかけんTVエピーターおまねしてユーチューバーを誰,12,15:40:13.388,ヒカキンさんとSEIKINさん、仲良しYouTuberコンビ！お互いをリスペクトし合って、面白い動画を配信してる！,9,,15:40:10.253,はい_normal.wavうーん_normal.wavうぅーん_normal.wavあー_normal.wavおぉー_normal.wavうぅーん_normal.wavえっとね_normal.wavあーえっと_normal.wavあーえっと_normal.wav
+15:40:23.461,最近さんとね,4,15:40:30.470,最近さんとね！って、最近さんとね！のSEIKINさんとヒカキンさん、仲良しコンビ！,7,,15:40:27.407,はい_normal.wavうーん_normal.wavうぅーん_normal.wavあー_normal.wavおぉー_normal.wavうぅーん_normal.wavえっとね_normal.wavあーえっと_normal.wavあーえっと_normal.wavうん、うん_normal.wav
+15:40:39.789,シェキンティービーバイバイ,8,15:40:49.797,シェキンティービーバイバイ！って、SEIKINさんとHIKAKINさん、バイバイ！,7,,15:40:47.138,はい_normal.wavうーん_normal.wavうぅーん_normal.wavあー_normal.wavおぉー_normal.wavうぅーん_normal.wavえっとね_normal.wavあーえっと_normal.wavあーえっと_normal.wavうん、うん_normal.wavおぉ_normal.wav

@@ -6,11 +6,13 @@ from neuropy3.neuropy3 import MindWave
 from time import sleep
 import datetime
 
-MINDWAVE_ADDRESS = 'C4:64:E3:E7:C6:71'
+MINDWAVE_ADDRESS = ''
 
 class BrainWaveNode(Node):
     def __init__(self):
         super().__init__('brain_wave_node')
+        
+        MINDWAVE_ADDRESS = self.read_mac_address()
 
         # MindWave Setting
         self.mw = MindWave(address=MINDWAVE_ADDRESS, autostart=False, verbose=3)
@@ -35,6 +37,16 @@ class BrainWaveNode(Node):
         #timer_period = 1.0
         #self.timer = self.create_timer(timer_period, self.publish_)
 
+    def read_mac_address(self):
+        file_path = "/home/user/mindwave_address.txt"
+        try:
+            with open(file_path, "r") as f:
+                address = f.readline().strip()
+                return address
+        except FileNotFoundError:
+            self.get_logger().info(f"Error: {file_path} が見つかりません。")
+            return None
+    
     def set_brain_data(self, eeg_data):
         self.brain_wave.delta = eeg_data['delta']
         self.brain_wave.theta = eeg_data['theta']

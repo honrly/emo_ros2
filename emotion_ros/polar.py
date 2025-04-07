@@ -49,9 +49,9 @@ class SensorBLE(Peripheral):
         Peripheral.__init__(self, addr, addrType="random")
 
 
-class ReceiveRRINode(Node):
+class PolarNode(Node):
     def __init__(self):
-        super().__init__('receive_rri_node')
+        super().__init__('polar_node')
         
         self.polar_mac_address = self.read_mac_address()
         
@@ -203,7 +203,7 @@ class ReceiveRRINode(Node):
 
 def main(args=None):
     rclpy.init(args=args)
-    talker = ReceiveRRINode()
+    talker = PolarNode()
     try:
         talker.run()
     except KeyboardInterrupt:

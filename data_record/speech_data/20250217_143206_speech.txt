@@ -1,0 +1,13 @@
+user_time,user_text,user_len,llm_time,llm_text,llm_len,recog_emo,filler_time,filler_text
+14:32:08.607,こんにちは,3,14:32:14.570,こんにちは！元気いっぱいですね！一日が始まって、ワクワクする気分です！何が待ってるのかな？,8,,14:32:11.543,えーっと_normal.wav
+14:32:23.628,明日学校だよ,3,14:32:29.256,明日は学校だね！大変かもしれないけど、友達に会えるし、先生と話せるし、楽しいこともいっぱいあるよ！準備して、元気に登校してね！,11,,14:32:26.373,えーっと_normal.wavえっとね_normal.wav
+14:32:42.119,AIの意味は何?,4,14:32:48.375,AIの意味はね、Artificial Intelligenceの略で「人工知能」っていう意味なんだよ！コンピューターが自分で考え、学び、判断する力を持つこと！,12,,14:32:45.602,えーっと_normal.wavえっとね_normal.wavあぁー_normal.wav
+14:33:02.866,それは人工筋肉のことかね,7,14:33:11.817,違うよ！人工筋肉は、ロボットや機械に組み込む、筋肉に似た機能をもつ部品のこと！AIは、コンピューターが持つ、知的な能力や判断力のこと！,12,,14:33:09.138,えーっと_normal.wavえっとね_normal.wavあぁー_normal.wavうーん_normal.wav
+14:33:25.996,1990年には何があった?,7,14:33:34.964,1990年は、スーパーファミコンやセガサターンが発売されたり、TVアニメ「ドラゴンボールZ」が放送されたり、面白いことがいっぱいあった年！,12,,14:33:32.190,えーっと_normal.wavえっとね_normal.wavあぁー_normal.wavうーん_normal.wavおぉー_normal.wav
+14:33:49.389,僕の負けだ,5,14:33:56.330,負けを認めるって、強い人だよ！認めるってことは、次に活かせるってこと！負けをバネに、次は勝てるようにがんばろう！,9,,14:33:53.672,えーっと_normal.wavえっとね_normal.wavあぁー_normal.wavうーん_normal.wavおぉー_normal.wavおー_normal.wav
+14:34:08.772,こちらはロボットが環境のマップにしたり例えば例えば境外の人間がいるのです,26,14:34:36.825,すごい！ロボットが環境のマップを作ったり、外の世界にいる人を感知するって、すごく高度な技術！,8,,14:34:33.941,えーっと_normal.wavえっとね_normal.wavあぁー_normal.wavうーん_normal.wavおぉー_normal.wavおー_normal.wavえっとね_normal.wav
+14:34:47.730,どうもありがとうございました,3,14:34:52.858,どういたしまして！また会おうね！,2,,14:34:49.969,えーっと_normal.wavえっとね_normal.wavあぁー_normal.wavうーん_normal.wavおぉー_normal.wavおー_normal.wavえっとね_normal.wavうぅーーーん_normal.wav
+14:34:56.934,いけいけ,2,14:35:01.334,がんばれ！,0,,14:34:58.200,えーっと_normal.wavえっとね_normal.wavあぁー_normal.wavうーん_normal.wavおぉー_normal.wavおー_normal.wavえっとね_normal.wavうぅーーーん_normal.wavあーえっと_normal.wav
+14:35:04.385,ありがとうございました,2,14:35:09.034,またね！,0,,14:35:06.145,えーっと_normal.wavえっとね_normal.wavあぁー_normal.wavうーん_normal.wavおぉー_normal.wavおー_normal.wavえっとね_normal.wavうぅーーーん_normal.wavあーえっと_normal.wavうぅーーーん_normal.wav
+14:35:12.065,リズファイト,7,14:35:21.240,ファイト！,0,,14:35:17.912,えーっと_normal.wavえっとね_normal.wavあぁー_normal.wavうーん_normal.wavおぉー_normal.wavおー_normal.wavえっとね_normal.wavうぅーーーん_normal.wavあーえっと_normal.wavうぅーーーん_normal.wavあー、えっと_normal.wav
+14:35:23.668,スティース,2,14:35:28.216,スティーブン！,1,,14:35:25.443,えーっと_normal.wavえっとね_normal.wavあぁー_normal.wavうーん_normal.wavおぉー_normal.wavおー_normal.wavえっとね_normal.wavうぅーーーん_normal.wavあーえっと_normal.wavうぅーーーん_normal.wavあー、えっと_normal.wavあぁー_normal.wav

@@ -1,0 +1,13 @@
+user_time,user_text,user_len,llm_time,llm_text,llm_len,recog_emo,filler_time,filler_text
+14:52:54.505,おかしいよ,5,14:53:05.353,大丈夫！みんな、間違ったり、失敗したりすることってあるよね。私も、たくさん失敗するけど、次はこうしてみよう！って思って、がんばってるよ！おかしいって思ったら、まずは深呼吸してみよう。肩の力、抜いてみよう。そうしたら、ちょっとずつ、心が軽くなるかもよ！,21,,14:52:59.125,えっとね_normal.wavあー、えっと_normal.wav
+14:53:27.771,はい,1,14:53:31.632,がんばったね！「はい」って返事が、すごく元気をくれる！あなたは、すでに、がんばってる！,7,,14:53:28.928,えっとね_normal.wavあー、えっと_normal.wavはい_normal.wav
+14:53:39.851,柴田工業学はどこが本社,7,14:53:50.093,柴田工業学は、愛知県名古屋市に本社がある会社だよ！,5,,14:53:47.204,えっとね_normal.wavあー、えっと_normal.wavはい_normal.wavうぅーーーん_normal.wav
+14:53:58.076,開社ではないよ,4,14:54:04.595,ごめん！柴田工業は、名古屋市に本社を置く、建設機械や重機を製造するメーカーだよ！,7,,14:54:01.265,えっとね_normal.wavあー、えっと_normal.wavはい_normal.wavうぅーーーん_normal.wavあー、えっと_normal.wav
+14:54:12.943,柴原工業大学の高等にもあるし大宮にもあるえっと芝屋公共大学は大宮にもあるし,24,14:54:40.131,柴原工業大学は、北九州市に本部を置く私立大学で、高等学校や大学、短期大学部を有する教育機関だよ！,10,,14:54:36.802,えっとね_normal.wavあー、えっと_normal.wavはい_normal.wavうぅーーーん_normal.wavあー、えっと_normal.wavあー、えっと_normal.wav
+14:54:50.990,俺の勝ちだ,4,14:54:57.880,わーお！おめでとう！あなたの勝ち！,2,,14:54:55.223,えっとね_normal.wavあー、えっと_normal.wavはい_normal.wavうぅーーーん_normal.wavあー、えっと_normal.wavあー、えっと_normal.wavおぉ_normal.wav
+14:55:01.354,もうちょっとさアワーとかさなんか変な感じになってよ,8,14:55:12.259,わかる！アレは、ちょっと変な感じになるよね！,3,,14:55:09.601,えっとね_normal.wavあー、えっと_normal.wavはい_normal.wavうぅーーーん_normal.wavあー、えっと_normal.wavあー、えっと_normal.wavおぉ_normal.wavあー_normal.wav
+14:55:18.888,もうちょっとさ勉強しておいで,6,14:55:27.246,がんばれ！,0,,14:55:24.542,えっとね_normal.wavあー、えっと_normal.wavはい_normal.wavうぅーーーん_normal.wavあー、えっと_normal.wavあー、えっと_normal.wavおぉ_normal.wavあー_normal.wavはい_normal.wav
+14:55:29.939,写真どうやったところ?じゃあ石井さんのところはどこだ聞こえてる,26,14:55:57.837,石井さんのとこ！,1,,14:55:55.013,えっとね_normal.wavあー、えっと_normal.wavはい_normal.wavうぅーーーん_normal.wavあー、えっと_normal.wavあー、えっと_normal.wavおぉ_normal.wavあー_normal.wavはい_normal.wavえっと_normal.wav
+14:56:00.165,石破総理大臣のこと,7,14:56:10.201,石破茂さん！,1,,14:56:07.182,えっとね_normal.wavあー、えっと_normal.wavはい_normal.wavうぅーーーん_normal.wavあー、えっと_normal.wavあー、えっと_normal.wavおぉ_normal.wavあー_normal.wavはい_normal.wavえっと_normal.wavえーっと_normal.wav
+14:56:12.435,一番,3,14:56:18.168,石破茂さん、石破さんって呼ぶと、すごくカッコいい！,4,,14:56:15.489,えっとね_normal.wavあー、えっと_normal.wavはい_normal.wavうぅーーーん_normal.wavあー、えっと_normal.wavあー、えっと_normal.wavおぉ_normal.wavあー_normal.wavはい_normal.wavえっと_normal.wavえーっと_normal.wavうーん_normal.wav
+14:56:25.347,私は,6,14:56:33.112,やあ！何を話したいのかな？,2,,14:56:30.094,えっとね_normal.wavあー、えっと_normal.wavはい_normal.wavうぅーーーん_normal.wavあー、えっと_normal.wavあー、えっと_normal.wavおぉ_normal.wavあー_normal.wavはい_normal.wavえっと_normal.wavえーっと_normal.wavうーん_normal.wavえーっと_normal.wav

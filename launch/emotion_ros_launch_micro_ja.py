@@ -21,7 +21,7 @@ def generate_launch_description():
         ),
         Node(
             package='emotion_ros',
-            executable='face_ctrl',
+            executable='face_ctrl_jpg',
         ),
         Node(
             package='emotion_ros',

@@ -153,6 +153,15 @@ class VisualizerNode(Node):
         else:
             mapped_brain = range_transform(brain_input, brain_center, brain_max, 0, graph_max)
 
+        if mapped_pnnx >= 4.0:
+            mapped_pnnx = 3.9
+        if mapped_pnnx <= -4.0:
+            mapped_pnnx = -3.9
+        if mapped_brain >= 4.0:
+            mapped_brain = 3.9
+        if mapped_brain <= -4.0:
+            mapped_brain = -3.9
+        
         ax.plot(mapped_pnnx, mapped_brain, 'ko')
 
         # 座標から角度

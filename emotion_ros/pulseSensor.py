@@ -48,6 +48,8 @@ class PnnxNode(Node):
     
     def publish_pnnx(self):
         sensor_data = self.sensor.readline().decode(encoding='utf-8').strip()
+        if sensor_data.startswith('B'):
+            self.pulse.bpm = int(sensor_data[1:])
         if sensor_data.startswith('Q'):
             self.get_logger().info(f'Sensor_data:{sensor_data}')
             # self.get_logger().info(f'安静時平均：{self.pnnx_rest_ave.data}, 直前平均：{self.pnnx_stimuli_ave}')

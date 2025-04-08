@@ -67,6 +67,16 @@ class SoundCtrl(Node):
     self.get_logger().info("Message " + str(msg.data) + " recieved")
     self.write_sound_data(msg.data)
     self.play_wav(msg.data, self.volume)
+    
+  def ctrl_volume(self):
+    while True:
+      user_input = input("音量を変更（デフォルト100）: ")
+      try:
+          volume = int(user_input)
+          self.volume = volume
+          print(f"現在の音量: {self.volume}")
+      except ValueError:
+          print("整数を入力してください。")
 
 def main(args=None):
   try:

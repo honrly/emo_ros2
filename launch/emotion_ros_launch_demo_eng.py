@@ -25,10 +25,6 @@ def generate_launch_description():
         ),
         Node(
             package='emotion_ros',
-            executable='sound_ctrl_eng',
-        ),
-        Node(
-            package='emotion_ros',
             executable='test_motion2',
         ),
         Node(

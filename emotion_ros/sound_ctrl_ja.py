@@ -65,7 +65,7 @@ class SoundCtrl(Node):
         self.playback = _play_with_simpleaudio(audio)
 
   def callback(self, msg):
-    self.get_logger().info("Message " + str(msg.data) + " recieved")
+    # self.get_logger().info("Message " + str(msg.data) + " recieved")
     self.write_sound_data(msg.data)
     self.play_wav(msg.data, self.volume)
     
@@ -76,7 +76,7 @@ class SoundCtrl(Node):
           volume = int(user_input)
           if 1 <= volume <= 100:
               self.volume = volume
-              print(f"現在の音量: {self.volume}")
+              print(f"Volume: {self.volume}")
           else:
               print("1〜100の範囲で入力してください。")
       except ValueError:

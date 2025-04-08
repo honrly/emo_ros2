@@ -238,7 +238,7 @@ class VisualizerNode(Node):
         now = datetime.datetime.now(JST)
         timestamp = now.strftime('%H:%M:%S')
         
-        bpm = str(self.pulse._bpm) + 'bpm'
+        bpm = str(self.pulse._bpm) + ' [bpm]'
 
         data = {
             'Label': ['Timestamp', 'HR', 'IBI', 'pNN20', 'pNN50', 

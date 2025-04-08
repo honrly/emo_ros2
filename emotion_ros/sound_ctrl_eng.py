@@ -72,18 +72,24 @@ class SoundCtrl(Node):
     
   def ctrl_volume(self):
     while True:
-      user_input = input("音量を変更（デフォルト100）: ")
+      user_input = input("音量を変更（デフォルト100, 0~100）: ")
       try:
           volume = int(user_input)
-          self.volume = volume
-          print(f"現在の音量: {self.volume}")
+          if 1 <= volume <= 100:
+              self.volume = volume
+              print(f"現在の音量: {self.volume}")
+          else:
+              print("1〜100の範囲で入力してください。")
       except ValueError:
           print("整数を入力してください。")
+
 
 def main(args=None):
   try:
     rclpy.init(args=args)
     talker = SoundCtrl()
+    volume_thread = threading.Thread(target=talker.ctrl_volume, daemon=True)
+    volume_thread.start()
     rclpy.spin(talker)
   except KeyboardInterrupt:
     pass

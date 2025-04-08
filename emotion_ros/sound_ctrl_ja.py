@@ -74,11 +74,11 @@ class SoundCtrl(Node):
       user_input = input("音量を変更（デフォルト100, 0~100）: ")
       try:
           volume = int(user_input)
-          if 0 <= volume <= 100:
+          if 1 <= volume <= 100:
               self.volume = volume
               print(f"現在の音量: {self.volume}")
           else:
-              print("0〜100の範囲で入力してください。")
+              print("1〜100の範囲で入力してください。")
       except ValueError:
           print("整数を入力してください。")
 

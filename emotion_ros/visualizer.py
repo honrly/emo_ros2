@@ -237,12 +237,14 @@ class VisualizerNode(Node):
         JST = datetime.timezone(t_delta, 'JST')
         now = datetime.datetime.now(JST)
         timestamp = now.strftime('%H:%M:%S')
+        
+        bpm = str(self.pulse._bpm) + 'bpm'
 
         data = {
-            'Label': ['Timestamp', 'BPM', 'IBI', 'pNN20', 'pNN50', 
+            'Label': ['Timestamp', 'HR', 'IBI', 'pNN20', 'pNN50', 
                       'low beta', 'low alpha', 'poorsignal'],
             'Character': [':']*8,
-            'Value': [timestamp, self.pulse._bpm, self.pulse._ibi, self.pulse._pnn20, self.pulse._pnn50, 
+            'Value': [timestamp, bpm, self.pulse._ibi, self.pulse._pnn20, self.pulse._pnn50, 
                       self.brain._beta_l, self.brain._alpha_l, self.brain._poorsignal]
         }
         

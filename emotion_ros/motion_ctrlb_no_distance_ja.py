@@ -52,9 +52,9 @@ class MotionCtrl(Node):
     self.recog_emo.data = '' # 送信データ
     
     self.pub_emotion2 = self.create_publisher(String, 'emotion2', 10)
-    self.pub_face = self.create_publisher(String, 'face', 10)
+    # self.pub_face = self.create_publisher(String, 'face', 10)
     self.pub_sound = self.create_publisher(String, 'speech', 10)
-    self.pub_motion = self.create_publisher(String, 'motion', 10)
+    #self.pub_motion = self.create_publisher(String, 'motion', 10)
     
     
     # Record csv
@@ -91,7 +91,7 @@ class MotionCtrl(Node):
     if face in ('Rest1', 'Rest2', 'Stimu1', 'Stimu2'):
         self.get_logger().info("\n###############\n### Rest ###\n###############")
         tmp.data = 'initial'
-        self.pub_face.publish(tmp)
+        # self.pub_face.publish(tmp)
         return
     
     # 感情毎の強度を累積
@@ -157,7 +157,7 @@ class MotionCtrl(Node):
     if face == 'Happy':
         self.get_logger().info("\n#############\n### Happy ###\n#############")
         tmp.data = "happy5"
-        self.pub_face.publish(tmp)
+        # self.pub_face.publish(tmp)
         tmp.data = self.snd_happy[self.cnt_happy]
         self.pub_sound.publish(tmp)
         self.cnt_happy = self.get_next(self.cnt_happy, len(self.snd_happy))
@@ -165,40 +165,40 @@ class MotionCtrl(Node):
         if self.mode == 1:
             #tmp.data = "FB2,0.05,1.0,0.1,0"
             tmp.data = "LR,0.2,2.0,0.6,0"
-            self.pub_motion.publish(tmp)
+            #self.pub_motion.publish(tmp)
     if face == 'Relax':
         self.get_logger().info("\n#############\n### Relax ###\n#############")
         tmp.data = "relax5"
-        self.pub_face.publish(tmp)
+        # self.pub_face.publish(tmp)
         tmp.data = self.snd_relax[self.cnt_relax]
         self.pub_sound.publish(tmp)
         self.cnt_relax = self.get_next(self.cnt_relax, len(self.snd_relax))
         self.get_logger().info(f"\n###############\n####################################################################################################################### {self.cnt_relax}, {len(self.snd_relax)} ########################################################\n###############")
         if self.mode == 1:
             tmp.data = "LR,0.0,2.0,0.3,0"
-            self.pub_motion.publish(tmp)
+            #self.pub_motion.publish(tmp)
     if face == 'Anger':
         self.get_logger().info("\n#############\n### Anger ###\n#############")
         tmp.data = "anger5"
-        self.pub_face.publish(tmp)
+        # self.pub_face.publish(tmp)
         tmp.data = self.snd_anger[self.cnt_anger]
         self.pub_sound.publish(tmp)
         self.cnt_anger = self.get_next(self.cnt_anger, len(self.snd_anger))
         self.get_logger().info(f"\n###############\n####################################################################################################################### {self.cnt_anger}, {len(self.snd_anger)} ########################################################\n###############")
         if self.mode == 1:
             tmp.data = "LR,0.4,2.0,0.6,0"
-            self.pub_motion.publish(tmp)
+            #self.pub_motion.publish(tmp)
     if face == 'Sadness':
         self.get_logger().info("\n###############\n### Sadness ###\n###############")
         tmp.data = "sadness5"
-        self.pub_face.publish(tmp)
+        # self.pub_face.publish(tmp)
         tmp.data = self.snd_sadness[self.cnt_sadness]
         self.pub_sound.publish(tmp)
         self.cnt_sadness = self.get_next(self.cnt_sadness, len(self.snd_sadness))
         self.get_logger().info(f"\n###############\n####################################################################################################################### {self.cnt_sadness}, {len(self.snd_sadness)} ########################################################\n###############")
         if self.mode == 1:
             tmp.data = "LR,0.2,2.0,0.2,0"
-            self.pub_motion.publish(tmp)
+            #self.pub_motion.publish(tmp)
 
 def main(args=None):
   try:

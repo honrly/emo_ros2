@@ -16,12 +16,14 @@ from datetime import datetime
 from zoneinfo import ZoneInfo
 
 # フレームバッファ（fbsetの値）
-FB_WIDTH = 592
-FB_HEIGHT = 448
+FB_WIDTH = 800#592
+FB_HEIGHT = 480#448
 
 class FaceCtrl(Node):
   def __init__(self):
     super().__init__('face_ctrl')
+    
+    os.system(f'echo user | sudo -S chvt 7')
     
     self.target_image = ""
     self.stop_flg = 0
@@ -73,6 +75,7 @@ class FaceCtrl(Node):
     os.system(command1)
    
   def disp_jpg(self, img_file):
+    
     img_file = self.img_path + img_file + ".JPG"
     
     img = cv2.imread(img_file, cv2.IMREAD_COLOR)

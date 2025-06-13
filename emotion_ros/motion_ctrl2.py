@@ -13,109 +13,14 @@ import sys
 import numpy as np
 import math
 from sensor_msgs.msg import LaserScan   #message from laser range finder
-import os
-import csv
-from datetime import datetime
-from zoneinfo import ZoneInfo
 
-#########################
-# MQTT
-#########################
-import paho.mqtt.client as mqtt     # Import MQTT
-import paho.mqtt.publish as publish
-import time
-
-class MyMQTTClass(mqtt.Client):
+class MotionCtrl(Node):
   def __init__(self):
-    super(MyMQTTClass, self).__init__(mqtt.CallbackAPIVersion.VERSION1)
-    self.recieve_data = ""
-    self.recieve_time = ""
-    self.lasttime     = ""
-
-  def on_connect(self, mqttc, obj, flags, rc):
-    print("rc: "+str(rc))
-    sys.stdout.flush()
-
-  def on_message(self, mqttc, obj, msg):
-    print(msg.topic+" "+str(msg.qos)+" "+str(msg.payload))
-    sys.stdout.flush()
-    self.recieve_time = time.time()
-    self.recieve_data = (msg.payload).decode()
-
-  def run(self, hostname, topic):
-    self.connect(hostname, 1883, 60)
-    self.subscribe(topic, 0)
-
-    self.loop_start()
-    rc = 0
-    return rc
-
-  def publish_message(self, host_name, topic, message):
-    publish.single(topic, message, hostname=host_name)
-
-  def isNew(self):
-    flag = False
-    if self.lasttime==self.recieve_time:
-      flag =  False
-    else:
-      flag = True
-      self.lasttime = self.recieve_time
-      #print("isNew : {}".format(flag))
-    #self.lasttime = self.recieve_time
-    return flag
-
-mqttc_a = MyMQTTClass()
-
-# Callback when getting messages
-def mqttcallback_a():
-  global mqttc_a
-  try:
-    recievedata =  str(mqttc_a.recieve_data)
-    json_str = json.loads(recievedata)
-    #print("json_str: {}".format(json_str))
-    #sys.stdout.flush()
-    #print("json_str[size]: {}".format(json_str["size"]))
-    #sys.stdout.flush()
-    n = (json_str["size"])
-    #print("n: {}".format(n))
-    #sys.stdout.flush()
-    if n == 1:
-      '''
-      v1_str = json_str["values"]
-      print("v1_str: {}".format(v1_str))
-      sys.stdout.flush()
-      v2_str = v1_str[0]["values"]
-      print("v2_str: {}".format(v2_str))
-      sys.stdout.flush()
-      xyz = v2_str["x"]
-      '''
-      xyz = json_str["values"][0]["values"]["x"]
-      print("xyz: {}".format(xyz))
-      sys.stdout.flush()
-      x = float(xyz[0])
-      y = float(xyz[1])
-      z = float(xyz[2])
-      #a = np.arctan2(-y, -x)
-      a = np.arctan2(y, x)
-      print(">>>>>> x,y,z,a: {},{},{},{}".format(x, y, z, a))
-      sys.stdout.flush()
-      return(True, a)
-  except BaseException as ex:
-    print(ex)
-    sys.stdout.flush()
-  return(False, 0.0)
-
-mqttc_a.run("localhost", "HARK_result")
-#########################
-
-class TestMotion(Node):
-  def __init__(self):
-    super().__init__('test_motion')
+    super().__init__('motion_ctrl2_node')
     
     self._odom_x = 0.0
     self._odom_y = 0.0
     self._odom_theta = 0.0
-    self._odom_first = 1
     self.dst_a = 0.0
     self.kspd = 0.2
     self.tspd = 0.6
@@ -132,35 +37,8 @@ class TestMotion(Node):
     self.pub_cmd_vel = self.create_publisher(Twist, 'cmd_vel', 10)
     timer_period = 0.05 # sec
     self.timer = self.create_timer(timer_period, self.pub_callback_timer)
-    
-    # Record csv
-    # directory_path = '/home/user/ros2_ws/src/emotion_ros'
-    directory_path = '/home/user/turtlebot3_ws/src/emotion_ros'
-      
-    motion_data_path = os.path.join(directory_path, 'data_record/motion_data')
-    os.makedirs(motion_data_path, exist_ok=True)
-
-    timestamp = datetime.now(ZoneInfo("Asia/Tokyo")).strftime('%Y%m%d_%H%M%S')
-
-    self.csv_filename = os.path.join(motion_data_path, f'{timestamp}_fix_num.csv')
-    self.csv_file = open(self.csv_filename, mode='w', newline='')
-    self.csv_writer = csv.writer(self.csv_file)
-    self.csv_writer.writerow(['timestamp', 'motion'])
-
-  def write_motion_data(self, motion):
-    timestamp = datetime.now(ZoneInfo("Asia/Tokyo")).strftime('%Y-%m-%d %H:%M:%S.%f')[:-3]
-    self.csv_writer.writerow([timestamp, motion])
-    self.csv_file.flush()
 
   def pub_callback_timer(self):
-    global mqttc_a
-    if mqttc_a.isNew(): 
-        flg, a = mqttcallback_a()
-        if flg == True:
-          self.dst_a = a
-          self.kspd = 0.2
-          self.tspd = 0.6
-          self.motion_mode = 1
     if self.motion_mode == 1: # head angle move
       self.move_angle(self.kspd, self.tspd)
     elif self.motion_mode == 2: # LR
@@ -228,12 +106,6 @@ class TestMotion(Node):
     self._odom_theta = e[2] 
     #self.get_logger().info("\n<<< Odomery: x=" + str(_odom_x) + " y=" + str(_odom_y) + " theta=" + str(_odom_theta) + " >>>")
     #self.get_logger().info("   <<< theta=" + str(_odom_theta))
-    
-    if self._odom_first == 1:
-        self.org_a = self._odom_theta
-        self._odom_first = 0
-        print("\n**********\n*** {} ***\n**********\n\n".format(self.org_a))
-        sys.stdout.flush()
 
   def callback_scan(self, msg):
     delta_a = (msg.angle_max - msg.angle_min) / len(msg.ranges)
@@ -264,7 +136,6 @@ class TestMotion(Node):
     self.org_a = self.closest_dir
 
   def callback_motion(self, msg):
-    self.write_motion_data(msg.data)
     self.get_logger().info("Message " +  str(msg.data) + " recieved")
     tmp = str(msg.data).split(",")
     self.get_logger().info("Message " + tmp[0] + ", " + tmp[1] + ", " + tmp[2] + ", " + tmp[3] + ", " + tmp[4])
@@ -284,7 +155,7 @@ class TestMotion(Node):
 def main(args=None):
   try:
     rclpy.init(args=args)
-    talker = TestMotion()
+    talker = MotionCtrl()
     rclpy.spin(talker)
   except KeyboardInterrupt:
     pass

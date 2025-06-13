@@ -61,6 +61,9 @@ setup(
             'polar = emotion_ros.polar:main',
             'pulseSensor = emotion_ros.pulseSensor:main',
             'time_manager = emotion_ros.time_manager:main',
+            'talk_ctrl_api_eng = emotion_ros.talk_ctrl_api_eng:main',
+            'talk_ctrl_api_eng2 = emotion_ros.talk_ctrl_api_eng2:main',
+            'talk_ctrl_api_ja = emotion_ros.talk_ctrl_api_ja:main',
         ],
     },
 )

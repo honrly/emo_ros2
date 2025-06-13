@@ -115,7 +115,6 @@ class TestMotion(Node):
     self._odom_x = 0.0
     self._odom_y = 0.0
     self._odom_theta = 0.0
-    self._odom_first = 1
     self.dst_a = 0.0
     self.kspd = 0.2
     self.tspd = 0.6
@@ -228,12 +227,6 @@ class TestMotion(Node):
     self._odom_theta = e[2] 
     #self.get_logger().info("\n<<< Odomery: x=" + str(_odom_x) + " y=" + str(_odom_y) + " theta=" + str(_odom_theta) + " >>>")
     #self.get_logger().info("   <<< theta=" + str(_odom_theta))
-    
-    if self._odom_first == 1:
-        self.org_a = self._odom_theta
-        self._odom_first = 0
-        print("\n**********\n*** {} ***\n**********\n\n".format(self.org_a))
-        sys.stdout.flush()
 
   def callback_scan(self, msg):
     delta_a = (msg.angle_max - msg.angle_min) / len(msg.ranges)

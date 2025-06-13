@@ -17,96 +17,7 @@ import os
 import csv
 from datetime import datetime
 from zoneinfo import ZoneInfo
-
-#########################
-# MQTT
-#########################
-import paho.mqtt.client as mqtt     # Import MQTT
-import paho.mqtt.publish as publish
 import time
-
-class MyMQTTClass(mqtt.Client):
-  def __init__(self):
-    super(MyMQTTClass, self).__init__(mqtt.CallbackAPIVersion.VERSION1)
-    self.recieve_data = ""
-    self.recieve_time = ""
-    self.lasttime     = ""
-
-  def on_connect(self, mqttc, obj, flags, rc):
-    print("rc: "+str(rc))
-    sys.stdout.flush()
-
-  def on_message(self, mqttc, obj, msg):
-    print(msg.topic+" "+str(msg.qos)+" "+str(msg.payload))
-    sys.stdout.flush()
-    self.recieve_time = time.time()
-    self.recieve_data = (msg.payload).decode()
-
-  def run(self, hostname, topic):
-    self.connect(hostname, 1883, 60)
-    self.subscribe(topic, 0)
-
-    self.loop_start()
-    rc = 0
-    return rc
-
-  def publish_message(self, host_name, topic, message):
-    publish.single(topic, message, hostname=host_name)
-
-  def isNew(self):
-    flag = False
-    if self.lasttime==self.recieve_time:
-      flag =  False
-    else:
-      flag = True
-      self.lasttime = self.recieve_time
-      #print("isNew : {}".format(flag))
-    #self.lasttime = self.recieve_time
-    return flag
-
-mqttc_a = MyMQTTClass()
-
-# Callback when getting messages
-def mqttcallback_a():
-  global mqttc_a
-  try:
-    recievedata =  str(mqttc_a.recieve_data)
-    json_str = json.loads(recievedata)
-    #print("json_str: {}".format(json_str))
-    #sys.stdout.flush()
-    #print("json_str[size]: {}".format(json_str["size"]))
-    #sys.stdout.flush()
-    n = (json_str["size"])
-    #print("n: {}".format(n))
-    #sys.stdout.flush()
-    if n == 1:
-      '''
-      v1_str = json_str["values"]
-      print("v1_str: {}".format(v1_str))
-      sys.stdout.flush()
-      v2_str = v1_str[0]["values"]
-      print("v2_str: {}".format(v2_str))
-      sys.stdout.flush()
-      xyz = v2_str["x"]
-      '''
-      xyz = json_str["values"][0]["values"]["x"]
-      print("xyz: {}".format(xyz))
-      sys.stdout.flush()
-      x = float(xyz[0])
-      y = float(xyz[1])
-      z = float(xyz[2])
-      #a = np.arctan2(-y, -x)
-      a = np.arctan2(y, x)
-      print(">>>>>> x,y,z,a: {},{},{},{}".format(x, y, z, a))
-      sys.stdout.flush()
-      return(True, a)
-  except BaseException as ex:
-    print(ex)
-    sys.stdout.flush()
-  return(False, 0.0)
-
-mqttc_a.run("localhost", "HARK_result")
-#########################
 
 class TestMotion(Node):
   def __init__(self):
@@ -127,7 +38,7 @@ class TestMotion(Node):
     self.closest_dir = 0.0
     
     self.create_subscription(Odometry, 'odom', self.callback_odom, 10)
-    self.create_subscription(LaserScan, 'scan', self.callback_scan, 10)
+    #self.create_subscription(LaserScan, 'scan', self.callback_scan, 10)
     self.create_subscription(String, 'motion', self.callback_motion, 10)
     self.pub_cmd_vel = self.create_publisher(Twist, 'cmd_vel', 10)
     timer_period = 0.05 # sec
@@ -153,6 +64,7 @@ class TestMotion(Node):
     self.csv_file.flush()
 
   def pub_callback_timer(self):
+    '''
     global mqttc_a
     if mqttc_a.isNew(): 
         flg, a = mqttcallback_a()
@@ -161,6 +73,7 @@ class TestMotion(Node):
           self.kspd = 0.2
           self.tspd = 0.6
           self.motion_mode = 1
+    '''
     if self.motion_mode == 1: # head angle move
       self.move_angle(self.kspd, self.tspd)
     elif self.motion_mode == 2: # LR
@@ -168,7 +81,7 @@ class TestMotion(Node):
       if self.motion_mode == 0: # Goal
         self.dst_a = -self.dst_a
         self.motion_mode = 2
-
+  
   def stop_motion(self):
     twist = Twist()
     twist.linear.x = 0.0
@@ -229,12 +142,14 @@ class TestMotion(Node):
     #self.get_logger().info("\n<<< Odomery: x=" + str(_odom_x) + " y=" + str(_odom_y) + " theta=" + str(_odom_theta) + " >>>")
     #self.get_logger().info("   <<< theta=" + str(_odom_theta))
     
+    
     if self._odom_first == 1:
         self.org_a = self._odom_theta
         self._odom_first = 0
-        print("\n**********\n*** {} ***\n**********\n\n".format(self.org_a))
+        print("\n**********\n*** " + self.org_a + " ***\n**********\n\n")
         sys.stdout.flush()
-
+    
+    
   def callback_scan(self, msg):
     delta_a = (msg.angle_max - msg.angle_min) / len(msg.ranges)
     thresh_a = 45.0 / 180.0 * math.pi
